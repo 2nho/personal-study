@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		Cookie cookies[] = request.getCookies();
+	
+		for(Cookie cookie : cookies){
+	%>
+		<h3>name : <%=cookie.getName()%></h3>
+		<h3>domain : <%=cookie.getDomain()%></h3>
+		<h3>value : <%=cookie.getValue()%></h3>
+	<%		
+			cookie.setMaxAge(0);
+			
+			response.addCookie(cookie);
+		}
+	%>
+</body>
+</html>

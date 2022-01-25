@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ExWebPrj1/src/main/webapp/make.jsp&apos; to &apos;make_cookie.jsp&apos;" description="Rename resource &apos;make.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/make.jsp" name="make_cookie.jsp" stamp="1640849690709" updateReferences="true"/>
+</session>

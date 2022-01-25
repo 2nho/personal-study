@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+	<select id="selectAccount" parameterType="pvo" resultType="pvo">
+		select pid, userid, password, name
+		from user
+		<where>
+			<if test="userid != null">
+				userid=#{userid}
+			</if>
+			<if test="password != null">
+				and password=#{password}
+			</if>
+		</where>
+	</select>
+	<insert id="insertAccount" parameterType="pvo">
+		insert into user(userid, password, name)
+		values(#{userid}, #{password}, #{name})
+	</insert>
+</mapper>

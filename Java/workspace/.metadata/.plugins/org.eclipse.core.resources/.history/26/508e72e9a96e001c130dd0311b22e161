@@ -1,0 +1,11 @@
+package kr.co.goodee39.date0106;
+
+import java.util.UUID;
+
+public class Ex01UUID {
+	public static void main(String[] args) {
+		String str = UUID.randomUUID().toString();
+		
+		System.out.println(str);
+	}
+}

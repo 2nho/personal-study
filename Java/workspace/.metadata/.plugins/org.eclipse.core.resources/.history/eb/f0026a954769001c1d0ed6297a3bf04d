@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	pageContext.setAttribute("page1", "페이지1");
+	request.setAttribute("request1","리퀘1");
+	session.setAttribute("session1", "세션1");
+	application.setAttribute("app1", "어플1");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+</body>
+</html>

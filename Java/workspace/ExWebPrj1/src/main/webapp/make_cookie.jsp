@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		Cookie cookie1 = new Cookie("name", "홍길동");
+		Cookie cookie2 = new Cookie("age", "30");
+		
+		cookie1.setMaxAge(60*60);
+		cookie2.setMaxAge(60*60);
+		
+		response.addCookie(cookie1);
+		response.addCookie(cookie2);
+	%>
+	<h1>쿠키가 저장됨</h1>
+</body>
+</html>
