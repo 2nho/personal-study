@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">윈도우 오픈</button>
+
+    <script>
+        document.getElementById("btn").addEventListener("click",function(){
+            const popup = window.open("", "myWindow", "width=200,height=200");
+            popup.document.write("<h1>This is 'myWindow'</h1>");
+            popup.document.write("<button onclick='window.close()'>윈도우종료</button>");
+        });
+    </script>
+</body>
+</html>

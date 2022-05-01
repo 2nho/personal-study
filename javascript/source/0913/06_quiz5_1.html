@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>삼세판버전</h1>
+    <input type="text" id="text1">
+    <button id="btn">가위바위보</button>
+    <div id="content">
+
+    </div>
+    <div id="count">
+
+    </div>
+    <button id="reset">초기화</button>
+    <script>
+        const div = document.getElementById("content");
+        const div_cnt = document.getElementById("count");
+        let user_cnt = 0;
+        let com_cnt = 0;
+
+        document.getElementById("btn").addEventListener("click", function () {
+            let user = Number(document.getElementById("text1").value);
+            let com = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+
+            if (user_cnt != 2 && com_cnt != 2) {
+                if (user == com) {
+                    div.innerHTML = `<h1>비겼습니다 ${user}:${com}</h1>`;
+                } else if ((user % 3 + 1) == com) {
+                    div.innerHTML = `<h1>졌습니다 ${user}:${com}</h1>`;
+                    com_cnt++;
+                } else {
+                    div.innerHTML = `<h1>이겼습니다 ${user}:${com}</h1>`;
+                    user_cnt++;
+                }
+            } else {
+                if (user_cnt == 2) {
+                    div_cnt.innerHTML = `<h1>삼세판 유저 승</h1>`;
+                } else if (com_cnt == 2) {
+                    div_cnt.innerHTML = `<h1>삼세판 컴퓨터 승</h1>`;
+                }
+            }
+        });
+
+        document.getElementById("reset").addEventListener("click", function () {
+            div_cnt.innerHTML = "";
+            div.innerHTML ="";
+            user_cnt = 0;
+            com_cnt = 0;
+        });
+    </script>
+</body>
+
+</html>

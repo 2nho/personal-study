@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class Person {
+
+        // }
+
+        // const Person = class {
+
+        // }
+        
+        const person1 = new Person("홍길동", 29, "남성");
+        console.log(person1.name);
+        person1.profile();
+
+        // 생성자 방식
+        function Person(name, age, gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        Person.prototype.working = function(){
+            console.log(`${this.name}이 걷습니다.`);
+        }
+
+        Person.prototype.profile = function(){
+            console.log(`이름 : ${this.name}, 나이 : ${this.age}, 성별 : ${this.gender}`);
+        }
+    </script>
+</body>
+</html>
+
+
+

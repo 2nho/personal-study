@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            grid : flex와는 다르게 격자 모양으로 배치를 할 경우 쓰이는 레이아웃의 한 형태
+                  나온지 얼마 되지 않고 현업에서 자주 사용되지는 않지만 최근 사용하는 사람이
+                  늘어나는 추세이다.
+                  grid의 display는 inline-grid와 grid로 나뉜다.
+            grid-template-columns : 그리드의 컬럼의 크기를 설정할 때 쓰는 속성
+                                   그리드의 가로 축의 너비를 결정할 때 쓰는 옵션이며 
+                                   설정한 값 만큼 그리드 컬럼의 갯수가 결정된다.
+            grid-template-rows : 그리드 로우의 크기를 설정할 때 쓰는 속성
+                                그리드의 높이를 결정할 때 쓰는 옵션이며
+                                설정한 값 개수 만큼 그리드 로우의 갯수가 결정된다.
+            fr(fraction) : 그리드의 컬럼 혹은 로우의 크기를 배율로 설정하고자 할 때 필요한 옵션
+                          fraction이라고 하며 해당 숫자의 비율에 맞추어 로우 혹은 컬럼의 크기를
+                          설정하고자 할 경우 사용할 수 있다.
+            repeat(n, m) : 그리드의 컬럼 혹은 로우의 크기 혹은 배율을 설정하고자 할 때 반복적인 배율
+                          을 설정하기 위해서 쓰는 함수, n이 몇번을 반복할 것인지를 나타내는 변수이며
+                          m이 반복할 크기를 나타낸다. 크기는 단수개가 아닌 복수개여도 관계가 없다.
+
+        */
+        .grid-container {
+            display: grid;
+            /* display: inline-grid; */
+            /* grid-template-columns: 100px 300px 300px; */
+            /* grid-template-columns: 1fr 2fr 1fr; */
+            /* grid-template-columns: 1fr 500px 1fr; */
+            /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+            grid-template-columns: repeat(3, 1fr);
+            /* grid-template-columns: repeat(3, 1fr 2fr 1fr); */
+            /* grid-template-rows: 200px 200px 100px; */
+            /* grid-template-rows: 1fr 1fr 1fr; */
+            grid-template-rows: 200px 200px auto;
+            /* grid-template-rows: repeat(2, 200px); */
+            height : 80vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="push">부모로 전송</button>
+    <div id="content">
+        <h1>날씨가 요즘들어 굉장히 쌀쌀합니다</h1>
+    </div>
+
+    <script>
+        document.getElementById("push").addEventListener("click",function(){
+            opener.document.getElementById("content").innerHTML = 
+                    document.getElementById("content").innerHTML;
+        });
+    </script>
+</body>
+</html>

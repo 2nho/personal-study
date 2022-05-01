@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            order : 아이템의 배치 순서를 바꿀 경우 사용하는 옵션.
+                    모든 아이템의 order 값은 0이고 작은 값이 앞에, 높은 값이 뒤에 오도록 되어있다.
+                    그리드에서 배치를 바꾸고자 할 경우 사용할 수 있다.
+        */
+        body {
+            margin : 100px;
+        }
+        .grid-container{
+            width : 450px;
+            height : 450px;
+            display: grid;
+            grid-template-rows: repeat(3, 100px);
+            grid-template-columns: repeat(3,100px);
+        }
+        .grid-item{ opacity : 0.5;}
+        .grid-item:nth-child(1){ order: 3}
+        .grid-item:nth-child(2){ order: 2}
+        .grid-item:nth-child(3){ order: -1}
+        .grid-item:nth-child(7){ 
+            transform : scale(1.2);
+            z-index : 1;
+        }
+        .grid-item:nth-child(8){ 
+            transform : scale(1.8);
+            z-index: 3;
+        }
+        .grid-item:nth-child(9){ 
+            transform : scale(1.4);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+    </div>
+</body>
+</html>

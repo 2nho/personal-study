@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // if~else if ~ else
+        /*
+            - if문을 다중 조건을 통해 세부적인 로직을 돌리고자 할 경우 사용하는 명령문.
+            - if~else if~else문은 중첩 if문과 기능이 거의 동일하며 하나의 차이점이라면 중첩 if문 보다 가독성이 뛰어나고
+              유지보수가 용이하다는 점이다.
+            - if~else if~else문 사용 시 위의 로직에서 이미 false가 나올 경우 해당 로직 범위는 검증이 된 내용이므로
+              아래 if문에서 굳이 해당 로직의 범위를 검사할 필요가 없다.
+            - 그래서 맨 위의 로직은 비교 범위를 작게 가져가며 갈 수록 크게 가져가야만 한다.
+            - 맨 아래쪽에는 어떠한 조건식도 참이 되지 않아 default로 실행시켜야 하는 로직이 발생할 경우 else문을
+              만들어 조건에 부합하지 않은 내용들이 강제로 로직을 실행하게끔 만들 수 있다.
+            - 무조건 else문을 써야되는건 아니다.
+        */
+
+        let a = prompt("점수 입력");
+        // 학점 계산기
+
+        // if(a >= 90){
+        //     document.write("A 학점입니다.");
+        // }else if((a < 90) && (a >= 80)){
+        //     document.write("B 학점입니다.");
+        // }else if((a < 80) && (a >= 70)){
+        //     document.write("C 학점입니다.");
+        // }else if((a < 70) && (a >= 60)){
+        //     document.write("D 학점입니다.");
+        // // }else if((a < 60) && (a >= 0)){
+        // //     document.write("F 학점입니다.");
+        // // }
+        // }else {
+        //     document.write("F 학점입니다.");
+        // }
+
+        if(a >= 90){
+            document.write("A 학점입니다.");
+        }else if(a >= 80){
+            document.write("B 학점입니다.");
+        }else if(a >= 70){
+            document.write("C 학점입니다.");
+        }else if(a >= 60){
+            document.write("D 학점입니다.");
+        // }else if((a < 60) && (a >= 0)){
+        //     document.write("F 학점입니다.");
+        // }
+        }else {
+            document.write("F 학점입니다.");
+        }
+    </script>
+</body>
+</html>

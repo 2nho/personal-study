@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <p>안녕하세요</p>
+    </div>
+    <button id="btn1">버튼1</button>
+    <button id="btn2">버튼2</button>
+    <button id="btn3">버튼3</button>
+    <button id="btn4">버튼4</button>
+    <script>
+        document.getElementById("btn1").addEventListener("click",function(){
+            alert(document.getElementById("div1").innerHTML);
+        });
+
+        document.getElementById("btn2").addEventListener("click",function(){
+            document.getElementById("div1").innerHTML="<h1>반갑습니다</h1>";
+        });
+
+        document.getElementById("btn3").addEventListener("click",function(){
+            // 엘리먼트 생성
+            const el1 = document.createElement("h1");
+            // 엘리먼트 내에 텍스트 생성
+            let str = document.createTextNode("위에 삽입된 문장입니다.");
+            // 엘리먼트 위쪽으로 아이템을 삽입
+            el1.prepend(str); // <h1>위에 삽입된 문장입니다.</h1>
+            // div1 위에 엘리먼트를 삽입
+            document.getElementById("div1").prepend(el1);
+        });
+
+        document.getElementById("btn4").addEventListener("click",function(){
+            // 엘리먼트 생성
+            const el1 = document.createElement("h1");
+            // 엘리먼트 내에 텍스트 생성
+            let str = document.createTextNode("아래에 삽입된 문장입니다.");
+            // 엘리먼트 아래쪽으로 아이템을 삽입
+            el1.append(str); // <h1>위에 삽입된 문장입니다.</h1>
+            // div1 아래에 엘리먼트를 삽입
+            document.getElementById("div1").append(el1);
+        });
+    </script>
+</body>
+</html>
+

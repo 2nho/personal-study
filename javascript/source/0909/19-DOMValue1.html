@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name">
+    <button id="btn1">버튼1</button>
+    <button id="btn2">버튼2</button>
+
+    <script>
+        const name = document.querySelector("#name");
+        const btn1 = document.querySelector("#btn1");
+        const btn2 = document.querySelector("#btn2");
+
+        btn1.addEventListener("click",function(){
+            alert(name.value);
+        });
+
+        btn2.addEventListener("click",function(){
+            let a = prompt("원하는 글을 입력하세요");
+            name.value = a;
+        });
+    </script>
+</body>
+</html>

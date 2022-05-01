@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <p>안녕하세요</p>
+        <p>반갑습니다</p>
+        <p>저는 선생입니다.</p>
+    </div>
+
+    <script>
+        // document.getElementById("div1").firstChild.nextSibling.style.backgroundColor ="black";
+        document.getElementById("div1").firstElementChild.style.backgroundColor ="black";
+        // 엘리먼트 색인 속성
+        /*
+            parentElement : 현재 엘리먼트에서 바로 위의 부모 엘리먼트를 색인
+            previousElementSibling : 현재 엘리먼트에서 이전 형제 엘리먼트를 색인
+            nextElementSibling : 현재 엘리먼트에서 다음 형제 엘리먼트를 색인
+            firstElementChild : 현재 엘리먼트에 속한 첫번째 위치한 자식 엘리먼트를 색인
+            lastElementChild : 현재 엘리먼트에 속한 마지막에 위치한 자식 엘리먼트를 색인
+            children : 현재 엘리먼트에 속한 모든 엘리먼트를 색인 => 데이터가 배열 형태로 들어옴
+        */
+
+        const list = document.getElementById("div1").children;
+
+        for (const p of list) {
+            p.style.backgroundColor = "yellow";
+        }
+    </script>
+</body>
+</html>

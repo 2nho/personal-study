@@ -1,0 +1,7 @@
+{
+    "name": "test",
+    "description": "ch06 package",
+    "dependencies": {
+        "lower-case": "*"
+    }
+}

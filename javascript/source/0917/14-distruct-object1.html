@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let {one, two} = {one : 1, two : 2};
+        // let {two, one} = {one : 1, nine : 9};
+        // console.log(one, two);
+
+        // let three, four;
+        // ({three, four} = {three : 3, four : 4});
+        // console.log(three, four);
+
+        // let five, six;
+        // ({one : five, two : six}= {one: 10, two : 20})
+        // console.log(five, six);
+        // console.log(one, two);
+
+        let n, t;
+        const obj = {nine : 9, plus : {ten : 10}};
+        ({nine : n , plus : {ten : t}} = obj);
+        console.log(n, t);
+    </script>
+</body>
+</html>

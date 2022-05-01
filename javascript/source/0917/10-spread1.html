@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Spread 연산자 
+        /*
+            - 스프레드 연산자는 iterable 오브젝트나 엘리먼트를 하나씩 분리하여 각각 개별적인 리터럴로 전개할 때
+              쓰이는 연산자이다.
+            - 배열이나 문자열과 같이 반복 가능한 아이템들을 각각 개별적인 리터럴로 확장이 가능하다.
+            - 전개한 결과를 개별적으로 변수에 할당하거나 호출하는 함수의 파라미터 값으로 사용할 수 없다.
+        */
+        // const arr = [1,2,3,4,5];
+
+        // console.log(arr);
+        // console.log(...arr);
+
+        const arr1 = [1,2,3];
+        const arr2 = [4,5,6];
+
+        // console.log(arr1.concat(arr2));
+
+        console.log(...[...arr1, ...arr2]);
+
+        function funcA(...rest){
+            console.log(rest);
+        }
+
+        funcA(1,2,3,4,5);
+
+        console.log(..."abcd");
+    </script>
+</body>
+</html>

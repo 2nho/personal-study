@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myDIV {
+            height: 250px;
+            width: 250px;
+            overflow: auto;
+        }
+
+        #content {
+            height: 800px;
+            width: 2000px;
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="myFunction()">Scroll contents of div</button><br><br>
+
+    <div id="myDIV">
+        <div id="content">
+            Some text inside a div element.<br><br>
+            Some text inside a div element.
+        </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var elmnt = document.getElementById("myDIV");
+            // 고정이동
+            // elmnt.scrollLeft = 50;
+            // elmnt.scrollTop = 10;
+            // 가변이동
+            elmnt.scrollLeft += 50;
+            elmnt.scrollTop += 10;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 일급함수
+        // 1. 변수에 할당이 가능하다.
+        let a = function(){ return 100; }
+        // 2. 함수를 인자로 전달 가능
+        let foo1 = function(func1){
+            func1();
+        }
+
+        let f1 = function(){
+            console.log("이건 함수 안에서 실행시킨 함수");
+        }
+
+        foo1(f1);
+
+        // foo1(function(){
+        //     console.log("이건 함수 안에서 실행시킨 함수");
+        // });
+        // 3. 함수를 리턴 값으로 활용 가능
+        let foo2 = function(){
+            return function(){
+                console.log("이것은 리턴된 함수");
+            };
+        }
+
+        let bar1 = foo2();
+        bar1();
+    </script>
+</body>
+</html>

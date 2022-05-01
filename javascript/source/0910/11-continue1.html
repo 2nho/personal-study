@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // continue 
+        /*
+            - continue문은 반복문에서 아래있는 로직을 전부 skip하고 반복문의 비교식으로 이동하여 비교식이 참인지 거짓인지
+              판별 후 계속 반복문을 실행한다.
+            - [간주점프] 기능과 비슷하다고 생각하면 됨
+            - 주의할 점 : continue 문보다 아래에 증감연산이 있을 경우 값의 변화가 일어나지 않으므로 무한 루프를 돌 수가
+              있다.
+        */
+        // break
+        /*
+            - break 문은 반복문에서 아래있는 로직을 전부 skip하고 break가 실행된 반복문을 그대로 빠져나온다.
+            - [정지] 기능과 비슷하다고 생각하면 됨
+        */
+        let a = 0;
+        // while(a < 5){
+        //     a++;
+        //     if(a==3)continue;
+        //     console.log(a);
+        // }
+        while(a < 5){
+            a++;
+            if(a==3)break;
+            console.log(a);
+        }
+    </script>
+</body>
+</html>

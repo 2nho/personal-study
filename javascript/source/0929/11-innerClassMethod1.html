@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var name = "김근형";
+
+        // const Class1 = function(){};
+
+        // Class1.prototype.getMethod1 = function() {
+        //     function funcA(){
+        //         console.log(this.name); // window.name
+        //     }
+        //     funcA();
+        // }
+
+        // const obj1 = new Class1();
+        // obj1.getMethod1(); // 김근형
+
+        class Class1{
+            setMethod(name){
+                this.name = name;
+            }
+
+            getMethod1(){
+                console.log(this.name);
+            }
+
+            getMethod2(){
+                function f(){
+                    console.log(this.name);
+                }
+                f();
+            }
+        }
+
+        const obj = new Class1();
+        obj.setMethod("홍길동");
+        obj.getMethod1(); // 홍길동
+        obj.getMethod2(); // error
+    </script>
+</body>
+</html>
+
+
+

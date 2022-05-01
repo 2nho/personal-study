@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100%;
+            margin : 0;
+        }
+
+        .bgimg {
+            background: url("images/forestbridge.jpg") center no-repeat;
+            height : 100vh;
+            background-size: cover;
+            position: relative;
+            color: white;
+            font-size : 1.7rem;
+        }
+
+        .topleft {
+            position: absolute;
+            top : 0;
+            left : 1rem;
+        }
+
+        .bottomleft {
+            position: absolute;
+            bottom : 0;
+            left : 1rem;
+        }
+
+        .middle {
+            position : absolute;
+            top : 50%;
+            left : 50%;
+            transform : translate(-50%, -50%);
+            text-align : center;
+        }
+
+        hr{
+            margin: auto;
+            width : 40%;
+        }
+    </style>
+</head>
+<body>
+    <div class="bgimg">
+        <div class="topleft">
+            <p>Logo</p>
+        </div>
+        <div class="middle">
+            <h1>COMING SOON</h1>
+            <hr>
+            <p id="demo"></p>
+        </div>
+        <div class="bottomleft">
+            <p>Some Text</p>
+        </div>
+    </div>
+
+    <script>
+        let countDownDate = new Date("10 22, 2021 02:00:00");
+
+        var countDownFunction = setInterval(function(){
+            let now = new Date().getTime();
+
+            let distance = countDownDate - now;
+
+            let days = Math.floor(distance / (1000*60*60*24));
+            let hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+            let minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+            let seconds = Math.floor((distance % (1000*60))/(1000));
+
+            document.getElementById("demo").innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if(distance < 0){
+                clearInterval(countDownFunction);
+                document.getElementById("demo").innerHTML = "종료";
+            }
+        },1000);
+    </script>
+</body>
+</html>

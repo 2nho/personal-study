@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 생성자 함수 메서드 선언
+        /*
+            - 생성자 함수 내에서 메서드를 선언할 경우 객체 생성 시 많은 메모리를 잡아먹게 된다.
+            - 이렇게 되면 생성자 함수를 통해 가독성이나 재사용성이 개선될 수는 있어도 웹이 급격하게 무거워지는 것을 피할 수
+              없다.
+            - 생성자 함수의 특징을 활용해서 속성은 기존의 방식대로 생성자 함수 내에 선언하되, 메서드들은 생성자 함수의
+              prototype을 통해서 선언하도록 권장하고 있다.
+            - 이렇게 선언하게 되면 객체를 여러개를 생성자 함수로 선언한다 할지라도 메모리를 훨씬 적게 차지하게 된다.
+        */
+
+        // const Car = function(type,company, name){
+        //     this.type = type;
+        //     this.company = company;
+        //     this.name = name;
+        //     this.excel = function(){
+        //         console.log("액셀을 밟는다");
+        //     }
+        //     this.break = function(){
+        //         console.log("브레이크를 밟는다");
+        //     }
+        // }
+        const Car = function(type,company, name){
+            this.type = type;
+            this.company = company;
+            this.name = name;
+        }
+
+        Car.prototype.excel = function(){
+            console.log("액셀을 밟는다");
+        }
+        
+        Car.prototype.break = function(){
+            console.log("브레이크를 밟는다");
+        }
+
+
+        const obj = new Car("전기","현대","아이오닉");
+        console.dir(obj);
+        obj.excel();
+    </script>
+</body>
+</html>

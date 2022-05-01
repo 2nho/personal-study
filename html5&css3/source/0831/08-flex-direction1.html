@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            flex-direction : 아이템의 배치 방향을 결정하는 속성
+             - row : 좌에서 우로 배치
+             - row-reverse : 우에서 좌로 배치
+             - column : 위에서 아래로 배치
+             - column-reverse : 아래에서 위로 배치
+        */
+        .flex-container{
+            display: flex;
+            /* flex-direction: row; */
+            /* flex-direction:row-reverse; */
+            /* flex-direction: column; */
+            flex-direction: column-reverse;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">AAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item">BBBBBB</div>
+        <div class="flex-item">CCCCCCCCCCC</div>
+    </div>
+</body>
+</html>

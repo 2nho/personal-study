@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const obj = {color : "red", width : 200};
+        // let {width = 100, height = 100, color} = obj;
+        // console.log(width, height, color);
+
+        // name, age, gender
+        const obj2 = {name : "john"};
+        let n, a, g; 
+        ({name:n, age:a = 0, gender:g = "unknown"} = obj2);
+
+        console.log(n, a, g);
+    </script>
+</body>
+</html>

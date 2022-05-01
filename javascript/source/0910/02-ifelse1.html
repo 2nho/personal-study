@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // if~else 문
+        /*
+            - 마치 동전의 앞 뒤면처럼 조건이 참일 시 참에 해당하는 로직을 실행
+              거짓일 시 거짓에 해당하는 로직을 실행할 수 있도록 하는 문장
+            - 조건에 대한 참, 거짓에 따라 실행하는 로직이 판이하게 다를경우 이 문장 사용이
+              가능하다.
+        */
+
+
+        let a = prompt("적절한 숫자를 넣어주세요");
+
+        // if(a < 5){
+        //     document.write(`<h1>${a}는 5보다 작습니다</h1>`);
+        // }
+        // if(a >= 5){
+        //     document.write(`<h1>${a}는 5보다 크거나 같습니다</h1>`)
+        // }
+        if(a < 5){
+            document.write(`<h1>${a}는 5보다 작습니다</h1>`);
+        }else {
+            document.write(`<h1>${a}는 5보다 크거나 같습니다</h1>`);
+        }
+        document.write("<h1>이것은 어떤 경우든지 실행되는 로직</h1>");
+    </script>
+</body>
+</html>

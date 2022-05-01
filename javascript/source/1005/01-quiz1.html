@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #my-menu {
+            display: flex;
+        }
+
+        .drop-target {
+            display: block;
+            border: 1px solid black;
+            margin: 20px;
+        }
+
+        .item {
+            border : 1px solid blue;
+            width : 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>준비된 요리 목록</h3>
+        <div>
+            <span id="cnt">9</span>개의 음식이 준비되었습니다.
+        </div>
+        <div class="drag-target" id="total">
+            <img src="images/banana.png" id="banana" alt="" class="menuItem" data-type="dessert">
+            <img src="images/beer.png" id="beer" alt="" class="menuItem" data-type="drink">
+            <img src="images/cherry.png" id="cherry" alt="" class="menuItem" data-type="dessert">
+            <img src="images/coffee.png" id="coffee" alt="" class="menuItem" data-type="drink">
+            <img src="images/juice.png" id="juice" alt="" class="menuItem" data-type="drink">
+            <img src="images/noodle.png" id="noodle" alt="" class="menuItem" data-type="meal">
+            <img src="images/orange.png" id="orange" alt="" class="menuItem" data-type="dessert">
+            <img src="images/rice.png" id="rice" alt="" class="menuItem" data-type="meal">
+            <img src="images/bread.png" id="bread" alt="" class="menuItem" data-type="meal">
+        </div>
+    </div>
+
+    <div id="my-menu">
+        <div>
+            <h3>음료</h3>
+            <div class="drop-target item" data-type="drink"></div>
+        </div>
+        <div>
+            <h3>식사</h3>
+            <div class="drop-target item" data-type="meal"></div>
+        </div>
+        <div>
+            <h3>후식</h3>
+            <div class="drop-target item" data-type="dessert"></div>
+        </div>
+    </div>
+
+    <script>
+        class DragAndDropTable{
+            constructor(menuItem, dropTarget, total, cnt){
+                this.lis = document.querySelectorAll(`.${menuItem}`);
+                this.targets = document.querySelectorAll(`.${dropTarget}`);
+                this.total = document.querySelector(`#${total}`);
+                this.cnt = document.querySelector(`#${cnt}`);
+                this.init();
+            }
+
+            // 이벤트 소스에서의 작업
+            // menuItem 내용들을 dataTransfer에 삽입 그리고 세팅
+            setDragStart(i){
+                this.lis[i].addEventListener("dragstart", function(e){
+                    // e.preventDefault();
+                    e.dataTransfer.setData("text/plain", this.dataset.type);
+                    e.dataTransfer.setData("id", this.id);
+                    e.dataTransfer.effectAllowed = "copy";
+                });
+            }
+
+            // 이벤트 블럭을 벗어났을 때 목적지의 배경색을 흰색으로 바꿔주는 로직
+            setDragEnd(i){
+                const selfTargets = this.targets;
+                this.lis[i].addEventListener("dragend",function(e){
+                    // e.preventDefault();
+                    cnt.textContent = total.children.length;
+                    for (let index = 0; index < selfTargets.length; index++) {
+                        // console.log(selfTargets[index]);
+                        selfTargets[index].style.backgroundColor = "rgba(0,0,0,0)";
+                    }
+                });
+            }
+
+            // 목적지에서의 작업
+            // dragenter 이벤트시 배경색을 연두색으로 바꿔주는 이벤트
+            setDragEnter(i){
+                this.targets[i].addEventListener("dragenter",function(e){
+                    // e.preventDefault();
+                    this.style.backgroundColor = "rgba(0,255,0,0.5)";
+                });
+            }
+            // dragleave 이벤트시 배경색을 흰색으로 바꿔주는 이벤트
+            setDragLeave(i){
+                this.targets[i].addEventListener("dragleave", function(e){
+                    // e.preventDefault();
+                    this.style.backgroundColor = "rgba(0,0,0,0)";
+                });
+            }
+            // dragover 이벤트시 dropEffect 설정
+            setDragOver(i){
+                this.targets[i].addEventListener("dragover", function(e){
+                    e.preventDefault();
+                    switch (this.dataset.type) {
+                        case "drink":
+                            e.dataTransfer.dropEffect = "copy";
+                            break;
+                        case "meal":
+                            e.dataTransfer.dropEffect = "copy";
+                            break;
+                        case "dessert":
+                            e.dataTransfer.dropEffect = "copy";
+                            break;
+                        default:
+                            break;
+                    }
+                });
+            }
+            // drop 이벤트 시 드랍요소 체크 및 아이템 드랍
+            setDrop(i){
+                this.targets[i].addEventListener("drop", function(e){
+                    e.preventDefault();
+                    let id = e.dataTransfer.getData("id");
+                    let srctype = e.dataTransfer.getData("text/plain");
+
+                    let destype = this.dataset.type;
+                    if(!id){
+                        alert("이 요소는 드랍할 수 없습니다.");
+                    }else{
+                        if(!destype || destype == srctype){
+                            this.append(document.querySelector(`#${id}`));
+                        }else{
+                            alert(`${destype}에는 ${srctype}을 담을 수 없습니다.`);
+                        }
+                    }
+                    this.style.backgroundColor = "rgba(0,0,0,0)";
+                });
+            }
+
+            init(){
+                for (let index = 0; index < this.lis.length; index++) {
+                    this.setDragStart(index);
+                    this.setDragEnd(index);
+                }
+                for (let index = 0; index < this.targets.length; index++) {
+                    this.setDragEnter(index);
+                    this.setDragLeave(index);
+                    this.setDragOver(index);
+                    this.setDrop(index);
+                }
+            }
+        }
+
+        new DragAndDropTable("menuItem", "drop-target", "total", "cnt");
+    </script>
+</body>
+</html>
+
+
+

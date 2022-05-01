@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+        @import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+        *{
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            color : #333;
+            font-size: 18px;
+            line-height: 1.6em;
+        }
+
+        a {
+            text-decoration: none;
+            color : #333;
+        }
+
+        header {
+            background-color: #eee;
+            height : 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding : 0 20px;
+            position: fixed;
+            width : 100%;
+        }
+
+        section {
+            height : 900px;
+            text-align: center;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        section h1 {
+            font-size : 3em;
+        }
+
+        .search {
+            background-color: #fff;
+            width : 50px;
+            height : 50px;
+            border-radius: 50px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+            overflow: hidden;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .search.active {
+            width : 400px;
+        }
+
+        .icon {
+            width : 50px;
+            height : 50px;
+            border-radius: 50%;
+            text-align : center;
+            line-height: 54px;
+            font-size:1.9rem;
+            cursor: pointer;
+            background-color: #fff;
+            position: absolute;
+            top : 0;
+            left: 0;
+        }
+
+        .input-frame {
+            position: absolute;
+            top : 12px;
+            left: 60px;
+            width : 300px;
+        }
+
+        .input-frame input[type=text] {
+            width : 100%;
+            border: none;
+            outline: none;
+            font-size : 1.15rem;
+        }
+
+        .input-frame input[type=text]::placeholder {
+            transition: 0.5s;
+        }
+        .input-frame input[type=text]:focus::placeholder {
+            opacity: 0;
+        }
+        .clear {
+            position : absolute;
+            right: 20px;
+            top : 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo"><img src="images/logo.png" alt=""></div>
+            <div class="search">
+                <span class="clear"><i class="xi-close-thin"></i></span>
+                <div class="icon"><i class="xi-search"></i></div>
+                <div class="input-frame">
+                    <input type="text" id="search-input" placeholder="Type Here...">
+                </div>
+            </div>
+        </header>
+        <section>
+            <h1>This is Section #01</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt minus, ratione veritatis tempore laboriosam expedita fuga recusandae facilis incidunt architecto ducimus a culpa consequuntur nobis dolore laudantium distinctio sint odit.</p>
+        </section>
+        <section>
+            <h1>This is Section #02</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt minus, ratione veritatis tempore laboriosam expedita fuga recusandae facilis incidunt architecto ducimus a culpa consequuntur nobis dolore laudantium distinctio sint odit.</p>
+        </section>
+    </div>
+    <script>
+        const icon = document.querySelector(".icon");
+        const clear = document.querySelector(".clear");
+        const sections = document.getElementsByTagName("section");
+        const search = document.querySelector(".search");
+        const searchInput = document.getElementById("search-input")
+
+        icon.addEventListener("click",function(){
+            search.classList.toggle("active");
+        });
+
+        clear.addEventListener("click",function(){
+            searchInput.value = "";
+        });
+
+        for (let index = 0; index < sections.length; index++) {
+            sections[index].addEventListener("click",function(){
+                search.classList.remove("active");
+            });
+        }
+    </script>
+</body>
+</html>

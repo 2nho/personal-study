@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div::before {
+            width : attr(data-width);
+            height: attr(data-height);
+            background-color: attr(data-color);
+        }
+    </style>
+</head>
+<body>
+    <div id="div" data-width="300" data-height="150" data-background-color="red"></div>
+
+    <script>
+        // 웹 컴포넌트
+        const div = document.getElementById("div");
+        // console.log(div.dataset.width);
+        // console.log(div.dataset.height);
+        console.log(div.dataset.backgroundColor);
+        // div.style.width = div.dataset.width+"px";
+        // div.style.height = div.dataset.height+"px";
+        // div.style.backgroundColor = div.dataset.color;
+    </script>
+</body>
+</html>

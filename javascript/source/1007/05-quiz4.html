@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="my-input" value="안녕하세요 반갑습니다.">
+    <button id="btn">클립보드로 복사</button>
+
+    <script>
+        document.getElementById("btn").addEventListener("click",function(){
+            const copyText = document.getElementById("my-input");
+            copyText.focus();
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("복사된 문자열 : "+copyText.value);
+        });
+    </script>
+</body>
+</html>

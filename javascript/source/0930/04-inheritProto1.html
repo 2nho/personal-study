@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function Animal(name){
+        //     this.name = name;
+        // }
+
+        // Animal.prototype.speak1 = function(){
+        //     console.log(this.name + ' make a noise.');
+        // }
+
+        // class Dog extends Animal {
+        //     constructor(name, age){
+        //         super(name);
+        //         this.age = age;
+        //     }
+
+        //     speak2(){
+        //         console.log(this.name + " barks" + this.age);
+        //     }
+        // }
+
+        const Animal = {
+            speak1() {console.log(this.name + ' make a noise.');}
+        }
+
+        class Dog {
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+
+            speak2(){
+                console.log(this.name + " barks" + this.age);
+            }
+        }
+
+        Object.setPrototypeOf(Dog.prototype, Animal);
+        const dog = new Dog('바둑이', 26);
+        dog.speak1();
+        dog.speak2();
+        console.dir(dog);
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // default parameter
+        const plus = (one, two = 3) => one + two;
+        console.log(plus(3));
+
+        // distructuring 을 활용한 default parameter
+        const funcA = ([one,two] = [10, 20]) => one + two;
+        console.log(funcA());
+
+        const funcB = ({two : value} = {two : 20}) => value;
+        console.log(funcB()); // 20
+
+        // rest 파라미터
+        const funcC = (...rest) => {
+            return console.log(rest); // [1,2,3,4]
+        }
+        console.log(funcC(1,2,3,4)); // undefined
+
+        // const funcD = (one = 10) => one;
+        const funcE = param => ({sports:param});
+        console.log(funcE("soccor"));
+        
+    </script>
+</body>
+</html>

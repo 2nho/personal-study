@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1
+        /*
+            일반함수 내에서의 내장 함수 내에서의 this의 경우에는 무조건 window 객체를 가리킨다.
+        */
+        function funcA() {
+            function funcB() {
+                console.log(this); // window
+            }
+            funcB();
+        }
+        funcA();
+
+        // 2
+        /*
+            객체 안에서 객체를 선언한 다음 그 안의 메서드에서 this를 출력할 경우 해당 this는 최상위
+            객체를 가리키는 것이 아닌 자신이 속한 바로 위의 상위 객체를 가리킨다.
+        */
+        const objA = {
+            a : 1,
+            b : {
+                c : 3,
+                d() {
+                    console.log(this); // objA.b
+                }
+            }
+        }
+        objA.b.d();
+
+        // 3
+        /*
+            객체 내의 메서드에서 내장 함수안에 this를 실행시킬 경우 자신이 속한 객체가 this에 바인딩되지 않고
+            window가 바인딩 된다 (중요)
+        */
+        const objB = {
+            a : 10,
+            b() {
+                function f(){
+                    console.log(this); // window
+                }
+                f();
+            }
+        }
+        objB.b();
+
+        // 위의 this를 아래의 내장 함수까지 끌고가는 방법
+        const objC = {
+            a : 20,
+            b() {
+                const self = this;
+                function c(){
+                    console.log(self);
+                }
+                c();
+            }
+        }
+        objC.b();
+    </script>
+</body>
+</html>

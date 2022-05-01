@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            grid-auto-rows : 그리드 rows 형태를 자동으로 정의하는 속성
+                             횟수를 지정해서 반복할 필요 없이 "알아서" 처리할 때 쓴다.
+                             grid-template-rows의 통제를 벗어난 위치에 있는 트랙의 크기를
+                             지정하는 속성.
+        */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, minmax(200px, auto));
+            grid-auto-rows : minmax(100px, auto);
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+        <div class="grid-item">10</div>
+        <div class="grid-item">11</div>
+        <div class="grid-item">12</div>
+        <div class="grid-item">13</div>
+    </div>
+</body>
+</html>

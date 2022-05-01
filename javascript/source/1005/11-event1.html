@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="example">
+        <button type="button">Load video</button>
+        <video controls width="250"></video>
+
+        <div class="event-log">
+            <label>event log</label>
+            <textarea readonly class="event-log-contents" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+
+    <script>
+        const loadVideo = document.querySelector('button');
+        const video = document.querySelector("video");
+        const eventLog = document.querySelector("textarea");
+        let source = null;
+
+        function handleEvent(e){
+            eventLog.textContent = eventLog.textContent + 
+            `${e.type}  net : ${video.networkState}  ready : ${video.readyState}\n`;
+        }
+
+        video.addEventListener("emptied", handleEvent);
+        video.addEventListener("loadstart", handleEvent);
+        video.addEventListener("progress", handleEvent);
+        video.addEventListener("loadedmetadata", handleEvent);
+        video.addEventListener("loadeddata", handleEvent);
+        video.addEventListener("canplay", handleEvent);
+        video.addEventListener("canplaythrough", handleEvent);
+        video.addEventListener("suspend", handleEvent);
+
+        loadVideo.addEventListener("click",function(){
+            if(source){
+                // 페이지를 새로고침해라
+                document.location.reload();
+            }else{
+                loadVideo.textContent = "Reset example";
+                source = document.createElement("source");
+                source.setAttribute("src", "media/long.mp4");
+                source.setAttribute("type", "video/webm");
+
+                video.append(source);
+            }
+        });
+    </script>
+</body>
+</html>

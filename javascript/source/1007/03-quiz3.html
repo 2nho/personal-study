@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #my-input {
+            width: 100%;
+            font-size: 1rem;
+            padding : 12px 20px 12px 40px;
+            border : 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+
+        #my-ul {
+            list-style-type: none;
+            padding : 0;
+            margin : 0;
+        }
+
+        #my-ul li a {
+            border : 1px solid #ddd;
+            margin-top: -1px;
+            background-color: #f6f6f6;
+            padding : 12px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: black;
+            display: block;
+        }
+
+        #my-ul li a:hover {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="my-input" placeholder="Search for names..." >
+
+    <ul id="my-ul">
+        <li><a href="#">Adele</a></li>
+        <li><a href="#">Agnes</a></li>
+        <li><a href="#">Billy</a></li>
+        <li><a href="#">Bob</a></li>
+        <li><a href="#">Calvin</a></li>
+        <li><a href="#">Christina</a></li>
+        <li><a href="#">Cindy</a></li>
+    </ul>
+
+    <script>
+        document.getElementById("my-input").addEventListener("keyup", function(){
+            const input = document.getElementById("my-input");
+            let filter = input.value.toUpperCase();
+            const li = document.querySelectorAll("#my-ul>li");
+            for (let index = 0; index < li.length; index++) {
+                const a = li[index].getElementsByTagName("a")[0];
+                let txtValue = a.textContent || a.innerText;
+                if(txtValue.toUpperCase().indexOf(filter) != -1){
+                    li[index].style.display = "";
+                }else{
+                    li[index].style.display = "none";
+                }
+            }
+
+        });
+    </script>
+</body>
+</html>

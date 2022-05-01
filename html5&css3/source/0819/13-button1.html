@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        html4 / html5 전송,초기화 차이점
+        - 기존에는 input type=submit/reset을 통해 전송 버튼과 초기화 버튼을 지원했다.
+        - 이후 html5에서는 button이라는 태그가 생기면서 form 안에서 지원되는 버튼
+          뿐만이 아닌 범용적으로 사용되는 버튼의 표준이 새로 정의되었다.
+        - input type=submit/reset은 button이라는 태그가 등장함에 따라 빈도가 서서히
+          줄었지만 그렇다고 태그를 아예 사용 못하는 것은 아니며 아직까지도 지원이
+          되고 있다.
+        - input type=image는 버튼의 이미지화를 지원하기 위해 만들어진 태그인데 button
+          태그에서 지원하는 방식이 달라진 것 뿐이지 지원을 못하는것은 아니며 css3의
+          옵션의 향상으로 해당 버튼에 대한 지원 자체가 대부분 필요 없어지는 상황이
+          발생하여 현재는 이미지를 버튼으로 만들기 보다는 순수 css3를 활용해서
+          버튼을 만드는 케이스가 많아졌다.
+     -->
+    <form action="#" method="get">
+        <input type="text" id="text" name="text"><br>
+        <!-- html5 -->
+        <button type="submit">전송</button><br>
+        <button type="reset">초기화</button><br>
+        <button type="button">버튼</button><br>
+        <button style="border:none;background-color: white;">
+            <img src="images/easyspub.jpg" alt="">
+        </button><br>
+        <!-- html4 -->
+        <input type="submit" value="전송"><br>
+        <input type="reset" value="초기화"><br>
+        <input type="image" src="images/easyspub.jpg" alt="">
+    </form>
+</body>
+</html>

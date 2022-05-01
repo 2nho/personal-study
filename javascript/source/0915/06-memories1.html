@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            - 메모리 동작과 관리
+            - 메모리는 primitive 타입과 non-primitive 타입에 따라서 실제 일어나는 동작이 달라진다.
+            - primitive 타입
+              => primitive 타입의 경우 변수에서 변수로 참조가 이루어질 시 값에 의한 복사가 일어나므로
+                 각 변수에 할당된 값은 독립적인 개체로서 저장된다.
+              => primitive 타입의 값을 바꿀 때 다른 변수에 참조된 값은 아무런 영향을 받지 않는다.
+            - non-primitive 타입
+              => non-primitive 타입의 경우 변수에서 변수로 참조가 이루어질 시 주소에 의한 복사가 일어난다.
+              => non-primitive 타입의 주소를 서로 다른 두개의 변수에서 공유가 되는 상황이 발생하며 이 경우
+                 다른 변수에서 non-primitive 타입의 값을 변경 시 같은 주소를 참조하고 있는 해당 변수에서
+                 마찬가지로 변화가 일어나게 된다.
+              => 주소에 의한 참조가 일어나기 때문에 이부분에 대해 특히 주의해서 핸들링을 해야 한다.
+            - GC(Garbage Collector)
+              => 기존 non-primitive 타입의 값이 들어있는 변수에 primitive 타입의 값을 넣게 될 경우  GC에 의해
+                 담겨있던 메모리 영역이 전부 초기화 된다.
+              => 이때 브라우저에서는 급격하게 프로세스를 잡아먹게 되며 웹이 느려지게 되는 주 원인이 된다.
+              => DOM 오브젝트 역시 non-primitive 타입이고 이런 DOM 오브젝트를 핸들링 하는 과정에 있어 값을 할당
+                 하면서 이런 일이 빈번하게 발생할 수 있는데 이는 곧 웹의 성능 저하로 이어지므로 반드시 non-primitive
+                 타입을 담고있는 변수는 const로 선언하는 것이 좋다.
+        */
+
+    </script>
+</body>
+</html>

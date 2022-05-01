@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 증감연산자의 전위/후위 연산
+        /*
+            - 증감연산자의 연산이 앞에 붙었을 때는 증감연산이 우선 실행되고 해당 라인의 로직이 뒤에 실행된다.
+            - 하지만 증감연산자의 연산이 뒤에 붙었을 때는 해당 라인의 로직이 먼저 실행되고 그 다음 증감연산이 실행된다.
+        */
+        let x = 3;
+        let y = ++x;
+        console.log(`x : ${x}    y : ${y}`); // x : 4 , y : 4
+
+        x = 3;
+        y = x++;
+        console.log(`x : ${x}    y : ${y}`); // x : 4 , y : 3
+
+        x = 3;
+        y = --x;
+        console.log(`x : ${x}    y : ${y}`); // x : 2 , y : 2
+
+        x = 3;
+        y = x--;
+        console.log(`x : ${x}    y : ${y}`); // x : 2 , y : 3
+    </script>
+</body>
+</html>

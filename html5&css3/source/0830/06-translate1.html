@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            transform : 기존의 평면에서 해당 요소를 뒤틀거나 이동시키거나 회전하는 등의 변화를 줄 수 있는 속성
+                        속성은 2차원 평면이 아닌 3차원 평면에서도 이동 조작이 가능하다.
+                        transform은 각 브라우저마다 지원하는 방식이 다르기 때문에 prefix를 써야하는 경우가
+                        종종 존재한다.
+            translate : x,y,z 좌표로 이동시킬 때 쓴다 기존의 위치에서 x축,y축으로 이동시킬때는 translateX,
+                        translateY, translate를 쓰면 되지만 z축 이동을 할 경우 translateZ 혹은 translate3d
+                        를 사용할 수 있으며 이 경우에는 perspective라는 옵션이 수반되어야 한다.
+            perspective : 이 옵션은 z축으로 확장되는 화면의 깊이를 만드는 옵션이며 이 옵션을 통해 2차원 평면의
+                          화면에 z축의 깊이를 만들어 3차원 평면계를 웹 상에 구현이 가능하다. z축으로 변환하는
+                          효과를 구현하기 위해서는 이 옵션은 반드시 있어야 한다.
+        */
+        .origin {
+            width : 200px;
+            height : 134px;
+            border : 1px solid black;
+            float: left;
+            margin : 40px;
+        }
+        .movex:hover {
+            transform: translateX(50px);
+        }
+        .movey:hover {
+            transform : translateY(20px);
+        }
+        .movexy:hover {
+            transform: translate(10px, 20px);
+        }
+        .movez:hover {
+            transform: perspective(500px) translateZ(-40px);
+        }
+        .move3d:hover {
+            transform: perspective(100px) translate3d(20px, 30px, 80px);
+        }
+    </style>
+</head>
+<body>
+    <div class="origin">
+        <div class="movex"><img src="images/bus.jpg" alt=""></div>
+    </div>
+    <div class="origin">
+        <div class="movey"><img src="images/bus.jpg" alt=""></div>
+    </div>
+    <div class="origin">
+        <div class="movexy"><img src="images/bus.jpg" alt=""></div>
+    </div>
+    <div class="origin">
+        <div class="movez"><img src="images/bus.jpg" alt=""></div>
+    </div>
+    <div class="origin">
+        <div class="move3d"><img src="images/bus.jpg" alt=""></div>
+    </div>
+</body>
+</html>

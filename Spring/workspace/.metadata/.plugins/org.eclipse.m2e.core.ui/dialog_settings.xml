@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="wizardPage">
+		<list key="groupId">
+			<item value="Ex01NonSpring2"/>
+			<item value="Ex01NonSpring1"/>
+			<item value="Ex01NonSpring"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="Ex01NonSpring2"/>
+			<item value="Ex01NonSpring1"/>
+			<item value="Ex01NonSpring"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\User\OneDrive\수업\공유폴더\구디아카데미\39기\Spring\workspace\Ex09AutoInjection"/>
+			<item value="C:\Users\User\OneDrive\수업\공유폴더\구디아카데미\39기\Spring\workspace\Ex07SetterInjection"/>
+			<item value="C:\Users\User\OneDrive\수업\공유폴더\구디아카데미\39기\Spring\workspace\Ex04LifeCycle"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="Ex20MyBatis"/>
+			<item value="Ex19JDBC"/>
+			<item value="Ex18ExecutionDirection"/>
+			<item value="Ex17AOP"/>
+			<item value="Ex16ComponentSetting"/>
+			<item value="Ex15Component"/>
+			<item value="Ex14JSR250"/>
+			<item value="Ex13AnnotationBean"/>
+			<item value="Ex12JavaInjection"/>
+			<item value="Ex11InitDestroyJava"/>
+			<item value="Ex10JavaConfigration"/>
+			<item value="Ex09AutoInjection"/>
+			<item value="Ex08CollectionInjection"/>
+			<item value="Ex07SetterInjection"/>
+			<item value="Ex06ConstructorInjection"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="Ex20MyBatis"/>
+			<item value="Ex19JDBC"/>
+			<item value="Ex18ExecutionDirection"/>
+			<item value="Ex17AOP"/>
+			<item value="Ex16ComponentSetting"/>
+			<item value="Ex15Component"/>
+			<item value="Ex14JSR250"/>
+			<item value="Ex13AnnotationBean"/>
+			<item value="Ex12JavaInjection"/>
+			<item value="Ex11InitDestroyJava"/>
+			<item value="Ex10JavaConfigration"/>
+			<item value="Ex09AutoInjection"/>
+			<item value="Ex08CollectionInjection"/>
+			<item value="Ex07SetterInjection"/>
+			<item value="Ex06ConstructorInjection"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            minmax(min,max) : 컨텐츠의 크기에 따라 row혹은 column이 유동적으로 움직일 때 사용되는 
+                              기능. 해당 기능을 통해 최소 크기와 최대 크기를 지정할 수 있다.
+                              min값에는 열 혹은 행의 최소 크기, max에는 열 혹은 행의 최대 크기를
+                              지정하여 크기에 대한 조절이 컨텐츠에 따라 조절되도록 할 수 있다.
+        */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* grid-template-rows : repeat(3, 100px); */
+            grid-template-rows : repeat(3, minmax(100px, auto));
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt praesentium molestias adipisci aperiam? Cupiditate culpa minus debitis repudiandae voluptate odit atque possimus ullam pariatur assumenda. Quam pariatur velit incidunt. Voluptatem!
+        </div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, velit ut quaerat cum voluptatibus minima deleniti praesentium provident quis unde blanditiis nemo. Veniam eum delectus voluptatum temporibus aliquid saepe quibusdam!
+        </div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+    </div>
+</body>
+</html>

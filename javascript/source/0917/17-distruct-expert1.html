@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let option = {
+            size : {width : 300, height : 200},
+            item : ["cake", "donut"],
+            extra : true
+        }
+
+        let {
+            size : { width, height },
+            item : [item1, item2],
+            extra,
+            title = "Menu"
+        } = option;
+
+        // let width
+        // let height
+        // {}
+
+        console.log(width, height);
+        console.log(item1, item2);
+        console.log(extra);
+    </script>
+</body>
+</html>

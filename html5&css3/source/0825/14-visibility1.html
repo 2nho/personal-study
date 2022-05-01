@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+         visibility : hidden => 특정 요소를 화면에 안보이게 함. 안보이는 요소의 공간을
+                                그대로 남김
+         display : none => 특정 요소를 화면에 안보이게 함. 해당 요소의 공간도 없애버림
+         */
+        .container {
+            display: flex;
+            margin : 10px;
+        }
+        .container > div{
+            width : 150px;
+            height : 80px;
+        }
+        .c1 {
+            background-color: tomato;
+        }
+        .c2 {
+            background-color: teal;
+        }
+        .c3 {
+            background-color: violet;
+        }
+        .h {
+            visibility: hidden;
+        }
+        .d {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="c1"></div>
+        <div class="c2 h"></div>
+        <div class="c3"></div>
+    </div>
+    <div class="container">
+        <div class="c1"></div>
+        <div class="c2 d"></div>
+        <div class="c3"></div>
+    </div>
+</body>
+</html>

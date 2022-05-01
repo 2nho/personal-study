@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Getter Setter
+        /*
+            - Class에서는 Getter와 Setter 메서드 작성이 가능하다.
+            - get과 set을 메서드 앞에 씀으로 써 getter, setter 메서드 작성이 가능하다.
+            - getter 메서드는 매개변수가 없어야 하고 return이 반드시 존재해야 하며 setter는 매개변수가
+              반드시 하나만 존재해야 하고 return이 있어서는 안된다.
+        */
+        class Member{
+            set name(name){
+                this._name = name;
+            }
+
+            get name(){
+                return this._name;
+            }
+        }
+
+        const obj = new Member();
+        obj.name = "임꺽정";
+        console.log(obj.name);
+
+        const $btn = document.getElementById("btn");
+        _name 
+    </script>
+</body>
+</html>

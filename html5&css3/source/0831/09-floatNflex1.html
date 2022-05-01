@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="default.css">
+    <title>Document</title>
+    <style>
+        /* 
+            flex와 float의 큰 차이점
+            - 배치를 좌나 우로 배치하여 나열하는것은 똑같지만 float는 flex처럼 높이 혹은
+              너비가 큰 아이템에 맞춰 다른 아이템들이 확장되지 않는다.
+            - 또한 배치의 순서, 배치의 방향 등 여러가지 배치에 관련된 옵션들이 flex가 압
+              도적으로 많으므로 float는 어찌보면 flex의 하위호환이라 봐도 될 정도로
+              기능이 많이 없다.
+            - html4 고정형 그리드 시절에는 float가 많이 쓰였지만 flex의 등장으로 지금은
+              크게 쓰이지 않으며 현재는 모든 배치 블록을 flex로 쓰는 것이 일반적이다.
+        */
+        .afloat {
+            font-size : 5rem;
+        }
+        .bfloat {
+            font-size : 2rem;
+        }
+        /* .flex-item {
+            float: left;
+        } */
+        .flex-container {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item afloat">AAAAA</div>
+        <div class="flex-item bfloat">BBBBB</div>
+    </div>
+</body>
+</html>

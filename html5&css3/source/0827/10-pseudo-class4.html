@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* nth-child와 nth-of-child의 차이점 */
+        /* - nth-child는 부모 요소 내의 모든 요소가 순번으로 인식된다.
+           - 하지만 nth-of-type은 타겟으로 삼은 요소만 순번으로 인식된다.
+        */
+        /* div > p:nth-child(5) {
+            background-color: yellow;
+        } */
+        div > p:nth-of-type(3){
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>p태그1</p>
+        <span>span태그1</span>
+        <p>p태그2</p>
+        <span>span태그2</span>
+        <p>p태그3</p>
+        <span>span태그3</span>
+    </div>
+</body>
+</html>

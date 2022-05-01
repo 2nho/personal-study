@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-size: 20px;
+            font-family: "고딕";
+        }
+        .panel {
+            width : 850px;
+            height: 420px;
+            border : 2px solid gray;
+        }
+
+        .nav {
+            width : 850px;
+            text-align: center;
+        }
+
+        button {
+            font-size : 30px;
+            margin-top : 10px;
+            padding : 5px;
+        }
+
+        button:hover {
+            background-color: brown;
+            color : white;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <img src="images/1.jpg" alt="" id="view">
+    </div>
+    <div class="nav">
+        <button id="play">PLAY</button>
+        <button id="stop">STOP</button>
+        <button id="prev">PREV</button>
+        <button id="next">NEXT</button>
+    </div>
+    <script>
+        // 전역변수 초기화
+        let $view = null;
+        let currentIndex = 1;
+        let timerID = 0;
+
+        // 시작 부분
+        $(function(){
+            // 전역 변수 초기화 및 함수 호출
+            init();
+            // 이벤트 초기화 함수 등록
+            initEvent();
+        });
+
+        // 초기화 함수
+        function init(){
+            // view 객체 받아오기
+            $view = $("#view");
+        }
+
+        // 이벤트 초기화
+        function initEvent(){
+            // play 버튼에 자동 실행 이벤트 등록
+            $("#play").click(function(){
+                startAutoPlay();
+            });
+
+            // stop 버튼에 멈춤 이벤트 등록
+            $("#stop").click(function(){
+                stopAutoPlay();
+            });
+
+            // prev 버튼에 이전 이미지 보여주는 이벤트 등록
+            $("#prev").click(function(){
+                prevImage();
+            });
+
+            // next 버튼에 다음 이미지 보여주는 이벤트 등록
+            $("#next").click(function(){
+                nextImage();
+            });
+        }
+
+        // 실제 이미지를 보여주는 함수
+        function showImage(index){
+            // 이미지의 src 속성을 설정하는 로직
+            $view.attr("src", `images/${index}.jpg`);
+            currentIndex = index;
+        }
+
+        // 이전 이미지를 보여주는 함수
+        function prevImage(){
+            let index = currentIndex - 1;
+            // 이미지의 개수가 60까지 있고 1번째 이미지이면 currentIndex가 0이 되어서
+            // index를 60으로 강제 설정하는 이벤트를 넣어줘야 함
+            if(index <= 0){
+                index = 60;
+            }
+            showImage(index);
+        }
+
+        // 다음 이미지를 보여주는 함수
+        function nextImage(){
+            let index = currentIndex + 1;
+            // 이미지가 60개이기 때문에 60을 넘어가면 1로 설정하도록 함
+            if(index > 60){
+                index = 1;
+            }
+            showImage(index);
+        }
+
+        // 자동 실행 함수
+        function startAutoPlay(){
+            if(timerID == 0){
+                //0.1초 마다 nextImage를 호출
+                timerID = setInterval(function(){
+                    nextImage();
+                }, 100);
+            }
+        }
+
+        // 멈춤 함수
+        function stopAutoPlay(){
+            // 타이머 아이디가 존재한다면 실행되고 있다 가정하고 clearInterval 함
+            if(timerID != 0){
+                clearInterval(timerID);
+                timerID = 0;
+            }
+        }
+    </script>
+</body>
+</html>

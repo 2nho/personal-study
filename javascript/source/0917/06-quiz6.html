@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 원본 데이터 중에서 가장 가까운 값
+
+        const numbers = [10,20,30,27,17];
+        let target = 25;
+
+        let min = Number.MAX_SAFE_INTEGER;
+        let near = 0;
+
+        for (let index = 0; index < numbers.length; index++) {
+            let abs = Math.abs(numbers[index] - target);
+            if(abs < min) {
+                min = abs;
+                near = numbers[index];
+            }
+        }
+
+        console.log(`최대로 가까운 값 : ${near}`);
+    </script>
+</body>
+</html>
+
+
+

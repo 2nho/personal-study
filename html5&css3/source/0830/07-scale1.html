@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            scale : 요소를 늘리거나 압축할 때 사용한다. 요소가 늘어나거나 압축할 때
+                    평면 요소는 scaleX, scaleY, scale을 통해서 만드는 것이 가능하지만
+                    z축에서의 요소를 늘릴 경우 scaleZ, scale3d 를 통해서 늘려야 하는데
+                    보통 rotate를 통해서 화면 전체를 돌리지 않는 이상 사람의 육안으로 구분이
+                    어렵다. 역시나 3d 변환을 할 경우 perspective가 수반되어야 한다.
+        */
+        .origin {
+            width : 210px;
+            height : 200px;
+            border : 1px solid black;
+            float: left;
+            margin : 40px;
+        }
+        .scalex:hover {
+            transform: scaleX(1.2);
+        }
+        .scaley:hover {
+            transform: scaleY(1.5);
+        }
+        .scale:hover{
+            transform: scale(0.7); 
+        }
+    </style>
+</head>
+<body>
+    <div class="origin">
+        <div class="scalex"><img src="images/fruit.jpg" alt=""></div>
+    </div>
+    <div class="origin">
+        <div class="scaley"><img src="images/fruit.jpg" alt=""></div>
+    </div>
+    <div class="origin">
+        <div class="scale"><img src="images/fruit.jpg" alt=""></div>
+    </div>
+</body>
+</html>

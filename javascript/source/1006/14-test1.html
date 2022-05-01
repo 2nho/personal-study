@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const tel1 = "01234567팔";
+        const tel2 = "987654321";
+
+        // 정규 표현식 리터럴
+        const myRegExp1 = /^[0-9]+$/;
+        const myRegExp2 = new RegExp("^[0-9]+$");
+
+        console.log(myRegExp1.test(tel1)); 
+        console.log(myRegExp1.test(tel2)); 
+
+        console.log(myRegExp2.test(tel1)); 
+        console.log(myRegExp2.test(tel2));
+
+        console.log(/s$/.exec("ab cds"));
+    </script>
+</body>
+</html>

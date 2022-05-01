@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let item = "sports";
+        let i = 0;
+        let j = 0;
+
+        const obj = {
+            a : 2,
+            ["absdf"] : 3,
+            ["abc"+"def"] : 1,
+            [item] : 2, // ["sports"] : 2
+            [item + "tennis"] : "윔블던",
+            ["foo"+ ++i] : 10,
+            ["foo"+ ++i] : 11,
+            ["foo"+ ++i] : 12,
+            ["배우"+(j+1)] : "원빈",
+            ["배우"+(j+2)] : "장동건"
+        }
+
+        console.log(obj.abcdef); // 1
+        console.log(obj.sports); // 2
+        console.log(obj.sportstennis); // 윔블던
+        console.log(obj.foo1); // 10
+        console.log(obj.foo2); // 11
+        console.log(obj.foo3); // 12
+        console.log(obj.배우1); // 원빈
+        console.log(obj.배우2); // 장동건
+    </script>
+</body>
+</html>

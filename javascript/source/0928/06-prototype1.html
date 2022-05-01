@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // prototype
+        /*
+            - non-primitive 타입의 아이덴티티(정체성)을 알려주는 역할
+            - 해당 참조형에서 필요한 모든 기능 및 속성을 제공하는 프로퍼티
+            - prototype 에서는 그 객체의 성질을 정의하며 모든 참조형은 prototype을 가진다.
+            - 일반적인 참조형 들은 내부에 prototype으로 [__proto__]를 가지고 있으며 이를 통해 프로토타입으로의 접근이
+              가능하다.
+            - primitive 타입은 프로토타입을 가지지 않으며 모든 prototype의 최종 prototype은 Object가 된다.
+            - __proto__ 를 통해 프로토 타입에 접근할 수 있지만 __proto__는 선언할 때만 접근이 필요하며 프로토타입 내의
+             속성 혹은 기능에 접근할 경우 __proto__ 는 생략이 가능하다. 즉 자기 자신의 기능처럼 가져다 쓸 수 있다.
+            - 만약 같은 프로토타입을 가지고 있는 객체 중 하나가 특정 기능을 prototype에 올릴 경우 그 기능은 똑같은 
+              프로토타입을 가지고 있는 모든 객체에 공유가 된다.
+        */
+        const a = {
+            a : 123,
+            b : "안녕하세요"
+        }
+        a.__proto__.funcA = function(){
+            console.log("프로토타입에 정의된 기능");
+        }
+
+        console.dir(a);
+
+        // a.__proto__.funcA();
+        a.funcA();
+
+        const b = {
+            c : 456
+        }
+
+        b.funcA();
+    </script>
+</body>
+</html>

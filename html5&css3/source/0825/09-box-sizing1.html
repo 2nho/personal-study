@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* box-sizing : 박스의 너비와 높이의 기준을 무엇으로 할 지 결정하는 속성
+                        디폴트가 content-box이기 때문에 본인이 생각했던 크기보다
+                        더 크게 나올 가능성이 크다. 디자이너와의 협업을 용이하게
+                        하기 위해서 반드시 box-sizing을 초기화 시키는 것이 중요한데
+                        보통은 border-box 속성값으로 초기화를 시키는 경우가 많다.
+        */
+        .b1 {
+            border : 10px solid red;
+            width : 300px;
+            height : 150px;
+            padding : 30px;
+            box-sizing: border-box;
+        }
+        .b2 {
+            border : 10px solid red;
+            width : 300px;
+            height : 150px;
+            padding : 30px;
+            box-sizing: content-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="b1"></div>
+    <div class="b2"></div>
+</body>
+</html>

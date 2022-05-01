@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="user_name">수강생 이름 : </label><input type="text" id="user_name" size="50"><br>
+        <label for="user_home">수강생 홈피 : </label><input type="text" id="user_home" size="50"><br>
+        <button type="button" id="btn">사용자 추가하기</button>
+    </form>
+    <br>
+    <div id="memberList"></div>
+
+    <script>
+        document.getElementById("btn").addEventListener("click",function(){
+            const userName = document.getElementById("user_name");
+            const userHome = document.getElementById("user_home");
+
+            const aTag = document.createElement("a");
+            aTag.href = userHome.value;
+
+            const aText = document.createTextNode(userName.value);
+            aTag.append(aText);
+
+            const memberList = document.getElementById("memberList");
+            const br = document.createElement("br");
+
+            memberList.append(aTag);
+            memberList.append(br);
+            userName.value = "";
+            userHome.value = "";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 중첩 반복문
+        /*
+            - 중첩 반복문이란 반복문 내에 반복문이 들어가 있는 형태를 의미한다.
+            - 중첩 반복문은 코드의 난독화와 코드의 복잡성을 기하급수적으로 올리기 때문에
+              사용을 자제하는 편이 좋으나 반드시 실행시켜야 하는 상황이 오게 된다.
+            - 중첩 반복문을 통해 어느정도의 트레이닝을 하는 편이 나중에 복잡한 코드가
+              왔을 때 대비가 가능하다.
+        */
+        let a = 0;
+        let b = 0;
+        while(a < 3){
+            b = 0;
+            while(b < 3){
+                console.log(a, b);
+                b++;
+            }
+            a++;
+        }
+    </script>
+</body>
+</html>

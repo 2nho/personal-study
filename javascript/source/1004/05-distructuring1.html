@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 구조분해 할당
+        /*
+            - 변수나 함수와 같이 복잡한 구조를 가지고 있는 데이터를 분해 해체하여 편하게 쓰기
+              위해 쓰는 기법
+            - 배열, 함수 등에 쓰일 수 있다.
+        */
+    //    let [one, two, [three, four]] = [1,2,[3,4]];
+    //    console.log(one, two, three, four);
+       let {one, two, three : [four,five,six]} = {one : 1, two : 2, three : [4,5,6]};
+       console.log(one, two, four, five, six);
+    </script>
+</body>
+</html>

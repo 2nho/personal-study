@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style>
+        *{margin : 0;}
+        .txt1{width : 50px; text-align: center;background-color: aqua;}
+    </style>
+</head>
+<body>
+    <p class="txt1">내용1</p>
+    <script>
+        /*
+            queue : 
+            -특정 요소에서 애니메이션이 실행되는 순서로 저장되어 있는 공간
+            -큐에 저장된 목록에서 순번대로 애니메이션을 하나씩 꺼내어 실행하고, 실행된 애니메이션은 제거된다.
+            
+            queue() :
+            - 큐에 대기중인 함수를 반환하거나 새로운 함수를 추가한다.
+            - 하지만 queue() 메서드를 animate() 중간에 추가하게 되면 queue() 까지만 실행되고 그 뒤에 대기중인
+              대기열은 자동 취소가 된다.
+            - 위와 같은 상황을 방지하기 위해 dequeue() 메서드를 추가해 주면 취소되지 않고 연결되어 애니메이션이
+              실행되게 할 수가 있다.
+              
+        */
+        $(function(){
+            $(".txt1").animate({marginLeft:"200px"},1000)
+            .animate({marginTop:"200px"},1000)
+            .queue(function(){
+                $(this).css("background-color","red");
+                $(this).dequeue();
+            })
+            .animate({marginLeft:0},1000)
+            .animate({marginTop:0},1000)
+            .stop(false, false);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* pseudo-element : 엘리먼트를 선언하지 않았지만 마치 엘리먼트가 미리 선언되어 있는 것처럼
+                            해당 엘리먼트의 맨 앞에, 혹은 뒤에, 혹은 특정 위치에 디자인을 먹이거나 내용을 추가할 수 있는
+                            이러한 css 속성을 이야기한다. 주로 메인 element는 아니지만 해당 엘리먼트에 표시용으로 추가를
+                            해야하거나 아니면 특정 요소의 특정 부분을 수정하거나 디자인을 바꾸고자 할 경우 사용한다. */
+        /* ::first-letter : p태그와 같은 문장의 맨 처음의 글에 디자인을 먹일 경우 사용*/
+        p::first-letter {
+            color : blue;
+            font-size: 3.5rem;
+        }
+        /* ::before : 해당 엘리먼트의 컨텐츠 앞에 추가하고자 하는 요소를 만들 경우 쓰는 가상 엘리먼트 연산자 */
+        .goal::before {
+            content : "올해 내 목표는 ";
+        }
+        /* ::after : 해당 엘리먼트의 컨텐츠 뒤에 추가하고자 하는 요소를 만들 경우 쓰는 가상 엘리먼트 연산자 */
+        .goal::after {
+            content : "쉬지 않고 하기";
+        }
+    </style>
+</head>
+<body>
+    <p>내 이름은 홍길동이야</p>
+    <p class="goal">스쿼트 3세트, 푸쉬업 5세트</p>
+</body>
+</html>

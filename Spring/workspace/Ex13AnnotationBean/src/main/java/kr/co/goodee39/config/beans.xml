@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- 설정된 빈에 해당하는 어노테이션을 읽어 처리하도록 하는 옵션 -->					
+	<context:annotation-config/>
+	
+	<bean id="xml1" class="kr.co.goodee39.beans.TestBean1">
+		<property name="data1" value="100"/>
+	</bean>
+	
+	<bean id="data_bean1_1" class="kr.co.goodee39.beans.DataBean1"/>
+	<!-- <bean id="data_bean1_2" class="kr.co.goodee39.beans.DataBean1"/> -->
+	
+	<bean id="obj5" class="kr.co.goodee39.beans.DataBean2"/>
+	<bean id="obj6" class="kr.co.goodee39.beans.DataBean2"/>
+	
+	<bean id="xml2" class="kr.co.goodee39.beans.TestBean2"/>
+	
+	<bean class="kr.co.goodee39.beans.DataBean3"/>
+	<bean class="kr.co.goodee39.beans.DataBean4"/>
+</beans>
+
+
+
+
+
+

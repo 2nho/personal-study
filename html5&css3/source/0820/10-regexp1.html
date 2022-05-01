@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="get">
+        <!-- required : 값이 아무것도 없을 경우 전송 시 전송이 안되도록 막고 경고를
+                        띄우도록 설정할 때 사용 -->
+        <!-- 무조건 값이 abc가 와야 함 -->
+        <!-- <input type="text" pattern="abc" id="text" name="text"> -->
+        <!-- 값이 abc 이거나 def 가 올 경우 전송 -->
+        <!-- 전송이 안될 시 해당 input 타입에서 어떤 형식을 써야 하는지에 대한
+             코멘트를 달기 위해서 title이란 속성을 사용할 수 있다. -->
+        <!-- <input type="text" pattern="abc|def" id="text" 
+        title="이 란에는 abc 혹은 def만 사용 가능합니다." name="text" required> -->
+        <!-- 정규표현식에서 자주 사용되는 패턴
+            - [쓸 값의 범위]{반복횟수}
+        -->
+        <!-- 시작 혹은 끝을 지정하는 특수문자 : ^ $ -->
+        <!-- <input type="text" pattern="^[abc][a-z]+" id="text1" name="text1" required> -->
+        <!-- <input type="text" pattern="[a-z]+[abc]$" id="text2" name="text2" required> -->
+        <!-- [abcdef] = a|b|c|d|e|f -->
+        <!-- + : 하나 이상 반복 -->
+        <!-- [A-Za-z0-9] : A|B|C...|Z|a|b|c...|z|0|1|2...|9 -->
+        <!-- ^[a-z][A-Za-z0-9가-힣]+ : a부터z사이의 값으로 시작하고 한글,영소/대문자,숫자로
+                                      한개 이상 반복-->
+        <!-- [A-Za-z]+[0-9]$ : 영문 대소문자로 한번 이상 반복을 하되 끝나는 문자가 무조건 숫자--> 
+        <!-- 주의할 점 [^A-Za-z] : 영문 대소문자가 아닌 문자 -->
+        <!-- [A-Z]{3} : 영문 대문자 3번 반복 -->
+        <!-- [A-Z]{3,} : 영문 대문자 3개 이상 반복-->
+        <!-- [A-Z]{8,16} : 영문 대문자 8개 이상 16개 이하 반복-->
+        <!-- ^(010|011|016)-([0-9]{3,4})-([0-9]{4}) : 식이 복잡해질 경우 그룹화를 통해
+            그룹핑 시킬수가 있으며 ()를 이용해 그룹화가 가능하다.
+        -->
+        <input type="text" pattern="^[a-z]+[0-9]{3,5}$" id="text1" name="text1" required>
+        <button type="submit">전송</button>
+    </form>
+</body>
+</html>

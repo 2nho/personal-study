@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Null 병합 연산자
+        /*
+            - 값이 null혹은 .undefined의 값이 아닌 유효한 값을 찾아주는 연산자.
+            - 삼항연산자로 기존에 null과 undefined로 할 경우 상당히 로직이 길어지며 가독성이 떨어지는 단점이 있다.
+            - 이에 w3c 에서는 이러한 불편함을 덜어주기 위해 null 병합 연산자를 만들었다.
+            - || 문과 비슷한 특징을 지닌다.
+        */
+        let a = null;
+        let b = 3;
+
+        let x = (a !== null && a !== undefined)? a : b;
+
+        console.log(x);
+
+        let y = a ?? b;
+
+        console.log(y);
+    </script>
+</body>
+</html>

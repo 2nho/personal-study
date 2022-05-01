@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        try {
+            window.option = 3;
+        }catch(err){
+            // console.log("에러났어요~");
+            // console.log(err.message);
+            // console.info(err.message);
+            // console.warn(err.message);
+            // console.error(err);
+            // 예외 이름
+            // console.error("exception name : "+err.name);
+            // 예외 메세지
+            // console.error("exception message : "+err.message);
+            // 예외 설명
+            // console.error("exception description : "+err.description);
+            // 예외 실행 시 err 타입에 따라 다르게 주기
+            if(err instanceof TypeError){
+                console.log("TypeError : "+err.message);
+            }else if(err instanceof RangeError){
+                console.log("RangeError : "+err.message);
+            }else if(err instanceof ReferenceError){
+                console.log("ReferenceError : "+err.message);
+            }else if(err instanceof SyntaxError){
+                console.log("SyntaxError : "+err.message);
+            }
+        }
+    </script>
+</body>
+</html>

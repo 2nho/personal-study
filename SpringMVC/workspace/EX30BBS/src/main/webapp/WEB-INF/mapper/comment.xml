@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="comment">
+	<select id="selectCommentList" parameterType="cvo" resultType="cvo">
+		select num, comment, writername, writernum, bnum
+		from comment
+		where bnum = #{bnum}
+	</select>
+	
+	<select id="selectUserComment" parameterType="cvo" resultType="cvo">
+		select num, comment, writername, writernum, bnum
+		from comment
+		where writernum = #{writernum}
+	</select>
+	
+	<insert id="insertComment" parameterType="cvo"
+	useGeneratedKeys="true" keyProperty="num">
+		insert into comment(comment, writername, writernum, bnum)
+		values(#{comment}, #{writername}, #{writernum}, #{bnum})
+	</insert>
+	
+	<update id="updateComment" parameterType="cvo">
+		update comment set comment = #{comment}
+		where num = #{num}
+		and writernum = #{writernum}
+	</update>
+	
+	<delete id="deleteComment" parameterType="cvo">
+		delete from comment 
+		where num = #{num}
+		and writernum = #{writernum}
+	</delete>
+</mapper>

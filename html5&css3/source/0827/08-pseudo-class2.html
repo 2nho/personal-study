@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* :checked -> 라디오 버튼과 체크박스 버튼에 주로 사용되는 가상 선택자로서 체크가 되었을 때의 
+                       css 디자인을 적용할 때 쓴다. 주로 인접형제 선택자와 페어로 많이 사용된다.
+        */
+        /* input:checked {
+            height: 50px;
+            width: 50px;
+        } */
+        input:checked + label {
+            background-color: darksalmon;
+        }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <input type="radio" name="r1" id="r1-1" checked hidden>
+        <label for="r1-1">r1 체크</label>
+        <input type="radio" name="r1" id="r1-2" hidden>
+        <label for="r1-2">r2 체크</label>
+        <br>
+        <input type="checkbox" name="c1" id="c1-1" checked hidden>
+        <label for="c1-1">c1 체크박스</label>
+        <input type="checkbox" name="c1" id="c1-2" hidden>
+        <label for="c1-2">c2 체크박스</label>
+    </form>
+</body>
+</html>

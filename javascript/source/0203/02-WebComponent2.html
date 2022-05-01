@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Slider extends HTMLElement {
+            connectedCallback(){
+                this.innerHTML = '<div class="bg-overlay"></div><div class="thumb"></div>';
+
+                this.style.display = 'inline-block';
+                this.style.position = 'relative';
+                this.style.width = '500px';
+                this.style.height = '50px';
+
+                this.querySelector('.bg-overlay').style.width = '100%';
+                this.querySelector('.bg-overlay').style.height = '100%';
+                this.querySelector('.bg-overlay').style.position = 'absolute';
+                // this.querySelector('.bg-overlay').style.backgroundColor = 'red';
+                this.querySelector('.bg-overlay').style.backgroundColor = this.getAttribute("backgroundcolor");
+
+                this.querySelector('.thumb').style.width = '5px';
+                this.querySelector('.thumb').style.height = 'calc(100% - 5px)';
+                // this.querySelector('.thumb').style.marginLeft = '100px';
+                this.querySelector('.thumb').style.marginLeft = this.getAttribute("value") + 'px';
+                this.querySelector('.thumb').style.position = 'absolute';
+                this.querySelector('.thumb').style.borderRadius = '3px';
+                this.querySelector('.thumb').style.border = 'white solid 3px';
+            }
+        }
+
+        customElements.define("my-slider", Slider);
+    </script>
+
+    <my-slider backgroundcolor="#0000ff" value="100"></my-slider>
+</body>
+</html>

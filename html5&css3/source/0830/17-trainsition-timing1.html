@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            transition-timing-function : 트랜지션 효과의 속도를 지정할 수 있는 속성 각각의 속성값은 베지어곡선을 포함한
+                                         다양한 키워드로 조절이 가능하다.
+            - linear : 시작에서 끝까지 똑같은 속도로 트랜지션을 진행할 때 사용하는 속성
+            - ease : 처음에는 천천히 시작하고 점점 빨라지다가 마지막에는 천천히 끝나는 속성
+            - ease-in : 트랜지션 시작을 느리게
+            - ease-out : 트랜지션을 느리게 끝냄
+            - ease-in-out : 트랜지션 시작과 끝을 모두 느리게 함
+            - cubic-bezier(0,0,0,0) : 기존의 트랜지션의 키워드가 아닌 커스터마이즈된 타이밍을 얻고자 할 경우
+                                      베지어 함수를 정의해서 사용할 때 쓴다. 상당히 다양한 이펙트를 제공할 수 있다.
+
+            transition-delay : transition에 대한 딜레이를 주는 속성. second 기준으로 주는 경우가 많다.
+        */
+        #ex div {
+            float : left;
+            width : 100px;
+            height: 50px;
+            margin: 5px 10px;
+            padding : 5px;
+            color : white;
+            background-color: #006aff;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            transition-duration: 3s;
+        }
+        #ex:hover div {
+            height : 400px;
+        }
+        #ex .ease {
+            /* transition-timing-function: ease; */
+            transition-timing-function : cubic-bezier(0.48,-0.69, 0.49, 1.73);
+        }
+        #ex .linear {
+            transition-timing-function: linear;
+        }
+        #ex .ease-in {
+            transition-timing-function: ease-in;
+            transition-delay : 3s;
+        }
+        #ex .ease-out {
+            transition-timing-function: ease-out;
+        }
+        #ex .ease-in-out {
+            transition-timing-function: ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="ex">
+        <div class="ease">ease</div>
+        <div class="linear">linear</div>
+        <div class="ease-in">ease-in</div>
+        <div class="ease-out">ease-out</div>
+        <div class="ease-in-out">ease-in-out</div>
+    </div>
+</body>
+</html>

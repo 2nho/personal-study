@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="radio" name="rd1" id="r1" class="radio1" value="나는">
+    <input type="radio" name="rd1" id="r2" class="radio1" value="자연">
+    <input type="radio" name="rd1" id="r3" class="radio1" value="인이다">
+    <button id="btn1">버튼</button>
+    <div id="div1">
+
+    </div>
+    <script>
+        // document.getElementById("r1").addEventListener("change", function(){
+        //     document.getElementById("div1").innerHTML=document.getElementById("r1").value;
+        // });
+        // document.getElementById("r2").addEventListener("change", function(){
+        //     document.getElementById("div1").innerHTML=document.getElementById("r2").value;
+        // });
+        // document.getElementById("r3").addEventListener("change", function(){
+        //     document.getElementById("div1").innerHTML=document.getElementById("r3").value;
+        // });
+        
+        document.getElementById("btn1").addEventListener("click",function(){
+            const objs = document.getElementsByClassName("radio1");
+            //                       3
+            for(let i = 0 ; i < objs.length ; i++){
+                if(objs[i].checked){
+                    document.getElementById("div1").innerHTML=objs[i].value;
+                    break;
+                }
+            }
+        }); 
+
+    </script>
+</body>
+</html>

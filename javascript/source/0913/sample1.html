@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            1.컴퓨터가 랜덤한 1~100 사이의 수를 하나 정함
+            2. 유저는 1~100사이의 임의의 한 수를 입력하면 컴퓨터는 해당 수가 컴퓨터가
+               지정한 수보다 작은지 혹은 큰지 힌트를 준다.
+            3. 지정된 횟수 내에(10번) 컴터가 정한 수를 유저가 맞추면 유저 승,못맞추면 컴터 승
+
+        */
+        /*
+         1.랜덤함수로 숫자 하나 뽑아서 변수 a에 저장
+         1-1. a는 1~100까지 
+         2.유저가 입력한 수를 변수 b에 저장
+         3.게임 횟수를 저장할 변수 cnt 생성 (초기화는 0)
+         4.  a > b, a < b 인 경우 a는 b보다 작다/크다를 출력함과 동시에 cnt++
+         5. cnt=10 초과일 경우 컴터 승리 출력 및 겜 종료
+        */
+
+        let a = Math.floor(Math.random() * 100) + 1;
+        document.write(a);
+        let b = 0;
+        b = Number(b);
+        let cnt = 0;
+        // cnt =Number(cnt);
+
+
+        while (cnt <= 10) {
+
+            b = prompt("1~100 사이의 숫자를 입력");
+            if (b > a) {
+                alert("업");
+
+            } else if (b < a) {
+                alert("다운");
+
+            } else if (a == b) {
+                alert("유저 승");
+                break;
+            } else if (cnt == 10) {
+                alert("컴터 승");
+                break;
+            }
+            cnt++;
+        }
+
+    </script>
+</body>
+
+</html>

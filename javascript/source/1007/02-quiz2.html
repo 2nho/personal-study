@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="my-input" value="">
+    <button id="my-btn" onclick="alert('hello world!')">Button</button>
+
+    <script>
+        const input = document.getElementById("my-input");
+        input.addEventListener("keyup", function(event){
+            if(event.keyCode === 13){
+                event.preventDefault();
+                document.getElementById("my-btn").click();
+            }
+        });
+    </script>
+</body>
+</html>

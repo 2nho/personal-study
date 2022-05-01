@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        number 타입 input 태그에서 쓸 수 있는 속성
+        - min : 입력할 수 있는 최소값. type이 range일 때 기본 최소값은 0
+        - max : 입력할 수 있는 최대값. type이 range일 때 기본 최대값은 100
+        - step : 숫자의 간격, 기본값은 1이며 생략 가능하다.
+        - value : 표시되는 초기값
+     -->
+    <form action="#" method="get">
+        <label><input type="number" min="0" max="10" name="num1" id="num1" value="0" step="2"></label><br>
+        <label><input type="range" name="num2" id="num2"></label>
+    </form>
+</body>
+</html>

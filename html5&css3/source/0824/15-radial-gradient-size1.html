@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        radial-gradient(모양 크기 at 위치, 시작 색, [색상...]) 
+        - 원형 그라데이션을 배경으로 넣을 때 사용하는 함수
+        - 모양 : circle(원형), ellipse(타원) 둘 중 하나를 통해 그라데이션의 모양을 정할 수 있다.
+        - 크기 : closest-side => 그라데이션의 가장자리가 그라데이션 중심에서 가장 가까운 요소의 면과 만남
+                 closest-corner => 그라데이션의 가장자리가 그라데이션 중심에서 가장 가까운 요소의 코너와 만남
+                 farthest-side => 그라데이션의 가장자리가 그라데이션 중심에서 가장 멀리 떨어진 면과 만남
+                 farthest-corner => 그라데이션의 가장자리가 그라데이션의 중심에서 가장 먼 코너와 만남
+        - 위치 : 좌측 상단을 기준으로 퍼센트 혹은 px로 지정 가능
+        - 색은 무조건 두개 이상의 색상이 필요로 하며 맨 왼쪽에 오는 색상이 시작 색, 맨 끝에 오는 색상이 끝에
+          지정된 색이 온다.
+         */
+        div {
+            width : 300px;
+            height : 300px;
+            border: 1px solid black;
+            margin : 10px;
+        }
+        .div1{
+            background: radial-gradient(circle closest-side at 30% 40%, white, yellow,green);
+        }
+        .div2{
+            background: radial-gradient(circle closest-corner at 30% 40%, white, yellow,green);
+        }
+        .div3{
+            background: radial-gradient(circle farthest-side at 30% 40%, white, yellow,green);
+        }
+        .div4{
+            background: radial-gradient(circle farthest-corner at 30% 40%, white, yellow,green);
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4"></div>
+</body>
+</html>

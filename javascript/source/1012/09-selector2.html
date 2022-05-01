@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        // $(function(){
+        //     $("*").css("border","1px solid blue");
+            
+        // });
+    </script>
+</head>
+<body>
+    <h1>제이쿼리</h1>
+    <h2 class="cl1">선택자1</h2>
+    <h3 id="id1">선택자2</h3>
+    <h3>선택자3</h3>
+    <script>
+        $("*").css("border","1px solid blue");
+        $("h3").css("background-color", "yellow");
+        $(".cl1").css("font-style","italic");
+        $("#id1").css("color","red");
+        $("h1, h2").css("transform","translateX(50px)");
+    </script>
+</body>
+</html>

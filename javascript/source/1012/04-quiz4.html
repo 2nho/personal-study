@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>클리커 게임 만들기</h1>
+    <button id="earn">10원</button>
+    <p id="total">벌어들인 금액 : <span>0</span>원</p>
+    <button id="save">저장</button>
+
+    <script>
+        let money = 0;
+        const span = document.querySelector("#total>span");
+
+        window.addEventListener("DOMContentLoaded", function(){
+            if(localStorage.getItem("clicker-money")){
+                span.textContent = localStorage.getItem("clicker-money");
+                money = Number(localStorage.getItem("clicker-money"));
+            }
+        });
+
+        document.getElementById("earn").addEventListener("click",function(){
+            money += 10;
+            span.textContent = money;
+        });
+
+        document.getElementById("save").addEventListener("click",function(){
+            localStorage.setItem("clicker-money",money);
+        });
+    </script>
+</body>
+</html>

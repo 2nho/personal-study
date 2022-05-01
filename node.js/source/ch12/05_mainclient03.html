@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>Socket.io Chat Example</h3>
+        <div class="form-inline">
+            <div class="form-group">
+                <label for="msgForm">Message: </label>
+                <input type="text" class="form-control" id="msgForm">
+            </div>
+            <button type="button" id="sendMsg" class="btn btn-primary">Send</button>
+        </div>
+        <div id="chatLogs"></div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        // socket.io 서버에 접속한다
+        var socket = io();
+
+        // 서버로 자신의 정보를 전송한다.
+        socket.emit("login", {
+            name: "kgh",
+            userid: "kgh@gmail.com"
+        });
+
+        // 서버로부터의 메시지가 수신되면
+        socket.on("login", function(data) {
+            let block1 = document.createElement("div");
+            let block2 = document.createElement("strong");
+            let text1 = document.createTextNode(data );
+            let text2 = document.createTextNode("님이 입장하셨습니다");
+            block2.appendChild(text1);
+            block1.appendChild(block2);
+            block1.appendChild(text2);
+
+            document.getElementById("chatLogs").appendChild(block1);
+        });
+
+        // 서버로부터의 메시지가 수신되면
+        socket.on("chat", function(data) {
+            var block1 = document.createElement("div");
+            var block2 = document.createElement("strong");
+            var text1 = document.createTextNode(data.from.name+":" );
+            var text2 = document.createTextNode(data.msg);
+            block2.appendChild(text1);
+            block1.appendChild(block2);
+            block1.appendChild(text2);
+
+            document.getElementById("chatLogs").appendChild(block1);
+        });
+
+        // 버튼 클릭 시 서버로 메시지 전송
+        document.getElementById("sendMsg").onclick = () =>{
+            let message = document.getElementById("msgForm").value;
+            socket.emit("chat", { msg: message });
+            document.getElementById("msgForm").value = "";
+        }
+
+        // input 에서 enter시 서버로 메시지 전송
+        document.getElementById("msgForm").addEventListener('keydown', function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                let message = document.getElementById("msgForm").value;
+                socket.emit("chat", { msg: message });
+                document.getElementById("msgForm").value = "";
+            };
+        }, true);
+    </script>
+</body>
+</html>

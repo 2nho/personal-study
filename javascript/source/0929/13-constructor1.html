@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 생성자(constructor)
+        /*  
+            * 인스턴스 = 객체 = 오브젝트
+            - constructor는 클래스 인스턴스(객체)를 생성하고 생성한 인스턴스(객체)를 초기화하는 역할을 한다.
+            - 클래스에서 생성자를 생성하지 않으면 prototype에 있는 constructor가 디폴트로 실행된다.
+            - constructor에서는 일반적으로 return문을 작성하지 않으며 return문을 작성한다 하더라도 생성된 인스턴스를
+              반환한다.
+        */
+        class Class1 {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+                return 1;
+            }
+            getName() {
+                return this.name;
+            }
+            getAge() {
+                return this.age;
+            }
+        }
+
+        const obj1 = new Class1("홍길동", 29);
+        console.log(obj1.getName());
+        console.log(obj1.getAge());
+    </script>
+</body>
+
+</html>

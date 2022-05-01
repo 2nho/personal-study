@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            auto-fill, auto-fit
+            => repeat 함수와 같이 사용되는 옵션 함수
+            => 반복 횟수에 이 함수가 사용되며 컨테이너의 크기가 아이템들을 수용하기 충분치 않을 경우
+            아이템을 자동적으로 줄바꿈 처리하며, 그에 맞게 암시적 행/열도 자동으로 수정한다.
+            => auto-fill과 auto-fit의 차이점은 그리드 컨테이너가 하나의 행/열(Track)에 모든
+               아이템을 수용하고 남은 공간이 있을 때 발생한다.
+            => auto-fill은 남은 공간(빈 트랙)을 그대로 유지하고, auto-fit은 남는 공간을 축소한다.
+
+            auto
+            => grid-template에서 auto를 사용할 경우 해당 셀은 다른 셀이 차지한 공간을 제외한
+              나머지 공간을 전부 차지하게 된다.
+        */
+        .grid-container {
+            display: grid;
+            /* grid-template-columns: repeat(auto-fill, minmax(120px, auto)); */
+            grid-template-columns: repeat(auto-fit, minmax(120px, auto));
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+    </div>
+</body>
+</html>

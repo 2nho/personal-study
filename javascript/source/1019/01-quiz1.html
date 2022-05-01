@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        body {
+            margin : 20px;
+            padding : 20px;
+            line-height : 1;
+            font-family: sans-serif;
+            font-size : 1rem;
+            background-color: #555;
+            color : #000;
+        }
+
+        button {
+            padding : 5px 15px;
+            background-color : #666;
+            color : black;
+            border : none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.5s;
+        }
+        button:hover {
+            background-color: #888;
+        }
+
+        .title {
+            margin:0;
+            padding : 0;
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+        .container {
+            margin-top: 35px;
+        }
+        .modal_mask {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 80;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .layer_popup {
+            display: none;
+            position: fixed;
+            left : 0;
+            top : 0;
+            z-index: 100;
+            width : 490px;
+            background-color:white;
+            color : #494949;
+        }
+
+        .layer_popup input[type=text] {
+            padding : 4px;
+        }
+
+        .layer_popup .pop_title {
+            position: relative;
+            height: 42px;
+            line-height: 40px;
+            text-indent: 16px;
+            font-size: 1rem;
+            font-weight: 500;
+            background-color: #8ac007;
+            color : #fff
+        }
+
+        .layer_popup .close {
+            display: block;
+            position: absolute;
+            right: 9px;
+            top : 9px;
+            width : 24px;
+            height: 24px;
+            text-indent: 0;
+        }
+
+        .layer_popup .close img {
+            /* 테스트 */
+            vertical-align: top; 
+        }
+
+        .layer_popup .popup_contents {
+            padding : 25px;
+            max-height: 500px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .layer_popup .popup_contents .title-area span {
+            display: block;
+            margin-top: 10px;
+            font-size: 00.875rem;
+            font-weight: 400;
+            color:#8ac007;
+        }
+
+        .layer_popup .login_type {
+            margin-top: 12px;
+            margin-bottom : 16px;
+            padding: 16px 20px;
+            background-color: #fafafa;
+            border : 1px solid #eee;
+        }
+
+        .layer_popup .login_type li {
+            display: block;
+            margin-top : 12px;
+            font-size: 00.875rem;
+        }
+
+        .layer_popup .login_type li:first-child {
+            margin-top: 0;
+        }
+
+        .layer_popup .login_type span {
+            display: inline-block;
+            /* 테스트 */
+            vertical-align: top;
+            line-height: 27px;
+        }
+
+        .layer_popup .login_type span:first-child {
+            width : 120px;
+        }
+
+        .layer_popup .popup_contents .contents_info {
+            padding-left : 10px;
+            line-height: 18px;
+            font-size: 0.875rem;
+            background: url("images/bullet_list.gif") no-repeat 2px 8px;
+        }
+
+        .layer_popup .popup_contents .contents_info .additional {
+            display: block;
+            margin-top: 5px;
+            font-size : 0.815rem;
+            color: #c9c9c9;
+        }
+
+        .layer_popup .popup_contents .agreement {
+            margin-top : 27px;
+            font-size: 0.875rem;
+        }
+
+        .layer_popup .popup_contents .agreement .check {
+            margin-top : 2px;
+        }
+
+        .layer_popup .popup_contents .submit_area {
+            clear : left;
+            margin : 24px 0 4px;
+            text-align: center;
+        }
+
+        .layer_popup .popup_contents .submit_area a {
+            display: inline-block;
+            width : 90px;
+            height: 30px;
+            line-height: 30px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            transition: all 0.3s;
+        }
+
+        .layer_popup .popup_contents .submit_area .submit {
+            background-color: #8ac007;
+            color : #fff;
+            border : 1px solid #75a500;
+        }
+
+        .layer_popup .popup_contents .submit_area .submit:hover {
+            background-color: #75a500;
+        }
+
+        .layer_popup .popup_contents .submit_area .cancel {
+            background-color: white;
+            color : #a8a8a8;
+            border : 1px solid #eee;
+        }
+        .layer_popup .popup_contents .submit_area .cancel:hover {
+            background-color: #eee;
+        }
+
+        .layer_popup .popup_contents .submit_area a:first-child {
+            margin-right : 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">Frequently Used Layered Popup</h1>
+    <div class="container">
+        <button class="open_popup">open popup</button>
+    </div>
+
+    <div id="popup1" class="layer_popup">
+        <div class="pop_title">
+            <span>Sign in process</span>
+            <a href="" class="close" title="close">
+                <img src="images/btn_close.gif" alt="close">
+            </a>
+        </div>
+        <div class="popup_contents">
+            <div class="title_area">
+                <span>Please enter the coreect infomation for you.</span>
+            </div>
+            <div class="login_type">
+                <ul>
+                    <li>
+                        <span><label for="name">name</label></span>
+                        <span><input type="text" id="name" style="width:260px;"></span>
+                    </li>
+                    <li>
+                        <span><label for="num1">e-mail</label></span>
+                        <span>
+                            <input type="text" id="num1" style="width:138px;">
+                            @
+                            <input type="text" id="num2" style="width:90px;">
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="contents_info">
+                Not a number yet? Get an ID
+                <span class="additional">
+                    In accordance with the Privacy Act receives the Usage Agreement
+                </span>
+            </div>
+            <div class="agreement">
+                <input type="checkbox" name="" id="agreement" class="check" title="동의">
+                <label for="agreement">Stay signed in.</label>
+            </div>
+            <div class="submit_area">
+                <a href="#" class="submit">Sign in</a>
+                <a href="#" class="cancel">Cancel</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            const $popup = $(".layer_popup");
+            const $open = $(".open_popup");
+            const $close = $(".close");
+            if($popup.length > 0){
+                $("body").append('<div class="modal_mask"></div>');
+            }
+
+            maskInit();
+
+            $(window).on("resize", function(){
+                maskInit();
+                popupShape();
+            });
+
+            $open.on("click", function(){
+                openPopup();
+            })
+
+            $close.on("click", function(e){
+                e.preventDefault();
+                $(this).parents(".layer_popup").fadeOut();
+                $(".modal_mask").fadeOut();
+                $open.focus();
+            });
+            function maskInit(){
+                let maskWidth = $(document).width();
+                let maskHeight = $(document).height();
+                $(".modal_mask").css({width:maskWidth+"px", height:maskHeight+"px"});
+            }
+            function openPopup(){
+                $(".modal_mask").fadeIn();
+                $("#popup1").fadeIn(600, function(){
+                    $("input#name").focus();
+                });
+                popupShape();
+            }
+
+            function popupShape(){
+                let winW = $(window).width();
+                let winH = $(window).height();
+                let thisW = $("#popup1").width();
+                let thisH = $("#popup1").height();
+
+                // width
+                if($(window).width() > $("#popup1").width()){
+                    $("#popup1").css({left:((winW-thisW)/2)+"px"});
+                }else{
+                    $("#popup1").css({left:"0px"});
+                }
+
+                // height
+                if($(window).height() > $("#popup1").height()){
+                    $("#popup1").css({top:((winH-thisH)/2)+"px"});
+                }else{
+                    $("#popup1").css({top:"0px"});
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

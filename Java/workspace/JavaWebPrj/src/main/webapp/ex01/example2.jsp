@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="example2_1.jsp">
+		<ul>
+			<li><label for="id">아이디</label><input type="text" id="id" name="id" /></li>
+			<li><label for="pw">패스워드</label><input type="text" id="pw" name="pw" /></li>
+			<li><input type="text" id="data1" name="data" /></li>
+			<li><input type="text" id="data2" name="data" /></li>
+			<li><input type="text" id="data3" name="data" /></li>
+			<li><button>전송</button></li>
+		</ul>
+	</form>
+</body>
+</html>

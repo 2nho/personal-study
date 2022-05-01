@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="loc">내 위치 받아오기</button>
+    <p id="demo"></p>
+
+    <script>
+        const x = document.getElementById("demo");
+
+        document.getElementById("loc").addEventListener("click",function(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(function(p){
+                    x.innerHTML = `<p>위도 : ${p.coords.latitude}  경도 : ${p.coords.longitude}</p>`;
+                });
+            }else{
+                x.innerHTML = "<p>이 브라우저에서는 위치추적을 할 수 없습니다.</p>";
+            }
+        });
+    </script>
+</body>
+</html>

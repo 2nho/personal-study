@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Open Sans", sans-serif;
+            font-size: 1em;
+            background: #f1f1f1;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        header {
+            position: relative;
+            width: 100%;
+        }
+
+        .container {
+            margin: 0 auto;
+            padding: 22px 0 20px;
+            width: 1000px;
+        }
+
+        .container:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .container .title {
+            float: left;
+            width: 220px;
+            font-size: 1.125em;
+            font-weight: 600;
+        }
+
+        .container .title a {
+            line-height: 40px;
+            text-decoration: none;
+            color: #555;
+        }
+
+        nav {
+            float: right;
+            margin-top: 10px;
+            width: 77%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        nav>ul>li {
+            float: left;
+            position: relative;
+            z-index: 8;
+        }
+
+        nav>ul>li>a {
+            display: block;
+            width: 150px;
+            height: 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 400;
+            color: #555;
+            background: 20px -20px no-repeat;
+        }
+
+        nav>ul>li.on>a {
+            color: #8ac007;
+        }
+
+        nav .depth2 {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 19px;
+            padding-top: 20px;
+            width: 100%;
+        }
+
+        nav .depth2>ul {
+            padding: 20px;
+            height: 250px;
+            border-right: 1px solid #eaeaea;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        nav>ul>li.on>.depth2>ul {
+            background: #8ac007;
+        }
+
+        nav .depth2>ul>li {
+            padding: 5px 0 0 0;
+            text-align: left;
+        }
+
+        nav .depth2>ul>li>a {
+            text-decoration: none;
+            font-size: 0.813em;
+            color: #555;
+        }
+
+        nav>ul>li.on>.depth2>ul>li>a {
+            color: #fff;
+        }
+
+        nav>ul>li.on>.depth2>ul>li>a:hover,
+        nav>ul>li.on>.depth2>ul>li>a:focus {
+            text-decoration: underline;
+        }
+
+        nav .image_area {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 70px;
+            z-index: 6;
+            width: auto;
+            height: 250px;
+            min-width: 100%;
+            background: #f7f7f7;
+            border-top: 1px solid #dedede;
+            border-bottom: 1px solid #dedede;
+        }
+
+        nav .image_area .icons {
+            margin: 0 auto;
+            width: 1000px;
+        }
+
+        nav .image_area .icons>p {
+            display: none;
+            margin-left: -30px;
+            padding-top: 20px;
+        }
+
+        .focusout {
+            display: inline-block;
+            width: 0;
+            height: 0;
+        }
+
+        .focusout a {
+            display: block;
+            text-indent: -9999px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="title"><a href="#">Web Accessibility Menu</a></h1>
+            <nav>
+                <ul>
+                    <li class="menu1">
+                        <a href="#">HTML</a>
+                        <div class="depth2">
+                            <ul>
+                                <li><a href="#">HTML Tutorial</a></li>
+                                <li><a href="#">HTML Forms</a></li>
+                                <li><a href="#">HTML5</a></li>
+                                <li><a href="#">HTML Graphics</a></li>
+                                <li><a href="#">HTML Media</a></li>
+                                <li><a href="#">HTML APIs</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu2">
+                        <a href="#">CSS</a>
+                        <div class="depth2">
+                            <ul>
+                                <li><a href="#">CSS Tutorial</a></li>
+                                <li><a href="#">CSS3</a></li>
+                                <li><a href="#">CSS Responsive</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu3">
+                        <a href="#">JavaScript</a>
+                        <div class="depth2">
+                            <ul>
+                                <li><a href="#">JS Tutorial</a></li>
+                                <li><a href="#">JS Forms</a></li>
+                                <li><a href="#">JS Objects</a></li>
+                                <li><a href="#">JS Functions</a></li>
+                                <li><a href="#">JS HTML DOM</a></li>
+                                <li><a href="#">JS Brower BOM</a></li>
+                                <li><a href="#">JS Libraries</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu4">
+                        <a href="#">jQuery</a>
+                        <div class="depth2">
+                            <ul>
+                                <li><a href="#">jQuery Tutorial</a></li>
+                                <li><a href="#">jQuery Effects</a></li>
+                                <li><a href="#">jQuery HTML</a></li>
+                                <li><a href="#">jQuery Traversing</a></li>
+                                <li><a href="#">jQuery AJAX</a></li>
+                    </li>
+                </ul>
+        </div>
+        </li>
+        <li class="menu5">
+            <a href="#">XML</a>
+            <div class="depth2">
+                <ul>
+                    <li><a href="#">XML Tutorial</a></li>
+                    <li><a href="#">XML DOM</a></li>
+                    <li><a href="#">DOM Reference</a></li>
+                    <li><a href="#">XML DTD</a></li>
+        </li>
+        </ul>
+        </div>
+        </li>
+        </ul>
+        <div class="image_area">
+            <div class="icons">
+                <p class="icon1"><img src="images/icon1.png" alt="HTML5"></p>
+                <p class="icon2"><img src="images/icon2.png" alt="CSS3"></p>
+                <p class="icon3"><img src="images/icon3.png" alt="JavaScript"></p>
+                <p class="icon4"><img src="images/icon4.png" alt="jQuery"></p>
+                <p class="icon5"><img src="images/icon5.png" alt="XML"></p>
+            </div>
+        </div>
+        </nav>
+        </div>
+        <div class="focusout"><a href="">focusout</a></div>
+    </header>
+    <script>
+        $(function () {
+            let n = 0;
+            $("nav > ul > li, header .image_area").on("mouseenter focusin", function () {
+                $("nav .depth2").show();
+                $(".image_area").show();
+            });
+            $("nav >ul >li >a, nav .depth2").on("mouseenter focusin", function () {
+                $("nav > ul > li").removeClass("on");
+                $(this).parent().addClass("on");
+                $("nav .depth2 > ul").removeClass("bgn");
+                $(this).parent().prev("li").find("ul").addClass("bgn");
+                $(".icons > p").hide();
+                n = 0;
+
+                $("nav > ul > li").each(function () {
+                    n = n + 1;
+                    if ($("nav > ul > li.menu" + n + "").hasClass("on")) {
+                        $(".icons").find(".icon" + n + "").show();
+                    }
+                });
+            });
+            $(".container, header .image_area").on("mouseleave", function () {
+                $("nav >ul >li").removeClass("on");
+                $("nav .depth2").hide();
+                $(".image_area").hide();
+            });
+            $(".focusout a").on("focusin", function () {
+                $("nav >ul >li").removeClass("on");
+                $("nav .depth2").hide();
+                $(".image_area").hide();
+            });
+        });
+    </script>
+</body>
+
+</html>

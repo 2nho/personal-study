@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 단항 부정/ 단항 양부호
+        /*
+            - 단항 부정 연산자는 피연산자의 부호를 뒤집을 때 사용한다. 즉 양수를 음수로, 음수를 양수로 변환할 때
+              사용할 수 있다.
+            - 단항 양부호 연산자는 값이 숫자가 아닌 경우 숫자로 변환을 할 경우 사용하는 경우가 많다.
+            - 물론 단항 부정 연산자를 숫자가 아닌 값에 사용할 경우 역시 숫자로 변환이 된다.
+            - 문자열의 경우 안에 숫자가 아닌 다른 문자가 끼어 있을 경우 에러가 발생한다.
+        */
+        let a1 = 3;
+        a1 = -a1;
+        console.log(a1);
+
+        let a2 = "4";
+        console.log(a2*5); // 20
+        a2 = -a2;
+        console.log(a2+5); // 1
+
+        let a3 = "5";
+        // console.log(-(-a3)+5);
+        console.log(+a3 + 5);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style>
+        #panel {
+            width : 600px;
+            overflow: visible;
+            border : 2px solid red;
+            font-size : 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="panel"></div>
+    <script>
+        // 초기화 변수 선언
+        let cnt = 0;
+        let $panel = null;
+
+        $(function(){
+            // 초기화
+            init();
+            // 타이머 시작
+            start();
+        });
+
+        function init(){
+            // panel 초기화 오브젝트 선언
+            $panel = $("#panel");
+        }
+
+        function start(){
+            // 1초마다 addTag 함수를 실행
+            setInterval(addTag, 1000);
+        }
+
+        function addTag(){
+            // span 태그를 동적으로 생성하여 얻기
+            const $span = $("<span></span>");
+            // 스타일 값 생성하기
+            // 색상을 16진수로 랜덤하게 구하는 코드
+            let color = "#" + (parseInt(Math.random() * 0xffffff)).toString(16);
+            // 10px ~ 50px 사이의 글자 크기를 랜덤하게 구하는 코드
+            let fontSize = (10 + parseInt(Math.random() * 40))+ "px";
+            // 위에서 구현한 스타일 설정하기
+            $span.css({
+                color : color,
+                fontSize : fontSize,
+                display : "inline-block"
+            });
+            // 숫자 1 증가
+            cnt++;
+            // span 태그 안에 cnt를 추가하고 있는 코드
+            $span.html(cnt);
+            // 패널의 span객체를 추가함으로써 자식노드를 계속 추가를 하는 코드
+            $panel.append($span);
+        }
+    </script>
+</body>
+</html>

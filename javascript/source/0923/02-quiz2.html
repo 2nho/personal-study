@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul1">
+        <li><label for="ch1">아이템1</label><input type="checkbox" name="c1" id="ch1"></li>
+        <li><label for="ch2">아이템2</label><input type="checkbox" name="c1" id="ch2"></li>
+        <li><label for="ch3">아이템3</label><input type="checkbox" name="c1" id="ch3"></li>
+        <li><label for="ch4">아이템4</label><input type="checkbox" name="c1" id="ch4"></li>
+        <li><label for="ch5">아이템5</label><input type="checkbox" name="c1" id="ch5"></li>
+    </ul>
+    <ul id="ul2">
+        <li><label for="ch6">아이템6</label><input type="checkbox" name="c1" id="ch6"></li>
+        <li><label for="ch7">아이템7</label><input type="checkbox" name="c1" id="ch7"></li>
+        <li><label for="ch8">아이템8</label><input type="checkbox" name="c1" id="ch8"></li>
+        <li><label for="ch9">아이템9</label><input type="checkbox" name="c1" id="ch9"></li>
+        <li><label for="ch10">아이템10</label><input type="checkbox" name="c1" id="ch10"></li>
+    </ul>
+    <button id="b1">ul1위에서 ul2위로</button><br>
+    <button id="b2">ul1위에서 ul2아래로</button><br>
+    <button id="b3">ul1아래서 ul2위로</button><br>
+    <button id="b4">ul1아래서 ul2아래로</button><br>
+    <button id="b5">ul2위에서 ul1위로</button><br>
+    <button id="b6">ul2위에서 ul1아래로</button><br>
+    <button id="b7">ul2아래서 ul1위로</button><br>
+    <button id="b8">ul2아래서 ul1아래로</button><br>
+    <button id="b9">삭제</button><br>
+    <input type="text" id="text" name="text"><button id="b10">수정</button><br>
+    <script>
+        document.getElementById("b1").addEventListener("click", function(){
+            const f1 = document.getElementById("ul1").firstElementChild;
+            document.getElementById("ul2").prepend(f1);
+        });
+        document.getElementById("b2").addEventListener("click",function(){
+            const f1 = document.getElementById("ul1").firstElementChild;
+            document.getElementById("ul2").append(f1);
+        });
+        document.getElementById("b3").addEventListener("click",function(){
+            const f1 = document.getElementById("ul1").lastElementChild;
+            document.getElementById("ul2").prepend(f1);
+        });
+        document.getElementById("b4").addEventListener("click",function(){
+            const f1 = document.getElementById("ul1").lastElementChild;
+            document.getElementById("ul2").append(f1);
+        });
+        document.getElementById("b5").addEventListener("click", function(){
+            const f1 = document.getElementById("ul2").firstElementChild;
+            document.getElementById("ul1").prepend(f1);
+        });
+        document.getElementById("b6").addEventListener("click",function(){
+            const f1 = document.getElementById("ul2").firstElementChild;
+            document.getElementById("ul1").append(f1);
+        });
+        document.getElementById("b7").addEventListener("click",function(){
+            const f1 = document.getElementById("ul2").lastElementChild;
+            document.getElementById("ul1").prepend(f1);
+        });
+        document.getElementById("b8").addEventListener("click",function(){
+            const f1 = document.getElementById("ul2").lastElementChild;
+            document.getElementById("ul1").append(f1);
+        });
+        document.getElementById("b9").addEventListener("click",function(){
+            const input = document.querySelectorAll(`input[name="c1"]`);
+            for (const item of input) {
+                if(item.checked){
+                    item.parentElement.remove();
+                }
+            }
+        });
+        document.getElementById("b10").addEventListener("click",function(){
+            const input = document.querySelectorAll(`input[name="c1"]`);
+            let text = document.getElementById("text").value;
+            for (const i of input) {
+                if(i.checked){
+                    i.previousElementSibling.innerText = text;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

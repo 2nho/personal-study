@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li onclick="showDetail(this)" id="owl" data-animal-type="bird">Owl</li>
+        <li onclick="showDetail(this)" id="salmon" data-animal-type="fish">Salmon</li>
+        <li onclick="showDetail(this)" id="tarantula" data-animal-type="spider">Trantula</li>
+    </ul>
+    <script>
+        function showDetail(animal) {
+            console.dir(animal);
+            // let animalType = animal.getAttribute("data-animal-type");
+            let animalType = animal.dataset.animalType;
+            alert("The "+animal.innerHTML+" is a "+animalType + ".");
+        }
+    </script>
+</body>
+</html>

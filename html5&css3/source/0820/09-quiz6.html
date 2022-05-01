@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <h1>프론트앤드 개발자 지원서</h1>
+        <p>HTML,CSS,JavaScript에 대한 기술적 이해와 경험이 있는 분들을 찾습니다</p>
+        <hr>
+        <form action="" method="get">
+            <h4>개인정보</h4>
+            <ul type="none">
+                <li>
+                    <label for="sname">이름</label>
+                    <input type="text" id="sname" placeholder="공백없이 입력해주세요" autofocus>
+                </li>
+                <li>
+                    <label for="stel">연락처</label>
+                    <input type="tel" id="stel">
+                </li>
+            </ul>
+            <h4>지원분야</h4>
+            <ul type="none">
+                <li><input type="radio" name="field" id="rd1"><label for="rd1">웹 퍼블리싱</label></li>
+                <li><input type="radio" name="field" id="rd2"><label for="rd2">웹 어플리케이션 개발</label></li>
+                <li><input type="radio" name="field" id="rd3"><label for="rd3">개발 환경 개선</label></li>
+            </ul>
+            <h4>지원동기</h4>
+            <!-- <textarea placeholder="본사 지원 동기를 간략히 써 주세요" cols="60" rows="5"></textarea> -->
+            <div contenteditable="true" aria-placeholder="본사 지원 동기를 간략히 써 주세요"
+            style="width:450px;height:200px"></div>
+            <!-- <ul type="none">
+                <li>
+                    <button type="submit">접수하기</button>
+                    <button type="reset">다시 쓰기</button>
+                </li>
+            </ul> -->
+            <div>
+                <button type="submit">접수하기</button>
+                <button type="reset">다시 쓰기</button>
+            </div>
+        </form>
+    </fieldset>
+</body>
+</html>

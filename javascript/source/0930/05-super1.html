@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // super
+        /*
+            - super는 상속받은 super 클래스의 필드나 메서드를 참조할 때 쓰는 키워드이다.
+            - 실제 메소드 오버라이딩이 발생하거나 강제로 super 클래스의 메서드를 참조할 경우 쓴다.
+        */
+        class Person{
+            constructor(name, age){
+                this.name = name || "이름없음";
+                this.age = age || "나이모름";
+            }
+            // setName(name){this.name = name}
+            getName(){return this.name;}
+            getAge(){return this.age;}
+        }
+
+        class Employee extends Person{
+            // constructor는 상속이 되지 않으므로 반드시 상위
+            // 클래스의 constructor를 불러오는 super를 사용해서 선언해야 한다.
+            constructor(name, age, position){
+                super(name);
+                this.position = position;
+            }
+            getPosition(){return this.position;}
+            getState(){
+                console.log(super.getName()+"은 근무중입니다.");
+            }
+            getProfile(){
+                console.log(this.name + ":" + this.age);
+            }
+        }
+
+        const gom = new Employee("김근형",48,"CEO");
+        gom.getState();
+        gom.getProfile();
+        console.dir(gom);
+    </script>
+</body>
+</html>

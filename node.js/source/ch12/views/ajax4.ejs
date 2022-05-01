@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>id : <input type="text" id="id" name="id"></label><br>
+    <label>content : <input type="text" id="content" name="content"></label><br>
+    <button type="button" onclick="loadJsonBy()">전송</button>
+    <div>
+        <p id="state"></p>
+        <p id="outid">id</p>
+        <p id="outcontent">content</p>
+    </div>
+    <script>
+        var xhttp = new XMLHttpRequest();
+        xhttp.responseType = 'json'; // 받고자 하는 데이터의 타입을 설정
+
+        function loadJsonBy() {
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 1){
+                    document.getElementById("state").innerHTML = '로딩중...';
+                    this.setRequestHeader('Content-type', 'application/json');
+                }else if(this.readyState == 2 || this.readyState == 3){
+                    document.getElementById("state").innerHTML = '로딩중...';
+                }else if (this.readyState == 4 && (this.status == 200 || this.status == 201)) {
+                    var data = this.response;  // response는 json 형태로 받아온다.
+                    document.getElementById("state").innerHTML = '로딩완료';
+                    document.getElementById("outid").innerHTML = data.id;
+                    document.getElementById("outcontent").innerHTML = data.content;
+                }
+            };
+            var data = {
+                id : document.getElementById("id").value,
+                content : document.getElementById("content").value
+            }
+            var data_json = JSON.stringify(data);
+
+            xhttp.open("POST", "ajax4_result1", true);
+            xhttp.send(data_json);
+        }
+    </script>
+</body>
+</html>

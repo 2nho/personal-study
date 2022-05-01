@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li onclick="showDetails(this)" id="gitanjali" data-book-author="Rabindra Nath Tagore">
+            Gitanjali
+        </li>
+
+        <li onclick="showDetails(this)" id="conquest_of_self" data-book-author="Mahatma Gandhi">
+            Conquest of Self
+        </li>
+
+        <li onclick="showDetails(this)" id="broken_wings" data-book-author="Sarojini Naidu">
+            Broken Wings
+        </li>
+    </ul>
+    <script>
+        function showDetails(params) {
+            let bookAuthor = params.dataset.bookAuthor;
+            alert(`${params.innerHTML} is written by ${bookAuthor}.`);
+        }
+
+        param => ({sports:param});
+    </script>
+</body>
+</html>

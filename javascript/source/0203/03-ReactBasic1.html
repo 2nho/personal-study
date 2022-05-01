@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        // const h1 = document.createElement("h1");
+        // h1.innerText = "Hello World";
+        // document.querySelector("#app").append(h1);
+
+        // ReactDOM.render(
+        //     React.createElement("h1", {className:'large'}, "Hello World"),
+        //     document.querySelector("#app")
+        // );
+
+        // ReactDOM.render(
+        //     <h1>hello world</h1>,
+        //     document.querySelector("#app")
+        // );
+
+        class App extends React.Component {
+            render(){
+                return <h1>Hello World</h1>;
+            }
+        }
+        const app = document.querySelector("#app");
+        ReactDOM.render(<App />, app);
+    </script>
+</body>
+</html>

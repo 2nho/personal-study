@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Array라는 클래스를 이용해 생성하는 방식
+        const arr1 = new Array();
+
+        arr1[0] = 1;
+        arr1[1] = 2;
+        arr1[2] = 3;
+
+        console.log(arr1[0],arr1[1],arr1[2]);
+        console.dir(arr1);
+
+        // Array라는 클래스를 이용해 공간만 생성하는 방식
+        const arr2 = new Array(10);
+
+        // console.dir(arr2);
+        arr2[2] = 3;
+        console.dir(arr2);
+        console.dir(arr2[5]);
+
+        // Array litaral을 가지고 선언하는 방식
+        const arr3 = [];
+        arr3[0] = 1;
+        arr3[1] = 2;
+        arr3[2] = 5;
+
+        console.log(arr3);
+
+        // new Array로 아이템 미리 넣어서 배열 만드는 법
+        const arr4 = new Array(1, 2, 3,"학교","등교");
+        console.log(arr4);
+
+        // [] 로 아이템 미리 넣어서 배열 만드는 법
+        const arr5 = [1,3,5,"의적","홍길동"];
+        console.log(arr5);
+    </script>
+</body>
+</html>

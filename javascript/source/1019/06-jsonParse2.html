@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        // 1
+        // const txt = `{"name":"John", "age":30, "city":"New York"}`;
+        // const obj = JSON.parse(txt);
+        // document.getElementById("demo").innerHTML = obj.name + ", "+obj.age;
+        // 2
+        // const txt = `{"name":"John", "birth":"1985-02-15", "city":"New York"}`;
+        // const obj = JSON.parse(txt);
+        // obj.birth = new Date(obj.birth);
+        // document.getElementById("demo").innerHTML = obj.name + ", "+obj.birth;
+        // 3
+        const txt = `{"name":"John", "birth":"1985-02-15", "city":"New York"}`;
+        const obj = JSON.parse(txt, function(key, value){
+            if(key == "birth"){
+                return new Date(value);
+            }else {
+                return value;
+            }
+        });
+        document.getElementById("demo").innerHTML = obj.name + ", "+obj.birth;
+    </script>
+</body>
+</html>

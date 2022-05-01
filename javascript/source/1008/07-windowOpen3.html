@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">오픈</button>
+    <button id="send">전송</button>
+
+    <script>
+        let openWin = null;
+        let num = 1000;
+
+        document.getElementById("btn").addEventListener("click", function(){
+            openWin = window.open("07-1childOpen3.html", "_blank", "width=600,height=400,resizable=no");
+        });
+
+        document.getElementById("send").addEventListener("click",function(){
+            openWin.document.getElementById("content").innerHTML = `<h1>${num}</h1>`;
+        });
+    </script>
+</body>
+</html>

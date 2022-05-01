@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            padding : 0;
+            box-sizing: border-box;
+        }
+        #p1, #p2 {
+            width : 100px;
+            height : 50px;
+            padding : 20px;
+            border : 5px solid #000;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>수치 조작 메서드</h1>
+    <p id="p1">내용1</p>
+    <p id="p2">내용2</p>
+    <script>
+        $(function(){
+            // content
+            let w1 = $("#p1").height();
+            console.log(w1);
+
+            // content + padding
+            let w2 = $("#p1").innerHeight();
+            console.log(w2);
+
+            // content + padding + border
+            let w3 = $("#p1").outerHeight();
+            console.log(w3);
+
+            $("#p2").innerWidth(200).outerHeight(200);
+        });
+    </script>
+</body>
+</html>

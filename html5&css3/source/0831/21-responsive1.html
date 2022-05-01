@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="default.css">
+    <title>Document</title>
+    <style>
+        /* bottom up */
+        /* .flex-container {
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 750px) {
+            .flex-container {
+                flex-direction: row;
+            }
+            .flex-item {
+                flex-grow : 1;
+            }
+        } */
+        /* top down */
+        .flex-container {
+            display: flex;
+        }
+        .flex-item {
+            flex-grow: 1;
+        }
+        @media (max-width : 750px) {
+            .flex-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">AAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item">BBBBBB</div>
+        <div class="flex-item">CCCCCCCCCCC</div>
+    </div>
+</body>
+</html>

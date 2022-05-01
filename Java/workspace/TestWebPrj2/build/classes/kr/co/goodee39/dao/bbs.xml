@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bbs">
+	<select id="selectBBSList" resultType="bbsVO">
+		select id, title, owner, createdate, content from bbs
+	</select>
+	<insert id="insertBBSList" parameterType="bbsVO">
+		insert into bbs(title, owner, createdate, content)
+		values(#{title},#{owner},#{createdate}, #{content})
+	</insert>
+</mapper>

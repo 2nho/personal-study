@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: url("images/tumblr.jpg") no-repeat center fixed;
+            background-size: cover;
+            width : 100%;
+            height : 100%;
+        }
+        .panel {
+            position: absolute;
+            left: 0;
+            top : 0;
+            right : 0;
+            bottom : 0;
+            margin : auto;
+            background-color : #fff;
+            width : 285px;
+            height : 200px;
+            padding : 40px;
+        }
+
+        .panel h2 {
+            margin : 0 0 20px 0;
+            line-height: 1;
+            color : #44c4e7;
+            font-size : 18px;
+            font-weight: 400;
+        }
+
+        .form input {
+            display: block;
+            width : 100%;
+            margin : 0 0 20px 0;
+            padding : 10px 15px;
+            border : 1px solid #ccc;
+            color : #ccc;
+            box-sizing: border-box;
+            font-size : 14px;
+            font-weight: 400;
+        }
+
+        .form button {
+            cursor : pointer;
+            background-color: #44c4e7;
+            width : 100%;
+            padding : 10px 15px;
+            border : 0;
+            color : #fff;
+            font-size : 14px;
+            font-weight: 400;
+        }
+        
+        .form button:hover {
+            background-color: #369cb8;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <h2>Login To Your Account</h2>
+        <form action="" class="form">
+            <input type="text" id="id" placeholder="Username">
+            <input type="password" name="pw" id="pw" placeholder="Password">
+            <button id="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

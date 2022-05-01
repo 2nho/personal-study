@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style>
+        #myinput {
+            width : 50vw;
+            font-size : 1rem;
+            padding : 12px 20px;
+            border : 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+
+        .mytable {
+            border-collapse : collapse;
+            width : 100%;
+            border : 1px solid #ddd;
+            font-size : 1.2rem
+        }
+
+        .mytable th,
+        .mytable td {
+            text-align: left;
+            padding : 12px;
+        }
+
+        .mytable tr{
+            border-bottom: 1px solid #ddd;
+        }
+
+        .mytable thead tr.header,
+        .mytable thead tr:hover{
+            background-color: #f1f1f1;
+        }
+
+        #btn {
+            padding : 8px 20px;
+            font-size : 1rem;
+            background-color: green;
+            color : white;
+            border : none;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="myinput" placeholder="Search for names...">
+    <button id="btn">클 릭</button>
+    <table class="mytable">
+        <thead>
+            <tr class="header">
+                <th style="width:60%">Name</th>
+                <th style="width:40%">Country</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        $(function(){
+            $("#btn").on("click", function(){
+                $(".mytable tbody").empty();
+                $.getJSON("table.json", function({list}){
+                    let str = $("#myinput").val();
+                    $.each(list, function(i, {name, country}){
+                        if(name.toUpperCase().indexOf(str.toUpperCase()) > -1){
+                            $(".mytable tbody").append(`<tr><td>${name}</td><td>${country}</td></tr>`);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

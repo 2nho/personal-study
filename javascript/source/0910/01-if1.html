@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 단순 조건문
+        /*
+            - 단순 조건문은 if문 앞의 비교 조건 연산 결과에 따라 해당 결과가 참이면 안의 로직을 실행하고
+              그렇지 않을 경우 해당 로직을 실행하지 않는 단순한 조건문을 이야기 한다.
+            - 조건이 참이든 거짓이든 해당 로직 바로 아래의 로직을 실행시킨다.
+        */
+        let a = prompt("적절한 숫자를 넣어주세요");
+
+        if(a < 5){
+            document.write(`<h1>${a}는 5보다 작습니다</h1>`);
+        }
+        document.write("<h1>이것은 어떤 경우든지 실행되는 로직</h1>");
+    </script>
+</body>
+</html>

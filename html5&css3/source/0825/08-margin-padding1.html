@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- margin : 요소의 바깥쪽 여백을 지정할 때 쓰는 옵션
+                  요소의 바깥 여백을 지정할 때 각각 margin-left/top/bottom/right
+                  형태로 개별적으로 지정할 수 있다.
+        ※ 각 블럭의 margin이 겹쳤을 때 두개의 마진의 합이 해당 블럭 사이의 마진이
+           되지 않으며 가장 큰 margin을 가진 쪽이 우선 적용된다.
+         
+         padding : 요소의 안쪽 여백을 지정할 때 쓰는 옵션
+                   요소의 안쪽 여백을 지정할 때 각각 padding-left/top/bottom/right
+                   형태로 개별적으로 지정이 가능하다.
+                   padding은 border와 content 사이의 여백을 의미한다.
+    
+    -->
+    <style>
+        div{
+            width : 300px;
+            height : 200px;
+            border : 1px solid green;
+        }
+        .c1 {
+            background-color: red;
+            margin : 20px;
+        }
+        .c2 {
+            background-color: blue;
+            /* margin-top : 50px;
+            margin-right : 40px;
+            margin-left : 30px;
+            margin-bottom: 20px; */
+            margin : 50px 40px 20px 30px;
+        }
+        .p1 {
+            background-color: green;
+        }
+        .p1 > p {
+            /* padding : 20px; */
+            /* padding-top : 10px;
+            padding-right : 15px;
+            padding-bottom : 20px;
+            padding-left : 30px; */
+            padding : 10px 15px 20px 30px;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="p1">
+        <p>반갑습니다</p>
+    </div>
+</body>
+</html>

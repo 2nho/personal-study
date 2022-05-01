@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="default.css">
+    <title>Document</title>
+    <style>
+        /* 
+            gap : 간격을 설정할 때 쓰는 속성
+            - gap : column과 row 간격을 설정할 때 쓴다(앞에가 row 간격 뒤에가 column 간격)
+            - row-gap : row 사이의 간격을 조절할 때 쓴다.
+            - column-gap : column 사이의 간격을 조절할 때 쓴다.
+        */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 300px);
+            grid-template-rows: repeat(3, minmax(200px, auto));
+            /* row-gap : 20px; */
+            /* column-gap: 20px; */
+            gap : 20px 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+    </div>
+</body>
+</html>

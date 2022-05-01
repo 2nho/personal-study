@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [100, 75, 50, 37, 90, 95];
+        let scores = 0;
+        let count = 0;
+
+        function avg(arr) {
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] > 80) {
+                    scores += arr[i];
+                    count++;
+                }
+            }
+            return scores / count;
+        }
+
+        console.log(avg(arr));
+    </script>
+</body>
+
+</html>

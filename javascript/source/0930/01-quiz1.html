@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tab-menu"></div>
+
+    <script>
+        // 반복을 효율적으로 제거
+        // 속성과 기능의 분산
+        // 재사용성
+        // 확장성
+        // function TabMenu(){
+        //     this.tabMenu = document.getElementById("tab-menu");
+        //     this.button1 = document.createElement("button");
+        //     this.button2 = document.createElement("button");
+        //     this.button3 = document.createElement("button");
+
+        //     this.button1.textContent = "버튼1";
+        //     this.button2.textContent = "버튼2";
+        //     this.button3.textContent = "버튼3";
+
+        //     this.tabMenu.append(this.button1);
+        //     this.tabMenu.append(this.button2);
+        //     this.tabMenu.append(this.button3);
+        // }
+        // 속성과 기능을 분산
+        // function TabMenu(){
+        //     this.tabMenu = document.getElementById("tab-menu");
+        //     this.button1 = document.createElement("button");
+        //     this.button2 = document.createElement("button");
+        //     this.button3 = document.createElement("button");
+        // }
+
+        // TabMenu.prototype.init = function(){
+        //     this.button1.textContent = "버튼1";
+        //     this.button2.textContent = "버튼2";
+        //     this.button3.textContent = "버튼3";
+        // }
+
+        // TabMenu.prototype.process = function(){
+        //     this.tabMenu.append(this.button1);
+        //     this.tabMenu.append(this.button2);
+        //     this.tabMenu.append(this.button3);
+        // }
+
+        // const tab = new TabMenu();
+        // init();
+        // process();
+        // 반복 부분 제거
+        // function TabMenu(name,target){
+        //     this.button1 = document.createElement("button");
+        //     this.name = name;
+        //     this.target = target;
+        // }
+
+        // TabMenu.prototype.init = function(){
+        //     this.button1.textContent = this.name;
+        // }
+
+        // TabMenu.prototype.process = function(){
+        //     document.getElementById(this.target).append(this.button1);
+        // }
+        
+        // const button1 = new TabMenu("버튼1","tab-menu");
+        // const button2 = new TabMenu("버튼2","tab-menu");
+        // const button3 = new TabMenu("버튼3","tab-menu");
+        // button1.init();
+        // button1.process();
+        // button2.init();
+        // button2.process();
+        // button3.init();
+        // button3.process();
+        // for 문으로 확장
+        // for (let index = 1; index <= 3; index++) {
+        //     const button = new TabMenu(`버튼${index}`,"tab-menu");
+        //     button.init();
+        //     button.process();
+        // }
+        // 반복횟수 저장
+        // function TabMenu(name,target,num){
+        //     this.name = name;
+        //     this.target = target;
+        //     this.num = num;
+        //     this.button = Array();
+        // }
+
+        // TabMenu.prototype.init = function(){
+        //     for (let index = 1; index <= this.num; index++) {
+        //         this.button.push(document.createElement("button"));
+        //         this.button[index-1].textContent = this.name+index;
+        //     }
+        // }
+
+        // TabMenu.prototype.process = function(){
+        //     for (let index = 1; index <= this.num; index++) {
+        //         document.getElementById(this.target).append(this.button[index-1]);
+        //     }
+        // }
+
+        // 클래스 형태로 개선
+        // class TabMenu{
+        //     constructor(name, target, num){
+        //         this.name = name;
+        //         this.target = target;
+        //         this.num = num;
+        //         this.button = [];
+        //     }
+
+        //     init(){
+        //         for (let index = 1; index <= this.num; index++) {
+        //             this.button.push(document.createElement("button"));
+        //             this.button[index-1].textContent = this.name+index;
+        //         }
+        //     }
+
+        //     process(){
+        //         for (let index = 1; index <= this.num; index++) {
+        //             document.getElementById(this.target).append(this.button[index-1]);
+        //         }
+        //     }
+        // }
+
+        // const tabMenu = new TabMenu("버튼","tab-menu",5);
+        // tabMenu.init();
+        // tabMenu.process();
+        
+        // 인스턴스(객체) 생성시에 반복적으로 수행되는 로직의 일원화
+        // class TabMenu{
+        //     // 초기값 지정
+        //     constructor(name, target, num){
+        //         this.name = name;
+        //         this.target = target;
+        //         this.num = num;
+        //         this.button = [];
+        //         this.color = [];
+
+        //         this.init();
+        //         this.process();
+        //     }
+
+        //     // 초기 세팅 지정
+        //     init(){
+        //         // 버튼을 만들어서 배열에 저장
+        //         for (let index = 1; index <= this.num; index++) {
+        //             this.button.push(document.createElement("button"));
+        //             this.button[index-1].textContent = this.name+index;
+        //         }
+        //         // 버튼에서 제공하는 색깔 지정
+        //         for (let index = 1; index <= this.num; index++) {
+        //             this.color.push(this.makeColor());
+        //         }
+        //         // 추가 삭제를 위한 인터페이스 삽입
+        //         this.input = document.createElement("input");
+        //         this.input.id = "btn-num";
+        //         this.input.type = "text";
+
+        //         this.add_btn = document.createElement("button");
+        //         this.add_btn.id = "add-btn";
+        //         this.add_btn.textContent = "추가";
+
+        //         this.del_btn = document.createElement("button");
+        //         this.del_btn.id = "del-btn";
+        //         this.del_btn.textContent = "제거";
+
+        //         this.output = document.createElement("div");
+        //         this.output.id = "output";
+        //         this.output.style.width = "400px";
+        //         this.output.style.height = "300px";
+        //         this.output.style.border = "1px solid black";
+        //     }
+
+        //     process(){
+        //         // 타겟에 버튼을 순차적으로 삽입
+        //         for (let index = 1; index <= this.num; index++) {
+        //             document.getElementById(this.target).append(this.button[index-1]);
+        //         }
+
+        //         document.getElementById(this.target).after(this.output);
+        //         // document.getElementById(this.target).after(this.del_btn);
+        //         // document.getElementById(this.target).after(this.add_btn);
+        //         // document.getElementById(this.target).after(this.input);
+                
+        //         // 버튼을 눌렀을 때에 대한 이벤트 지정
+        //         for (let index = 1; index <= this.num; index++) {
+        //             const self = this;
+        //             this.button[index-1].addEventListener("click",function(){
+        //                 self.output.style.backgroundColor = self.color[index-1];
+        //             });
+        //         }
+        //     }
+
+        //     makeColor(){
+        //         let col_str = "#";
+        //         for (let index = 0; index < 6; index++) {
+        //             col_str += Math.floor(Math.random()*16).toString(16);
+        //         }
+        //         return col_str;
+        //     }
+        // }
+        
+        // 리펙토링
+        class TabMenu{
+            // 초기값 지정
+            constructor(name, target, num){
+                this.name = name;
+                this.target = target;
+                this.num = num;
+                this.button = [];
+                this.color = [];
+
+                this.init();
+            }
+
+            // 초기 세팅 지정
+            init(){
+                for (let index = 1; index <= this.num; index++) {
+                    this.makeButton(index)        
+                }
+                // 버튼에서 제공하는 색깔 지정
+                // for (let index = 1; index <= this.num; index++) {
+                //     this.color.push(this.makeColor());
+                // }
+                // 추가 삭제를 위한 인터페이스 삽입
+                // this.input = document.createElement("input");
+                // this.input.id = "btn-num";
+                // this.input.type = "text";
+
+                // this.add_btn = document.createElement("button");
+                // this.add_btn.id = "add-btn";
+                // this.add_btn.textContent = "추가";
+
+                // this.del_btn = document.createElement("button");
+                // this.del_btn.id = "del-btn";
+                // this.del_btn.textContent = "제거";
+
+                this.output = document.createElement("div");
+                this.output.id = "output";
+                this.output.style.width = "400px";
+                this.output.style.height = "300px";
+                this.output.style.border = "1px solid black";
+
+                // 버튼을 눌렀을 시 색상 추가
+                document.getElementById(this.target).after(this.output);
+            }
+
+            makeColor(){
+                let col_str = "#";
+                for (let index = 0; index < 6; index++) {
+                    col_str += Math.floor(Math.random()*16).toString(16);
+                }
+                return col_str;
+            }
+
+            makeButton(index){
+                // 버튼을 만들어서 배열에 저장
+                const btn = document.createElement("button")
+                this.button.push(btn);
+                btn.textContent = this.name+index;
+                // 버튼에서 제공하는 색깔 지정
+                this.color.push(this.makeColor());
+                // 타겟에 버튼을 순차적으로 삽입
+                document.getElementById(this.target).append(btn);
+                // 버튼을 눌렀을 때에 대한 이벤트 지정
+                const self = this;
+                btn.addEventListener("click",function(){
+                    self.output.style.backgroundColor = self.color[index-1];
+                });
+            }
+        }
+
+        const tabMenu = new TabMenu("버튼","tab-menu",5);
+        
+    </script>
+</body>
+</html>

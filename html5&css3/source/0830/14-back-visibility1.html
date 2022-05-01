@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            font-size : 5.5em;
+        }
+        div {
+            width : 200px;
+            height : 200px;
+        }
+        .container {
+            border: 1px solid black;
+            perspective: 300px;
+            margin-top: 100px;
+            margin-left: 100px;
+            float : left;
+        }
+        .box {
+            background-color: cornflowerblue;
+            transform : rotateY(135deg);
+        }
+        /* 
+            backface-visibility : rotate나 일반적인 transform 속성으로 앞과 뒷면이 뒤집혔을 때 안보이게 하기 위해
+                                쓰는 속성. 앞과 뒷면을 다르게 놓아야 할 경우 종종 사용할 수 있다. 디폴트는 visible이며
+                                hidden을 쓰게 되면 뒷면이 보이지 않게 한다.
+        */
+        #back1 {
+            backface-visibility: hidden;
+        }
+        #back2 {
+            backface-visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="back1">
+            <h1>BACK</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="box" id="back2">
+            <h1>BACK</h1>
+        </div>
+    </div>
+</body>
+</html>

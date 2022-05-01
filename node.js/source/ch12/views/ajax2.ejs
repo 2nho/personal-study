@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p id="method">method</p>
+        <p id="des">description</p>
+    </div>
+    <button type="button" onclick="loadJsonBy('get')">get 호출</button>
+    <button type="button" onclick="loadJsonBy('post')">post 호출</button>
+    <button type="button" onclick="loadJsonBy('put')">put 호출</button>
+    <button type="button" onclick="loadJsonBy('delete')">delete 호출</button>
+    <script>
+        var xhttp = new XMLHttpRequest();
+        xhttp.responseType = 'json'; // 받고자 하는 데이터의 타입을 설정
+
+        function loadJsonBy(method) {
+            xhttp.onreadystatechange = function() {   
+                if (this.readyState == 4 && (this.status == 200 || this.status == 201)) {
+                    var data = this.response;  // response는 json 형태로 받아온다.
+                    document.getElementById("method").innerHTML = data.method;
+                    document.getElementById("des").innerHTML = data.des;
+                }
+            };
+            if(method == "get"){
+                xhttp.open("GET", "ajax2_get", true);
+                xhttp.send();
+            }else if(method == "post"){
+                xhttp.open("POST", "ajax2_post", true);
+                xhttp.send();
+            }else if(method == "put"){
+                xhttp.open("PUT", "ajax2_put", true);
+                xhttp.send();
+            }else if(method == "delete"){
+                xhttp.open("DELETE", "ajax2_delete", true);
+                xhttp.send();
+            }
+        }
+    </script>
+</body>
+</html>
+

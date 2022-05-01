@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* z-index : 요소가 쌓이는 순서를 바꾸고자 할 경우 사용하는 속성
+                     번호가 클 수록 맨 위에 쌓이고 번호가 작을수록 맨 아래 쌓인다.
+                     디폴트는 0 이며 기본적으론 맨 아래 선언한 태그가 맨 위에
+                     쌓이도록 되어있다.
+        */
+        div {
+            width : 250px;
+            height : 200px;
+        }
+        #cont1 {
+            position: absolute;
+            left:10px;
+            top:10px;
+            background-color: tomato;
+            z-index: 1;
+        }
+        #cont2 {
+            position: absolute;
+            left:180px;
+            top:20px;
+            background-color: teal;
+            z-index: 2;
+        }
+        #cont3 {
+            position: absolute;
+            left:25px;
+            top:160px;
+            background-color: darkblue;
+        }
+        h1 {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="cont1">
+        <h1>A</h1>
+    </div>
+    <div id="cont2">
+        <h1>B</h1>
+    </div>
+    <div id="cont3">
+        <h1>C</h1>
+    </div>
+</body>
+</html>

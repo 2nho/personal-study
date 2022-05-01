@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        checked : 라디오 버튼 또는 체크박스 버튼이 맨 처음 페이지가 열렸을 때 바로 활성화 되었다는 것을
+                  표시하기 위해 사용되는 속성. 값 없이 속성 그 자체로 사용되는 경우가 많다.
+     -->
+    <form action="#" method="get">
+        <ul>
+            <li><label for="ra1">라디오1</label>
+                <input type="radio" name="ra" id="ra1" value="r1" checked></li>
+            <li><label for="ra2">라디오2</label>
+                <input type="radio" name="ra" id="ra2" value="r2"></li>
+            <li><label for="ra3">라디오3</label>
+                <input type="radio" name="ra" id="ra3" value="r3"></li>
+        </ul>
+        <ul>
+            <li><label for="ch1">체크1</label>
+                <input type="checkbox" name="ch" id="ch1" value="c1"></li>
+            <li><label for="ch2">체크2</label>
+                <input type="checkbox" name="ch" id="ch2" value="c2"></li>
+            <li><label for="ch3">체크3</label>
+                <input type="checkbox" name="ch" id="ch3" value="c3"></li>
+        </ul>
+        <button type="submit">전송</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a = {
+            aa : 123,
+            bb : function(){
+                console.log("a 객체 내 bb function");
+            }
+        }
+        console.dir(a);
+        console.log(a.cc);
+        a.cc = 1;
+        b.__proto__.cc = 2;
+
+    </script>
+</body>
+</html>

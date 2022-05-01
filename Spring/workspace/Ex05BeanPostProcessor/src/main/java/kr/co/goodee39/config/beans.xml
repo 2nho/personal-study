@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="t1" class="kr.co.goodee39.beans.TestBean1" lazy-init="true" init-method="bean1Init"/>
+	
+	<bean id="t2" class="kr.co.goodee39.beans.TestBean2" lazy-init="true"/>
+	<!-- bean메소드의 init-method 전 후로 실행되는 프로세스를 담은 빈을 선언
+		- 해당 bean은 BeanPostProcessor라는 인터페이스를 상속받고 있으며 해당 인터페이스에서 제공하는
+		  postProcessBeforeInitialization과 postProcessAfterInitialization을 통해
+		  init-method의 전 후로 돌아가는 프로세스를 정의할 수 있다.
+	 -->
+	<bean class="kr.co.goodee39.processor.TestBeanPostProcessor"/>
+</beans>

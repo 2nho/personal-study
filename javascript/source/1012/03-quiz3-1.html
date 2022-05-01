@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    <h1>POPUP</h1>
+    <br><br>
+
+    <input type="text" id="c-input"><button id="send">전달하기</button><br><br>
+    <button onclick="window.close()">창 닫기</button>
+    <script>
+        document.getElementById("send").addEventListener("click",function(){
+            opener.document.getElementById("p-input").value =
+                    document.getElementById("c-input").value;
+        });
+    </script>
+</body>
+</html>

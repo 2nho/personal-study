@@ -1,0 +1,128 @@
+-- DML
+
+SELECT @@autocommit;
+
+SET autocommit = 0;
+
+USE scott;
+
+TRUNCATE TABLE dept01;
+
+insert INTO dept01(deptno, dname, loc) VALUES(10, 'ACCOUNTING', 'NEW YORK');
+
+ROLLBACK;
+
+-- COMMIT;
+-- INSERT
+insert INTO dept01(deptno, dname, loc) VALUES(10, 'ACCOUNTING');
+
+insert INTO dept01(deptno, dname, loc) VALUES(10, 'ACCOUNTING', 'NEW YORK', 40);
+
+INSERT INTO dept01(deptno, dname) VALUES(10, 'accounting');
+
+COMMIT;
+
+insert INTO dept01(deptno, dname, loc) VALUES(10, 'ACCOUNTING', 'NEW YORK');
+
+insert INTO dept01 VALUES(10, 'ACCOUNTING', 'NEW YORK');
+
+COMMIT;
+
+
+CREATE TABLE sam01(
+	empno DECIMAL(4),
+	ename VARCHAR(10),
+	job VARCHAR(9),
+	sal decimal(7,2)
+);
+
+INSERT INTO sam01(empno, ename, job, sal) VALUES(1000, 'APPLE', 'POLICE', 10000);
+INSERT INTO sam01 VALUES(1010, 'BANANA', 'NURSE', 15000);
+INSERT INTO sam01 VALUES(1020, 'ORANGE', 'DOCTOR', 25000);
+
+COMMIT;
+
+INSERT INTO dept01(DEPTNO, DNAME) VALUES(30, 'SALES');
+INSERT INTO dept01 VALUES(40, 'OPERATIONS', NULL);
+INSERT INTO dept01 VALUES(50, '', 'CHICAGO');
+
+COMMIT;
+
+-- TRUNCATE TABLE dept02;
+DROP TABLE dept02;
+CREATE TABLE dept02
+AS
+SELECT * FROM dept WHERE 1=0;
+
+INSERT INTO dept02 SELECT * FROM dept;
+
+
+-- UPDATE
+CREATE TABLE emp01
+AS SELECT * FROM emp;
+
+UPDATE emp01 SET DEPTNO=30;
+
+SELECT * FROM emp01;
+
+
+ROLLBACK;
+COMMIT;
+
+UPDATE emp01 SET SAL=SAL*1.1;
+
+UPDATE emp01 SET HIREDATE = CURDATE();
+
+-- 부서번호가 10번 부서인 사원의 부서번호를 30번으로 교체
+UPDATE emp01 SET DEPTNO=30 WHERE DEPTNO=10;
+-- 급여가 3000 이상인 사원만 급여를 10% 인상
+UPDATE emp01 SET SAL=FLOOR(SAL*1.1) WHERE SAL>=3000;
+
+UPDATE emp01 SET SAL=SAL+SAL*1.1 WHERE SAL>=3000;
+
+-- SCOTT 사원의 부서번호를 30번으로, 직급은 MANAGER로 수정
+UPDATE emp01 SET DEPTNO=30, JOB='MANAGER' WHERE ENAME='SCOTT';
+-- SCOTT 사원의 입사일자를 오늘로, SAL를 50으로, COMM을 4000으로 수정
+UPDATE emp01 SET HIREDATE=NOW(), SAL=50, COMM=4000 WHERE ENAME='SCOTT';
+
+ROLLBACK;
+
+-- 20번 부서의 지역명을 40번 부서의 지역명으로 변경하기
+TRUNCATE TABLE dept01;
+
+INSERT INTO dept01
+SELECT * FROM dept;
+
+COMMIT;
+ROLLBACK;
+
+UPDATE dept01 SET LOC=(SELECT LOC FROM dept01 WHERE DEPTNO=40)
+WHERE DEPTNO=20;
+
+SELECT * FROM dept01;
+
+-- 부서번호가 20번인 부서의 부서명과 지역명을 부서번호가 40번인 부서와 동일하게 변경
+UPDATE dept01 
+SET loc = (SELECT loc FROM dept01 WHERE deptno = 40) , 
+	dname = (SELECT dname FROM dept01 WHERE deptno = 40) 
+WHERE deptno = 20;
+
+-- ORACLE, ALTIBASE,(O)     MYSQL, MARIADB(X)
+/*
+UPDATE dept01
+SET (DNAME, LOC) = (SELECT DNAME, LOC FROM dept WHERE DEPTNO=40)
+WHERE DEPTNO = 20;
+*/
+
+-- DELETE
+DELETE FROM dept01;
+
+ROLLBACK;
+
+SELECT * FROM dept01;
+-- 부서테이블에서 30번 부서만 삭제한다
+DELETE FROM dept01
+WHERE DEPTNO=30;
+-- 부서명이 'SALES'인 부서를 삭제
+DELETE FROM DEPT01
+WHERE DEPTNO = (SELECT DEPTNO FROM dept01 WHERE DNAME='SALES');

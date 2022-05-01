@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <script>
+        $(function(){
+            const arr1 = ["서울","대전","부산","전주"];
+            const arr2 = ["한국","미국","일본","중국"];
+            const obj = {
+                "name" : "정부장",
+                "area" : "서울"
+            };
+
+            const idxNum = $.inArray("부산", arr1);
+            console.log(idxNum);
+
+            const okArray1 = $.isArray(arr1);
+            const okArray2 = $.isArray(obj);
+            console.log(okArray1);
+            console.log(okArray2);
+
+            $.merge(arr2 , arr1)
+            console.log(arr2);
+        });
+    </script>
+</body>
+</html>

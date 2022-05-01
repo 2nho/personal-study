@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            flex-shrink : 아이템의 너비 감소 비율을 정할 때 쓴다
+                          비율의 기준은 flex-shrink * flex-basis 의 비율로 결정된다.
+                          flex-shrink의 비율은 정수 혹은 소수로 쓸 수가 있다.
+        */
+        .flex-container {
+            display: flex;
+        }
+        .flex-item {
+            flex-basis : 300px;
+        }
+        .flex-item1 {
+            flex-shrink: 1;
+        }
+        .flex-item2 {
+            flex-shrink: 2;
+        }
+        .flex-item3 {
+            flex-shrink: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item flex-item1">AAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item flex-item2">BBBBBB</div>
+        <div class="flex-item flex-item3">CCCCCCCCCCC</div>
+    </div>
+</body>
+</html>

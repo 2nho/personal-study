@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;JavaWebPrj/src/main/webapp/ch04/Quiz3.jsp&apos; to &apos;quiz3.jsp&apos;" description="Rename resource &apos;Quiz3.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/ch04/Quiz3.jsp" name="quiz3.jsp" stamp="1635814350781" updateReferences="true"/>
+</session>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text-box1">
+    <input type="text" id="text-box2">
+    <button id="btn" data-name="모던자바스크립트 딥 다이브" data-title="이 책 강추합니다.">클릭!</button>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", function(e){
+            console.dir(e);
+            document.getElementById("text-box1").value = e.target.dataset.name;
+            document.getElementById("text-box2").value = e.target.dataset.title;
+        });
+    </script>
+</body>
+</html>

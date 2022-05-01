@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>커피를 주문하세요</h3>
+    <button data-coffee-name="아메리카노" data-price="4300">아메리카노</button>
+    <button data-coffee-name="타로밀크티" data-price="4500">타로밀크티</button>
+    <button data-coffee-name="자몽허니블랙티" data-price="5300">자몽허니블랙티</button>
+    <hr>
+    <h3>주문내역</h3>
+    <p><span id="coffee"></span> : <span id="price"></span>원</p>
+    <p id="sum"></p>
+    <script>
+        // const button = document.getElementsByTagName("button");
+        // const coffee = document.getElementsById("coffee");
+        // const price = document.getElementById("price");
+
+        const button = document.getElementsByTagName("button"),
+        coffee = document.getElementById("coffee"),
+        price = document.getElementById("price");
+        sum = document.getElementById("sum");
+        let sumPrice = 0;
+
+        for (let index = 0; index < button.length; index++) {
+            button[index].addEventListener("click",function(){
+                let cName = this.dataset.coffeeName;
+                let cPrice = this.dataset.price;
+                
+                sumPrice += Number(cPrice)
+
+                coffee.textContent = cName;
+                price.textContent = cPrice;
+                sum.textContent = sumPrice;
+            });
+        }
+    </script>
+</body>
+</html>

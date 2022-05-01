@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // call apply bind
+        /*
+            - 함수에서 제공하고 있는 기능 중 하나
+            - 기능을 다른 객체로 전이할 경우 사용할 수 있으며 이 경우 함수는 메서드화 된다.
+            - 함수를 기본적으로 호출하는 것 외에 다른 방식으로도 호출할 수 있으며 이 3개의 메서드가 그 기능을 제공한다.
+              => call : 객체에 해당 기능을 마치 메서드처럼 실행시키고자 할 경우 사용 인자를 나열해서 call 인자 뒤에
+                        배치하면 정상 작동한다.
+              => apply : call와 동일 기능을 함 단 call은 단순 나열로 인자를 배치하고 apply는 배열로 인자들을 인자값에
+                        배치하는 것이 차이점이다.
+              => bind : 해당 객체에 메서드처럼 활용하는 것은 같으나 즉시 실행되는 것이 아닌 함수처럼 해당 기능을 따로
+                        정의하여 독립적으로 사용할 경우 쓸 수가 있다.
+            - 부모인 Function.Prototype으로 부터 call, bind, apply를 물려받았기 때문에 모든 함수(function)은
+              call, apply, bind를 호출할 수 있다.
+            - call, apply, bind 함수의 첫번째 인자는 그 함수의 this가 된다. 즉 해당 함수의 실행 환경을 다른
+              객체로 명시할 수 있다는 장점이 있다.
+                        
+        */
+        function a(a,b,c){
+            console.log(this, a, b, c);
+        }
+
+        const b = {
+            c : 'eee'
+        }
+
+        a.call(b, 1, 2, 3);
+        a.apply(b, [1,2,3]);
+        const c = a.bind(b);
+        c(1,2,3);
+
+        // const b = {
+        //     c : 'eee',
+        //     a(a, b, c) {
+        //         console.log(this, a, b, c);
+        //     }
+        // }
+        // b.a(1,2,3);
+
+        
+
+    </script>
+</body>
+</html>

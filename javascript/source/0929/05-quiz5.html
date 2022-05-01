@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-div {
+            display: grid;
+            gap: 1rem;
+            padding: 1rem;
+            margin: 0 0 1rem 0;
+        }
+
+        .grid-div>div {
+            height: 100px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-div" data-background-color="#64B5F6" data-columns="2">
+        <div></div><div></div><div></div><div></div>
+    </div>
+
+    <div class="grid-div" data-background-color="#9CCC65" data-columns="3">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+
+    <div class="grid-div" data-background-color="#FFB74D" data-columns="4">
+        <div></div><div></div><div></div><div></div>
+    </div>
+    <script>
+        const grids = document.getElementsByClassName("grid-div");
+        for(const element of grids){
+            element.style.backgroundColor = element.dataset.backgroundColor;
+            element.style.gridTemplateColumns = `repeat(${element.dataset.columns}, 1fr)`;
+        }
+    </script>
+</body>
+</html>

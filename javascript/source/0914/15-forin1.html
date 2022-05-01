@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // for ~ in
+        /*
+            - 해당 객체의 모든 열거할 수 있는 프로퍼티를 순회할 수 있도록 도와주는 명령어
+            - for ~ in 문을 통해 해당 오브젝트의 키값을 순회할 수 있는데 이를 이용해서
+              해당 객체의 key와 value에 접근이 가능하다.
+        */
+        const obj1 = {
+            a : "안녕하세요",
+            b : 1234,
+            c : false
+        }
+        
+        // console.dir(obj1);
+
+        for (const key in obj1) {
+            console.log(key, obj1[key]);
+        }
+    </script>
+</body>
+</html>

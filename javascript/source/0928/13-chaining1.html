@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 프로토타입 체이닝
+        /*
+            - 자바스크립트에서 특정 객체의 프로퍼티나 메서드에 접근하려고 할 때, 해당 객체에 접근하려는 프로퍼티 혹은 메서드
+              가 없다면 [[prototype]] 링크를 따라 자신의 부모 역할을 하는 프로토타입 객체의 프로퍼티를 차례대로 검색한다.
+            - 위와 같이 프로토타입을 따라 프로퍼티나 메서드를 검색하는 방식을 프로토타입 체이닝이라고 한다.
+            - 자바스크립트에서 모든 객체는 자신을 생성한 생성자 함수의 prototype 프로퍼티가 가리키는 객체를 자신의
+              프로토타입 객체로 취급한다.
+        */
+        const Car = function(type,company, name){
+            this.type = type;
+            this.company = company;
+            this.name = name;
+        }
+
+        Object.prototype.aaa = function(){
+            console.log("Object의 aaa");
+        }
+
+        Car.prototype.aaa = function(){
+            console.log("Car의 prototype의 aaa");
+        }
+
+        const obj = new Car("xxx","yyy","zzz");
+        obj.aaa();
+        console.dir(obj);
+    </script>
+</body>
+</html>

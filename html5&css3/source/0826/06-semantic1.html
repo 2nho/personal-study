@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  -->
+    <style>
+        div {
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        #container {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        header {
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        main {
+            display: flex;
+            border: none;
+        }
+
+        section {
+            width: 490px;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            width: 150px;
+            margin-bottom: 20px;
+            margin-right: 20px;
+        }
+
+        aside {
+            width: 150px;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 시맨틱 태그 : html5에서 태그의 가독성을 올리고 구역을 명시화 하며 css의 재활용을 목적으로
+                      만들어진 태그. 기존의 div 태그의 단점을 극복하고 좀 더 명시적으로 html 태그를
+                      만들기 위해 만들어진 태그이다.
+        주요 시멘틱 태그 3개 :
+          - header : 사이트의 맨 위에 위치한 태그. 맨 처음 사이트가 뜰 때 맨 위에 있는 메뉴, 혹은
+                     맨 처음 보이는 대문이 이 header 태그에 들어가는 영역이 된다. header 태그
+                     안에는  nav 같은 태그가 올 수도 있으며 보통 회사의 로고 혹은 메뉴가 들어간다.
+          - main : 본문에 관련된 태그. main태그는 본문 영역 전체를 가리키는  태그이다.
+          - footer :  사이트의 맨 아래에 위치한 태그, 회사의 기본 정보 - 회사의 이름, 회사의 주소,
+                    회사 전화 및 팩스 번호 - 들이 위치한 태그이다.
+        기타 시멘틱 태그
+          - aside : 본문 내용과는 거리가 멀지만 사이트에 있어야 하는 내용들을 모아서 정의할 경우
+                    사용하는 태그. 주로 사이트의 메인 컨텐츠 외에 다른 내용을 전파할 때 사용한다.
+          - section : 컨텐츠들을 각각의 테마별로 나눌 시 사용되는 태그. 본문에서 내가 제공할 서비스
+                      들을 카테고리별로 나눌 경우 사용한다.
+          - article : 메인 컨텐츠의 각각의 컨텐츠에 해당하는 부분. 실제 사용자들이 필요해하는 내용
+                      을 맞는 경우가 있다.
+          - nav : 해당 사이트에서 다른 페이지로의 이동을 시킬 수 있는 메뉴를 넣을 수 있는 시멘틱 태그
+                  주로 메뉴를 통한 이동을 하는 영역에 nav 태그가 쓰인다.
+          - address : 주소를 적는 태그. 주로 해당 페이지를 만든 도메인의 실 주소가 적혀 있다.
+    -->
+    <div id="container">
+        <header>
+            <h1>사이트 제목</h1>
+        </header>
+        <main>
+            <nav>
+                <h2>사이드바</h2>
+                <ul>
+                    <li>항목1</li>
+                    <li>항목2</li>
+                    <li>항목3</li>
+                    <li>항목4</li>
+                </ul>
+            </nav>
+            <section>
+                <article>
+                    <h2>본문1</h2>
+                    <p>예비비는 총액으로 국회의 의결을 얻어야 한다. 예비비의 지출은 차기국회의 승인을 얻어야 한다. 이 헌법시행 당시의 법령과 조약은 이 헌법에 위배되지 아니하는 한 그 효력을
+                        지속한다.
+                    </p>
+                </article>
+                <article>
+                    <h2>본문2</h2>
+                    <p>국가의 세입·세출의 결산, 국가 및 법률이 정한 단체의 회계검사와 행정기관 및 공무원의 직무에 관한 감찰을 하기 위하여 대통령 소속하에 감사원을 둔다.</p>
+
+                    <p>모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다. 대한민국의 국민이 되는 요건은 법률로 정한다. 법률이 헌법에 위반되는 여부가 재판의 전제가 된 경우에는
+                        법원은
+                        헌법재판소에
+                        제청하여 그 심판에 의하여 재판한다.</p>
+                </article>
+            </section>
+            <aside>
+                <h2>사이드바</h2>
+                <ul>
+                    <li>항목1</li>
+                    <li>항목2</li>
+                    <li>항목3</li>
+                    <li>항목4</li>
+                </ul>
+            </aside>
+        </main>
+        <footer>
+            <h2>푸터</h2>
+            <address>회사 주소</address>
+            <p>연락처 등</p>
+        </footer>
+    </div>
+</body>
+
+</html>

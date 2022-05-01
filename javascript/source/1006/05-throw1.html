@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 예외처리
+        /*
+            에러 - 오타나 잘못된 구문 및 잘못된 접근으로 안해 생겨나는 것
+            예외 - 시스템 자체에 큰 오류는 없지만 외부의 요인으로 인해 생기는 오류
+            - 예외처리는 에러나 예외가 발생했을 시 처리하는 구문을 의미한다.
+            - 예외처리를 위한 구문은 try~catch~finally 구문과 throw 구문이 존재한다
+
+            try~catch~finally
+            - 예외를 처리하는 대표적인 구문이며 각각의 구문은 다음과 같은 역할을 담당한다.
+            - try : 예외의 발생이 예측되는 지역의 로직 영역
+            - catch : try문에서 예외나 에러가 발생했을 시 가는 로직 영역
+                    => catch문에서는 발생한 에러에 대한 정보가 담겨있는 객체를 매개변수로 받을 수 있으며 이 매개변수
+                       가 가지고 있는 프로퍼티는 다음과 같다
+                       -> name : 해당 예외 클래스의 이름
+                       -> message : 발생한 예외 메세지
+                       -> description : 발생한 예외에 대한 설명 및 해결법에 관련된 설명
+            - finally : try문에서 정상 실행이 되던지, 아니면 catch문에서 예외처리가 발생하던지에 상관없이 진행되는 로직이
+                        처리되는 로직 영역
+            
+            throw
+            - throw는 try문 내에서 예외를 강제로 던져 catch문에서 받을 매개변수에 해당 데이터를 전달하기 위해 사용
+            - throw 뒤에 선언한 값은 catch문의 데이터로 던져진다.
+            - 데이터는 primitive, non-primitive 둘 다 가능하다.
+            
+        */
+        try{
+            // throw "에러 발생!!!!!!!!!";
+            // throw {
+            //     param1:"foo",
+            //     param2:"bar"
+            // }
+            throw new Error("이런!!!");
+        }catch(err){
+            console.log(err.name+":"+err.message);
+        }finally{
+            console.log("이것은 finally 구문");
+        }
+    </script>
+</body>
+
+</html>

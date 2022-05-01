@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 진행상황 혹은 상태를 나타내는 태그
+        progress : 진행상황을 나타내는 태그로 자바스크립트의 타이밍 function과 같이 연동해서
+                   쓰이는 경우가 있으나 디자인적인 문제로 해당 progress보단 커스텀 progress
+                   가 쓰이는 경우가 많음. 다른 대안이 존재하지 않고 간단하게 만들어야 할 경우
+                   이 태그를 사용이 가능하다.
+         - value : 현재 값
+         - max : 최대 값
+        meter : 현재 상태를 막대로 표현하고자 할 경우 사용하는 태그. progress보다 더 많은 속성
+                옵션을 가지고 있다라는 것 외에는 큰 차이가 없다. 역시나 다른 대안이 없고 간단하게
+                만들 경우 이 태그를 사용할 수 있다.
+         - value : 현재 값
+         - max : 최대 값
+         - min : 최소 값
+         - low : 이정도면 낮다 라고 할 정도의 범위 지정
+         - high : 이정도면 높다 라고 할 정도의 범위 지정
+    -->
+    <progress value="20" max="100">        
+    </progress>
+    <meter value="92" min="0" max="100"
+    low="10" high="90"></meter>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <ul id="list">
+        <li>리스트</li>
+    </ul>
+    <script>
+        $(function(){
+            $('#list').append('<li>append1</li>');
+            $('<li>append2</li>').appendTo('#list');
+            $('#list').prepend('<li>prepend1</li>');
+            $('<li>prepend2</li>').prependTo('#list');
+        });
+    </script>
+</body>
+</html>

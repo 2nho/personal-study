@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            rotate : 요소를 회전할 때 쓰는 속성. 요소의 회전은 x, y, z축으로 회전이 가능하다.
+                    단 perspective를 쓰지 않으면 입체적인 회전이 보이지 않으므로 이 속성을 사용 시
+                    반드시 perspective를 사용할 것을 권장한다.
+                    내부의 들어갈 값은 각도(deg) 가 들어가는데 3d는 기준 각도를 중심으로 배수로
+                    회전을 지정한다.
+        */
+        .origin {
+            width : 210px;
+            height : 200px;
+            border : 1px solid black;
+            float: left;
+            margin : 56px;
+            perspective: 200px;
+        }
+        .rotatex {
+            transform: rotateX(45deg);
+        }
+        .rotatey {
+            transform: rotateY(45deg);
+        }
+        .rotatez {
+            transform: rotateZ(45deg);
+        }
+        .rotatexyz {
+            transform: rotate3d(2.5, 1.2, -1.5, 45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="origin">
+        <div class="rotatex"><img src="images/fruit.jpg" alt=""></div>
+    </div>
+    <div class="origin">
+        <div class="rotatey"><img src="images/fruit.jpg" alt=""></div>
+    </div>
+    <div class="origin">
+        <div class="rotatez"><img src="images/fruit.jpg" alt=""></div>
+    </div>
+    <div class="origin">
+        <div class="rotatexyz"><img src="images/fruit.jpg" alt=""></div>
+    </div>
+</body>
+</html>

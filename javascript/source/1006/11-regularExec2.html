@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // \d : 아무숫자 하나
+        console.log(/a\d/.exec("ad"));
+        console.log(/a\d/.exec("a1d"));
+        // \* : 특수문자 *
+        console.log(/a\*/.exec("aaaaaaaa"));
+        console.log(/a\*/.exec("a*aaaaaa"));
+        // ^A : 첫문자가 A인 문장
+        console.log(/^A/.exec("Abacd"));
+        // t$ : t가 마지막 문자
+        console.log(/t$/.exec("eat"));
+        // bo* : b다음에 o가 0번 이상 반복
+        console.log(/bo*/.exec("a ghost booooooooooid"));
+        console.log(/bo*/.exec("a ghost bird"));
+        console.log(/bo*/.exec("a grunt"));
+        // a+ : a가 한번 이상 반복
+        console.log(/a+/.exec("candy"));
+        console.log(/a+/.exec("caaaaabaaaandy"));
+        console.log(/a+/.exec("cndy"));
+        // e?l : l이라고 하는 문자 앞에 e라는 문자가
+        //       선택적으로 나타날 경우 
+        console.log(/e?l/.exec("angel"));
+        console.log(/e?l/.exec("leak"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let one, two, three, four;
+        const arr1 = [5, 7, 3];
+
+        // [one, two, three] = arr1;
+        // console.log(one, two, three);
+
+        // [one, two] = arr1;
+        // console.log(one, two, three);
+
+        // [one, two, three, four] = arr1;
+        // console.log(one, two, three, four);
+
+        // const arr2 = [5, 3, [10, 12]];
+        // [one, two, three, four] = arr2;
+        // [one, two, [three, four]] = arr2;
+
+        // console.log(one, two, three, four);
+
+        const arr3 = [5, 3, 8, 2];
+        // [one, , , four] = arr3;
+        // console.log(one, four);
+        [one, ...two] = arr3;
+        console.log(one, two);
+
+    </script>
+</body>
+</html>
+
+

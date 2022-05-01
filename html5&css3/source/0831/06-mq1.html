@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 미디어 쿼리
+            - 미디어 쿼리는 장치에 접속하는 각 장치의 설정값에 따라 다른 스타일 시트를 지원
+              하기위해 만들어진 명령문
+            - 보통은 min-width나 max-width를 활용해 화면에 대한 크기에 따라서 css를
+              다르게 줄 경우 사용한다.
+            - 미디어 쿼리로 인해 화면을 개발하는 방식에 대한 차이가 생기기 시작하는데 모바일 화면에서
+              데스크탑 화면으로 이동하며 개발하는 방식과 반대로 데스크탑 화면에서 모바일 화면으로
+              개발하는 방식 두가지로 개발 방법론이 생겨나게 된다.
+            - 미디어 쿼리를 쓰는 데 있어서 한 웹페이지를 개발하는데 각 디바이스에 대응되는 웹을 따로
+              개발하는 것이 아닌 단순 디자인만 교체하는 식의 개발로 바뀌면서 공수가 줄고 프론트앤드
+              프레임워크를 개발하는 개발자들의 부담을 덜 수 있게 되었다.
+        */
+        body {
+            background: url("images/bg0.jpg") no-repeat fixed;
+            background-size: cover;
+        }
+
+        @media screen and (max-width : 1280px) {
+            body {
+                background: url("images/bg1.jpg") no-repeat fixed;
+                background-size: cover;
+            }
+        }
+
+        @media screen and (max-width : 1024px) {
+            body {
+                background: url("images/bg2.jpg") no-repeat fixed;
+                background-size: cover;
+            }
+        }
+
+        @media screen and (max-width : 700px) {
+            body {
+                background: url("images/bg3.jpg") no-repeat fixed;
+                background-size: cover;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

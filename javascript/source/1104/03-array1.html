@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>탐색선택자</h1>
+    <ul id="menu1">
+        <li>내용1-1</li>
+        <li>내용1-2</li>
+        <li>내용1-3</li>
+    </ul>
+    <ul id="menu2">
+        <li>내용1-1</li>
+        <li>내용1-2</li>
+        <li>내용1-3</li>
+    </ul>
+    <script>
+        $(function(){
+            $.each($("#menu1 li"), function(index, item){
+                console.log(index,":",item);
+            });
+        });
+    </script>
+</body>
+</html>

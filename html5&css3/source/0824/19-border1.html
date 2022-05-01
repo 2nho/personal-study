@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            border : 박스 모델에 테두리를 정의할 때 쓰는 속성
+                     각각 스타일과 색상, 굵기를 설정할 수 있다.
+            border-style : 테두리의 모양을 정의할 때 사용. 8가지 모양이 존재한다.
+                          (dotted : 점선, dashed : 실선+점선, solid : 실선, 
+                           double : 이중선, groove : 음각선, inset : 입체 음각, 
+                           sunset : 양각, ridge : 입체 양각)
+            border-width : 테두리의 두께를 지정할 때 사용. 4개의 변을 각기 다르게
+                           정의할 수 있으며 한 변에 대한 두께 정의가 안될 경우
+                           마주보고 있는 변의 정의된 두께를 가져온다.
+            border-color : 테두리의 색을 정의할 때 사용. 4개의 변을 각기 다르게
+                           정의할 수 있으며 한 변에 대한 색의 정의가 안될 경우
+                           마주보고 있는 변의 정의된 색을 가져온다.
+            border-top/bottom/left/right : 한 변에 대한 정의를 할 때 사용하는 속성
+                                           두께,색깔,모양 정의가 가능하며 이 속성을
+                                           사용할 경우 맞은편 변의 정의가 자동으로
+                                           복사되지 않는다.
+        */
+        div {
+            width : 100px;
+            height : 100px;
+        }
+        .border1 {
+            /* border-style: dashed dotted solid double;
+            border-color: orangered magenta cadetblue cornflowerblue;
+            border-width: 20px 15px 10px 5px; */
+            /* border : dashed 20px orangered; */
+            border-top : dashed 20px orangered;
+            border-right : dotted 15px magenta;
+            border-bottom : solid 10px cadetblue;
+            border-left : double 5px cornflowerblue;
+        }
+        .border2 {
+            border-style : dashed dotted;
+            border-color : red blue;
+            border-width : 20px 10px;
+        }
+        .border3 {
+            border-top : dashed 20px orangered;
+            border-right : dotted 15px magenta;
+            border-bottom : solid 10px cadetblue;
+        }
+        .border4 {
+            border-style : dashed dotted solid;
+            border-color : red blue green;
+            border-width : 20px 15px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="border1"></div>
+    <div class="border2"></div>
+    <div class="border3"></div>
+    <div class="border4"></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // green|red : green or red
+        console.log(/green|red/.exec("green apple"));
+        console.log(/green|red/.exec("red apple"));
+
+        // a{2} : a 두번만 반복
+        // a{1,3} : 1번 이상 3번 이하 a 반복
+        console.log(/a{1,3}/.exec("caandy"));
+        // [a-z] : a부터 z사이에 있는 값
+
+        // [^a-d] : a부터 d사이의 값이 아닌 문자
+        console.log(/[^a-d]/.exec("brisket"));
+        // \sbar :  bar
+        console.log(/\sbar/.exec("foo bar"));
+
+        // \w+ : [A-Za-z0-9]+
+        console.log(/\w+/.exec("apple"));
+        console.log(/\w+/.exec("$22.55"));
+
+        // \W+ : not \w+
+        console.log(/\W+/.exec("3D."));
+    </script>
+</body>
+</html>

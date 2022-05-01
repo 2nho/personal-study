@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text1">
+    <input type="text" id="text2">
+    <button id="btn">클릭</button>
+    <div id="content">
+
+    </div>
+
+    <script>
+        const div = document.getElementById("content");
+
+        document.getElementById("btn").addEventListener("click", function(){
+            let a = Number(document.getElementById("text1").value);
+            let b = Number(document.getElementById("text2").value);
+            // if(a%b == 0){
+            //     div.innerHTML = `<h1>${a}는 ${b}의 배수입니다</h1>`;
+            // }else{
+            //     div.innerHTML = `<h1>${a}는 ${b}의 배수가 아닙니다</h1>`;
+            // }
+            div.innerHTML = `<h1>${a}는 ${b}의 ${(a%b==0)?"배수입":"배수가 아닙"}니다</h1>`;
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="wizardPage">
+		<list key="groupId">
+			<item value="EX30BBS"/>
+			<item value="Ex32BBS"/>
+			<item value="Ex31SpringMVC"/>
+			<item value="Ex30BBS"/>
+			<item value="Ex29FileUploadXML"/>
+			<item value="Ex28Ajax"/>
+			<item value="Ex27MyBatisXML"/>
+			<item value="Ex26MyBatisJava"/>
+			<item value="Ex25ExceptionJava"/>
+			<item value="Ex24InterceptorXML"/>
+			<item value="Ex24InterceptorJava"/>
+			<item value="Ex23ValidationCustomize"/>
+			<item value="Ex22JSR303"/>
+			<item value="Ex21ErrorMessageCustomJava"/>
+			<item value="Ex20ValidationJAVA"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="EX30BBS"/>
+			<item value="Ex32BBS"/>
+			<item value="Ex31SpringMVC"/>
+			<item value="Ex30BBS"/>
+			<item value="Ex29FileUploadXML"/>
+			<item value="Ex28Ajax"/>
+			<item value="Ex27MyBatisXML"/>
+			<item value="Ex26MyBatisJava"/>
+			<item value="Ex25ExceptionJava"/>
+			<item value="Ex24InterceptorXML"/>
+			<item value="Ex24InterceptorJava"/>
+			<item value="Ex23ValidationCustomize"/>
+			<item value="Ex22JSR303"/>
+			<item value="Ex21ErrorMessageCustomJava"/>
+			<item value="Ex20ValidationJAVA"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><video src="media/video.mp4" controls></video></p>
+    <p><button>반복 재생 해제 상태</button></p>
+
+    <script>
+        // video 오브젝트
+        const video = document.querySelector('video');
+        // button 요소 오브젝트
+        const button = document.querySelector('button');
+        // button 요소에 click 이벤트 리스너 지정
+        button.addEventListener("click",function(){
+            // loop 프로퍼티의 값을 반전
+            video.loop = !video.loop;
+            // button 요소의 텍스트를 변경
+            button.textContent = (video.loop)?"반복 재생":"반복 재생 해제 상태";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            perspective-origin : 입체 평방 3d 입체 웹을 어디에서 바라볼것인가
+                                 시각적인 부분과 관련된 3d
+                                 어디에서 볼것인가는 top, left, bottom, right를 통해 정할 수도 있으며
+                                 다르게는 퍼센테이지를 이용하여 설정할 수도 있다.
+        */
+        #no-pers, #pers {
+            width : 152px;
+            height : 180px;
+            border : 1px solid black;
+            margin : 30px;
+            float: left;
+        }
+        .rotatex img {
+             transform: rotatex(50deg);
+        }
+        #pers {
+            perspective: 300px;
+            perspective-origin: top left;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div><img src="images/sunset.jpg" alt=""></div>
+    </div>
+    <div id="no-pers">
+        <div class="rotatex"><img src="images/sunset.jpg" alt=""></div>
+    </div>
+    <div id="pers">
+        <div class="rotatex"><img src="images/sunset.jpg" alt=""></div>
+    </div>
+</body>
+</html>

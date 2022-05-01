@@ -1,0 +1,13 @@
+{
+    "name": "communicate",
+    "version": "0.0.0",
+    "private": true,
+    "dependencies": {
+        "express": "*",
+        "ejs": "*",
+        "cookie-parser": "*",
+        "express-session": "*",
+        "ws": "*",
+        "socket.io": "*"
+    }
+}

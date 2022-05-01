@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-spacing: 0;
+            width : 100vw;
+            border : 1px solid #ddd;
+        }
+        th {
+            cursor: pointer;
+            background-color: darkgreen;
+        }
+        th, td {
+            text-align: left;
+            padding : 16px;
+        }
+        tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Name</th>
+                <th onclick="sortTable(1)">Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Berglunds snabbkop</td>
+                <td>Sweden</td>
+            </tr>
+            <tr>
+                <td>North/South</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Koniglich Essen</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Magazzini Alimentari Riuniti</td>
+                <td>Italy</td>
+            </tr>
+            <tr>
+                <td>Paris specialites</td>
+                <td>France</td>
+            </tr>
+            <tr>
+                <td>Island Trading</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Laughing Bacchus Winecellars</td>
+                <td>Canada</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function sortTable(n){
+            const list = document.querySelectorAll("#myTable tbody tr");
+            const table_body = document.querySelector("#myTable tbody");
+
+            Array.from(list)
+            .sort((a, b) => a.children[n].textContent.localeCompare(b.children[n].textContent))
+            .forEach(item => table_body.append(item));
+        }
+    </script>
+</body>
+</html>

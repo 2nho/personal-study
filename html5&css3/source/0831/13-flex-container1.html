@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            align-content : 여러행을 정렬하고자 할 때 쓰는 옵션
+             - stretch : 위 아래로 혹은 좌 우로 확장할 때 쓴다(기본 값)
+             - flex-start : flex의 시작 지점을 중심으로 정렬
+             - flex-end : flex의 끝 지점을 중심으로 정렬
+             - center : 중앙으로 정렬
+             - space-between : 위 아래로 아이템들 사이에 균일한 간격을 만들어 배치
+             - space-around : 아이템들의 둘레에 균일한 간격을 만들어 배치
+             - space-evenly : 아이템들의 사이와 양 끝에 균일한 간격을 만들어 배치
+        */
+        .flex-container {
+            display: flex;
+            /* flex-direction: column; */
+            flex-wrap : wrap;
+            height: 300px;
+            justify-content: center;
+            /* align-items: center; */
+            align-content: center;
+            /* align-content: stretch; */
+            /* align-content: flex-start; */
+            /* align-content: flex-end; */
+            /* align-content: space-between; */
+            /* align-content: space-around; */
+            /* align-content: space-evenly; */
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">AAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item">BBBBBB</div>
+        <div class="flex-item">CCCCCCCCCCC</div>
+        <div class="flex-item">DDD</div>
+        <div class="flex-item">EEEEEEEEEEEEEE</div>
+        <div class="flex-item">FFFFFFFF</div>
+        <div class="flex-item">GGGGGGGGGGGGGGGGGGGGG</div>
+        <div class="flex-item">IIIIIIIIIIIIIIIII</div>
+        <div class="flex-item">JJJJJ</div>
+        <div class="flex-item">KKKKKKKKK</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mydiv {
+            height : 250px;
+            width : 400px;
+            padding : 10px;
+            margin : 15px;
+            border : 5px solid red;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="myFunction()">위치</button>
+
+    <div id="mydiv">
+        
+    </div>
+    <p id="demo"></p>
+
+    <script>
+        /*
+            clientHeight / clientWidth = height/width + padding;
+            offsetHeight / offsetWidth = height/width + padding + border;
+        */
+        function myFunction(){
+            const mydiv = document.getElementById("mydiv");
+    //         let text = `
+    // clientHeight : ${mydiv.clientHeight}px
+    // clientWidth : ${mydiv.clientWidth}px
+    //         `
+            let text = `
+            offsetHeight : ${mydiv.offsetHeight}px
+            offsetWidth : ${mydiv.offsetWidth}px
+            offsetTop : ${mydiv.offsetTop}px
+            offsetLeft : ${mydiv.offsetLeft}px
+            `
+            document.getElementById("demo").textContent = text;
+        }
+    </script>
+</body>
+</html>

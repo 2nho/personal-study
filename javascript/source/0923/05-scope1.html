@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // scope
+        /*
+            - 변수의 유효범위이자 접근하고자 하는 범위
+            - 스코프는 참조 대상 식별자를 찾아내기 위한 규칙이다. 이 규칙대로 식별자를 찾는다.
+            - 프로그래밍은 변수를 선언하고 값을 할당하며 변수를 참조하는 기본적인 기능을 제공하며 이것으로 프로그램의 상태
+              관리가 가능하다
+            - 변수는 전역 또는 코드블럭이나 함수 내에 선언이 가능하다.
+            - 식별자는 자신이 어디에 선언되었는지에 의해 자신이 유효한 범위를 갖는다.
+        */
+        var a = '글로벌';
+
+        function foo(){
+            console.log(a);
+            console.log(b);
+        }
+
+        function bar(){
+            b = "abcd";
+            var c = "edfg"
+            console.log(b);
+            console.log(c);
+        }
+
+        bar();
+        foo();
+        console.dir(foo);
+        console.dir(bar);
+    </script>
+</body>
+</html>

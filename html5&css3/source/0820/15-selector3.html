@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* cascading : 위에서 아래로 흐른다. */
+        /* - css의 속성이 겹칠 경우 가장 아래의 속성이 우선권을 가진다.
+           - css는 위에서 아래로 코드가 읽히며 요소 또한 디자인을 가져갈 때
+             맨 마지막의 디자인을 최종 디자인으로 확정하기 때문이다.
+           - 만약 우선순위를 바꾸고 싶다면 !important를 해당 속성 뒤에 선언하여
+             우선순위를 바꿀 수 있다.
+        */
+        .c2 {
+            color : blue !important;
+        }
+        .c1 {
+            color : red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 우선순위 -->
+    <p class="c1 c2">텍스트</p>
+</body>
+</html>

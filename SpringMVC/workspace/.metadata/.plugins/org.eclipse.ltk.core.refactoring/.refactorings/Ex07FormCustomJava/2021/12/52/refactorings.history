@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;kr.co.goodee39.config&apos; to &apos;Ex08FormProperty1/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;Ex07FormCustomJava&apos;&#x0D;&#x0A;- Destination element: &apos;Ex08FormProperty1/src/main/java&apos;&#x0D;&#x0A;- Original element: &apos;Ex07FormCustomJava/src/main/java/kr.co.goodee39.config&apos;" description="Copy package" destination="=Ex08FormProperty1/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;kr.co.goodee39.config" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1639961400747" version="1.0"/>
+</session>

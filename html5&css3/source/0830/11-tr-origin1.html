@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            transform-origin : 요소에 대한 변형 시 변하는 위치의 기준을 정할 때 사용하는 옵션
+                               키워드인 left, top, right, bottom을 통해 위치에 따른 중심을 정하는
+                               방법도 존재하지만 퍼센트를 이용하여 중심 위치를 정할 수도 있다.
+        */
+        .origin {
+            width : 160px;
+            height : 240px;
+            border : 1px solid black;
+            float: left;
+            margin : 40px;
+        }
+        .rose {
+            transform: rotateZ(10deg);
+        }
+
+        .ltop .rose {
+            transform-origin: left top;
+        }
+        .rtop .rose {
+            transform-origin: right top;
+        }
+        .lbottom .rose {
+            transform-origin: left bottom;
+        }
+        .rbottom .rose {
+            /* transform-origin: right bottom; */
+            transform-origin: 20% 30%;
+        }
+    </style>
+</head>
+<body>
+    <div class="origin">
+        <div class="ltop"><img src="images/rose.jpg" alt="" class="rose"></div>
+    </div>
+    <div class="origin">
+        <div class="rtop"><img src="images/rose.jpg" alt="" class="rose"></div>
+    </div>
+    <div class="origin">
+        <div class="lbottom"><img src="images/rose.jpg" alt="" class="rose"></div>
+    </div>
+    <div class="origin">
+        <div class="rbottom"><img src="images/rose.jpg" alt="" class="rose"></div>
+    </div>
+</body>
+</html>

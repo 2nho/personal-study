@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+	<resultMap type="kr.co.goodee39.vo.MemberMapper"
+		id="memberMap">
+		<result property="userId" column="id" />
+		<result property="userPassword" column="password" />
+		<result property="userName" column="name" />
+		<result property="userAge" column="age" />
+		<result property="userGender" column="gender" />
+		<result property="userEmail" column="email" />
+	</resultMap>
+
+	<!-- 파라미터 타입 없이 한 row만 가져오는 형태 -->
+	<select id="getCount" resultType="int">
+		select count(*) from member
+	</select>
+	<select id="getNum" resultType="int">
+		select 3
+	</select>
+	<select id="getFirstMember" resultType="map">
+		select * from member
+		limit 1
+	</select>
+	<!-- <select id="getFirstMemberWithVO" resultType="kr.co.goodee39.vo.MemberVO"> -->
+	<select id="getFirstMemberWithVO" resultType="mvo">
+		select * from
+		member limit 1
+	</select>
+	<select id="getFirstMemberWithMapper" resultMap="memberMap">
+		select * from
+		member limit 1
+	</select>
+	<!-- 파라미터를 가지고 데이터를 들고오는 형태 -->
+	<select id="getName" parameterType="String" resultType="String">
+		select
+		name from member where email = #{email}
+	</select>
+	<select id="getNameFromMap" parameterType="map"
+		resultType="String">
+		select name from member where email = #{email} and id =
+		#{id}
+	</select>
+	<select id="getNameFromVO" parameterType="mvo"
+		resultType="String">
+		select name from member where email = #{email} and id =
+		#{id}
+	</select>
+	<!-- 다수의 row를 가져오는방법 -->
+	<select id="getList" resultType="map">
+		select * from member
+	</select>
+	<select id="getListByVO" resultType="mvo">
+		select * from member
+	</select>
+	<!-- cud 예제 -->
+	<insert id="insertMember" parameterType="mvo">
+		insert into
+		member(id,password,name,age,gender,email)
+		values(#{id},#{password},#{name},#{age},#{gender},#{email})
+	</insert>
+	<update id="updateMember" parameterType="mvo">
+		update member set
+		name=#{name} where id=#{id}
+	</update>
+	<delete id="deleteMember" parameterType="mvo">
+		delete from member where
+		id = #{id}
+	</delete>
+	<insert id="insertMember1" parameterType="mvo">
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
+			select
+			MAX(ID)+1 from member
+		</selectKey>
+		insert into member(id,password,name,age,gender,email)
+		values(#{id},#{password},#{name},#{age},#{gender},#{email})
+	</insert>
+	<select id="activeSelect1" parameterType="mvo" resultType="mvo">
+		select * from member
+		<where>
+			<if test="id != 0">
+				and id = #{id}
+			</if>
+			<if test="email != null">
+				or email like #{email}
+			</if>
+			<if test="gender != null">
+				or gender = #{gender}
+			</if>
+		</where>
+	</select>
+	<select id="activeSelect2" parameterType="mvo" resultType="mvo">
+		select * from member
+		<where>
+			<choose>
+				<when test="id != 0">
+					and id = #{id}
+				</when>
+				<when test="email != null">
+					and email like #{email}
+				</when>
+				<when test="gender != null">
+					and gender = #{gender}
+				</when>
+				<otherwise>
+					and 1 = 1;		
+				</otherwise>
+			</choose>
+		</where>
+	</select>
+	<update id="activeUpdate1" parameterType="mvo">
+		update member
+		<set>
+			<if test="name != null">name=#{name},</if>
+			<if test="password != null">password=#{password},</if>
+			<if test="age != 0">age=#{age},</if>
+			<if test="gender != null">gender=#{gender},</if>
+			<if test="email != null">email=#{email}</if>
+		</set>
+		where id = #{id}
+	</update>
+	<select id="activeSelect3" parameterType="list" resultType="mvo">
+		select * from member
+		where email in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

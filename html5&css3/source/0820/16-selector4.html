@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 명시도 우선순위
+        => 1.인라인 > 2.id > 3.class > 4.태그 > 5.*
+    -->
+    <style>
+        #d1, #d2 {
+            color : coral;
+        }
+        .c1 {
+            color : cadetblue;
+        }
+        p {
+            color : yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <p class="c1" id="d1" style="color:cornflowerblue;">안녕하세요1</p>
+    <p class="c1" id="d2">안녕하세요2</p>
+    <p class="c1">안녕하세요3</p>
+    <p>안녕하세요4</p>
+</body>
+</html>

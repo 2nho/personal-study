@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* vertical-align : 텍스트 위치 세로 정렬 */
+        td {
+            width : 100px;
+            height : 100px;
+            border : 1px solid black;
+        }
+        tr {
+            border : 1px solid black;
+        }
+        /* border-collapse : 선을 하나로 만든다. */
+        table {
+            /* border-collapse: collapse; */
+            border-collapse: separate;
+        }
+        .c1 {
+            vertical-align: top;
+        }
+        .c2 {
+            vertical-align: middle;
+        }
+        .c3 {
+            vertical-align: bottom;
+        }
+        .c4 {
+            vertical-align: baseline;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td class="c1">텍스트1</td>
+            <td class="c2">텍스트2</td>
+            <td class="c3">텍스트3</td>
+            <td class="c4">텍스트4</td>
+        </tr>
+    </table>
+</body>
+</html>

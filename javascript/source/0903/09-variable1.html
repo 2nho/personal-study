@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 변수
+        /*
+            - primitive 및 non-primitive 타입의 값을 넣을 수 있는 '그릇'
+            - 어떤 데이터가 되었든지 모든 변수는 모든 데이터 타입을 받을 수 있다.
+            - 변수는 어떤 타입으로 선언하느냐에 따라 재할당, 재선언의 유무가 달라진다.
+            - 변수를 재선언할 경우 기존의 변수는 사라지고 새로운 변수가 나타난다.
+            - 변수의 값을 재할당할 경우 기존에 있던 변수의 값은 사라지고 새로 들어오는 값으로 대체된다.
+            - 타입은 var / let / const 타입 3가지를 쓸 수가 있다.
+
+            * var
+            - 자바 스크립트 초창기 시절부터 나온 변수
+            - var는 변수 타입중에서도 가장 오랫동안 사용되었지만 최근에는 그 사용량이 상당히 줄고 let과 const로
+              대체되고 있다.
+            - var 변수는 재선언이 가능하고 재할당 또한 가능하다.
+            - 아무런 제약없이 사용할 수 있는 변수이지만 그 제약이 없다는 점 때문에 많은 프로그래머들에게 
+              다양한 에러 및 사이드 이펙트를 안겨 주기도 하였다.
+
+            * let
+            - ECMAScript 6 이후에 등장한 변수 타입
+            - 재 할당은 가능하지만 재선언은 불가능한 변수
+            - 주로 primitive 타입을 담을 때 사용하며 초기화 값, 및 인덱스, 문자열 등 여러 primitive 타입을 다룰 때
+              사용되는 타입이다.
+            
+            * const
+            - ECMAScript 6 이후에 등장한 변수 타입
+            - 재할당 재선언 둘다 불가능하고 맨 처음 값이 선언되면 그 값이 끝까지 유지가 된다.
+            - 값을 통한 "상수화"를 진행하려고 하거나 non-primitive 타입을 사용할 경우 이 타입을 사용할 수 있다.
+            - 최근 객체 기반 프로그래밍이 타입스크립트를 중심으로 등장하기 시작하면서 오브젝트 타입 방식의 변수 사용이
+              급격하게 늘어남에 따라 상당히 각광받는 타입 중 하나.
+
+            *** 변수명 작성 시 유의사항 ***
+            - 변수명은 숫자로 시작할 수 없다.
+            - 변수명 첫글자로는 $,_,영대소문자만 가능하다.
+            - 변수명은 반드시 대소문자 구분을 해서 접근을 해야 한다.
+            - 변수명은 되도록이면 명사형으로 정의하는 것을 권장한다.
+            - 변수명은 예약어는 사용이 불가능하다(ex) for, if, case, do, etc...
+            - 변수명은 카멜케이스(낙타표기법), 스네이크케이스, 케밥케이스 등으로 사용이 가능하다.
+              -> 카멜케이스 => var manCase
+              -> 스네이크케이스 => var man_case
+              -> 케밥케이스 => var man-case
+
+        */
+        var a = 1; // ECMA 2015 이전
+        let b = 'abc'; // ECMA 2015 이후
+        const c = true; // ECMA 2015 이후
+
+        var a = 2;
+        console.log(a);
+        a = 3;
+        console.log(a);
+        // let b = "def"; // error
+        console.log(b);
+        b = "def";
+        console.log(b);
+        // const c = false; // error
+        console.log(c);
+        // c = false; // error
+        console.log(c);
+
+        let d = 1234;
+        d = "abc";
+        console.log(d);
+    </script>
+</body>
+</html>

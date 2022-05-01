@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="quiz1">
+        <h3>문제</h3>
+        <label for="q1_1">답1</label><input type="radio" name="q1" id="q1_1" value="1"><br>
+        <label for="q1_2">답2</label><input type="radio" name="q1" id="q1_2" value="2"><br>
+        <label for="q1_3">답3</label><input type="radio" name="q1" id="q1_3" value="3"><br>
+        <label for="q1_4">답4</label><input type="radio" name="q1" id="q1_4" value="4"><br>
+    </div>
+    <button id="result">채점</button>
+    <div id="output">
+
+    </div>
+
+    <script>
+        document.querySelector("#result").addEventListener("click",function(){
+            const rbs = document.querySelectorAll("input[name='q1']");
+            let ans = 3;
+            for (let index = 0; index < rbs.length; index++) {
+                if(rbs[index].checked){
+                    if(rbs[index].value == ans){
+                        document.getElementById("output").innerHTML = "<h1>정답입니다</h1>";
+                    }else {
+                        document.getElementById("output").innerHTML = "<h1>오답입니다</h1>";
+                    }
+                    break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+

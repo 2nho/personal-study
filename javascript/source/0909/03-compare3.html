@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 일치 연산자
+        /*
+            - 일치 연산자는 기존의 동등 연산자가 확인하지 않는 타입까지 비교하여 타입과 값 둘 다 맞으면 참 아니면 거짓을
+              출력하는 연산자.
+            - 기존의 동등 연산자의 역할이 일치 연산자에 의해 많이 축소되기는 했으나 아직까지 많은 곳에서 사용이 가능하다.
+        */
+        // 부등 연산자/불일치 연산자
+        /*
+            - 연산을 하다보면 이것이 '같다'라는 이야기 보다 '같지 않다'라는 요청이 더 많이 들어올때가 있다.
+            - 연산을 통해서 '같지 않다'라는것에 대한 결과값을 boolean으로 얻고자 할 경우 쓰는것이 부등, 불일치 연산자이다.
+            - 기존 부등 연산자는 동등 연산자와 동일하게 값만을 가지고 동등한지 아닌지를 판단하며 동등할 시 false,
+              아닐 경우 true를 반환한다.
+            - 기존 불일치 연산자는 일치 연산자와 동일하게 값과 타입을 판단하여 두개 다 일치하면 true, 아니면 false
+              를 반환한다.
+        
+        */
+
+        console.log(0 == false); // true
+        console.log(0 === false); // false
+        console.log(1 === '1'); // false
+
+        console.log(1 != 3); // true
+        console.log(1 != '1'); // false
+
+        console.log(2 !== '2'); // true
+        console.log(3 !== 3); // false
+
+
+    </script>
+</body>
+</html>

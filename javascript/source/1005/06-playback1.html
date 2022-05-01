@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getPlaySpeed()" type="button">플래이백 스피드 표시</button>
+    <button onclick="setPlaySpeed()" type="button">플래이백 스피드 0.5</button>
+
+    <video id="my-video" width="320" height="176" controls>
+        <source src="media/video.mp4" type="video/mp4">
+        <source src="media/video.ogv" type="video/ogg">
+        브라우저에서 지원되는 비디오가 없음
+    </video>
+
+    <script>
+        const vid = document.getElementById("my-video");
+
+        // 플래이백 스피드 표시
+        function getPlaySpeed(){
+            // alert(vid.playbackRate);
+            alert(vid.defaultPlaybackRate);
+        }
+
+        // 플래이백 스피드 셋업
+        function setPlaySpeed(){
+            // vid.playbackRate = 0.5;
+            vid.defaultPlaybackRate = 0.5;
+            vid.load();
+        }
+    </script>
+</body>
+</html>

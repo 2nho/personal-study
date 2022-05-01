@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const values = [
+            {item : "선물1", amount : {apple: 10, banana : 5, grape : 20, peach : 10}},
+            {item : "선물2", amount : {apple: 8, banana : 9, grape : 13, peach : 20}}
+        ];
+
+        // for (let {item, amount : {apple, banana, grape, peach}} of values) {
+        //     console.log(item,apple, banana, grape, peach );
+        // }
+        for (const {item , amount : {apple, peach}} of values){
+            console.log(item, peach, apple);
+        }
+    </script>
+</body>
+</html>

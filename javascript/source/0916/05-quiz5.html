@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body, html {
+            height : 100%;
+            margin : 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height : 100vh;
+        }
+
+        .btn {
+            display: flex;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            flex-grow : 1;
+        }
+
+        .tablinks {
+            background-color: #555;
+            color : white;
+            border : none;
+            cursor: pointer;
+            padding : 14px 16px;
+            font-size : 1.1rem;
+            flex-grow : 1;
+        }
+
+        .tablinks:hover {
+            background-color: #777;
+        }
+
+        .tabcontent {
+            color : white;
+            display: none;
+            padding : 100px 20px;
+            flex-grow : 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="btn">
+            <button class="tablinks">Home</button>
+            <button class="tablinks">News</button>
+            <button class="tablinks">Contact</button>
+            <button class="tablinks">About</button>
+        </div>
+        <div class="content">
+            <div id="Home" class="tabcontent">
+                <h3>Home</h3>
+                <p>Home is where the heart is.</p>
+            </div>
+            <div id="News" class="tabcontent">
+                <h3>News</h3>
+                <p>Some news this fine day!</p>
+            </div>
+            <div id="Contact" class="tabcontent">
+                <h3>Contact</h3>
+                <p>Get in touch, or swing by for a cup of coffee</p>
+            </div>
+            <div id="About" class="tabcontent">
+                <h3>About</h3>
+                <p>Who we are and what we do</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openPage(pageName, elmnt, color){
+            const tabcontent = document.getElementsByClassName("tabcontent");
+            const tablinks = document.getElementsByClassName("tablinks");
+
+            for (let index = 0; index < tabcontent.length; index++) {
+                tabcontent[index].style.display = "none";
+            }
+
+            for (let index = 0; index < tablinks.length; index++) {
+                tablinks[index].style.backgroundColor = "";
+            }
+
+            const page = document.getElementById(pageName);
+            page.style.display = "block";
+            page.style.backgroundColor = color;
+            elmnt.style.backgroundColor = color;
+        }
+
+        const tablinks = document.getElementsByClassName("tablinks");
+
+        tablinks[0].addEventListener("click",function(){
+            openPage("Home", this, "red");
+        });
+        tablinks[1].addEventListener("click",function(){
+            openPage("News", this, "green");
+        });
+        tablinks[2].addEventListener("click",function(){
+            openPage("Contact", this, "blue");
+        });
+        tablinks[3].addEventListener("click",function(){
+            openPage("About", this, "orange");
+        });
+
+        tablinks[0].click();
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        h2 {
+            clear : both;
+        }
+
+        ul {
+            background-color: #9c9c9c;
+            border : 1px solid black;
+            height : 400px;
+            width : 1000px;
+        }
+
+        li {
+            margin-top : 10px;
+            float: left;
+            list-style : none;
+        }
+    </style>
+</head>
+<body>
+    <h2>상품목록</h2>
+    <ul id="items">
+        <li><img src="images/pic1.jpg" id="b1" alt="" title="pic1"></li>
+        <li><img src="images/pic2.jpg" id="b2" alt="" title="pic2"></li>
+        <li><img src="images/pic3.jpg" id="b3" alt="" title="pic3"></li>
+    </ul>
+    <h2>장바구니</h2>
+    <ul id="cart">
+
+    </ul>
+    <script>
+        // 드래그에 대한 처리
+        const images = document.querySelectorAll("#items>li>img");
+        for (const img of images) {
+            // img에 dragstart 이벤트 리스너를 지정
+            img.addEventListener("dragstart",function(e){
+                // 데이터 전송을 위한 데이터 지정
+                e.dataTransfer.setData("src", e.target.src);
+                e.dataTransfer.setData("title",e.target.title);
+            });
+        }
+
+        // 드롭에 대한 처리
+        const cart = document.getElementById("cart");
+        // 장바구니 ul 요소에 대한 dragenter에 대한 기본 이벤트 제거
+        cart.addEventListener("dragenter",function(e){e.preventDefault();});
+        // 장바구니 ul 요소에 대한 dragover에 대한 기본 이벤트 제거
+        cart.addEventListener("dragover",function(e){e.preventDefault();});
+        // 장바구니 ul 요소에 대한 drop 이벤트 리스너 지정
+        cart.addEventListener("drop",function(e){
+            // 장바구니 ul 요소에 대한 drop에 대한 기본 이벤트 제거
+            e.preventDefault();
+            // 생성 전 데이터 전송 확인
+            const types = e.dataTransfer.types;
+            if(!types.includes("src"))return;
+            // img 요소를 생성
+            const img = document.createElement("img");
+            img.src = e.dataTransfer.getData("src");
+            img.title = e.dataTransfer.getData("title");
+            // li 요소를 생성하여 장바구니에 추가
+            const li = document.createElement("li");
+            li.append(img);
+            cart.append(li);
+        });
+    </script>
+</body>
+</html>

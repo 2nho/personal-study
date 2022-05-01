@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div>
+        <ul class="children">
+            <li><p class="parent">아이템1</p></li>
+            <li class="parent"><p>아이템1</p></li>
+            <li><p class="parents">아이템2</p></li>
+            <li class="prev"><p>아이템3</p></li>
+            <li><p>아이템4</p></li>
+            <li class="prevuntil"><p>아이템5</p></li>
+        </ul>
+        <ul>
+            <li class="next"><p>아이템6</p></li>
+            <li><p>아이템7</p></li>
+            <li><p>아이템8</p></li>
+            <li><p>아이템9</p></li>
+            <li class="nextuntil"><p>아이템10</p></li>
+        </ul>
+    </div>
+    <script>
+        $(".parent").parent().css("padding","1rem");
+        $(".parents").parents().css("border","1px solid blue");
+        $(".children").children().css("border", "1px dotted red");
+        $(".prev").prev().css("background-color","yellow");
+        $(".prev").prevAll().css("font-size","1.5rem");
+        $(".prevuntil").prevUntil(".prev").css("font-style","italic");
+        // $(".prevuntil").prevUntil().css("font-style","italic");
+        $(".next").next().css("font-family","궁서");
+        $(".next").nextAll().css("border","1px dashed green");
+        $(".next").nextUntil(".nextuntil").css("background-color","cyan");
+    </script>
+</body>
+</html>

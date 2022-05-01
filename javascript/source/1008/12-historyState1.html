@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <h2>push state</h2>
+        <button id="push-state1">pushState1</button>
+        <button id="push-state2">pushState2</button>
+        <button id="push-state3">pushState3</button>
+    </section>
+    <section>
+        <h2>replace state</h2>
+        <button id="replace-state">replace</button>
+    </section>
+    <section>
+        <h2>history state</h2>
+        <div id="state"></div>
+    </section>
+
+    <script>
+        document.getElementById("replace-state").addEventListener("click", function(){
+            history.replaceState({data : 'Replace데이터1'}, 'DDD', '/replace-state');
+            document.getElementById("state").innerText = history.state.data;
+        });
+        document.getElementById("push-state1").addEventListener("click", function(){
+            history.pushState({data : '전할데이터1'}, 'AAA', '/push-state1');
+            document.getElementById("state").innerText = history.state.data;
+            console.log(history.state);
+        });
+        document.getElementById("push-state2").addEventListener("click", function(){
+            history.pushState({data : '전할데이터2'}, 'BBB', '/push-state2');
+            document.getElementById("state").innerText = history.state.data;
+        });
+        document.getElementById("push-state3").addEventListener("click", function(){
+            history.pushState({data : '전할데이터3'}, 'CCC', '/push-state3');
+            document.getElementById("state").innerText = history.state.data;
+        });
+    </script>
+</body>
+</html>

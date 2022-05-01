@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+
+        /* 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul,
+        li {
+            list-style-type: none;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 1200px;
+        }
+
+        /* 로고 & 네비게이션 */
+        header {
+            width: 100%;
+            height: 100px;
+            background-color: #07c;
+        }
+
+        #logo {
+            float: left;
+            width: 250px;
+            height: 100px;
+            line-height: 100px;
+            padding-left: 20px;
+        }
+
+        #logo h1 {
+            font-family: 'Merienda', cursive;
+            font-weight: bold;
+            font-size: 40px;
+            color: #fff;
+            text-shadow: 0 -1px 0 #222;
+        }
+
+        nav {
+            float: right;
+            width: 900px;
+            height: 100px;
+            padding-top: 40px;
+        }
+
+        #top-menu {
+            height: 60px;
+        }
+
+        #top-menu>li {
+            float: left;
+            position: relative;
+        }
+
+        #top-menu>li>a {
+            display: block;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 0 1px #07c;
+            padding: 20px 60px;
+        }
+
+        #top-menu>li>a>span {
+            font-size: 0.5em;
+        }
+
+        #top-menu>li>a:hover {
+            color: #000;
+            text-shadow: 0 -1px #07c;
+        }
+
+        #top-menu>li>ul {
+            display: none;
+            position: absolute;
+            width: 160px;
+            background-color: rgba(255, 255, 255, 0.6);
+            left: 20px;
+            margin: 0;
+        }
+
+        #top-menu>li>ul>li {
+            padding: 10px 10px 10px 30px;
+        }
+
+        #top-menu>li>ul>li>a {
+            font-size: 0.85rem;
+            padding: 10px;
+            color: #000;
+        }
+
+        #top-menu>li:hover>ul {
+            display: block;
+            z-index: 10;
+        }
+
+        #top-menu>li>ul>li>a:hover {
+            color: #f00;
+        }
+
+        /* 이미지 슬라이드 */
+        #slide-show {
+            clear: both;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #slides {
+            position: absolute;
+            height: 300px;
+        }
+
+        #slides>img {
+            width: 100%;
+            float: left;
+        }
+
+        button {
+            position: absolute;
+            height: 100%;
+            top: 0;
+            border: none;
+            padding: 20px;
+            background-color: transparent;
+            color: #000;
+            font-weight: 800;
+            font-size: 1.7rem;
+            opacity: 0.5;
+        }
+
+        #prev {
+            left: 0;
+        }
+
+        #next {
+            right: 0;
+        }
+
+        button:hover {
+            background-color: #222;
+            color: #fff;
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
+        /* 컨텐츠 영역 */
+        #contents {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+        }
+
+        #tab-menu {
+            float: left;
+            width: 600px;
+            height: 100%;
+            margin-top: 10px;
+        }
+
+        #tab-menu input[type="radio"] {
+            display: none;
+        }
+
+        #tab-menu label {
+            display: inline-block;
+            margin: 0 0;
+            padding: 15px 12px;
+            font-weight: bold;
+            text-align: center;
+            color: #aaa;
+            border: 1px solid transparent
+        }
+
+        #tab-menu label:hover {
+            color: #222;
+            cursor: pointer;
+        }
+
+        #tab-menu input:checked+label {
+            color: #b00;
+            border: 1px solid #ddd;
+            background-color: #eee;
+        }
+
+        .tab-content {
+            display: none;
+            padding : 20px 0 0;
+            border-top: 1px solid #ddd;
+        }
+
+        #notice ul {
+            list-style: disc;
+            margin-left : 30px;
+        }
+
+        #notice ul li {
+            font-size : 1rem;
+            line-height: 2.5;
+        }
+
+        #gallary ul li {
+            display: inline;
+        }
+
+        #tab1:checked ~ #notice , #tab2:checked ~ #gallary{
+            display: block;
+        }
+
+
+        #links {
+            float: right;
+            width : 600px;
+            height : 100%;
+            margin-top : 20px;
+        }
+
+        #links ul {
+            padding : 0;
+            overflow: hidden;
+        }
+
+        #links ul li {
+            float : left;
+            width : 33%;
+            text-align: center;
+            margin : 10px 0;
+        }
+
+        #links ul li a span {
+            display: block;
+            margin : 0 auto;
+            width : 150px;
+            height : 150px;
+            border-radius: 100%;
+            border : 1px solid #ddd;
+        }
+
+        #quick-icon1 {
+            background-image: url(images/icon-1.jpg);
+        }
+        #quick-icon2 {
+            background-image: url(images/icon-2.jpg);
+        }
+        #quick-icon3 {
+            background-image: url(images/icon-3.jpg);        
+        }
+
+        #links ul li a p {
+            margin-top : 15px;
+            font-weight: bold;
+            color : #666;
+        }
+
+        /* 푸터영역 */
+        footer {
+            width : 100%;
+            height : 100px;
+            border-top : 2px solid #222;
+        }
+
+        #bottom-menu {
+            width :100%;
+            height : 20px;
+            position: relative;
+        }
+
+        #bottom-menu ul {
+            margin-top : 15px;
+        }
+
+        #bottom-menu ul li {
+            float : left;
+            padding : 5px 20px;
+            border-right : 1px solid #ddd;
+        }
+
+        #bottom-menu ul li:last-child {
+            border : none;
+        }
+
+        #bottom-menu ul li a, #bottom-menu ul li a:visited {
+            font-size : 1rem;
+            color : #666;
+        }
+
+        #sns {
+            position: absolute;
+            right: 0;
+        }
+        #sns ul li {
+            border : none;
+            padding : 5px;
+        }
+        #company {
+            clear : left;
+            margin-top : 25px;
+            margin-left : 20px;
+        }
+        p {
+            font-size : 0.85rem;
+            color : #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div id="logo">
+                <a href="01-sol1.html">
+                    <h1>Dream Jeju</h1>
+                </a>
+            </div>
+            <nav>
+                <ul id="top-menu">
+                    <li><a href="#">단체 여행 <span>▼</span></a>
+                        <ul>
+                            <li><a href="#">회사 연수</a></li>
+                            <li><a href="#">수학 여행</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">맞춤 여행 <span>▼</span></a>
+                        <ul>
+                            <li><a href="#">4.3 평화 기행</a></li>
+                            <li><a href="#">곶자왈 체험</a></li>
+                            <li><a href="#">힐링 워크샵</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">갤러리</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="slide-show">
+            <div id="slides">
+                <img src="images/photo-1.jpg" alt="">
+                <img src="images/photo-2.jpg" alt="">
+                <img src="images/photo-3.jpg" alt="">
+                <button id="prev">&lang;</button>
+                <button id="next">&rang;</button>
+            </div>
+        </div>
+        <div id="contents">
+            <div id="tab-menu">
+                <input type="radio" name="tabs" id="tab1" checked>
+                <label for="tab1">공지사항</label>
+                <input type="radio" name="tabs" id="tab2">
+                <label for="tab2">갤러리</label>
+                <div id="notice" class="tab-content">
+                    <ul>
+                        <li>사무실을 이전했습니다</li>
+                        <li>[참가 모집] 카약 체험에 초대합니다.</li>
+                        <li>[참가 모집] 여름 방학 기간, 오름 체험단을 모집합니다.</li>
+                        <li>겨울, 추천 여행지</li>
+                        <li>가을, 추천 여행지</li>
+                    </ul>
+                </div>
+                <div id="gallary" class="tab-content">
+                    <ul>
+                        <li><img src="images/img-1.jpg" alt=""></li>
+                        <li><img src="images/img-2.jpg" alt=""></li>
+                        <li><img src="images/img-3.jpg" alt=""></li>
+                        <li><img src="images/img-1.jpg" alt=""></li>
+                        <li><img src="images/img-2.jpg" alt=""></li>
+                        <li><img src="images/img-3.jpg" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="links">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span id="quick-icon1"></span>
+                            <p>평화기행</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span id="quick-icon2"></span>
+                            <p>힐링 워크샵</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span id="quick-icon3"></span>
+                            <p>문의하기</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+            <div id="bottom-menu">
+                <ul>
+                    <li><a href="#">회사 소개</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">여행약관</a></li>
+                    <li><a href="#">사이트맵</a></li>
+                </ul>
+                <div id="sns">
+                    <ul>
+                        <li><a href="#"><img src="images/sns-1.png" alt=""></a></li>
+                        <li><a href="#"><img src="images/sns-2.png" alt=""></a></li>
+                        <li><a href="#"><img src="images/sns-3.png" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="company">
+                <p>제주특별자치도 ***동 ***로 *** (대표전화) 123-456-7890</p>
+            </div>
+        </footer>
+    </div>
+    <script>
+        const slides = document.querySelectorAll("#slides > img");
+        const prev = document.getElementById("prev");
+        const next = document.getElementById("next");
+        let current = 0;
+
+        function showSlides(n){
+            for (let index = 0; index < slides.length; index++) {
+                slides[index].style.display = "none"
+            }
+            slides[n].style.display = "block";
+        }
+
+        function prevSlide(){
+            if(current > 0) current -= 1;
+            else current = slides.length - 1;
+            showSlides(current)
+        }
+
+        function nextSlide(){
+            if(current < slides.length - 1) current += 1;
+            else current = 0;
+            showSlides(current);
+        }
+
+        prev.addEventListener("click",function(){
+            prevSlide();
+        });
+        next.addEventListener("click",function(){
+            nextSlide();
+        });
+        showSlides(current);
+    </script>
+</body>
+
+</html>

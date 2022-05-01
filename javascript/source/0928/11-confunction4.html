@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 생서자 함수
+        /*
+            - 객체를 생성할 때 사용하는 함수
+            - 실제 ECMAScript 2015 이전에 다른 언어에서 사용한 객체 지향 비슷한 형식으로 객체를 생성하고자 고안한 로직
+            - 기존 함수에 new 연산자를 붙여서 호출하면 해당 함수는 생성자 함수로 둔갑하게 된다.
+            - 자바 스크립트에서는 특정 함수가 생성자 함수로 정의되어 있음을 알리기 위해 함수 이름의 첫 문자를 암묵적으로
+              대문자로 쓰기를 권장하고 있다.
+            - 생성자 함수 호출 시, 생성자 함수 내부에 존재하는 this는 일반 함수 호출 방식에서의 this와 다르게 해당 함수로
+              생성한 객체 자기자신을 가리키게 된다.
+            - 생성자 함수를 통해 인스턴스가 생성되면 해당 인스턴스는 기존 함수에서 Prototype으로 참조하고 있던 객체를
+              그대로 __proto__로 참조한다.
+            - 객체 리터럴 방식과 생성자 함수 방식은 프로토타입에서 차이가 갈리는데 객체 리터럴 방식의 경우 Object를 
+              프로토타입 객체로, 생성자 함수 방식의 경우에는 생성자 함수의 prototype의 프로퍼티가 가리키는 객체를
+              자신의 프로토타입 객체로 설정한다.
+            - 생성자 함수를 new를 선언하지 않고 호출할 경우 일반 함수 호출처럼 로직이 수행되며 그 안에 있던 this는
+              window를 가리키므로 전역 객체에 모든 프로퍼티가 바인딩 된다.
+        */
+
+        // 함수 리턴
+        /*
+            - 자바스크립트 함수는 항상 리턴값을 반환하는 구조로 이루어지며 비록 return값을 쓰지 않았을 지라도 엔진에서
+              자바스크립트를 랜더링 하는 과정에서 return을 아래 암묵적으로 추가해 메모리의 반환을 하도록 한다.
+            - 그래서 return문을 사용하지 않았더라도 다음의 규칙으로 항상 리턴값을 전달한다.
+              => 일반 함수나 메서드는 리턴값을 지정하지 않을 경우 undefined 값이 리턴된다.
+              => 생성자 함수에서 리턴 값을 지정하지 않을 경우 생성된 객체가 리턴된다.
+              => 생성자 함수에서 리턴 값으로 넘긴 값이 객체가 아닌 불린, 숫자, 문자열의 경우 이러한 리턴값을 무시하고
+                 this로 바인딩된 객체가 리턴된다.
+        */
+        function Person(name, age, gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+
+            return 5;
+        }
+
+        console.dir(Person);
+        // const obj = new Person("hong", 29, "남");
+        // console.dir(obj);
+    </script>
+</body>
+</html>

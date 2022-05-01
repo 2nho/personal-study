@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            float : 어울림 효과를 내기 위해 그림이나 블럭을 왼쪽 혹은 오른쪽으로 배치하기
+                    위해 쓰이는 속성. left는 왼쪽으로, right는 오른쪽으로 배치가 이루어
+                    지며 밑의 요소는 자연스럽게 위로 말려 올라온다.
+            clear : 말려 올라오는 효과를 방지하기 위해 clear라는 속성을 사용할 수 있다.
+                    left면 왼쪽 방지, right면 오른쪽 방지이지만 보통은 both로 양쪽
+                    방지를 많이 쓴다.
+        */
+        .left-img {
+            float: left;
+            margin-right: 15px;
+        }
+        .right-img {
+            float : right;
+            margin-left: 15px;
+        }
+        h1 {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <img class="left-img" src="img/galic.jpg" alt="">
+    <img class="right-img" src="img/apple-bg.jpg" width="200" heigth="200" alt="">
+    <h1>마늘</h1>
+    <p>제3항의 승인을 얻지 못한 때에는 그 처분 또는 명령은 그때부터 효력을 상실한다. 이 경우 그 명령에 의하여 개정 또는 폐지되었던 법률은 그 명령이 승인을 얻지 못한 때부터 당연히 효력을 회복한다. 재판의 전심절차로서 행정심판을 할 수 있다. 행정심판의 절차는 법률로 정하되, 사법절차가 준용되어야 한다. 국군의 조직과 편성은 법률로 정한다. 대통령은 국무회의의 의장이 되고, 국무총리는 부의장이 된다. 신체장애자 및 질병·노령 기타의 사유로 생활능력이 없는 국민은 법률이 정하는 바에 의하여 국가의 보호를 받는다. 대통령은 헌법과 법률이 정하는 바에 의하여 국군을 통수한다. 모든 국민은 행위시의 법률에 의하여 범죄를 구성하지 아니하는 행위로 소추되지 아니하며, 동일한 범죄에 대하여 거듭 처벌받지 아니한다.</p>
+</body>
+</html>

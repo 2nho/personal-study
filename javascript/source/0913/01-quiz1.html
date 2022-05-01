@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        <label for="id1">첫번째 값</label><input type="text" id="id1"><br>
+        <label for="id2">두번째 값</label><input type="text" id="id2"><br>
+        <button type="button" id="btn">연산</button>
+    </form>
+
+    <script>
+        document.getElementById("btn").onclick = function(){
+            let a = Number(document.getElementById("id1").value);
+            let b = Number(document.getElementById("id2").value);
+
+            // if(a==b){
+            //     alert("같다");
+            // }else if(a > b){
+            //     alert("크다");
+            // }else{
+            //     alert("작다");
+            // }
+            alert((a==b)?"같다":(a>b)?"크다":"작다");
+        };
+    </script>
+</body>
+</html>

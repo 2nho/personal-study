@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        body {
+            margin : 20px;
+            padding : 20px;
+            font-family: sans-serif;
+            font-size : 1rem;
+            background-color: #1f1f1f;
+            color : #555;
+        }
+        caption {
+            width : 0;
+            height: 0;
+            overflow: hidden;
+            line-height: 0;
+            text-indent: -1000px;
+            font-size: 0;
+        }
+        a {
+            text-decoration: none;
+            color : #555;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .title {
+            font-size : 1.5em;
+            font-weight: 300;
+            color : #555;
+        }
+
+        .container {
+            margin-top: 35px;
+        }
+        .help_contents {
+            min-width : 440px;
+        }
+        .help_contents .faq_area table{
+            width : 100%;
+            border : 0;
+            border-spacing: 0;
+        }
+
+        .help_contents .faq_area table th,
+        .help_contents .faq_area table td{
+            font-size : 0.875em;
+            word-wrap: break-word;
+            border : 0;
+        }
+
+        .help_contents .faq_area table thead th {
+            padding : 5px 0;
+            line-height: 27px;
+            font-weight: normal;
+            background-color: #8ac007;
+            color : #fff;
+        }
+        
+        .help_contents .faq_area table tbody th,
+        .help_contents .faq_area table tbody td {
+            padding: 18px 0;
+            line-height: 20px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        .help_contents .faq_area table tbody td {
+            padding : 0;
+        }
+
+        .help_contents .faq_area table .on th,
+        .help_contents .faq_area table .on td {
+            background-color: #fcfcfc;
+            border-bottom : 0;
+        }
+
+        .help_contents .faq_area table tbody th {
+            padding-left : 20px;
+            padding-right: 40px;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        .help_contents .faq_area table tbody td.num {
+            text-align: center;
+        }
+
+        .help_contents .faq_area table .info {
+            text-decoration: underline;
+        }
+
+        .help_contents .faq_area table .info::before,
+        .help_contents .faq_area table .info::after {
+            content : "";
+            position: absolute;
+            right: 20px;
+            top : 7px;
+            width : 15px;
+            height : 3px;
+            background-color: #b7b7b7;
+        }
+
+        .help_contents .faq_area table .info::before {
+            transform: rotate(90deg);
+        }
+
+        .help_contents .faq_area table .on .info::before {
+            width : 0;
+            height: 0;
+        }
+
+        .help_contents .faq_area table .description {
+            display: none;
+        }
+
+        .help_contents .faq_area table .on .description {
+            display: table-row;
+        }
+
+        .help_contents .faq_area table .on .description td {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .help_contents .faq_area table .description td .answer {
+            padding : 30px 30px 20px 30px;
+            overflow : hidden;
+            line-height: 22px;
+            color : #333;
+        }
+
+        .help_contents .faq_area table .description td .answer .title {
+            display: inline-block;
+            margin-top: 18px;
+            margin-bottom: 12px;
+            font-size: 1.5rem;
+        }
+
+        .help_contents .faq_area table .description td .answer .title:first-child {
+            margin-top : 0;
+        }
+
+        .help_contents .faq_area table .description td .answer .code {
+            display: block;
+            margin-top: 24px;
+            line-height: 18px;
+            font-size : 1rem;
+        }
+
+        .help_contents .faq_area table .description td .answer ul{
+            margin : 24px 0 0 20px;
+            padding : 0;
+        }
+
+        @media screen and (max-width: 520px){
+            .help_contents {
+                padding : 25px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">Accordion List</h1>
+    <div class="container">
+        <div class="help_contents">
+            <div class="faq_area">
+                <table summary="This is a list of frequently asked questions about the use site.">
+                    <caption>jQuery is a JavaScript Library. jQuery greatly simplifies JavaScript programming. jQuery is
+                        easy to learn.</caption>
+                    <colgroup>
+                        <col width="8%">
+                        <col width="25%">
+                        <col width="auto">
+                    </colgroup>
+                    <thead id="helpFaq_list">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">List</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="num">1</td>
+                            <th scope="row">jQuery Home</th>
+                            <td>
+                                <a href="#none" title="expand the area" class="info">jQuery is a JavaScript Library.
+                                    jQuery greatly simplifies JavaScript programming. jQuery is easy to learn.</a>
+                                <!-- collapse the area -->
+                            </td>
+                        </tr>
+                        <tr class="description">
+                            <td colspan="3">
+                                <div class="answer">
+                                    <span class="title">"Try it yourself" Examples in Each Chapter</span><br>
+                                    With our online editor, you can edit the code, and click on a button to view the
+                                    result.<br>
+                                    <span class="code">
+                                        $(document).ready(function(){<br>
+                                        &nbsp;&nbsp;&nbsp;$("p").click(function(){<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).hide();<br>
+                                        &nbsp;&nbsp;&nbsp;});<br>
+                                        });
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="num">2</td>
+                            <th scope="row">jQuery Introduction</th>
+                            <td>
+                                <a href="#none" title="expand the area" class="info">The purpose of jQuery is to make it
+                                    much easier to use JavaScript on your website.</a>
+                            </td>
+                        </tr>
+                        <tr class="description">
+                            <td colspan="3">
+                                <div class="answer">
+                                    <span class="title">What You Should Already Know</span><br>
+                                    Before you start studying jQuery, you should have a basic knowledge of:<br>
+                                    <ul>
+                                        <li>HTML</li>
+                                        <li>CSS</li>
+                                        <li>JavaScript</li>
+                                    </ul>
+                                    <br>If you want to study these subjects first, find the tutorials on our Home page.
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="num">3</td>
+                            <th scope="row">jQuery Get Started</th>
+                            <td>
+                                <a href="#none" title="expand the area" class="info">There are several ways to start
+                                    using jQuery on your web site.</a>
+                            </td>
+                        </tr>
+                        <tr class="description">
+                            <td colspan="3">
+                                <div class="answer">
+                                    <span class="title">Adding jQuery to Your Web Pages</span><br>
+                                    There are several ways to start using jQuery on your web site. You can:<br>
+                                    <ul>
+                                        <li>Download the jQuery library from jQuery.com</li>
+                                        <li>Include jQuery from a CDN, like Google</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="num">4</td>
+                            <th scope="row">jQuery Syntax</th>
+                            <td>
+                                <a href="#none" title="expand the area" class="info">With jQuery you select (query) HTML
+                                    elements and perform "actions" on them.</a>
+                            </td>
+                        </tr>
+                        <tr class="description">
+                            <td colspan="3">
+                                <div class="answer">
+                                    <span class="title">jQuery Syntax</span><br>
+                                    The jQuery syntax is tailor made for selecting HTML elements and performing some
+                                    action on the element(s).<br>
+                                    Basic syntax is: $(selector).action()<br>
+                                    <ul>
+                                        <li>A $ sign to define/access jQuery</li>
+                                        <li>A (selector) to "query (or find)" HTML elements</li>
+                                        <li>A jQuery action() to be performed on the element(s)</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="num">5</td>
+                            <th scope="row">jQuery Selectors</th>
+                            <td>
+                                <a href="#none" title="expand the area" class="info">jQuery selectors are one of the
+                                    most important parts of the jQuery library.</a>
+                            </td>
+                        </tr>
+                        <tr class="description">
+                            <td colspan="3">
+                                <div class="answer">
+                                    <span class="title">jQuery Selectors</span><br>
+                                    jQuery selectors allow you to select and manipulate HTML element(s).<br>
+                                    jQuery selectors are used to "find" (or select) HTML elements based on their id,
+                                    classes, types, attributes, values of attributes and much more. It's based on the
+                                    existing CSS Selectors, and in addition, it has some own custom selectors.<br>
+                                    All selectors in jQuery start with the dollar sign and parentheses: $().<br>
+                                    <span class="code">
+                                        $(document).ready(function(){<br>
+                                        &nbsp;&nbsp;&nbsp;$("button").click(function(){<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("p").hide();<br>
+                                        &nbsp;&nbsp;&nbsp;});<br>
+                                        });
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="num">6</td>
+                            <th scope="row">jQuery Event Methods</th>
+                            <td>
+                                <a href="#none" title="expand the area" class="info">jQuery is tailor-made to respond to
+                                    events in an HTML page.</a>
+                            </td>
+                        </tr>
+                        <tr class="description">
+                            <td colspan="3">
+                                <div class="answer">
+                                    <span class="title">What are Events?</span><br>
+                                    All the different visitor's actions that a web page can respond to are called
+                                    events.<br>
+                                    An event represents the precise moment when something happens.<br>
+                                    <ul>
+                                        <li>moving a mouse over an element</li>
+                                        <li>selecting a radio button</li>
+                                        <li>clicking on an element</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            const $info = $(".help_contents tbody a.info");
+            const $tbody = $(".help_contents tbody");
+            let heightArray = new Array();
+
+            $tbody.each(function(){
+                heightArray.push($(this).find(".description").height());
+            });
+
+            $info.on("click", function(e){
+                e.preventDefault();
+                if($(this).parents("tbody").hasClass("on")){
+                    $(this).parents("tbody").removeClass("on");
+                }else{
+                    $(".help_contents tbody").removeClass("on");
+                    $(this).parents("tbody").addClass("on");
+                    let n = $(this).parents("tbody").find(".num").text()-1;
+                    let h = heightArray[n]-50;
+                    const $info = $(this).parents("tbody").find(".answer");
+                    $info.stop().css({height:0}).animate({height:h},300);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

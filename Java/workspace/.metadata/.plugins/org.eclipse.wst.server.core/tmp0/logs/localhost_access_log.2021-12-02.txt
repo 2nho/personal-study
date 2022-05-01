@@ -1,0 +1,13 @@
+127.0.0.1 - - [02/Dec/2021:11:15:53 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [02/Dec/2021:11:15:59 +0900] "GET /JavaWebPrjCh10/ch10/quiz3.jsp HTTP/1.1" 200 1566
+0:0:0:0:0:0:0:1 - - [02/Dec/2021:11:15:59 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+127.0.0.1 - - [02/Dec/2021:11:48:43 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [02/Dec/2021:11:48:48 +0900] "GET /JavaWebPrjCh10/ch10/quiz3.jsp HTTP/1.1" 200 1599
+0:0:0:0:0:0:0:1 - - [02/Dec/2021:11:49:20 +0900] "GET /JavaWebPrjCh10/Quiz301Controller?id=1111&kind=%EA%B3%BC%EC%9E%90&amount=3&origin=%EC%9D%B8%EC%B2%9C&des=%EB%B6%80%EC%82%B0&carnum=&driver=&phone=&shipnum=&port=&startair=&desair=&type= HTTP/1.1" 404 843
+0:0:0:0:0:0:0:1 - - [02/Dec/2021:11:49:46 +0900] "GET /JavaWebPrjCh09/ch09/quiz3.jsp HTTP/1.1" 200 1566
+0:0:0:0:0:0:0:1 - - [02/Dec/2021:11:50:05 +0900] "GET /JavaWebPrjCh09/ch09/quiz3.jsp?id=1111&kind=%EA%B3%BC%EC%9E%90&amount=3&origin=%EC%9D%B8%EC%B2%9C&des=%EB%B6%80%EC%82%B0&carnum=&driver=&phone=&shipnum=&port=&startair=&desair=&type= HTTP/1.1" 200 1566
+0:0:0:0:0:0:0:1 - - [02/Dec/2021:11:51:02 +0900] "GET /JavaWebPrjCh09/ch09/quiz3.jsp HTTP/1.1" 200 1599
+0:0:0:0:0:0:0:1 - - [02/Dec/2021:11:51:17 +0900] "GET /JavaWebPrjCh09/Quiz301Controller?id=1111&kind=%EA%B3%BC%EC%9E%90&amount=3&origin=%EC%9D%B8%EC%B2%9C&des=%EB%B6%80%EC%82%B0&carnum=&driver=&phone=&shipnum=&port=&startair=&desair=&type= HTTP/1.1" 200 203
+127.0.0.1 - - [02/Dec/2021:12:20:21 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [02/Dec/2021:12:20:22 +0900] "GET /JavaWebPrjCh09/ch09/quiz3.jsp HTTP/1.1" 200 1599
+0:0:0:0:0:0:0:1 - - [02/Dec/2021:12:20:51 +0900] "GET /JavaWebPrjCh09/Quiz301Controller?id=1111&kind=%EA%B3%BC%EC%9E%90&amount=3&origin=%EC%9D%B8%EC%B2%9C&des=%EB%B6%80%EC%82%B0&carnum=&driver=&phone=&shipnum=&port=&startair=%EC%9D%B8%EC%B2%9C%EA%B3%B5%ED%95%AD&desair=%EB%B6%80%EC%82%B0%EA%B3%B5%ED%95%AD&type=3 HTTP/1.1" 200 259

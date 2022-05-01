@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 객체 (Object)
+        /*
+            - key(이름, 프로퍼티) : value(값, 벨류) 의 쌍으로 이루어져 있는 데이터 집합
+            - 데이터는 primitve 타입일수도 있고 non-primitive 타입일 수도 있다.
+            - key 정의 시 일반적인 데이터 타입을 가지고 갈 수도 있고 아니면 일반 이름을 가지고 key를 정의할 수 있다.
+            - 현실 투영적 측면으로 봤을 때 속성과 기능 두가지로 정의될 수 있으며 속성은 프로퍼티, 기능은 메서드라고 하는 이름으로
+              읽힌다.
+
+            객체 생성 방식 : new Object(), {}
+
+            for ~ in : 객체의 key 반복 시 사용할 수 있는 for문
+
+            prototype 에서의 object
+            - 모든 non-primitive 타입의 프로토타입 촤상위 객체는 Object
+            - Object prototype에 기능을 정의할 경우 모든 non-primitive 타입에 영향을 준다. 즉 기능이나 프로퍼티 사용이 가능하다.
+        */
+
+        const a = {};
+        a.__proto__.aaa = 3;
+        const b = {};
+        console.log(b.aaa);
+
+        // 배열
+        /*
+            정의 
+            - non-primitive 타입의 하나이자, 대표적인 iterable 객체
+
+            선언 방법
+            - Array 객체를 이용해서 선언하는 방식
+            - [] 리터럴을 통해 선언하는 방식
+            - 접근하는 방법은 "배열명[인덱스]"
+
+            length
+            - 배열의 길이를 나타내는 속성
+            - 속성 값 != 아이템 갯수
+
+            유사배열객체
+            - 배열은 아니지만 배열과 비슷하게 선언된 객체
+            - call, apply, bind 와 같은 함수 내의 메서드를 이용해 Array 기능을 할당 해줄 수 있다.
+
+            스프레드 연산자
+            - ...[배열] => item1, item2, item3...
+        */
+
+        /*
+            this
+            - 현재 위치에서 참조하고 있는 객체를 뜻 함
+            - 어디에서 선언되었는지에 따라 참조하고자 하는 객체가 완전히 달라지므로 주의할 것
+
+            참조할 곳에 따른 this의 의미
+            - 전역, 함수, 내장함수 : window
+            - 메서드 호출 : 메서드 호출 객체
+            - 생성자 함수 : 생성된 인스턴스
+            - 콜백 함수 : 기본적으로는 함수 내부와 동일
+                         dom object. addEventListener => 내가 이벤트를 일으킨 주체
+            - call, apply, bind : 실제 바인딩되는 대상 객체 
+        */
+
+        /*
+            prototype
+            - 해당 non-primitive 타입의 identity
+            - 해당 참조형에 필요한 모든것을 제공하는 프로퍼티
+            - 프로퍼티에 접근하기 위해서는 일반적으로 __proto__ 를 통해 접근 가능
+            - 함수에서는 접근을 위해 prototype 이라고 하는 프로퍼티를 통해 접근 가능
+            - 모든 non-primitive 타입의 최상위 prototype은 Object
+            - prototype에 프로퍼티를 넣을 경우 해당 prototype을 가지고 있는 객체에서는 해당 프로퍼티를 공유할 수 있다.
+        */
+
+        /*
+            생성자 함수
+            - 붕어빵 틀 => 붕어빵 = 객체 
+            - 기존 함수에 new 연산자를 붙여 호출하게 되면 생성자 함수로 동작하며 객체를 생성함.
+            - 함수에서는 prototype 을 통해 해당 생성자 함수로 생성되었던 변수의 프로토타입에 접근 가능하다.
+
+            class
+            - 기존 생성자 함수에서 메서드와 프로퍼티 선언자체가 어렵고 힘든점을 감안해 ECMAScript에서 새로운 기능을 추가함
+            - 기존 생성자 함수를 대체하기 위해 class라는 개념을 도입
+            - 사용 방법이 기존보다 굉장히 단순하다.
+
+            상속
+            - 하나의 객체에서 다른 객체의 모든 속성과 기능을 그대로 물려받는 것
+            - 기존 생성자 함수 방식은 프로토타입과 constructor 두가지를 바꿔서 상속을 했었지만 많은 부분이 불편
+            - class에서는 extends를 활용한 상속 방식이 개발됨
+        */
+        const c = []
+        console.dir(c);
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 인접 형제 선택자 */
+        /* + : 해당 요소에 인접한 아래의 요소에 디자인을 적용할 때 사용하는 기호 */
+        h1 + ul {
+            color : blue;
+            font-weight: bold;
+        }
+        h1 + h3 {
+            color : red;
+        }
+    </style>
+</head>
+<body>
+    <section id="container">
+        <h3>이것은 샘플입니다</h3>
+        <h1>예약 및 요금</h1>
+        <ul>
+            <li>직접 통화</li>
+            <li>문자 남기기</li>
+        </ul>
+        <ul>
+            <li>1인 : 40,000원</li>
+            <li>2인 : 60,000원</li>
+            <li>3인 : 80,000</li>
+            <li>4인 : 100,000</li>
+        </ul>
+    </section>
+</body>
+</html>

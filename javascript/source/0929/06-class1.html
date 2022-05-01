@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 클래스
+        /*
+            - 자바스크립트의 생성자 선언 방식은 가독성이 좋지 않고 사용하기 불편했으며 확장이 용이하지 않았다.
+            - 자바스크립트의 생성자 선언 방식의 단점을 보완하기 위해 다른 언어의 객체 지향 방식을 연구하기 시작하였다.
+            - 그 결과 자바스크립트에서도 다른 객체지향언어에서 사용하고 있던 class라는 개념이 도입되었으며 class는 현재
+              자바스크립트에서 표준으로 사용되고 있다.
+            - 클래스는 자바스크립트의 생성자 선언 방식을 대체하기 위한 개념이며 이전 생성자 방식 보다 더 나은 가독성을
+              제공하고 프로그래밍의 간소화와 용이한 확장성을 제공한다.
+            - 또한 클래스는 여러가지 기능들을 제공하고 있으며 이전 생성자 함수에서 하지 못했던 여러 기능들을 추가적으로
+              사용하는 것이 가능하다.
+        */
+
+        // 생성자 방식
+        // function Person(name, age, gender){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.gender = gender;
+        // }
+
+        // Person.prototype.working = function(){
+        //     console.log(`${this.name}이 걷습니다.`);
+        // }
+
+        // Person.prototype.profile = function(){
+        //     console.log(`이름 : ${this.name}, 나이 : ${this.age}, 성별 : ${this.gender}`);
+        // }
+
+        // 클래스 방식
+        // class Person {
+        //     // 초기화 시 쓰는 함수
+        //     constructor(name, age, gender){
+        //         this.name = name;
+        //         this.age = age;
+        //         this.gender = gender;
+        //     }
+
+        //     working() {
+        //         console.log(`${this.name}이 걷습니다`);
+        //     }
+
+        //     profile() {
+        //         console.log(`이름 : ${this.name}, 나이 : ${this.age}, 성별 : ${this.gender}`);
+        //     }
+        // }
+
+        const Person = class {
+            // 초기화 시 쓰는 함수
+            constructor(name, age, gender){
+                this.name = name;
+                this.age = age;
+                this.gender = gender;
+            }
+
+            working() {
+                console.log(`${this.name}이 걷습니다`);
+            }
+
+            profile() {
+                console.log(`이름 : ${this.name}, 나이 : ${this.age}, 성별 : ${this.gender}`);
+            }
+        }
+        
+
+        const person1 = new Person("홍길동", 29, "남성");
+        console.dir(person1);
+        person1.working();
+        person1.profile();
+    </script>
+</body>
+</html>

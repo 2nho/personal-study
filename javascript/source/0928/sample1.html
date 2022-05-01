@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+        }
+        #container {
+            width: 100vw;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+            
+            
+        }
+
+        #content-box {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            padding: 50px;
+            background-color: black;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 10rem;
+            color: red;
+        }
+
+        .btn {
+            width: 200px;
+            height: 50px;
+            font-size: 2rem;
+            margin: 10px;
+            border-radius: 20px;
+            background-color: lightgray;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content-box">
+            <h1>
+                <span id="minutes">00</span> : <span id="seconds">00</span> : <span id="tenMillis">00</span>
+            </h1>
+            <div id="btn-box">
+                <button type="button" id="start" class="btn">start</button>
+                <button type="button" id="stop" class="btn">stop</button>
+                <button type="button" id="reset" class="btn">reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 각 분 초 텐밀리세크에 값을 0으로 초기화
+        let minutes = 0;
+        let seconds = 0;
+        let tenMillis = 0;
+
+        // 변수 선언 h1원 태그 안의 분, 초, 텐밀리세크와 버튼 3개
+        const ten = document.getElementById('tenMillis');
+        const sec = document.getElementById('seconds');
+        const min = document.getElementById('minutes');
+        const btnStart = document.getElementById('start');
+        const btnStop = document.getElementById('stop');
+        const btnReset = document.getElementById('reset');
+        
+        let startInt;    // clearInterval로 멈추기위해 setInterval을 변수 stopInt에 담아줌
+
+        btnStart.addEventListener('click', function() {
+            clearInterval(startInt);
+            /* clearInterval(stopInt)을 start버튼 이벤트에 넣어주는 이유
+
+                - start버튼을 두 번 이상 누르게되면 startInt가 반복되면서 아이디가 겹치는 현상이 발생할수있기 때문에
+                  startInt을 호출할 때 마다 기존에 있던 startInt 아이디를 제거를 먼저 하고 startInt를 최신화 하는 그런과정을 거쳐야
+                  동작이 겹치지 않게 할 수 있다.
+            */
+            startInt = setInterval(function() {
+                        tenMillis++;    // 텐밀리세크 증가시키기
+
+                        // 삼학연산자 : 텐밀리스가 9보다 클때는 그대로 나타내도 되지만 그렇지 않은 경우에는 '0'을 더한다.
+                        // 증가된 텐밀리스를 ten에 표시
+                        ten.textContent = tenMillis > 9 ? tenMillis : '0' + tenMillis;
+
+                        // 만약 텐 밀리스가 99보다 크거나 같다면 seconds를 증가시키고 sec에 표시해준다.
+                        if (tenMillis >= 99) {
+                            seconds++;
+                            sec.textContent = seconds > 9 ? seconds : '0' + seconds;
+                            tenMillis = 0;  // 텐밀리스 초기화
+                            ten = '00';     // 표시 초시과
+                        }
+
+                        if (seconds > 59) {
+                            minutes++;
+                            min.textContent = minutes > 9 ? minutes : '0' + minutes;
+                            seconds = 0;
+                            sec.textContent = "00";
+                        }
+                    }, 10)
+        });
+
+        btnStop.addEventListener('click', function() {
+            clearInterval(startInt);
+        });
+
+        btnReset.addEventListener('click', function() {
+            clearInterval(startInt);
+            tenMillis = 0;
+            seconds = 0;
+            minutes = 0;
+            ten.textContent = '00';
+            sec.textContent = '00';
+            min.textContent = '00';
+        });
+    </script>
+</body>
+</html>

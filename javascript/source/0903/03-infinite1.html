@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        Infinity : 무한대
+        - 자바스크립트에서는 무한대의 값을 표현할 수 있다.
+        - 양수 무한대일 경우 Infinity, 음수 무한대일 경우 -Infinity 로 출력이 된다.
+        - Infinity 값에는 어떤 값을 연산하여도 값은 바뀌지 않는다.
+        - Infinity 값을 검사하는 함수로는 isFinite() 라는 함수가 존재한다.
+     -->
+</head>
+<body>
+    <script>
+        console.log(1+1); // 더하기
+        console.log(3-1); // 빼기
+        console.log(2*3); // 곱하기
+        console.log(8/4); // 나누기
+        console.log(7%3); // 나머지
+
+        console.log(1/0); // Infinity
+        console.log(-1/0); // -Infinity
+        console.log(isFinite(1)); // true
+        console.log(isFinite(1/0)); // false
+    </script>
+</body>
+</html>

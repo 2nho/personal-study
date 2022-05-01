@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .container > div {
+            width : 200px;
+            height: 200px;
+            margin: 5px;
+        }
+        
+        #naver {
+            background-color: green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #naver >h1 {
+            color : #f1f1f1
+        }
+        
+        #daum {
+            background-color: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #daum > h1 {
+            color : black;
+        }
+
+        #google {
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #google > h1 {
+            color : #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="naver">
+            <h1>NAVER</h1>
+        </div>
+        <div id="daum">
+            <h1>KAKAO</h1>
+        </div>
+        <div id="google">
+            <h1>GOOGLE</h1>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("naver").addEventListener("click",function(){
+            // location.href ="https://www.naver.com";
+            location.replace("https://www.naver.com");
+        })
+
+        document.getElementById("daum").addEventListener("click",function(){
+            // location.href = "https://www.daum.net";
+            location.replace("https://www.daum.net");
+        });
+
+        document.getElementById("google").addEventListener("click",function(){
+            // location.href ="https://www.google.co.kr";
+            location.replace("https://www.google.co.kr");
+        });
+    </script>
+</body>
+</html>

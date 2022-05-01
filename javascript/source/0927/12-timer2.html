@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="access">이 버튼을 누르면 3초마다 글이 삽입됩니다.</button>
+    <button id="cancel">이 버튼을 누르면 글 삽입이 취소 됩니다.</button>
+    <div id="content"></div>
+
+    <script>
+        let eventTime = null;
+
+        document.getElementById("access").addEventListener("click",function(){
+            eventTime = setInterval(function(){
+                const p = document.createElement("p");
+                const text = document.createTextNode("이것은 삽입된 글입니다.");
+                p.append(text);
+                document.getElementById("content").append(p); 
+            }, 3000);
+        });
+
+        document.getElementById("cancel").addEventListener("click",function(){
+            clearInterval(eventTime);
+        });
+    </script>
+</body>
+</html>

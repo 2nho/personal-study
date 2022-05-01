@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 객체(Object)
+        /*
+            - 현실에 반영되는 모든 명사 형태를 코드로 투영하기 위해 만들어진 개념
+            - 실제 코드 내에서는 속성과 기능을 묶어 한번에 정의하고자 할 때 사용하는 non-primitive 타입의 대표격이 되는
+              타입
+            - 객체는 속성과 기능으로 정의되며 이것을 자바 스크립트 내에서는 프로퍼티와 메서드라는 이름으로 정의한다.
+            - 객체를 선언할 때 단일 객체로는 {} 를 써서 안에 속성과 기능을 정의하여 선언이 가능하다.
+            - 속성과 기능을 정의할 시 "="이 아닌 ":"을 써서 [name : 속성값/기능] 형태로 정의한다.
+            - 단순하게 생각하면 key:value 형태의 값들을 묶어서 관리하는 컨테이너라 봐도 무방하다.
+            - 객체 내에서의 프로퍼티들은 기본값 혹은 참조값 둘다 값을 포함할 수 있다 즉, 객체 안에 객체도 선언이 가능하다
+            - 객체 내의 속성과 기능에 접근하기 위해서는 객체를 담은 변수명.key 로 접근이 가능하다.
+        */
+        // 모나미 펜
+        const a = {
+            color : "black",
+            ink : 80,
+            isWrite : function(){
+                console.log("펜 심을 나오게 한다.");
+            },
+            write : function(){
+                console.log("펜을 쓴다.");
+            }
+        };
+        console.log(a.color);
+        console.log(a.ink);
+        a.isWrite();
+        a.write();
+    </script>
+</body>
+</html>

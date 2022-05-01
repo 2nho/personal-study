@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+
+        body {
+            font-family: "Noto Sans KR", sans-serif;
+            color : #222;
+            margin : 0;
+            font-size: 15px;
+            font-weight: 300;
+        }
+
+        h2 {
+            margin : 0;
+        }
+
+        section {
+            width : 1000px;
+            margin: auto;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        .post {
+            display: flex;
+        }
+        .post:nth-child(odd){
+            flex-direction: column;
+        }
+        .post:nth-child(even){
+            flex-direction: column-reverse;
+        }
+        .image {
+            width : 250px;
+            overflow: hidden;
+        }
+        .image img {
+            width: 100%;
+            display: block;
+            transition: 0.3s;
+        }
+        .image img:hover {
+            transform: scale(1.1);
+        }
+        .desc {
+            background-color: #1dd1a1;
+            color : #fff;
+            text-align: center;
+            height : 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .desc p {
+            padding: 20px;
+        }
+
+        @media (max-width:1024px) {
+            section {
+                width : 100%;
+                padding : 30px;
+                box-sizing: border-box;
+                flex-wrap: wrap;
+            }
+            .post:nth-child(odd) {
+                flex-direction: row;
+            }
+            .image, .desc{
+                flex : 1;
+                height: 100%;
+            }
+            .post:nth-child(even){
+                flex-direction: row-reverse;
+            }
+        }
+        @media (max-width:760px) {
+            section {
+                padding : 10px;
+                flex-direction: column;
+            }
+            .post:nth-child(odd){
+                flex-direction: column;
+            }
+            .post:nth-child(even){
+                flex-direction: column;
+            }
+            .image {
+                width : 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="post">
+            <div class="image"><img src="images/blog-post-01.jpg" alt=""></div>
+            <div class="desc">
+                <h2>Blog Post #01</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, molestias!</p>
+            </div>
+        </div>
+        <div class="post">
+            <div class="image"><img src="images/blog-post-02.jpg" alt=""></div>
+            <div class="desc">
+                <h2>Blog Post #02</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, molestias!</p>
+            </div>
+        </div>
+        <div class="post">
+            <div class="image"><img src="images/blog-post-03.jpg" alt=""></div>
+            <div class="desc">
+                <h2>Blog Post #03</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, molestias!</p>
+            </div>
+        </div>
+        <div class="post">
+            <div class="image"><img src="images/blog-post-04.jpg" alt=""></div>
+            <div class="desc">
+                <h2>Blog Post #04</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, molestias!</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

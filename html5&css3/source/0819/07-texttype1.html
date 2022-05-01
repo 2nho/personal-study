@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- label
+        => input을 설명하는 글, 클릭할 시 해당 input창의 데이터를 핸들링하거나 해당
+           input 인터페이스로 focusing을 해주는 역할을 한다.
+        => label을 쓰는 방식은 2가지가 있으며 1.for를 통해 input타입의 id를 명시해서
+           선언하는 방식 2.label 안에 input 태그를 넣는 방식 두가지가 있다.
+           (두개 동시 사용 안됨)
+    -->
+    <!-- 
+        텍스트 관련 input 타입 주요 속성들
+        - size : 텍스트를 보여줄 수 있는 문자 수
+        - maxlength : 입력할 수 있는 최대 문자 개수
+        - value : input에서 가지고 있는 혹은 입력한 실제 데이터
+        - placeholder : input 입력 란에 안내 문구를 넣는다.
+        - autofocus : 해당 input 입력 란을 활성화 시킬 경우 사용하는 옵션
+        - readonly : input 값 수정 삭제 불가
+        - autocomplete : 웹 브라우저의 자동완성 기능을 사용할지 말지 여부를 결정하는 옵션
+                         on/off 로 조절할 수 있으며 default는 on
+     -->
+    <form action="#" method="get">
+        <!-- ul>li*6>label+input -->
+        <ul>
+            <li>
+                <label for="text1">text</label>
+                <input type="text" id="text1" name="text1" size="12" autocomplete="off">
+            </li>
+            <li>
+                <label for="text2">password</label>
+                <input type="password" id="text2" name="text2" maxlength="8">
+            </li>
+            <li>
+                <label for="text3">search</label>
+                <input type="search" id="text3" name="text3" value="검색란" readonly>
+            </li>
+            <li>
+                <label for="text4">url</label>
+                <input type="url" id="text4" name="text4" placeholder="SNS url을 넣어주세요">
+            </li>
+            <li>
+                <label for="text5">email</label>
+                <input type="email" id="text5" name="text5" autofocus>
+            </li>
+            <li><label for="text6">hidden</label><input type="hidden" id="text6" name="text6"></li>
+            <li><label>tel<input type="tel" name="text7" id="text7"></label></li>
+            <li><button type="submit">전송</button></li>
+        </ul>
+    </form>
+    <script>
+        document.getElementById("text6").value="abcd";
+    </script>
+</body>
+</html>

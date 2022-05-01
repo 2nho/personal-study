@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .warning {
+            color : red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="my-input" name="my-input" pattern="[A-Za-z0-9]{6,9}"
+        placeholder="알파벳 대소문자 및 숫자 조합 6~9" required size="30">
+        <div class="warning"></div>
+        <button>Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("my-input").addEventListener("invalid",function(){
+            document.querySelector(".warning").textContent = "반드시 알파벳 대소문자 및 숫자 조합 6~9까지";
+        });
+    </script>
+</body>
+</html>

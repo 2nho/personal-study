@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 프로퍼티 선언 방법
+        /*
+            - 클래스 내에서는 프로퍼티를 선언하는 것이 가능하다
+            - 클래스 내에서 프로퍼티를 선언하는 방법은 두가지가 존재하며 다음과 같다.
+              => Class 내에 직접 프로퍼티를 선언 : 단 이방식은 Chrome 72 이상이거나 최신 node.js에서만 가능하다.
+              => 메서드 내에서 this를 통해 프 로퍼티를 바인딩 하는 방법 : 가장 보편적으로 쓰이는 방법
+            - 이런식으로 클래스 내에서 선언된 프로퍼티를 클래스 [필드] 라고 부른다.
+            - 바인딩 시에 외부에 데이터를 가져올 경우 메서드를 통해 데이터를 받아 외부 데이터를 넣을 수 있다.
+        */
+        // 메서드
+        /*
+            - 생성자 함수에서 메서드를 만드는 방법과 달리 class에서 메서드를 선언하는 방식은 다르다
+            - 단 기존의 생성자 함수의 메서드 기능과 class에서의 메서드 기능은 전부 동일하다.
+            - class에서 메서드 작성시에 function과 :이 들어가지 않고 이름만 작성한다.
+        */
+
+        // Class 메서드의 this 활용
+        /*
+            - 생성자 함수 안에서 함수를 선언하고 this를 그 안에 선언했을 시 글로벌에 선언된 프로퍼티를 가르쳤었다.
+            - 허자먼 Class 내부에서 함수를 선언하고 그 안에서 this를 선언할 경우 해당 this는 글로벌에 선언된 프로퍼티를
+              가르치지 않으며 에러가 난다.
+            - 생성자 함수 선언에서는 접근 가능한 글로벌 함수로의 this 접근이 Class에서 적용되지 않으며 Class 내에서
+              에러가 나지 않게 하기 위해서는 값을 받는 인스턴스에 따로 해당 이름의 프로퍼티를 선언해야만 정상적으로 동작한다.
+        */
+        class Class1 {
+            // 1. 프로퍼티를 클래스 내에 직접 삽입
+            num1 = 12;
+            // 2. 메서드를 통해 선언
+            setNum2(num2){
+                this.num2 = num2;
+            }
+
+            getNum1(){
+                return this.num1;
+            }
+
+            getNum2(){
+                return this.num2;
+            }
+        }
+
+        const c1 = new Class1();
+        console.log(new Class1().getNum1());
+        console.log(c1.getNum1());
+        c1.setNum2(25);
+        console.log(c1.getNum2());
+    </script>
+</body>
+</html>

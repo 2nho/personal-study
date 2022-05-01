@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // switch~case
+        /*
+            - if~else if~else 문 처럼 조건에 따라 각 분기별 로직을 실행시키기 위해 만들어진 조건문
+            - if~else if~else 문과 다른점은 이 로직은 오로지 변수의 값과 동등비교만 가능하다.
+            - 즉, 복잡한 비교문이나 논리문을 넣을 수 없으며 해당 값이 동일한가 아닌가만을 판단하여 동일할 경우 해당
+              case문 안의 로직을 실행, 아닐경우 다음 case문으로 이동해 다시 동등 비교를 하게 된다.
+            - if~else if~else 문은 한번 실행하면 전체 문장을 빠져나와 아래의 문장을 실행하지만 switch~case문의 경우
+              case문을 실행시킨 후 아래의 문장을 그대로 전부 실행시켜 버리기 때문에 강제로 로직을 나갈 수 있도록
+              break;란 문장을 각 case로직의 맨 아래에 추가해준다.(맨 마지막의 default문장 내에는 굳이 break;문을 쓸
+              필요는 없다.)
+            - 위와 같은 허점을 이용하여 어설프지만 범위 색인이 가능하도록 만들수는 있다.
+            - switch~case문은 상당히 제한적인 다중 조건문이지만 if~else if~else문과 다른점이 있다면 연산속도가 매우
+              빠르다는 점이다. 그래서 switch~case문을 쓰는 사람들은 보통 다른 조건문보다 더 빠르게 실행시키기 위해 
+              사용하는 경우도 있다.
+        */
+        let a = prompt("0~10사이의 숫자를 넣어주세요");
+        a = Number(a);
+        switch (a) {
+            case 0:
+                document.write("a는 0입니다");
+                // break;
+            case 1:
+                document.write("a는 1입니다");
+                // break;
+            case 2:
+                document.write("a는 2입니다");
+                // break;
+            case 3:
+                document.write("a는 3입니다");
+                // break;
+            case 4:
+                document.write("a는 4입니다");
+                // break;
+            case 5:
+                document.write("a는 5입니다");
+                // break;
+            case 6:
+                document.write("a는 6입니다");
+                // break;
+            case 7:
+                document.write("a는 7입니다");
+                // break;
+            case 8:
+                document.write("a는 8입니다");
+                // break;
+            case 9:
+                document.write("a는 9입니다");
+                // break;
+            case 10:
+                document.write("a는 10입니다");
+                // break;
+            default :
+                document.write("a는 아무 숫자도 아닙니다.");
+        }
+    </script>
+</body>
+
+</html>

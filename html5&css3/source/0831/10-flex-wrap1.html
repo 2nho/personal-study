@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            flex-wrap : 화면이 전체 컨테이너의 아이템 길이보다 작아질 경우 해당 아이템을 어떻게 배치할지 결정하는 속성
+            - nowrap : 줄바꿈 하지 않음
+            - wrap : 아래로 아이템을 내린다.
+            - wrap-reverse : 위로 아이템을 올린다.
+        */
+        .flex-container {
+            display: flex;
+            /* flex-wrap: nowrap; */
+            /* flex-wrap : wrap; */
+            flex-wrap : wrap-reverse;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item">BBBBBBBBBBBBBBBBBBBBBBBBBB</div>
+        <div class="flex-item">CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</div>
+    </div>
+</body>
+</html>

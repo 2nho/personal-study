@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Default Parameter
+        /*
+            - 파라미터에 제대로 된 개수의 값이 들어오지 않을 경우 해당 파라미터를 미리 지정한 값으로 초기화 할 때
+              사용하는 기능
+            - 해당 파라미터의 값이 undefined일 경우 초기화 값으로 대체되며 [arg = 값] 형태로 사용이 가능하다.
+            - 만약 값이 설정될 경우 기존의 default Parameter는 무시된다.
+        */
+        function funcA(a, b = 3){
+            return a+b;
+        }
+
+        console.log(funcA(5)); // 8
+        console.log(funcA(5,7)); // 12
+    </script>
+</body>
+</html>

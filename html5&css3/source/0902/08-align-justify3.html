@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            각각의 아이템 정렬 방법
+            - 각 아이템에 대한 정렬을 하기 위해서는 아래와 같은 속성을 사용한다.
+            - align-self : 아이템을 위/아래로 정렬하기 위해 사용하는 속성
+            - justify-self : 아이템을 좌/우로 정렬하기 위해 사용하는 속성
+            - place-self : 아이템을 위/아래/좌/우로 정렬하기 위해 사용하는 속성 (위의 두개 속성을 붙인 속성이다.)
+
+            각 아이템 정렬을 위해 사용되는 값
+            - start : 아이템의 위 혹은 좌로 배치할 때 사용하기 위한 속성 값
+            - center : 아이템을 중간에 위치시키기 위해 사용하기 위한 속성 값
+            - end : 아이템을 아래 혹은 우로 배치할 때 사용하기 위한 속성 값
+            - stretch : 위/아래, 혹은 좌/우로 확장 (기본값)
+        */
+        .grid-container{
+            width : 450px;
+            height : 450px;
+            display: grid;
+            grid-template-rows: repeat(3, 100px);
+            grid-template-columns: repeat(3,100px);
+        }
+        .grid-item:nth-child(1){ align-self : start;}
+        .grid-item:nth-child(2){ align-self : center;}
+        .grid-item:nth-child(3){ align-self : end;}
+        .grid-item:nth-child(4){ align-self : stretch;}
+        .grid-item:nth-child(5){ justify-self: start;}
+        .grid-item:nth-child(6){ justify-self: center;}
+        .grid-item:nth-child(7){ justify-self: end;}
+        .grid-item:nth-child(8){ justify-self: stretch;}
+        .grid-item:nth-child(9){ place-self: center;}
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+    </div>
+</body>
+</html>

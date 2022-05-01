@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            flex
+            - 반응형 웹이 나오고 난 이후에 유동적인 블럭의 배치를 위해서 고안된 디스플레이 방식
+            - 기존 미디어 쿼리만으로는 모든 화면에 대응대도록 만들기 쉽지 않다 보니 더 편리한
+              방식을 연구하기 시작하였고 그 결과 flex라는 display 방식이 생겨나게 됨
+            - flex는 단순히 position과 같은 배치가 아니라 자연스럽게 블럭에 끼워 밎춰지듯이 배치된다.
+            - flex의 구성요소는 flex 아이템을 감싸고 있는 컨테이너와 flex 의 각각의 아이템에 해당하는
+              flex item들로 구성되어 있다.
+              => flex : flex 기반 블럭. 한 영역을 전부 차지하며 글을 아래로 내려버리는 전형적인
+                       블럭과 비슷한 디스플래이. 안의 아이템들은 전부 flex의 영향을 받는다.
+                inline-flex : flex와 동일하지만 해당 flex 컨테이너 뒤에 글이 올라와서 붙거나 다른 블럭이
+                             올라와서 붙는다(마치 inline-block과 같음)
+        */
+        .flex-container {
+            display: flex;
+            /* display: inline-flex; */
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item">BBBBBBBBB</div>
+        <div class="flex-item">CCCCCCCCCCCCCCCCCCC</div>
+    </div>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa tenetur nihil error amet ratione qui at praesentium odit quas iure? Ipsum inventore magni delectus voluptates veniam et perspiciatis minus quas.
+</body>
+</html>

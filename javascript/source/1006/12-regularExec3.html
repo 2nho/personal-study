@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // \bm : m이 단어 경계의 처음 부분일때
+        // n\b : n이 단어 경계의 끝 부분일때
+        console.log(/\bm/.exec("blue moon"));
+        console.log(/\boo/.exec("moon"));
+        console.log(/n\b/.exec("moon"));
+        // \d : 숫자 매칭
+        console.log(/\d+/.exec("ab123d"));
+        // \D : not \d
+        console.log(/\D/.exec("ab1d"));
+        // .n : n 앞에 아무 문자 하나
+        console.log(/.n/.exec("#n apple"));
+        // (foo) (bar) : foo bar
+        console.log(/(foo) (bar)/.exec("foo bar test"));
+        // (?:abc) : abc
+        console.log(/abc+/.exec("abcabcabcabcabcabc"));
+        console.log(/(?:abc)+/.exec("abcabcabcbbbbbabcabcabc"));
+
+        // foo(?=bar|test) : foobar or footest
+        console.log(/foo(?=bar)/.exec("foo"));
+        console.log(/foo(?=bar)/.exec("foobar"));
+        console.log(/foo(?=bar|test)/.exec("footest"));
+
+        // \d+(?!.) : 점이 뒤에 없는 숫자들
+        console.log(/\d+(?!.)/.exec(23.141));
+    </script>
+</body>
+</html>

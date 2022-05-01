@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // in : 대상 객체에 해당 키값이 존재하는지 여부를 알고싶을 경우 쓰는 명령어
+        const obj1 = {
+            name : "망고",
+            kind : "과일",
+            origin : "필리핀",
+            getSometing : function(){
+                console.log("망고는 맛있어요");
+            }
+        }
+
+        console.log("name" in obj1); // true
+        console.log("getBlar" in obj1); // false
+
+        console.log(obj1.name); // 망고
+
+        // with : 일반 변수를 선언해서 쓰는 것처럼 객체의 프로퍼티를 사용하고 싶을 때
+        with(obj1){
+            console.log(name);
+            console.log(kind);
+        }
+
+        const a = [1,2,3,4,5];
+        // console.dir(a);
+        for(const key in a){
+            console.log(a[key]);
+        }
+
+        // for (const item of a) {
+        //     console.log(item);
+        // }
+    </script>
+</body>
+</html>
+
+
+

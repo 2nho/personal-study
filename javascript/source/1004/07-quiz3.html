@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="tb">
+
+    </table>
+    <script>
+        function MyTable(name){
+            this.table = document.getElementById(name);
+
+            const thead = document.createElement("thead");
+            const tbody = document.createElement("tbody");
+            
+            const thead_tr = document.createElement("tr");
+            const thead_th1 = document.createElement("th");
+            thead_th1.style.border = "1px solid black";
+            thead_th1.textContent = "순번";
+            const thead_th2 = document.createElement("th");
+            thead_th2.textContent = "제목";
+            thead_th2.style.border = "1px solid black";
+            const thead_th3 = document.createElement("th");
+            thead_th3.textContent = "내용";
+            thead_th3.style.border = "1px solid black";
+
+            thead_tr.append(thead_th1, thead_th2, thead_th3);
+            thead.append(thead_tr);
+
+            for (let index = 1; index <= 5; index++) {
+                let tr = document.createElement("tr");
+                let td1 = document.createElement("td");
+                let td2 = document.createElement("td");
+                let td3 = document.createElement("td");
+                td1.textContent = index;
+                td2.textContent = `재목${index}`;
+                td3.textContent = `내용${index}`;
+
+                td1.style.border = "1px solid black";
+                td2.style.border = "1px solid black";
+                td3.style.border = "1px solid black";
+
+                tr.append(td1, td2, td3);
+                tbody.append(tr);
+            }
+
+            this.table.append(thead, tbody);
+            this.table.style.borderCollapse = "collapse";
+        }
+
+        const myTable = new MyTable("tb");
+    </script>
+</body>
+</html>

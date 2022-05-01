@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+            width: 2000px;
+        }
+
+        button {
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <h1>안녕하세요</h1>
+
+    <button onclick="myFunction()">Scroll contents of body</button><br><br>
+
+    <script>
+        function myFunction() {
+            // var body = document.body; // For Safari
+            var html = document.documentElement; // Chrome, Firefox, IE and Opera places the overflow at the html level, unless else is specified. Therefore, we use the documentElement property for these browsers
+            // body.scrollLeft += 30;
+            // body.scrollTop += 10;
+            html.scrollLeft += 30;
+            html.scrollTop += 10;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="./favicon.ico" />
+</head>
+<body>
+    <script>
+        // 동등연산자
+        /*
+            - 양 변의 두개의 값을 비교하여 값이 같으면 참 아니면 거짓을 나타내는 연산자.
+            - 하지만 동등 연산자는 타입을 비교하지 않고 값이 같으면 참으로 인식을 한다.
+            - 전혀 다른 타입에 다른 상황이어도 이 값을 형변환 하여 선언할 시 비교할 대상의 값과 동일하다면 무조건
+              참으로 인식을 하게 된다.
+            - 참으로 인식하게 되는 케이스도 상당히 많이 존재하므로 맨 처음 자바스크립트를 입문하게 되는 사람들에게는
+              어려운 과제로 남을 수 밖에 없다.
+        */
+        console.log(1==1); // true
+        console.log(1 == "1"); // true
+        console.log(1 == true); // true
+        console.log(0 == false); // true
+        console.log(0 == '0'); // true
+        console.log(0 == null); // false
+        console.log(0 == undefined); // false
+        console.log(null == undefined); // true
+        console.log(0 == ""); // true
+
+        var a = null;
+        console.log(a);
+
+        let b = 1;
+        console.log(b); // 1
+        b = 2;
+        console.log(b); // 2
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // arrow 함수
+        /*
+            - 화살표 함수는 기존에 있던 function의 익명 선언 방식을 축약한 것이다.
+            - 화살표 함수는 익명 함수이며 함수를 사용할 경우는 두가지 경우가 있는데 하나는 단 한번만 사용되는 콜백함수
+              에서 사용되거나 변수에 할당하여 사용할 경우 두가지 케이스가 존재한다.
+            - 화살표 함수를 축약하는 방식은 상황에 따라 여러가지 방법으로 축약이 가능하며 각 상황에 맞추어 축약하지
+              않을 경우 에러가 발생한다.
+        */
+        // const funcA = function(one, two){
+        //     return one + two;
+        // }
+
+        // 로직이 한줄이고 return 문장이 들어간 라인이라면 {}와 return이 생략 가능하다.
+        // const funcA = (one, two) => {
+        //     return one + two;
+        // }
+
+        const funcA = (one, two) => one + two;
+        console.log(funcA(2, 3));
+    </script>
+</body>
+</html>

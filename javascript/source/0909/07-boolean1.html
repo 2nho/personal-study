@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 모든 값은 전부 boolean으로 대체가 가능하다.
+        // 숫자 타입 : 0일경우 false 고 아닐 경우 true
+        console.log(!!(1)); // true
+        console.log(!!(0)); // false
+        console.log(!!(-1)); // true
+        // NaN : false , Infinity : true
+        console.log(!!(NaN)); // false
+        console.log(!!(Infinity)); // true
+        // 문자 타입 : 공백일경우 false, 아닐경우 true
+        console.log(!!("abc")); // true
+        console.log(!!("")); // false
+        console.log(!!("안녕하세요")); // true
+        // null : false , undefined : false
+        console.log(!!(null)); // false
+        console.log(!!(undefined)); // false
+    </script>
+</body>
+</html>

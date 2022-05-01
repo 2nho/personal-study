@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            position : 웹 문서 안의 요소들을 배치해주는 속성
+                       웹 문서를 만들 때 배치와 관련해서 중요하게 사용되는 속성 중 하나.
+                       position으로 쓸 수 있는 값으로는 static, relative, absolute,
+                       fixed가 있다.
+              static => 요소를 흐름에 맞춰 배치할 경우 사용하는 속성. 기본적으로 position
+                        을 선언하지 않았을 시 디폴트 값이 static이다. 인라인은 좌에서 우로
+                        블록태그는 위에서 아래로 배치되는 정적인 배치를 할 경우
+                        static을 통해 배치가 가능하다.
+              relative => static일 시 배치된 위치를 기준으로 상대적인 이동을 할 경우
+                        사용되는 속성. 안쪽의 블럭들의 자유로운 이동을 위해 static 속성을
+                        없애기 위한 용도로 사용되기도 한다. 옮기지 않으면 기존 static
+                        속성의 위치와 동일하지만 static과는 달리 left, top, bottom,
+                        right 속성을 활용해서 위, 아래, 좌, 우 기준으로 이동이 가능하다는
+                        장점이 있다.
+              absolute => 좌측 상단을 기준으로 블럭을 자유 자재로 배치할 때 사용하는 속성.
+                          이 속성은 자신이 움직일 수 있는 범위를 static이 아닌 부모로
+                          정하여 움직이며, 만약 자신의 부모가 static일 경우 static이 아닌
+                          다음 상위 부모를 자신이 움직일 수 있는 범위로 인식한다.
+                          만약 모든 부모가 static일 시 absolute속성의 블럭의 위치되는
+                          범위는 body가 된다.
+              fixed => absolute가 부모 범위를 기준으로 하였다면 fixed는 보이는 화면을
+                       기준으로 움직인다. 문서를 스크롤하여 움직여도 해당 위치에 고정되어
+                       절대 움직이지 않는다. 스크롤과는 무관한 고정형 인터페이스를 제공할
+                       경우 많이 사용된다.
+        */
+        .c1 {
+            width : 50px;
+            height : 50px;
+            position: fixed;
+            background-color: tomato;
+            right: 0;
+            top : 0;
+        }
+    </style>
+</head>
+<body>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></var>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="c1"></div>
+</body>
+</html>

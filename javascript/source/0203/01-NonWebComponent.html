@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Slider extends HTMLElement {
+            connectedCallback(){
+                alert("이것은 임의로 만든 웹 컴포넌트 입니다.");
+            }
+        }
+
+        customElements.define("my-slider", Slider);
+    </script>
+
+    <my-slider></my-slider>
+</body>
+</html>

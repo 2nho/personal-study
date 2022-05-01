@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // And 연산
+        // - 양 변이 모두 true 이면 true, 아니면 false
+        /*
+           - and 연산은 모든  경우의 수 혹은 값의 결과가 모두 true일 때 true 아니면 false 를
+             나내는 연산.
+           - and 연산의 좌변 우 변에 위치할 수 있는 값은 불리언 형태의 값 혹은 불리언 값을 출력할
+             수 있는 식이 된다.
+        */
+        console.log("true && true + :"+ true && true); // true
+        console.log(false && true); // false
+        console.log(true && false); // false
+        console.log(false && false); // false
+
+        // or 연산
+        // - 양 변중 하나라도 true 면 true 아니면 false
+        /*
+            - 영쪽 변의 하나라도 true가 발생하면 모두 true그렇지 않않고 모두false가 나오면
+              주조건 false를 리턴한다.
+            - 여러 사업 분야에서 사용하고 있다.
+        */
+        console.log(true || true); // true
+        console.log(false || true); // true
+        console.log(true || false); // true
+        console.log(false || false); // false
+
+        // not 연산
+        // true를 flase리턴하는 함수
+        console.log(!true);
+        console.log(!false);
+    </script>
+</body>
+</html>

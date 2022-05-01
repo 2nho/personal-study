@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onkeydown="myFunction(event)">
+    <h1>이것은 제목입니다</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga blanditiis totam autem, voluptatem consequatur quisquam impedit atque porro deserunt placeat laboriosam soluta magnam. Aperiam itaque reiciendis praesentium sapiente facere soluta!</p>
+    <script>
+        document.designMode = "on";
+
+        function myFunction(event){
+            if(event.keyCode == 16){
+                // document.execCommand("bold");
+                // document.execCommand("italic");
+                // document.execCommand("delete");
+                document.execCommand("createLink");
+            }
+        }
+    </script>
+</body>
+</html>

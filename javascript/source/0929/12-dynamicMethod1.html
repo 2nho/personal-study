@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 동적 method 추가
+        /*
+            - Method를 동적으로 추가하는 방법은 이전의 생성자 방식처럼 prototype을 이용해 선언할 수 있다.
+            - Class에 선언된 Method들은 전부 prototype에 저장되기 때문에 큰 상관이 없다.
+            - 하지만 이러한 추가의 경우 생성된 인스턴스에 추가한 메서드를 공유할 수 있도록 엔진이 처리하기 때문에
+              상당한 부하가 걸릴 수 있다.
+        */
+        class Class1{
+            getName1(){
+                return "홍길동";
+            }
+        }
+
+        Class1.prototype.getAge = function(){
+            return 29;
+        }
+
+        const obj1 = new Class1();
+        console.log(obj1.getName1());
+        console.log(obj1.getAge()); // 29
+    </script>
+</body>
+</html>

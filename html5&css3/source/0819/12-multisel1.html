@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        다중 선택시 쓰이는 태그
+        select : 드랍다운 메뉴를 만들어주는 태그. 반드시 option 태그가 복수개로 select
+                 태그 안쪽에서 선언되며 option태그는 select가 선택할 수 있는 아이템이
+                 된다. 아이템이 많을 경우 카테고리별로 구분하기 위해 optgroup을 사용할
+                 수 있다.select 태그에서 쓸 수 있는 옵션은 다음과 같다.
+          - size : 한번에 나타낼 수 있는 아이템 개수를 나타낸다. option 태그의 갯수를
+                   넘어갈 수 없다.
+          - multiple : 복수의 option을 선택할 때 사용한다.
+        datalist : input:text의 자동완성 기능을 설정할 때 쓸 수 있는 목록 태그
+                   검색 시 자동완성 목록을 지원할 경우 사용하며 html5에서 지원하는
+                   정식 표준은 아니다. 때로는 해당 태그를 자바스크립트를 통해 지원하는
+                   케이스가 늘고 있으며 기존의 투박한 디자인을 버리기 위해 커스터마이즈된
+                   태그를 대신해서 사용하는 추세임. 단 가볍고 간단하게 구현할 경우 사용하기
+                   용이하다. datalist 역시 option 태그를 다수 가질 수 있으나 select와는
+                   다르게 다른 속성을 옵션으로 가지지는 않는다.
+     -->
+    <form action="#" method="get">
+        <select name="class" id="class" size="3" multiple>
+            <optgroup label="공과대학">
+                <option value="archi">건축공학과</option>
+                <option value="mechanic">기계공학과</option>
+                <option value="indust" selected>산업공학과</option>
+                <option value="elec">전기전자공학과</option>
+                <option value="computer">컴퓨터공학과</option>
+                <option value="chemical">화학공학과</option>
+            </optgroup>
+            <optgroup label="인문대학">
+                <option value="a">경제학과</option>
+                <option value="b">법학과</option>
+                <option value="c">경영학과</option>
+            </optgroup>
+        </select><br>
+        <input type="text" name="programmer" id="programer" list="prog"><br>
+        <datalist id="prog">
+            <option value="c">C프로그래머</option>
+            <option value="java">자바프로그래머</option>
+            <option value="python">파이썬프로그래머</option>
+        </datalist>
+        <button type="submit">전송</button>
+    </form>
+</body>
+
+</html>

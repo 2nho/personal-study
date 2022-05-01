@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="myFunction1()" type="button">Video 전체 길이</button>
+    <button onclick="myFunction2()" type="button">현재 재생 구간</button>
+    <button onclick="myFunction3()" type="button">현재 재생 구간 60초로 지정</button>
+
+    <video id="my-video" width="320" height="176" controls>
+        <source src="media/video.mp4" type="video/mp4">
+        <source src="media/video.ogv" type="video/ogg">
+        브라우저에서 지원되는 비디오가 없음
+    </video>
+
+    <script>
+        const vid = document.getElementById("my-video");
+
+        // 전체 동영상 길이
+        function myFunction1(){
+            alert(vid.duration);
+        }
+
+        // 현재 내 동영상 재생 위치
+        function myFunction2(){
+            alert(vid.currentTime);
+        }
+
+        // 현재 내 동영상 재생 위치 재 지정
+        function myFunction3(){
+            vid.currentTime = 60;
+        }
+    </script>
+</body>
+</html>

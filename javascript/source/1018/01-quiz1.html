@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        body {
+            margin: 20px;
+            padding: 20px;
+            min-width: 550px;
+            font-size: 1rem;
+            background-color: #f1f1f1;
+        }
+
+        .container {
+            min-width: 720px;
+            margin-top: 35px;
+        }
+
+        .container::before,
+        .container::after {
+            content: "";
+            display: block;
+            /* width : 2px;
+            border : 1px solid black;
+            width : 100%; */
+        }
+
+        .container::after {
+            clear: both;
+        }
+
+        nav {
+            font-size: 0.875rem;
+        }
+
+        nav>ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav li {
+            position: relative;
+            float: left;
+            width: 180px;
+            height: 38px;
+        }
+
+        nav li a {
+            display: block;
+            width: 100%;
+            line-height: 38px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #8ac007;
+            color: #fff;
+        }
+
+        nav li a:hover,
+        nav li a.on {
+            background-color: #6c8532;
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 38px;
+        }
+
+        nav ul ul li a {
+            background-color: #fff;
+            color: #555;
+            border-top: 1px solid #eaeaea;
+        }
+
+        nav ul ul li:first-child a {
+            border-top: none;
+        }
+
+        nav ul ul li a:hover,
+        nav ul ul li a.on {
+            background-color: #eaeaea;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li class="menu">
+                    <a href="#">HTML</a>
+                    <ul class="sub">
+                        <li><a href="#">HTML Tutorial</a></li>
+                        <li><a href="#">HTML Forms</a></li>
+                        <li><a href="#">HTML5</a></li>
+                        <li><a href="#">HTML Graphics</a></li>
+                        <li><a href="#">HTML Media</a></li>
+                        <li><a href="#">HTML APIs</a></li>
+                    </ul>
+                </li>
+                <li class="menu">
+                    <a href="#">CSS</a>
+                    <ul class="sub">
+                        <li><a href="#">CSS Tutorial</a></li>
+                        <li><a href="#">CSS3</a></li>
+                        <li><a href="#">CSS Responsive</a></li>
+                    </ul>
+                </li>
+                <li class="menu">
+                    <a href="#">JavaScript</a>
+                    <ul class="sub">
+                        <li><a href="#">JS Tutorial</a></li>
+                        <li><a href="#">JS Forms</a></li>
+                        <li><a href="#">JS Objects</a></li>
+                        <li><a href="#">JS Functions</a></li>
+                        <li><a href="#">JS HTML DOM</a></li>
+                        <li><a href="#">JS Browser BOM</a></li>
+                        <li><a href="#">JS Libraries</a></li>
+                    </ul>
+                </li>
+                <li class="menu">
+                    <a href="#">jQuery</a>
+                    <ul class="sub">
+                        <li><a href="#">jQuery Tutorial</a></li>
+                        <li><a href="#">jQuery Effect</a></li>
+                        <li><a href="#">jQuery HTML</a></li>
+                        <li><a href="#">jQuery Traversing</a></li>
+                        <li><a href="#">jQuery AJAX</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <script>
+        $(function () {
+            const heightArray = new Array();
+            $("nav ul ul").css({display:"none"});
+
+            $("nav > ul > li").each(function(){
+                heightArray.push($(this).find("ul").height());
+            });
+
+            // console.log(heightArray.join(", "));
+            $("nav > ul > li").hover(
+                function(){
+                    let n = $(this).index();
+                    $(this).find("ul").css({display:"block", height:"0px"})
+                    .animate({height:heightArray[n]+"px"}, 300);
+                    $(this).find("a:first").addClass("on");
+                },
+                function(){
+                    $(this).find("ul")
+                    .animate({height:"0px"}, 300,function(){
+                        $(this).css({display:"none"});
+                    });
+                    $(this).find("a:first").removeClass("on");
+                }
+            )
+        });
+    </script>
+</body>
+
+</html>

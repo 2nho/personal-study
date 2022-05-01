@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // n명의 정수 중에서 80점 이상인 점수의 합계
+
+        const scores = [100, 75, 50, 37, 90, 95];
+        let sum = 0;
+
+        for (let index = 0; index < scores.length; index++) {
+            if(scores[index] >= 80){
+                sum += scores[index];
+            }
+        }
+
+        console.log("80점 이상의 총점 : "+sum);
+    </script>
+</body>
+</html>

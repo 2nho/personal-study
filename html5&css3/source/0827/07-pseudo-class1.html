@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        /* :link => a태그 사용 전 상태 */
+        a:link {
+            color : brown;
+        }
+        /* :actvie => a태그를 꾹 누른 상태 */
+        a:active {
+            color: springgreen;
+        }
+        /* :visited => a태그의 링크를 방문 후 상태 */
+        a:visited {
+            color : blue;
+        }
+        /* :focus => 해당 태그에 포커싱이 된 상태 */
+        input:focus {
+            background-color: chartreuse;
+        }
+        /* :active => 태그를 꾹 누른 상태 */
+        input:active {
+            background-color: burlywood;
+        }
+        input { background-color: cyan;}
+        /* :disabled => input 이 사용 불가능한 상태 */
+        input:disabled {
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <a href="#">123</a><br>
+    <input type="text"><br>
+    <input type="text" disabled><br>
+</body>
+</html>

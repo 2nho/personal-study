@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1
+        /*
+            - arrow 함수에서의 this는 자신을 둘러싼 객체와 바인딩된다.(lexical this)
+            - arrow 함수는 함수지만 실제 함수의 영역에서 쓰는 this와는 전혀 다른 영역의 this를 사용한다.
+        */
+        const objA = {
+            a : "foo",
+            b(){
+                (()=>console.log(this))(); // objA
+            }
+        }
+        objA.b();
+
+        const objB = {
+            a : "bar",
+            b : () => console.log(this)
+        }
+        objB.b();
+
+        const objC = {
+            a : "baz",
+            b() {
+                () => console.log(this)
+            }
+        }
+    </script>
+</body>
+</html>

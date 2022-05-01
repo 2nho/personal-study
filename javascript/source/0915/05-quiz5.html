@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab {
+            display: flex;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        .tab button {
+            background-color: #f1f1f1;
+            border : none;
+            cursor : pointer;
+            padding : 14px 16px;
+            font-size : 17px;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tabcontent {
+            display: none;
+            padding : 6px 12px;
+            border : 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <button class="tablinks" id="tab1">탭메뉴1</button>
+        <button class="tablinks" id="tab2">탭메뉴2</button>
+        <button class="tablinks" id="tab3">탭메뉴3</button>
+    </div>
+
+    <div id="tab1-content" class="tabcontent">
+        <h1>탭메뉴1</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque doloribus hic labore modi a ipsum ipsa maxime placeat magni iusto illum, doloremque, odio quisquam consequatur. Dignissimos magni ut assumenda facilis?</p>
+    </div>
+    <div id="tab2-content" class="tabcontent">
+        <h1>탭메뉴2</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sint, earum praesentium maiores ab optio libero velit corporis maxime eum voluptatibus rem quae id facere tempora eos sapiente quas. Ea!</p>
+    </div>
+    <div id="tab3-content" class="tabcontent">
+        <h1>탭메뉴3</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sint temporibus odit fugit ipsa neque. Optio omnis ipsam, laudantium temporibus sint labore nesciunt assumenda ducimus, dolorem, quibusdam rerum eos laboriosam.</p>
+    </div>
+    <script>
+        const tabcontent = document.getElementsByClassName("tabcontent");
+        const tablinks = document.getElementsByClassName("tablinks");
+
+        function clearTabs(){
+            for (let index = 0; index < tabcontent.length; index++) {
+                tabcontent[index].style.display = "none";
+                tablinks[index].style.backgroundColor ="#f1f1f1";
+            }
+        }
+
+        function openTab(num){
+            document.getElementById(`tab${num}-content`).style.display = 'block';
+            document.getElementById(`tab${num}`).style.backgroundColor ="#ccc";
+        }
+
+        document.getElementById("tab1").addEventListener("click",function(){
+            clearTabs();
+            openTab(1);
+        });
+
+        document.getElementById("tab2").addEventListener("click",function(){
+            clearTabs();
+            openTab(2);
+        });
+
+        document.getElementById("tab3").addEventListener("click",function(){
+            clearTabs();
+            openTab(3);
+        });
+    </script>
+</body>
+</html>

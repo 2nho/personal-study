@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" id="text1">
+    <button id="btn">업앤다운</button>
+    <h1>횟수 : <span id="cnt"></span></h1>
+    <div id="result">
+        
+    </div>
+    <script>
+        // 업 앤 다운
+        /*
+            1. 컴퓨터가 랜덤한 1~100 사이의 수를 하나 정한다.
+            2. 유저는 1~100사이의 임의의 한 수를 입력하면 컴퓨터는 해당 수가 컴퓨터가
+               지정한 수보다 작은지 혹은 큰지 힌트를 준다.
+            3. 지정된 횟수 내에(10번) 컴퓨터가 정한 수를 유저가 맞추면 유저 승
+               그렇지 못하면 컴퓨터 승 
+        */
+        let com = Math.floor(Math.random() * (100 - 1 + 1))+1;
+        let cnt = 10;
+        const result = document.getElementById("result");
+        document.getElementById("cnt").innerText = cnt;
+        console.log(com);
+
+        document.getElementById("btn").addEventListener("click",function(){
+            let user = Number(document.getElementById("text1").value);
+
+            if(cnt > 0){
+                if(user < com){
+                    result.innerHTML = "<h1>user는 com보다 작습니다</h1>";
+                }else if(user > com){
+                    result.innerHTML = "<h1>user는 com보다 큽니다</h1>";
+                }else{
+                    result.innerHTML = "<h1>맞췄습니다 승리</h1>";
+                    // document.getElementById("btn").style.display = "none";
+                    document.getElementById("btn").removeEventListener("click");    
+                }
+                cnt--;
+                document.getElementById("cnt").innerText = cnt;
+            }else{
+                result.innerHTML = "<h1>패배</h1>";
+                // document.getElementById("btn").style.display = "none";
+                document.getElementById("btn").removeEventListener("click");
+            }
+        });
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            flex-grow : flex 컨테이너에 남은 공간을 각 아이템에 비율에 맞게 분배하여 배치할
+                       경우 사용하는 속성
+                       정수 혹은 소수의 값을 활용하여 배수를 입력하여 각 아이템들에 할당할
+                       남은 공간을 정한 후 할당한다.
+                       간혹 아이템 각각이 차지할 공간 비율로 설정하고 싶을 때에는 flex-grow
+                       보다 width에 퍼센트를 통해 균등하게 설정이 가능하다.
+        */
+        .flex-container {
+            display: flex;
+        }
+        .flex-item {
+            /* flex-grow : 1; */
+            width : 33.33%;
+        }
+        .flex-item:nth-child(2) {
+            /* flex-grow : 3; */
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">AAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item">BBBBBB</div>
+        <div class="flex-item">CCCCCCCCCCC</div>
+    </div>
+</body>
+</html>

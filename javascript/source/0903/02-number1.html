@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Number 
+        /*
+           - 숫자를 표현하거나 산술 연산을 할 경우 필요한 데이터 타입
+           - 기본적으로 +(더하기), -(빼기), *(곱하기), /(나누기) 등의 산술연산이 가능하며 Math라는 내장 객체를 활용하여
+             수학함수를 이용한 결과를 얻을 수 있다.
+           - 명세에 따르면 숫자의 범위는 -(2^53-1)~(2^53-1) 까지로 명시되어 있으나 시살상 표현되는 숫자는 여러 라이브러리
+             의 사용으로 인해 무한대로 증폭도 가능하다.
+           - 정수만을 표현하거나 실수만을 표현하기 위한 자료형은 따로 존재하지 않으면 전부 Number 형으로 통일된다.
+           - 8진수나 16진수 형태의 자료형도 표현이 가능하다.
+        */
+        console.log(1); // 1
+        console.log(-8); // -8
+        console.log(9999999999999);
+        console.log(12.34);
+        console.log(0xff);  // 16진수
+        console.log(011); // 8진수
+
+        // 지수 표기법
+        /*
+            - 자바스크립트에서는 큰 숫자를 표현하기 위해 지수 표기법을 제공한다.
+            - 사용방법 : [숫자]e/E[+-지수]
+            - e/E는 대소문자를 가리지 않는다.
+            - e앞에 숫자를 뒤에 있는 숫자 만큼 10의 지수승으로 곱한다.
+            - 앞의 숫자는 소수자리로 오는 경우가 많다.
+            - 소수점 e 뒤에 -가 붙을경우 마이너스 지수승이 된다.
+        */
+        console.log(5e5); // 500000  5의 10의 5승
+        console.log(5e-5); // 0.00005  5의 10의 -5승
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <ul class="first">
+        <li class="foo">list item 1</li>
+        <li>list item 2</li>
+        <li class="bar">list item 3</li>
+    </ul>
+    <ul class="second">
+        <li class="foo">list item 1</li>
+        <li>list item 2</li>
+        <li class="bar">list item 3</li>
+    </ul>
+    <script>
+        $(function(){
+            $("ul.first").find(".foo").css("background-color","red").end().find(".bar").css("background-color","green");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- non-primitive 주입 : 주입되는 데이터를 constructor-arg를 통해 주입받을 수 있다 
+	                         또한 주입되는 데이터는 value 속성을 통해 정의가 가능하며
+	                         해당 타입에 대한 정의는 type 속성을 통해 가능하다.-->
+	<bean id="obj1" class="kr.co.goodee39.beans.TestBean1" lazy-init="true"/>
+	
+	<bean id="obj2" class="kr.co.goodee39.beans.TestBean1" lazy-init="true">
+		<constructor-arg value="100" type="int"/>
+	</bean>
+	
+	<bean id="obj3" class="kr.co.goodee39.beans.TestBean1" lazy-init="true">
+		<constructor-arg value="50" type="int"/>
+		<constructor-arg value="70" type="int"/>
+	</bean>
+	
+	<bean id="obj4" class="kr.co.goodee39.beans.TestBean1" lazy-init="true">
+		<constructor-arg value="11.11" type="double"/>
+	</bean>
+	
+	<bean id="obj5" class="kr.co.goodee39.beans.TestBean1" lazy-init="true">
+		<constructor-arg value="문자열3" type="String"/>
+	</bean>
+	<!-- 단수개가 아닌 복수개의 생성자 데이터를 정의할 경우 선언된 순서에 맞춰서 데이터가 들어가지만
+	     굳이 해당 데이터의 순서에 맞추지 않아도 타입이 다르면 자동으로 그 타입에 맞춰 주입이 된다. -->
+	<bean id="obj6" class="kr.co.goodee39.beans.TestBean1" lazy-init="true">
+		<constructor-arg value="100" type="int"/>
+		<constructor-arg value="11.11" type="double"/>
+		<constructor-arg value="문자열3" type="String"/>
+	</bean>
+	<!-- 다만 타입이 같을 경우 앞에서부터 순차적으로 주입이 이루어지는데 이를 방지하기 위해서
+	     index 라는 속성을 통해 어디에 주입할지 결정할 수 있다. -->
+	<bean id="obj7" class="kr.co.goodee39.beans.TestBean1" lazy-init="true">
+		<constructor-arg value="문자열7" type="String"/>
+		<constructor-arg value="200" type="int"/>
+		<constructor-arg value="22.22" type="double"/>
+	</bean>
+	
+	<bean id="obj8" class="kr.co.goodee39.beans.TestBean1" lazy-init="true">
+		<constructor-arg value="33.33" type="double"/>
+		<constructor-arg value="문자열8" type="String"/>
+		<constructor-arg value="300" type="int" index="3"/>
+		<constructor-arg value="400" type="int" index="0"/>
+	</bean>
+	
+	<!-- 
+		- 객체를 주입받을 경우 construct-arg 안에 bean을 선언하여 막바로 주입하는 방식과
+		  밖에 객체를 선언하여 주입하는 방식으로 나뉠 수 있다.
+		- 객체를 construct-arg 안에 바로 선언하여 주입받을 시 안쪽에서 생성자의 매개변수에 해당하는
+		  내용을 즉시 선언할 수 있다
+		- 하지만 밖에서 선언한 bean 객체를 매개변수에 넣어서 사용 시 ref 속성을 통해 해당 객체의
+		  id 값을 주입하여 사용하며 이 때 해당 객체의 매개변수 주입은 밖에서 이루어져야 한다.
+	-->
+	<bean id="obj9" class="kr.co.goodee39.beans.TestBean2" lazy-init="true">
+		<constructor-arg>
+			<!-- <bean class="kr.co.goodee39.beans.DataBean"/> -->
+			<bean class="kr.co.goodee39.beans.DataBean">
+				<constructor-arg value="100" type="int"/>
+			</bean>
+		</constructor-arg>
+		<constructor-arg>
+			<!-- <bean class="kr.co.goodee39.beans.DataBean"/> -->
+			<bean class="kr.co.goodee39.beans.DataBean">
+				<constructor-arg value="200" type="int"/>
+			</bean>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="data_bean" class="kr.co.goodee39.beans.DataBean" scope="prototype">
+		<constructor-arg value="100" type="int"/>
+	</bean>
+	
+	<bean id="obj10" class="kr.co.goodee39.beans.TestBean2" lazy-init="true">
+		<constructor-arg ref="data_bean"/>
+		<constructor-arg ref="data_bean"/>
+	</bean>
+	
+</beans>
+
+
+
+
+
+

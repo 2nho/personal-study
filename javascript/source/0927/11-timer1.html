@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">이 버튼을 클릭하면 5초뒤에 인사가 나옵니다</button>
+    <button id="cancel">이 버튼을 클릭하면 기존의 이벤트가 취소됩니다</button>
+
+    <script>
+        let setTo = null;
+
+        document.getElementById("btn").addEventListener("click",function(){
+            setTo = setTimeout(function(){
+                alert("안녕하세요 반갑습니다");
+            }, 5000);
+        });
+
+        document.getElementById("cancel").addEventListener("click",function(){
+            clearTimeout(setTo);
+        });
+    </script>
+</body>
+</html>

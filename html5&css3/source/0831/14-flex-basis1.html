@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            flex-basis : flex 아이템의 너비를 지정하는 속성
+                        flex 아이템의 너비를 지정하지만 컨텐츠를 기준으로 너비를 정하며
+                        만약 flex 아이템의 너비가 컨텐츠보다 작다면 컨텐츠의 크기 만큼 길이가 확장된다.
+                        이러한 것을 강제하고 싶다면 flex-basis 보다 width or height를 쓰는것을 추천한다.
+        */
+        .flex-container {
+            display: flex;
+        }
+        .flex-item1 {
+            flex-basis: 300px;
+            /* flex-basis : 0; */
+        }
+        .flex-item2 {
+            width : 300px;
+            /* height : 40px; */
+        }
+        .flex-item3 {
+            flex-basis: 300px;
+            width : 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item flex-item1">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item flex-item1">BBBBBB</div>
+        <div class="flex-item flex-item1">CCCCCCCCCCC</div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-item2">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item flex-item2">BBBBBB</div>
+        <div class="flex-item flex-item2">CCCCCCCCCCC</div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-item3">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item flex-item3">BBBBBB</div>
+        <div class="flex-item flex-item3">CCCCCCCCCCC</div>
+    </div>
+</body>
+</html>

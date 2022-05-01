@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            auto in width : 원래 width는 컨텐츠의 너비를 설정하는 속성, box-sizing
+                            속성으로 border-box 로 교체하지 않는 이상 width는 해당
+                            블럭의 컨텐츠를 기준으로 삼는다. 하지만 width에 auto
+                            를 주게 되면 상위 블럭의 가로 컨텐츠 크기에 맞춰
+                            margin, border, padding, content-width의 길이를 조절하여
+                            안에 들어간다.
+        */
+        .wrapper {
+            width : 600px;
+            margin: 20px 0;
+            border: 1px solid darkblue;
+            padding: 30px;
+        }
+        .item {
+            padding:20px;
+            margin : 0 50px;
+            border: 15px solid darkcyan;
+            width : auto;
+            /* width: 100%; */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, consectetur eum repudiandae possimus pariatur, consequatur ab asperiores nesciunt quo saepe id totam ipsam labore debitis delectus odit deserunt impedit autem.
+        </div>
+    </div>
+</body>
+</html>

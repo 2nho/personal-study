@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="default.css">
+    <title>Document</title>
+    <style>
+        /* 
+            order : flex-item들의 순서를 재 배열 할 때 사용하는 옵션
+                   숫자로 위치를 지정할 수 있으며 숫자가 낮을 수록 flex-start 쪽으로
+                   숫자가 클수록 flex-end 쪽으로 위치된다.
+        */
+        .flex-container {
+            display: flex;
+        }
+        .flex-item:nth-child(1){
+            order : 3;
+        }
+        .flex-item:nth-child(2){
+            order : 1;
+        }
+        .flex-item:nth-child(3){
+            order : 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">AAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item">BBBBBB</div>
+        <div class="flex-item">CCCCCCCCCCC</div>
+    </div>
+</body>
+</html>

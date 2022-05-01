@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, tr, td, th {
+            border : 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table id="tbs">
+
+    </table>
+    
+    <script>
+        let a = 11;
+
+        const table = document.getElementById("tbs");
+        const thead = document.createElement("tr");
+
+        for (let index = 2; index <= a; index++) {
+            const td = document.createElement("th");
+            const text = document.createTextNode(index+"단");
+            td.append(text);
+            thead.append(td);
+        }
+
+        table.append(thead);
+
+        for (let index1 = 1; index1 <= 9; index1++) {
+            const tbody = document.createElement("tr");
+            for (let index2  = 2; index2 <=a ; index2++) {
+                const td = document.createElement("td");
+                const text = document.createTextNode(`${index2}*${index1}=${index2*index1}`);
+                td.append(text);
+                tbody.append(td);
+            }
+            table.append(tbody);
+        }
+    </script>
+</body>
+</html>

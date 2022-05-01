@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // and
+        console.log(10 & 12); // 8
+        // 10 => 1010
+        // 12 => 1100 &
+        //       1000 => 8
+        // or
+        console.log(10 | 12); // 14
+        // 10 => 1010
+        // 12 => 1100 |
+        //       1110 => 14 
+        // xor : 같으면 0, 다르면 1
+        console.log(10 ^ 12); // 6
+        // 10 => 1010
+        // 12 => 1100 ^
+        //       0110 => 6
+        // 우측 시프트
+        console.log(8 >> 2); // 2
+        // 8 => 1000. >> 2   =>  0010 => 2
+        // 좌측 시프트
+        console.log(2 << 2); // 8
+        // 우측 시프트
+        console.log(8 >>> 2); // 2
+
+        // 부호를 유지 1 0
+        console.log(-8 >> 2); // -2
+        // 부호를 유지 x 
+        console.log(-8 >>> 2); // 10735842745
+        
+        // 반전 : 0을 1로, 1을 0으로 바꾼다.
+        console.log(~10); //-11
+        // 0000000~~000001010
+        // 1111111~~111110101 -(10+1)
+    </script>
+</body>
+</html>
+
+

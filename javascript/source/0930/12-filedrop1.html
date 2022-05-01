@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #drop{
+            border : 1px solid black;
+            height : 400px;
+            width : 1000px;
+        }
+    </style>
+</head>
+<body>
+    <p>PC의 파일을 드롭해 주세요</p>
+    <div id="drop"></div>
+    <script>
+        // 드롭에 대한 처리
+        const cart = document.getElementById("drop");
+        // 장바구니 ul 요소에 대한 dragenter에 대한 기본 이벤트 제거
+        cart.addEventListener("dragenter",function(e){e.preventDefault();});
+        // 장바구니 ul 요소에 대한 dragover에 대한 기본 이벤트 제거
+        cart.addEventListener("dragover",function(e){e.preventDefault();});
+        // 장바구니 ul 요소에 대한 drop 이벤트 리스너 지정
+        cart.addEventListener("drop",function(e){
+            // 장바구니 ul 요소에 대한 drop에 대한 기본 이벤트 제거
+            e.preventDefault();
+            // FileList 오브젝트
+            const files = e.dataTransfer.files;
+            // 드롭된 파일의 File 오브젝트
+            const file = files[0];
+            if(!file)return;
+            // 파일의 MIME 타입 확인
+            if(!file.type.match(/^image\//))return;
+            // File Reader 오브젝트로 파일에 대한 내용 읽기
+            const reader = new FileReader();
+            // Data URL 형식으로 파일 데이터 얻기
+            reader.readAsDataURL(file);
+            // 파일 데이터 읽기를 성공할 때의 처리
+            reader.onload = function(){
+                // img 요소를 생성하여 div에 추가
+                const img = document.createElement("img");
+                img.src = reader.result;
+                cart.append(img);
+            }; 
+        });
+    </script>
+</body>
+</html>

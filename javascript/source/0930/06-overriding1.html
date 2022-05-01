@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 오버라이딩(overriding)
+        /*
+            - 자식 객체가 부모 객체의 기능을 그대로 덮어 씌우는 것을 의미한다.
+            - 오버라이드 메서드는 부모메소드의 이름과 매개변수를 자식 클래스에서 동일하게 맞춰 선언해야 된다.
+            - 자식 클래스로 객체를 선언하고 메서드를 사용하게 되면 부모 클래스의 메서드가 아닌 자식 클래스의 메서드가 우선 실행된다.
+        */
+
+        // constructor 오버라이드
+        /*
+            - 서브 클래스와 슈퍼 클래스 양쪽에 constructor를 작성하지 않아도 인스턴스가 생성된다. 이때 해당 클래스의 prototype
+              으로 있던 default constructor를 사용한다
+            - 서브 클래스에 constructor를 작성하지 않고 슈퍼 클래스에 constructor를 작성하면 서브 클래스의 default
+              constructor 클래스가 호출되고 슈퍼클래스의 constructor가 호출된다.
+            - 서브 클래스의 constructor를 작성하고 슈퍼 클래스에 constructor를 작성하지 않으면 서브 클래스의
+              constructor가 호출되지만 constructor가 에러가 난다.
+            - 서브 클래스의 슈퍼클래스 양쪽에 constructor를 작성하면 서브클래스의 constructor가 호출되지만 constructor 에서
+              에러가 발생한다
+            - 위의 에러가 나는 두 경우에는 반드시 서브클래스의 constructor에서 슈퍼클래스의 constructor를 참조하기 위해
+              super(args) 를 명시하여 슈퍼 클래스의 constructor를 먼저 호출하고 서브 클래스의 constructor가 실행되는
+              구조를 만들어야 한다.
+            - constructor(){ }
+        */
+        class Sports {
+            setGround(ground){
+                this.ground = ground;
+            }
+        }
+
+        class Soccer extends Sports {
+            setGround(ground){
+                this.ground = ground+"축구장";
+            }
+        }
+
+        const obj = new Soccer();
+        obj.setGround("에미레이즈 스타디움");
+        console.log(obj.ground);
+
+        const obj1 = new Sports();
+        obj1.setGround("올드 트래퍼드 구장");
+        console.log(obj1.ground);
+    </script>
+</body>
+</html>

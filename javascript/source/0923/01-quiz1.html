@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            box-sizing: border-box;
+            padding : 16px;
+            width : 100%;
+            background-color: red;
+            color : #fff;
+        }
+        .closebtn {
+            float : right;
+            font-size : 30px;
+            font-weight: bold;
+            cursor : pointer;
+        }
+        .closebtn:hover {
+            color : #000;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span class="closebtn">&times;</span>
+        <p>X 버튼을 누를 시 이 칸은 사라집니다.</p>
+    </div>
+
+    <script>
+        document.querySelector(".closebtn").addEventListener("click", function(){
+            // this.parentElement.style.display = "none";
+            document.querySelector(".closebtn").parentElement.style.display = "none";
+        });
+    </script>
+</body>
+</html>

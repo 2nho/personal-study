@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 삼항연산자
+        // => (조건식)?참일때 값:거짓일 때 값
+        // - 조건에 따라서 출력하고자 하는 값을 다르게 하고자 할 경우 쓰는 연산자
+        let a = confirm("이 물건이 맞습니까?");
+        // let b = (a == true)?"이 물건이 맞습니다.":"이 물건은 제가 주문한 물건이 아닙니다";
+        let b = (a)?"이 물건이 맞습니다.":"이 물건은 제가 주문한 물건이 아닙니다";
+        console.log(b);
+
+        let c = prompt("1, 0, -1 중 한개의 값을 넣어라");
+        c = Number(c);
+        let d = (c)?c:"제로!!!!!!!";
+        alert(d);
+    </script>
+</body>
+</html>

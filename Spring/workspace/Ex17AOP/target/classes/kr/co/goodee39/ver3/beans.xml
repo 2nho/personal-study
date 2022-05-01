@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop.xsd">
+						
+	<bean id="boy" class="kr.co.goodee39.ver3.Boy"/>
+	<bean id="girl" class="kr.co.goodee39.ver3.Girl"/>
+	<bean id="myAspect" class="kr.co.goodee39.ver3.MyAspect"/>
+	
+	<!-- 공통관심사항에 대한 로직 -->
+	<aop:config>
+		<!-- 공통관심사항이 있는 클래스 -->
+		<aop:aspect ref="myAspect">
+			<!-- 적용하고자 하는 범위 -->
+			<!-- doSomething 이라고 하는 메서드를 실행하면 무조건 밑의 옵션에서 지정한 공통관심사항들이 실행된다. -->
+			<aop:pointcut expression="execution(* doSomething())" id="myPointcut"/>
+			<!-- 핵심로직 이전에 실행되는 메서드를 가리킴 -->
+			<!-- <aop:before method="before" pointcut-ref="myPointcut"/> -->
+			<!-- 핵심 로직 이후에 반드시 실행되는 메서드를 가리킴 -->
+			<!-- <aop:after method="after" pointcut-ref="myPointcut" /> -->
+			<!-- 핵심 로직 이후에 실행되는 메서드를 가리킴 -->
+			<!-- <aop:after-returning method="afterReturning" pointcut-ref="myPointcut" returning="str"/> -->
+			<!-- 핵심 로직에서 에러가 났을 때 실행되는 메서드를 가리킴 -->
+			<!-- <aop:after-throwing method="afterThrowing" pointcut-ref="myPointcut" throwing="thr"/> -->
+			<aop:around method="around" pointcut-ref="myPointcut"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
+
+
+
+
+
+

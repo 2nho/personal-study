@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Getter Setter
+        /*
+            - ECMA 6 이후에 등장한 개념
+            - Getter는 객체의 프로퍼티를 가져올 때 쓰는 함수로 Setter는 객체의 프로퍼티를
+              설정할 때 쓰는 함수이다.
+            - Getter와 Setter를 사용하는 이유는 다음과 같다.
+              => getter와 setter를 사용하면 정보 은닉이 가능하다.
+              => 직접적인 접근에 대한 방지가 가능하다.
+            - 사용법 : get/set [property name] (){}
+        */
+        const obj1 = {
+            a : 3,
+            getA : function(){
+                return this.a;
+            },
+            setA : function(a){
+                this.a = a;
+            }
+        }
+
+        // obj1.a = 4;
+        obj1.setA(8);
+        console.log(obj1.getA()); // 8
+        console.log(obj1.a); // 8
+
+        const obj2 = {
+            aaa : 3,
+            get a (){
+                return "넘버"+this.aaa;
+            },
+            set a (a){
+                this.aaa = a+3;
+            }
+        }
+
+        obj2.a = 7;
+        console.log(obj2.a); //넘버10
+        console.dir(obj2);
+    </script>
+</body>
+</html>
+
+
+
+

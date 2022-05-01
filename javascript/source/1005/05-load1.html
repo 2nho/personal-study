@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>비디오를 선택하고 비디오를 클릭해 주세요
+        <select name="list">
+            <option value="">선택해주세요</option>
+            <option value="video1">video1</option>
+            <option value="video2">video2</option>
+            <option value="video3">video1</option>
+        </select>
+    </p>
+    <p><video poster="media/poster.png" width="480" height="272"></video></p>
+    <script>
+        window.addEventListener("load", function(){
+            const video = document.querySelector("video");
+
+            video.addEventListener("click", function(){
+                (video.paused == true) ? video.play() : video.paused();
+            });
+            // video.addEventListener("touchend", function(){
+            //     (video.paused == true) ? video.play() : video.paused();
+            // });
+            const select = document.querySelector('select[name="list"]');
+            select.addEventListener("change",function(){
+                set_video();
+            });
+
+            function set_video(){
+                let name = select.value;
+                if(video.canPlayType('video/mp4')){
+                    video.src = `media/${name}.mp4`;
+                }else if(video.canPlayType('video/webm')){
+                    video.src = `media/${name}.webm`;
+                }else if(video.canPlayType('video/ogg')){
+                    video.src = `media/${name}.ogv`;
+                }else{
+                    return;
+                }
+                // 파일의 처음부터 리로딩
+                // video.load();
+            }
+        });
+    </script>
+</body>
+</html>

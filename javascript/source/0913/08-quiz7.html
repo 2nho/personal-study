@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>휴대폰 앞번호</h1>
+    <select name="select1" id="select1">
+        <option value="010" selected>010</option>
+        <option value="011">011</option>
+        <option value="013">013</option>
+        <option value="016">016</option>
+        <option value="019">019</option>
+    </select>
+    <div id="output"></div>
+
+    <script>
+        document.getElementById("select1").addEventListener("change", function(){
+            let sel = document.getElementById("select1");
+            let result = null;
+            for (let index = 0; index < sel.options.length; index++) {
+                if(sel.options[index].selected){
+                    result = sel.options[index].value;
+                    break;
+                }
+            }
+            document.getElementById("output").innerHTML = `<h1>${result}</h1>`;
+        });
+    </script>
+</body>
+</html>

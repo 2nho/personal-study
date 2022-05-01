@@ -1,0 +1,10 @@
+BranchProjectTracker__D\:\\eclipse2021_Spring_MVC_edu\\git\\.git_8ab5d0283cd364d73243bd3a22badb47142c1429=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<projects>\r\n<project>\\SampleProject</project>\r\n</projects>
+BranchProjectTracker__D\:\\eclipse2021_Spring_MVC_edu\\git\\.git_develop=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<projects>\r\n<project>\\SampleProject</project>\r\n</projects>
+BranchProjectTracker__D\:\\eclipse2021_Spring_MVC_edu\\git\\.git_develop1=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<projects>\r\n<project>\\SampleProject</project>\r\n</projects>
+BranchProjectTracker__D\:\\eclipse2021_Spring_MVC_edu\\git\\.git_master=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<projects>\r\n<project>\\SampleProject</project>\r\n</projects>
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>\uD55C\uAC1C \uB354 \uD14C\uC2A4\uD2B8</message>\r\n<message>develop1 \uD328\uCE58 \uBC0F \uCEE4\uBC0B</message>\r\n<message>Merge branch &apos;develop&apos; of https\://github.com/graykim/test5.git into&\#x0A;develop&\#x0A;&\#x0A;Conflicts\:&\#x0A;&\#x09;SampleProject/src/main/webapp/hello2.jsp&\#x0A;</message>\r\n<message>\uC0C1\uD611\uC528 \uB370\uC774\uD130\uAE4C\uC9C0 \uD3EC\uD568 \uC5C5\uB85C\uB4DC</message>\r\n<message>\uC0C1\uD611\uC528\uAEBC \uBC1B\uC544\uC11C \uB2E4\uC2DC \uC5C5\uB85C\uB4DC</message>\r\n<message>hello.jsp \uC218\uC815</message>\r\n<message>.gitignore \uC124\uC815 \uC138\uD305</message>\r\n<message>first project \uC138\uD305</message>\r\n<message>first commit</message>\r\n</messages>
+eclipse.preferences.version=1
+repositories_view_filters=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<FilterCache/>
+resourcehistory_graph_split=500,500
+resourcehistory_rev_split=700,300
+show_initial_config_dialog=false

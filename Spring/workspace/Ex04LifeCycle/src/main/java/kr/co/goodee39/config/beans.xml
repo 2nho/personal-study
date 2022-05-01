@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="defaultInit" default-destroy-method="defaultDestroy">
+	
+	<!-- 객체가 생성될 때 생성자가 호출된 이후 init-method에 설정한 메서드가 자동으로 호출되고 IOC 컨테이너의 close 메서드를 호출하게 되면 
+	     객체가 소멸되며 destroy-method에 설정한 메서드가 자동으로 호출된다. -->	
+	<bean id="t1" class="kr.co.goodee39.beans.TestBean1" lazy-init="true" init-method="bean1Init" destroy-method="bean1Destroy"/>
+	<!-- init-method와 destroy-method가 설정되어 있지 않다면, default-init-method, default-destory-method에 설정되어 있는 메서드를 호출한다. -->
+	<bean id="t2" class="kr.co.goodee39.beans.TestBean2" lazy-init="true"/>
+	<!-- init_method, destroy_method, default-init, default-destroy 에 등록되어 있는 메서드가 모두 있을 경우 
+	     init_method, destroy_method에 설정되어있는 메서드만 호출된다.-->
+	<bean id="t3" class="kr.co.goodee39.beans.TestBean3" lazy-init="true" init-method="bean3Init" destroy-method="bean3Destroy"/>
+</beans>

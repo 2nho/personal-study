@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 상속
+        /*
+            - 상속이란 클래스에 있는 모든 필드와 기능들을 전부 받아오는 것을 의미한다.
+            - 클래스안의 모든 필드와 기능들을 받아온 클래스에서는 그것들을 선언하지 않아도 사용이 가능하다.
+            - 이전 생성자에서는 순서나 절차를 고려하며 상속을 받아야 했으며 로직이 길어 가독성적인 면에서 크게 좋지 않았다.
+            - 뿐만 아니라 상속할 클래스에서 제공하는 필드들을 사용할 수 없어 변수에 대한 낭비가 존재하다 보니 이를 개선하기
+              위해 다른 방법으로 상속을 우회할 방법을 많이 시도하였지만 여전히 한계가 있었다.
+            - class 개념이 들어오면서 상속을 하기가 이전보다 달리 굉장히 단순하고 편해졌다.
+            - 절차적인 부분을 고려하지 않아도 되며 constructor부분에 대한 참조를 제외하면 더 이상 고려되는 건 없다.
+            - 상속을 받을 시 받고자 하는 class 뒤쪽에 extends라는 명령어와 상속할 클래스 명을 적어 넣으면 자연스럽게
+              상속을 받을 수 있다.
+            - 이와 같은 상속을 통해 기존의 기능의 재사용성이 대폭 증가되고 기능에 대한 확장을 하기 매우 용이해졌다.
+        */
+        // 클래스에서의 상속
+        class Person{
+            constructor(name, age){
+                this.name = name || "이름없음";
+                this.age = age || "나이모름";
+            }
+            // setName(name){this.name = name}
+            getName(){return this.name;}
+            getAge(){return this.age;}
+        }
+
+        class Employee extends Person{
+            // constructor는 상속이 되지 않으므로 반드시 상위
+            // 클래스의 constructor를 불러오는 super를 사용해서 선언해야 한다.
+            constructor(name, age, position){
+                super(name);
+                this.position = position;
+            }
+            getPosition(){return this.position;}
+        }
+
+        const gom = new Employee("김근형",48,"CEO");
+        console.dir(gom);
+    </script>
+</body>
+</html>

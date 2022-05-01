@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 주어진 데이터 중에서 가장 작은 [짝수] 값
+        let min = Number.MAX_SAFE_INTEGER;
+
+        const numbers = [2, 5, 3, 7, 1];
+
+        for (let index = 0; index < numbers.length; index++) {
+            if((numbers[i] < min) && (numbers[i] % 2 == 0)){
+                min = numbers[i];
+            }
+        }
+
+        console.log("짝수 최소값 : "+min)
+    </script>
+</body>
+</html>

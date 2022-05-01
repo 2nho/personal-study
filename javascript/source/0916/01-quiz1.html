@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mystyle {
+            width : 100%;
+            padding : 25px;
+            background-color: coral;
+            color: white;
+            font-size: 25px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="addFunction()">디자인 삽입</button>
+    <button onclick="removeFunction()">디자인 삭제</button>
+    <button onclick="toggleFunction()">클래스 토글</button>
+
+    <div id="myDIV">
+        This is a DIV element.
+    </div>
+
+    <script>
+        function addFunction(){
+            document.getElementById("myDIV").classList.add("mystyle");
+        }
+
+        function removeFunction(){
+            document.getElementById("myDIV").classList.remove("mystyle");
+        }
+
+        function toggleFunction(){
+            document.getElementById("myDIV").classList.toggle("mystyle");
+        }
+    </script>
+</body>
+</html>

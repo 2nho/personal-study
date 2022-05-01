@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .t {
+            font-weight: bold;
+            font-size: 16px;
+            color : #009688;
+        }
+        /* white-space : 텍스트에 함께 입력된 공백 혹은 개행을 어떻게 처리해야할지 결정하는 속성 */
+        /* 
+            - normal(default) : 연속하는 공백을 하나로 처리하고, 자동 줄바꿈 허용
+            - nowrap : 연속하는 공백을 하나로 처리하고, 줄바꿈 하지 않음
+            - pre, pre-wrap : 연속하는 공백을 원본 그대로 표시하고 줄바꿈을 한다.
+            - pre-line : 연속하는 공백을 하나로 처리하고 줄바꿈을 한다.
+        */
+        .c1 {white-space: normal;}
+        .c2 {white-space: nowrap;}
+        .c3 {white-space: pre;}
+        .c4 {white-space: pre-wrap;}
+        .c5 {white-space: pre-line;}
+    </style>
+</head>
+
+<body>
+    <p class="t">white-space:normal</p>
+    <p class="c1">        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Est, eligendi at sunt iste, labore quasi
+        praesentium perferendis         harum iure explicabo excepturi animi! 
+        Nesciunt adipisci quasi quo cupiditate repudiandae
+        dolore ipsam.</p>
+    <p class="t">white-space:nowrap</p>
+    <p class="c2">        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Est, eligendi at sunt iste, labore quasi
+        praesentium perferendis         harum iure explicabo excepturi animi! 
+        Nesciunt adipisci quasi quo cupiditate repudiandae
+        dolore ipsam.</p>
+    <p class="t">white-space:pre</p>
+    <p class="c3">        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Est, eligendi at sunt iste, labore quasi
+        praesentium perferendis         harum iure explicabo excepturi animi! 
+        Nesciunt adipisci quasi quo cupiditate repudiandae
+        dolore ipsam.</p>
+    <p class="t">white-space:pre-wrap</p>
+    <p class="c4">        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Est, eligendi at sunt iste, labore quasi
+        praesentium perferendis         harum iure explicabo excepturi animi! 
+        Nesciunt adipisci quasi quo cupiditate repudiandae
+        dolore ipsam.</p>
+    <p class="t">white-space:pre-line</p>
+    <p class="c5">        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Est, eligendi at sunt iste, labore quasi
+        praesentium perferendis         harum iure explicabo excepturi animi! 
+        Nesciunt adipisci quasi quo cupiditate repudiandae
+        dolore ipsam.</p>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+package kr.co.goodee39.main;
+
+import kr.co.goodee39.beans.Bean1;
+
+public class MainClass {
+
+	public MainClass() {
+		Bean1 bean1 = new Bean1();
+		bean1.setAaa("aaaaaaaa");
+	}
+	
+	public static void main(String[] args) {
+		new MainClass();
+	}
+
+}

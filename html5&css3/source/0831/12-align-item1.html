@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            align-items : 교차축을 기준으로 정렬하는 옵션
+            - stretch : 위,아래 혹은 좌, 우로 확장되어 배치
+            - flex-start : 기본 기준에서는 위를 기준으로 배치, 만약 flex-direction 이 column일 경우 왼쪽을 기준으로 배치
+            - flex-end : 기본 기준에서는 아래를 기준으로 배치, column일 경우 오른쪽을 기준으로 배치
+            - center : 중앙을 기준으로 배치
+            - baseline : 컨텐츠를 기준선으로 잡아 배치
+        */
+        .flex-container {
+            display: flex;
+            height: 300px;
+            /* align-items: stretch; */
+            /* align-items: flex-start; */
+            /* align-items: flex-end; */
+            justify-content: center;
+            align-items: center;
+            /* align-items: baseline; */
+        }
+        .flex-inner {
+            display: flex;
+            align-items: stretch;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-inner">
+            <div class="flex-item" style="font-size:2rem">AAAAAAAAAAAAAAAAAA</div>
+            <div class="flex-item" style="font-size:1rem">BBBBBB</div>
+            <div class="flex-item" style="font-size:3rem">CCCCCCCCCCC</div>
+        </div>
+    </div>
+</body>
+</html>

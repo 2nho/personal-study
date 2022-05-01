@@ -1,0 +1,29 @@
+<%@page import="kr.co.goodee39.vo.DataVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	request.setAttribute("data1", "문자열1");
+
+	DataVO vo1 = new DataVO();
+	vo1.setData1("문자열1");
+	vo1.setData2("문자열2");
+	
+	request.setAttribute("vo1", vo1);
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>data1 : <%=request.getAttribute("data1") %></h3>
+	<h3>data1 : ${data1}</h3>
+	<h3>data2 : <%=request.getAttribute("data2") %></h3>
+	<h3>data2 : ${data2}</h3>
+	<h3>vo1.data1 : <%=((DataVO)request.getAttribute("vo1")).getData1()%></h3>
+	<h3>vo1.data1 : ${vo1.data1}</h3>
+	<h3>vo1.data2 : ${vo1.data2}</h3>
+</body>
+</html>
+

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body {
+            margin : 0;
+        } */
+        #container {
+            width : 100%;
+        }
+
+        header {
+            width : 100%;
+        }
+        header h1{
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        #menus {
+            width : 100%;
+        }
+        #menus > div {
+            position: relative;
+            height: 400px;
+            border : 1px solid black;
+            margin-bottom : 15px;
+        }
+        #coffee1, #coffee2, #coffee3, #coffee4, #coffee5 {
+            width : 100%;
+        }
+        #menus h2 {
+            position : absolute;
+            padding : 5px;
+            font-size : 2rem;
+            color : white;
+            text-shadow : 3px 3px 5px black;
+            right : 3%;
+            bottom : 10px;
+        }
+        #coffee1 {
+            background: url("images/coffee-1.png") no-repeat center;
+            background-size: cover;
+        }
+        #coffee2 {
+            background: url("images/coffee-2.png") no-repeat center;
+            background-size: cover;
+        }
+        #coffee3 {
+            background: url("images/coffee-3.png") no-repeat center;
+            background-size: cover;
+        }
+        #coffee4 {
+            background: url("images/coffee-4.png") no-repeat center;
+            background-size: cover;
+        }
+        #coffee5 {
+            background: url("images/coffee-5.png") no-repeat center;
+            background-size: cover;
+        }
+        footer {
+            width : 100%;
+            background-color: #373737;
+            height : 200px;
+        }
+        footer p {
+            font-size : 1.2rem;
+            color : #eee;
+            text-align: center;
+            line-height : 200px;
+        }
+
+        @media (min-width : 760px){
+            #menus {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            #coffee1, #coffee2, #coffee3, #coffee4{
+                width : 49%;
+            }
+            #coffee5 {
+                width : 100%;
+            }
+        }
+
+        @media (min-width : 1024px){
+            #coffee1, #coffee2, #coffee3, #coffee4, #coffee5 {
+                width : 33%;
+            }
+            #coffee5 {
+                margin-left : 0.3%;
+                flex : 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>커피이미지</h1>
+        </header>
+        <section id="menus">
+            <div id="coffee1">
+                <h2>커피-1</h2>
+            </div>
+            <div id="coffee2">
+                <h2>커피-2</h2>
+            </div>
+            <div id="coffee3">
+                <h2>커피-3</h2>
+            </div>
+            <div id="coffee4">
+                <h2>커피-4</h2>
+            </div>
+            <div id="coffee5">
+                <h2>커피-5</h2>
+            </div>
+        </section>
+        <footer>
+            <p>커피이미지</p>
+        </footer>
+    </div>
+</body>
+</html>

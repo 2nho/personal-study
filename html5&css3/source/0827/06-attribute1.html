@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 속성 선택자 */
+        /* - 속성을 대상으로 디자인을 먹일려고 할 때 쓰는 선택자 */
+        /* - 보통 class나 id같은 접근자 만으로 접근하기 힘들거나 접근자를 추가해서 사용이 어려울 경우 사용할 수 있다.*/
+        /* - 속성 선택자는 반드시 []안에 속성과 그 안에 속성값을 넣어 사용할 수 있으며 때에 따라서는 속성이름만 사용하여
+             선택자를 사용할 수 있다. */
+        div {
+            color : black;
+        }
+        /* [attr] : attr이라는 속성이 해당 태그에 선언되어 있으면 그 태그에 스타일이 적용된다.*/
+        [alt] {
+            color : red;
+        }
+        /* [attr="value"] : attr이라는 속성에 값이 value면 그 태그에 스타일이 적용된다. 무조건 같아야 하며 포함되던가
+                            앞에 위치하던가 뒤에 위치하는 경우는 무조건 제외된다.*/
+        [alt="c1"] {
+            color : blue;
+        }
+        /* [attr~="value"] : attr이라는 속성에 해당 value값이 여러개의 값중 하나만 갖고있어도 해당 속성에 스타일이 적용된다.
+                            여러개의 값이라는 의미는 attr 안에 value들이 스페이스를 구분자로 나열된 경우를 이야기한다.
+                            ex) attr="value1 value2 value3 ..."
+        */
+        [alt~="c3"] {
+            color : green;
+        }
+        /* [attr|="value"] : attr이라는 속성에 해당 value의 단어로 시작하면 해당 속성에 스타일이 적용된다.
+                            여기서 value로 시작한다는건 'value-...' 이런식으로 각 단어의 구분자를 "-"로 쓰는 상황에서
+                            앞의 단어가 value와 동일하면 스타일이 적용되는 것을 의미한다. 만약 해당 단어가 "value..."
+                            이거나 "value ..." 일 경우는 적용되지 않는다.
+        */
+        [alt|="aaa"] {
+            color : brown;
+        }
+        /* [attr ^= "value"] : attr이라는 속성에 해당 value의 값으로 시작하면 해당 속성에 스타일이 적용된다.
+                              위의 "|" 와는 달리 앞에 무조건 value로 시작하면 해당 요소는 스타일 적용 대상으로 판단하고
+                              스타일이 적용된다.
+        */
+        [alt^="x"] {
+            color : purple;
+        }
+        /* [attr $= "value"] : attr이라는 속성에 해당 value의 값으로 끝나면 해당 속성에 스타일이 적용된다.
+                               무조건 문장의 끝이 value로 끝나야 한다.
+        */
+        [alt$="w"] {
+            color : orangered;
+        }
+        /* [attr*="value"] : attr 이라는 속성에 value의 값이 포함되어 있으면 해당 속성에 스타일이 적용된다.
+        */
+        [alt*="i"] {
+            color : slateblue;
+        }
+    </style>
+</head>
+<body>
+    <div alt="c1" class="c1">div1 입니다</div>
+    <div alt="c2">div2 입니다.</div>
+    <div alt="c3 c4">div3 입니다.</div>
+    <div alt="aaa-bbb">div4 입니다.</div>
+    <div alt="xyz">div5 입니다.</div>
+    <div alt="uvw">div6 입니다.</div>
+    <div alt="hij">div7 입니다.</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

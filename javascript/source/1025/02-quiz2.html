@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+    <style>
+        .row {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .column {
+            width : 100%;
+            display : block;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding : 0 1rem;
+        }
+
+        .container::after,
+        .row::after {
+            content : "";
+            clear : both;
+            display: block;
+        }
+
+        .title {
+            color : gray;
+        }
+
+        .button {
+            border : none;
+            outline : 0;
+            display: inline-block;
+            padding : 8px;
+            color : white;
+            background-color: #1f1f1f;
+            text-align: center;
+            cursor : pointer;
+            width : 100%;
+        }
+
+        .button:hover {
+            background-color: #555;
+        }
+
+        @media (min-width: 650px){
+            .row {
+                flex-direction: row;
+            }
+
+            .column {
+                flex-grow: 1;
+                margin-bottom: 1rem;
+                padding : 0 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <div class="img"></div>
+                <div class="container">
+                    <h2 class="name"></h2>
+                    <p class="title"></p>
+                    <p class="content"></p>
+                    <p class="email"></p>
+                    <p><button class="button">연결하기</button></p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <div class="img"></div>
+                <div class="container">
+                    <h2 class="name"></h2>
+                    <p class="title"></p>
+                    <p class="content"></p>
+                    <p class="email"></p>
+                    <p><button class="button">연결하기</button></p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <div class="img"></div>
+                <div class="container">
+                    <h2 class="name"></h2>
+                    <p class="title"></p>
+                    <p class="content"></p>
+                    <p class="email"></p>
+                    <p><button class="button">연결하기</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $.getJSON("team.json", function({team}){
+                $.each(team, function(i, {img, name, title, content, email}){
+                    $(`.img:eq(${i})`).css({
+                        "background":`url(${img}) no-repeat center`,
+                        "background-size":"cover",
+                        "width":"100%",
+                        "height":"200px"
+                    });
+                    $(`.name:eq(${i})`).text(name);
+                    $(`.title:eq(${i})`).text(title);
+                    $(`.content:eq(${i})`).text(content);
+                    $(`.email:eq(${i})`).text(email);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name, age, gender){
+            if(!(this instanceof Person)){
+                return new Person(name, age, gender);
+            }
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        const obj = Person("hong", 29, "남");
+        console.log(obj);
+        console.log(window.name);
+        console.log(window.age);
+        console.log(window.gender);
+    </script>
+</body>
+</html>

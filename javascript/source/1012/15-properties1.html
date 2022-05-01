@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <p><a href="http://ease.co.kr" target="_blank">이지</a></p>
+        <p><a href="https://naver.com">네이버</a></p>
+        <p><a href="http://daum.net">다음</a></p>
+        <p><a href="http://google.co.kr">구글</a></p>
+    </div>
+
+    <form action="#" method="get" id="member_f">
+        <p><label for="user_id"></label>
+            <input type="text" id="user_id" name="user_id"></p>
+        <p><label for="user_pw"></label>
+            <input type="password" id="user_pw" name="user_pw"></p>
+    </form>
+    <script>
+        $(function(){
+            $("#wrap a[target]").css("color", "red");
+            $("#wrap a[href^=https]").css("color", "green");
+            $("#wrap a[href$=net]").css("color", "blue");
+            $("#wrap a[href*=google]").css("color", "black");
+            $("#member_f :text").css("background-color", "yellow");
+            $("#member_f :password").css("background-color", "cyan");
+        });
+    </script>
+</body>
+</html>

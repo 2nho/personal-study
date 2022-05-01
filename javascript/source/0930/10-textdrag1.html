@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 { clear : both; }
+        ul {
+            background-color: #9c9c9c;
+            border : 1px solid black;
+            height : 400px;
+            width : 1000px;
+        }
+        li {
+            margin-top : 10px;
+            float: left;
+            width: 170px;
+            text-overflow: clip;
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>상품목록</h2>
+    <ul id="items">
+        <li id="b1" draggable="true">HTML5+CSS3</li>
+        <li id="b2" draggable="true">JavaScript</li>
+        <li id="b3" draggable="true">JQuery</li>
+    </ul>
+    <h2>장바구니</h2>
+    <ul id="cart">
+
+    </ul>
+    <script>
+        // 드래그에 대한 처리
+        const images = document.querySelectorAll("#items>li");
+        for (const img of images) {
+            // img에 dragstart 이벤트 리스너를 지정
+            img.addEventListener("dragstart",function(e){
+                // 데이터 전송을 위한 데이터 지정
+                e.dataTransfer.setData("text", e.target.id);
+            });
+        }
+
+        // 드롭에 대한 처리
+        const cart = document.getElementById("cart");
+        // 장바구니 ul 요소에 대한 dragenter에 대한 기본 이벤트 제거
+        cart.addEventListener("dragenter",function(e){e.preventDefault();});
+        // 장바구니 ul 요소에 대한 dragover에 대한 기본 이벤트 제거
+        cart.addEventListener("dragover",function(e){e.preventDefault();});
+        // 장바구니 ul 요소에 대한 drop 이벤트 리스너 지정
+        cart.addEventListener("drop",function(e){
+            // 장바구니 ul 요소에 대한 drop에 대한 기본 이벤트 제거
+            e.preventDefault();
+            // 데이터 전송으로 전송된 정보
+            let id = e.dataTransfer.getData("text");
+            // 드롭할 li 요소 지정
+            const li = document.getElementById(id);
+            // li 요소를 추가
+            cart.append(li);
+        });
+    </script>
+</body>
+</html>

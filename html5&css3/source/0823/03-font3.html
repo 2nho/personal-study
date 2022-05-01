@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* color : 글자의 색상을 지정하는 속성 
+            - 색상을 지정하기 위해서는 3가지 방법이 존재한다.
+            - 키워드 방식 : 키워드를 이용해 색상을 지정할 수가 있으며 색상을 표현하는
+                           많은 키워드가 존재한다. ex) red, green, blue
+            - RGB(red, green, blue) : 빨간색, 초록색, 파란색 조합으로 색상을 표현하는
+                                      방법. 0~255 사이의 숫자를 통해 각 자리수의 색을
+                                      설정할 수 있으며 16진수 6자리 숫자를 이용해
+                                      색을 설정할 수 있다.
+            - hsl(hue, saturation, lightness) : 색상의 스무스한 변화를 위해 지정하는
+                                      색상 지정방식, 잘 쓰이지는 않으나 애니메이션 효과를
+                                      나타내기 위한 색상 설정을 할 경우 가끔 쓰인다.
+            - rgba, hsla : 색상을 지정 후 뒤에 색상에 대한 투명도를 지정할 수 있는데
+                           0~1 사이의 숫자를 이용해 투명도 지정이 가능하다. 만약
+                           rgba나 hsla를 사용하기 힘든 상황일 경우 opacity 속성을
+                           이용해 투명도 지정이 가능하다.
+        */
+        .c1 {
+            color : cadetblue;
+        }
+        .c2 {
+            /* color : rgb(255,0,0); */
+            color : #ff0000;
+        }
+        .c3 {
+            /* color : rgba(0,0,255,0.2); */
+            color : #0000ff;
+            opacity: 0.2;
+        }
+        .c4 {
+            color : hsl(0, 100%, 50%);
+        }
+        .c5 {
+            /* #ff0000 */
+            color : #f00; 
+        }
+    </style>
+</head>
+<body>
+    <p class="c1">안녕하세요1</p>
+    <p class="c2">안녕하세요2</p>
+    <p class="c3">안녕하세요3</p>
+    <p class="c4">안녕하세요4</p>
+    <p class="c5">안녕하세요5</p>
+</body>
+</html>

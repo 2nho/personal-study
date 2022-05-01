@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        /* 
+            컨테이너 기준으로 아이템 정렬
+            - 아이템을 정렬할 때 다음과 같은 속성을 사용할 수가 있다.
+            - align-content : 위 아래로 아이템들을 컨테이너에 맞추어 정렬할 경우 사용
+            - justify-content : 좌 우로 아이템들을 컨테이너에 맞추어 정렬할 경우 사용
+            - place-content : 위 아래 좌 우, 위의 속성 두개를 합쳐서 사용할 경우 사용할 수 있는 속성
+
+            컨테이너 기준으로 정렬 시 쓸 수 있는 값
+            - start : 위 혹은 좌로 배치할 때 사용할 수 있는 속성 값
+            - end : 아래 혹운 우로 배치할 때 사용할 수 있는 속성 값
+            - center : 중앙에 배치할 때 사용할 수 있는 속성 값
+            - space-between : 위/아래 혹은 좌/우 아이템 사이의 간격을 균등하게 조정하여 배치할 때 사용할 수 있는 속성 값
+            - space-around : 위/아래 혹은 좌/우 아이템을 기준으로 공백을 균등하게 조정하여 배치할 때 사용할 수 있는 속성 값
+            - space-evenly : 맨 끝의 공백을 포함하여 위/아래, 좌/우 아이템 사이의 공백을 균등하게 조정하여 배치할 때
+                             사용할 수 있는 값
+        
+        */
+        .grid-container{
+            width : 450px;
+            height : 450px;
+            display: grid;
+            grid-template-rows: repeat(3, 100px);
+            grid-template-columns: repeat(3,100px);
+            /* align-content: stretch; */
+            /* align-content: start; */
+            /* align-content: center; */
+            /* align-content: end; */
+            /* align-content: space-between; */
+            /* align-content: space-around; */
+            /* align-content: space-evenly; */
+            /* justify-content: stretch; */
+            /* justify-content: start; */
+            /* justify-content: center; */
+            /* justify-content: end; */
+            /* justify-content: space-between; */
+            /* justify-content: space-around; */
+            /* justify-content: space-evenly; */
+            place-content : center space-around;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+    </div>
+</body>
+</html>

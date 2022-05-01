@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- change -->
+    <p>타고싶은 자동차 선택</p>
+    <select name="my-select" id="my-select">
+        <option value="타이칸">타이칸</option>
+        <option value="머스탱">머스탱</option>
+        <option value="람보르기니">람보르기니</option>
+        <option value="티코">티코</option>
+    </select>
+    <p id="demo"></p>
+    <!-- input -->
+    uppercase : <input type="text" id="fname">
+    <!-- invalid -->
+    <form action="#" method="GET" id="my-form">
+        <input type="text" id="my-input" name="fname" pattern=".{6,}" required>
+        <button>전송</button>
+    </form>
+    <script>
+        document.getElementById("my-form").addEventListener("submit",function(e){
+            alert("the form was submitted");
+            e.preventDefault();
+        });
+
+        document.getElementById("my-select").addEventListener("change",(e)=>{
+            let x = e.target.value;
+            document.getElementById("demo").textContent = "너의 선택 : "+x;
+        });
+
+        // document.getElementById("fname").addEventListener("input",function(){
+        //     this.value = this.value.toUpperCase();
+        // });
+        
+        document.getElementById("fname").addEventListener("keydown",function(){
+            this.value = this.value.toUpperCase();
+        });
+
+        document.getElementById("my-input").addEventListener("invalid",function(e){
+            e.preventDefault();
+            alert("잘못 데이터를 입력 하셨습니다(무조건 6글자 이상)");
+        });
+    </script>
+</body>
+</html>

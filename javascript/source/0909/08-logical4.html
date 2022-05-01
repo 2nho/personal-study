@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(0 && 1); // 0
+        console.log("cat" && "dog"); // dog
+        console.log("" || "dog"); // dog
+        console.log(-1 || "cat"); // -1
+        console.log(0 && 12345); // 0
+        console.log(null || "abc"); // abc
+
+        console.log(undefined || "default"); // 디폴트 값 설정
+        console.log((undefined === 123) && "이 값은 동일합니다"); // 값 결과 확인
+
+        // console.log(!!{});
+        // console.log(!!new Boolean(false));
+        // a++; => a=a+1;
+    </script>
+</body>
+</html>

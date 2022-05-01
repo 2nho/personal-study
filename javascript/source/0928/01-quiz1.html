@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><span id="timer">0</span> 초 남았습니다!</p>
+
+    <button id="playAgainButton">Go!</button>
+
+    <script>
+        let timer;
+        let timeLeft = 60;
+
+        function gameOver(){
+            clearInterval(timer);
+            document.getElementById("playAgainButton").style.display = "inline-block";
+        }
+
+        function updateTime(){
+            timeLeft--;
+            if(timeLeft >= 0 ){
+                document.getElementById("timer").textContent = timeLeft;
+            }else{
+                gameOver();
+            }
+        }
+
+        document.getElementById("playAgainButton").addEventListener("click",function(){
+            timeLeft = 60;
+            document.getElementById("timer").textContent = 60;
+            // setInterval 실행
+            timer = setInterval(function(){
+                updateTime();
+            }, 1000);
+            // 버튼 사라지게 만들기
+            document.getElementById("playAgainButton").style.display = "none";
+        });
+    </script>
+</body>
+</html>

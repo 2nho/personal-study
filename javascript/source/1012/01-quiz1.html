@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    <b>
+        <font size="5" color="gray">OPENER</font>
+    </b>
+    <br>
+    <button id="btn">OPEN POPUP</button><br>
+    <label for="p-input">전달할 값 : </label><br>
+    <input type="text" id="p-input"><br>
+    <button id="send">전달</button><br>
+
+    <script>
+        let openWin;
+        
+        document.getElementById("btn").addEventListener("click",function(){
+            openWin = window.open("01-quiz1-1.html","_blank","width=570, height=350");
+        });
+
+        document.getElementById("send").addEventListener("click",function(){
+            openWin.document.getElementById("c-input").value =
+                document.getElementById("p-input").value;
+        });
+        
+    </script>
+</body>
+</html>

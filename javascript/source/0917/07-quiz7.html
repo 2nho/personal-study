@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 주어진 데이터의 순위를 구하는 로직
+        const scores = [90, 87, 100, 95, 80];
+        const ranking = new Array(scores.length).fill(1);
+
+        for (let index = 0; index < scores.length; index++) {
+            // ranking[index] = 1;
+            for (let index2 = 0; index2 < scores.length; index2++) {
+                if(scores[index] < scores[index2]){
+                    ranking[index]++;
+                }
+            }
+        }
+
+        for (let index = 0; index < scores.length; index++) {
+            console.log(`${index+1} 번째 점수 : ${scores[index]} , 순위 : ${ranking[index]}`);
+        }
+    </script>
+</body>
+</html>
+
+

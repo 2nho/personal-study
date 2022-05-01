@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 함수 : 기능의 한 단위, 생성할 컨텍스트의 기준
+        //        함수 또한 non-primitve 타입의 하나이다.
+        /*
+            함수의 종류 : 인자와 리턴값의 여부에 따라 달라질 수 있다.
+                  -> 인자, argments 객체나 선언한 변수를 이용해 접근이 가능하다
+                  -> 불특정 인자를 받을 때 쓸 수 있는 rest 파라미터가 존재함
+                  -> 값을 반환할때는 return이라는 명령어 사용이 가능하다.
+
+            일급 함수 : 
+                  -> 변수에 삽입이 가능
+                  -> 변수를 통해 사용 가능
+                  -> 함수의 인자로 넣을 수 있음
+                  -> 함수의 리턴 값으로 사용 가능
+                  -> 동적으로 프로퍼티에 생성 및 할당 가능
+
+            호이스팅 :
+                  -> 변수, 함수를 마치 위에서 선언한 것처럼 사용 가능
+
+            prototype :
+                  -> identity, 나는 무엇인가를 정의해주는 개체
+                  -> non-primitive 타입에 반드시 들어있는 프로퍼티
+                  -> 함수 생성 시 해당 함수의 프로토타입 객체가 생성되며 프로토타입 객체를 prototype이라는 프로퍼티로
+                     참조가 가능해지고 반대로 prototype에서는 해당 함수를 constructor로 참조 가능하다.
+                  -> 즉, function도 객체이기 때문에 property의 추가가 가능하다.
+        */
+
+        function funcA(){
+            console.log("안녕하세요");
+        }
+
+        funcA.aaa = 3;
+        console.log(funcA.aaa);
+        /*
+            - 추가 함수 정리 -
+            즉시 실행 함수 : 즉시 실행되는 함수
+        */
+        (function (name){
+            console.log("내 이름은 : "+name);
+        })("김근형");
+        /*
+            내장 함수 : 함수 내부에 함수가 들어있는 형태
+            콜백 함수 : 함수에 대한 제어권을 다른 함수에 넘기고자 할 경우 사용
+                       비동기형 로직을 강제로 동기화 시킬 때 사용
+                       콜백 함수의 남용으로 콜백 지옥에 빠질 수 있다.
+            클로저 : 외부에서의 직접적인 변수에 대한 접근을 차단함으로써 변수에 대한 은닉, 캡슐화를 도와주는 함수
+        */
+       /*
+            scope : 내가 찾고자 하는 변수 및 함수의 유효 범위
+                  - 함수 단위 스코프에서는 내장 함수에서 외부의 변수로 접근은 가능하지만 외부의 함수에서 내부 함수로의
+                    접근은 불가능하다.
+       */
+    </script>
+</body>
+</html>

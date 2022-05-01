@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            repeating-linear/radial-gradient
+            - 반복하고자 하는 색을 나열한다.
+            - radial-gradient일 경우 앞에 모양, 위치에 대한 설정이 가능하다.
+            - linear-gradient일 경우 방향에 대한 지정이 가능하다.
+            - 그라데이션이 100%로 지정되지 않으면 해당 그라데이션은 계속 반복된다.
+        */
+        div {
+            width : 500px;
+            height : 300px;
+            border-radius: 10px;
+            margin : 10px;
+        }
+        .grad1 {
+            background: repeating-linear-gradient(yellow, red 5%);
+        }
+        .grad2 {
+            background: repeating-linear-gradient(yellow, yellow 5%, red 5%, red 10%);
+        }
+        .grad3 {
+            background: repeating-radial-gradient(circle, white, purple 10px);
+        }
+        .grad4 {
+            background: repeating-radial-gradient(circle, white, #ccc 20px);
+        }
+    </style>
+</head>
+<body>
+    <div class="grad1"></div>
+    <div class="grad2"></div>
+    <div class="grad3"></div>
+    <div class="grad4"></div>
+</body>
+</html>
