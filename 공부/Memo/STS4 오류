@@ -54,7 +54,7 @@ ini파일의 vm의 경로를 java - jdk 1.8 경로로 설정해주었더니 sts4
 https://okky.kr/article/1046999?note=2504885 에서 답을 얻을 수 있었다! 
 
 
-이클립스 버전별로 사용가능한 java버전이 있다는 것!
+## 중요 ! 이클립스 버전별로 사용가능한 java버전이 있다는 것!!!!!!!!!!!!!!
 https://hermeslog.tistory.com/506  이 글을 통해 이클립스 별 지원하는 JDK를 찾아볼 수 있었고
 그 중 2020-06에 나온 Eclipse 4.16버전이 JDK 1.8을 지원하는 마지막 버전인 것을 알 수 있었다.
 그렇게 Eclipse 4.16버전을 깔고 프로젝트를 실행해본 결과 무사히 실행완료 !
@@ -62,7 +62,7 @@ https://hermeslog.tistory.com/506  이 글을 통해 이클립스 별 지원하�
 
 스프링 공식 문서에서 제한사항과 이슈에 관해서
 https://github.com/spring-projects/sts4/wiki/Known-Limitations-&-Issues 
-롬복 문제라고만 생각해 
+롬복 문제라고만 생각해 롬복과 관련된
 <Lombok>
 The Lombok installer doesn't know about the changed name of the STS4 executable and therefore doesn't find it.
 Nevertheless you can install Lombok manually by modifying the SpringTools4.ini file yourself.
@@ -70,12 +70,14 @@ Nevertheless you can install Lombok manually by modifying the SpringTools4.ini f
 이것만을 읽고 SpringToolSuite4.exe 와 SpringToolSuite4.ini를 STS4.exe STS4.ini 로 변경하거나 위에 적은 
 --illegal-access=warn
 --add-opens java.base/java.lang=ALL-UNNAMED
--javaagent:lombok.jar 을 이용해 해결하려 했지만 해결이 되지 않아 자바 버전 문제라는 생각을 했고  
-sts4의 기본 자바 설정이 11이상인거 까지는 알았는데 
-ini파일의 최소요구조건을 1.8로 바꾸거나 vm 을 jdk 1.8 경로로 하면 바뀔 줄 알았던 내 생각이 잘못된거였다
+-javaagent:lombok.jar 을 이용해 해결하려 했던 것이 무의미한 짓이었다.
+
+물론 덕분에 ini파일을 열어보며 -Dosgi.requiredJavaVersion=11 부분에서 곧 자바 버전 문제 일수도 있다라는 생각까지 도달은 했지만 
+sts4의 최소 jdk 요구 조건이 11이상이라는 것을 ini파일의 최소요구조건을 1.8로 바꾸거나 vm 을 jdk 1.8 경로로 하면 바뀔 줄 알았던 내 생각이 오만하고 잘못된거였다
 괜히 plugin 폴더나 configuration을 찾아보며 어렵게 생각했던거 같다..
 
-스프링 공식 깃허브에서 Java 11+ required의 뜻에 좀 더 집중했더라면 좋았을 거 같다. ( 물론 로그 파일을 하나씩 읽어보다 발견한 OKKY 글이 없엇다면 쭉 몰랐을 수 도 있다...)
+스프링 공식 깃허브에서 Java 11+ required의 뜻에 좀 더 집중했더라면 좋았을 거 같다. 
+(물론 로그 파일의 내용을 알려주는 OKKY 글이 없엇다면 쭉 몰랐을 수 도 있을거 같다. 괜히 build path와 installed JREs에서 해결할 수 있지 않을까 하며 헤맸던 것이 그 증거)
 
 
 흔히 검색하면 가장 쉽게 나오는 정보가 alt+ f5 해서 메이븐 업데이트하거나 레파지토리 폴더를 지워서 전부 새로 받으라는 글들이 많았는데
