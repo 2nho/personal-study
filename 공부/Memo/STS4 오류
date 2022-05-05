@@ -1,0 +1,37 @@
+Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int) 
+throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @28393e82
+
+회사 프로젝트를 집에서도 코드를 분석해보기 위해 회사 개발환경인 sts3 대신 최신 버전의 sts4를 설치해 사용했으나 지속적으로 오류 발생
+초기 lombok 설치의 문제가 있는 줄 알고 다른 해결방법을 찾기위해 영어, 중국어, 일본어 가리지 않고 모든 사이트를 방문해 찾아봤으나 
+명확하게 해결되는 것이 하나도 없었음
+
+그러다 STS4로 실행하는 외주업체 개발자를 보고 "sts3로 실행하던 것을 sts4로 실행했을 때 나는 안되던데 IDE 버전 문제는 없냐" 질문을 함 
+- "자바 버전만 맞으면 문제 없다"라는 답변을 받았고 동일하게 개발환경을 구성해보자 시도 
+
+하지만 개인 데스크톱의 문제인가 싶을 정도로 지속적으로 퇴근 후나 주말에도 시간투자했으나 해결하지 못함
+
+일주일을 헤매던 중 
+
+회사와 동일하게 sts3로 실행하면 되나 싶어 회사버전의 sts3를 깔아 프로젝트를 import해봤지만 다른 오류 발생 
+이 문제도 console의 뜬 에러코드를 해석해가며 인터넷의 도움을 받아 해결해보려 했지만 인터넷에 나온 방법을 전부 이용해도 진전이 없었음
+2주간의 결과물 없는 시간투자만 지속하기를 반복 
+그러다 시스템 환경변수에 기존 초기에 설정했던 jdk1.8과 달리 oracle/java 형식의 다른 path가 있는것을 이상하게 여겼고 삭제했더니 
+sts3에서 실행이 무사히 됨 (기존 집에서 혼자하던 프로젝트 혹은 sts4를 설치하며 자동으로 추가되면서 충돌난 것으로 결론) 
+
+sts3에서는 이제 무사히 실행되기에 컴퓨터 문제는 아니란 결론에 도달 이후 다시 sts4로 동일하게 시도했으나 sts4에서는 실행오류가 
+지속 
+https://stackoverflow.com/questions/35842751/lombok-not-working-with-sts
+https://stackoverflow.com/questions/56523530/lombok-installation-in-spring-tool-suite-4-for-windows
+https://github.com/spring-projects/sts4/issues
+
+
+--illegal-access=warn
+--add-opens java.base/java.lang=ALL-UNNAMED
+-javaagent:lombok.jar
+
+
+
+생각했던 문제점 : lombok 인식 문제, 자바 버전 문제 , 자바 버전이 컴퓨터에 여러개 깔려 있어서 충돌하는 문제  
+
+
+ 
