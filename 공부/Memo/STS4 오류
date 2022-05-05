@@ -18,20 +18,56 @@ throws java.lang.ClassFormatError accessible: module java.base does not "opens j
 그러다 시스템 환경변수에 기존 초기에 설정했던 jdk1.8과 달리 oracle/java 형식의 다른 path가 있는것을 이상하게 여겼고 삭제했더니 
 sts3에서 실행이 무사히 됨 (기존 집에서 혼자하던 프로젝트 혹은 sts4를 설치하며 자동으로 추가되면서 충돌난 것으로 결론) 
 
-sts3에서는 이제 무사히 실행되기에 컴퓨터 문제는 아니란 결론에 도달 이후 다시 sts4로 동일하게 시도했으나 sts4에서는 실행오류가 
-지속 
+sts3에서는 이제 무사히 실행되기에 컴퓨터 문제는 아니란 결론에 도달 이후 다시 sts4로 동일하게 시도했으나 sts4에서는 실행오류가 지속
 https://stackoverflow.com/questions/35842751/lombok-not-working-with-sts
 https://stackoverflow.com/questions/56523530/lombok-installation-in-spring-tool-suite-4-for-windows
 https://github.com/spring-projects/sts4/issues
+등을 참고해 
 
-
+.ini 파일에 
 --illegal-access=warn
 --add-opens java.base/java.lang=ALL-UNNAMED
 -javaagent:lombok.jar
+등을 추가해봤지만 진전X  마지막줄의 문제인가 싶어 -javaagent:C:\Users\golde\Desktop\sts-4.14.1.RELEASE\lombok.jar 등으로도 해봤지만 
+해답을 찾지 못함
+
+이클립스 최신버전을 설치해서 lombok을 설치했지만 동일문제 발생 혹시나 싶어 lombok의 버전을 기존 1.18.20에서 1.18.22로 버전을 올리니
+롬복 오류는 사라짐 그러나 기존 pom.xml 과 다른 부분에서 오류 표시가 났고 하나씩 찾아갔지만 해결 X 
+
+하지만 기존 프로젝트의 버전을 올리는 것은 사이드 이펙트가 많기에 기존 버전을 유지하는 방법을 찾기위해 다시 
+STS4로 실행하는 방법을 찾기 시작 sts4최신 버전의 기본 jdk가 17버전으로 잡혀있기에 컴퓨터에 설치했던 1.8버전으로 bulid path 수정 하지만
+오류는 계속 발생
+
+ini파일의 vm의 경로를 java - jdk 1.8 경로로 설정해주었더니 sts4가 실행조차 되지 않는 오류로 발전 로그를 확인하라는 오류메세지를 
+보고 확인해보니 
+!ENTRY org.springframework.ide.eclipse.boot.dash.docker 2 0 2022-05-05 23:57:05.558
+!MESSAGE Could not resolve module: org.springframework.ide.eclipse.boot.dash.docker [556]
+  Unresolved requirement: Import-Package: org.eclipse.core.runtime
+    -> Export-Package: org.eclipse.core.runtime; bundle-symbolic-name="org.eclipse.core.runtime"; bundle-version="3.24.100.v20220211-2001"; version="3.7.0"
+       org.eclipse.core.runtime [132]
+         Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=11))"
+         Unresolved requirement: Require-Bundle: org.eclipse.equinox.registry; bundle-version="[3.11.0,4.0.0)"; visibility:="reexport"
+           -> Bundle-SymbolicName: org.eclipse.equinox.registry; bundle-version="3.11.100.v20211021-1418"; singleton:="true"
+              org.eclipse.equinox.registry [237]
+
+등으로 남아있어 하나씩 살펴본 결과 Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=11))" 에서 혹시 하고 검색해본 결과
+https://okky.kr/article/1046999?note=2504885 에서 답을 얻을 수 있었다! 
 
 
+이클립스 버전별로 사용가능한 java버전이 있다는 것!
+https://hermeslog.tistory.com/506  이 글을 통해 이클립스 별 지원하는 JDK를 찾아볼 수 있었고
+그 중 2020-06에 나온 Eclipse 4.16버전이 JDK 1.8을 지원하는 마지막 버전인 것을 알 수 있었다.
+그렇게 Eclipse 4.16버전을 깔고 프로젝트를 실행해본 결과 무사히 실행완료 !
 
-생각했던 문제점 : lombok 인식 문제, 자바 버전 문제 , 자바 버전이 컴퓨터에 여러개 깔려 있어서 충돌하는 문제  
 
-
- 
+https://github.com/spring-projects/sts4/wiki/Known-Limitations-&-Issues 스프링 공식 문서를 읽었을 때
+롬복에 관련된
+<Lombok>
+The Lombok installer doesn't know about the changed name of the STS4 executable and therefore doesn't find it.
+Nevertheless you can install Lombok manually by modifying the SpringTools4.ini file yourself.
+이것만을 읽고 SpringToolSuite4.exe 와 SpringToolSuite4.ini를 STS4.exe STS4.ini 로 변경하거나 위에 적은 
+--illegal-access=warn
+--add-opens java.base/java.lang=ALL-UNNAMED
+-javaagent:lombok.jar 
+만을 이리저리 건들고 plugin 폴더나 configuration을 찾아보고 그랬는데 
+버전문제였다..
