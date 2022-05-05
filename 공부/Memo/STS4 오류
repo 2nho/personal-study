@@ -60,14 +60,27 @@ https://hermeslog.tistory.com/506  이 글을 통해 이클립스 별 지원하�
 그렇게 Eclipse 4.16버전을 깔고 프로젝트를 실행해본 결과 무사히 실행완료 !
 
 
-https://github.com/spring-projects/sts4/wiki/Known-Limitations-&-Issues 스프링 공식 문서를 읽었을 때
-롬복에 관련된
+스프링 공식 문서에서 제한사항과 이슈에 관해서
+https://github.com/spring-projects/sts4/wiki/Known-Limitations-&-Issues 
+롬복 문제라고만 생각해 
 <Lombok>
 The Lombok installer doesn't know about the changed name of the STS4 executable and therefore doesn't find it.
 Nevertheless you can install Lombok manually by modifying the SpringTools4.ini file yourself.
+
 이것만을 읽고 SpringToolSuite4.exe 와 SpringToolSuite4.ini를 STS4.exe STS4.ini 로 변경하거나 위에 적은 
 --illegal-access=warn
 --add-opens java.base/java.lang=ALL-UNNAMED
--javaagent:lombok.jar 
-만을 이리저리 건들고 plugin 폴더나 configuration을 찾아보고 그랬는데 
-버전문제였다..
+-javaagent:lombok.jar 을 이용해 해결하려 했지만 해결이 되지 않아 자바 버전 문제라는 생각을 했고  
+sts4의 기본 자바 설정이 11이상인거 까지는 알았는데 
+ini파일의 최소요구조건을 1.8로 바꾸거나 vm 을 jdk 1.8 경로로 하면 바뀔 줄 알았던 내 생각이 잘못된거였다
+괜히 plugin 폴더나 configuration을 찾아보며 어렵게 생각했던거 같다..
+
+스프링 공식 깃허브에서 Java 11+ required의 뜻에 좀 더 집중했더라면 좋았을 거 같다. ( 물론 로그 파일을 하나씩 읽어보다 발견한 OKKY 글이 없엇다면 쭉 몰랐을 수 도 있다...)
+
+
+흔히 검색하면 가장 쉽게 나오는 정보가 alt+ f5 해서 메이븐 업데이트하거나 레파지토리 폴더를 지워서 전부 새로 받으라는 글들이 많았는데
+단순히 그런 글들 수준에서 멈췄으면 절대 풀지 못할 난제였다(스스로에게). 4월에서 5월로 이어져온 긴 여정이었지만
+이리저리 설정파일도 건들여 보고 하면서 조금 더 배우는 부분이 생겼다 
+
+
+++ jdk 와 jre의 차이는 jdk는 jre를 포함에 javadoc등 개발을 위한 더 많은 것들이 포함되어 있다는 것!
