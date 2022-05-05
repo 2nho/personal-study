@@ -19,10 +19,9 @@ throws java.lang.ClassFormatError accessible: module java.base does not "opens j
 sts3에서 실행이 무사히 됨 (기존 집에서 혼자하던 프로젝트 혹은 sts4를 설치하며 자동으로 추가되면서 충돌난 것으로 결론) 
 
 sts3에서는 이제 무사히 실행되기에 컴퓨터 문제는 아니란 결론에 도달 이후 다시 sts4로 동일하게 시도했으나 sts4에서는 실행오류가 지속
-https://stackoverflow.com/questions/35842751/lombok-not-working-with-sts
-https://stackoverflow.com/questions/56523530/lombok-installation-in-spring-tool-suite-4-for-windows
-https://github.com/spring-projects/sts4/issues
-등을 참고해 
+https://stackoverflow.com/questions/35842751/lombok-not-working-with-sts <br>
+https://stackoverflow.com/questions/56523530/lombok-installation-in-spring-tool-suite-4-for-windows<br>
+https://github.com/spring-projects/sts4/issues 등을 참고해 
 
 .ini 파일에 
 --illegal-access=warn
