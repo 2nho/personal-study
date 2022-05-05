@@ -10,7 +10,7 @@ throws java.lang.ClassFormatError accessible: module java.base does not "opens j
 
 하지만 개인 데스크톱의 문제인가 싶을 정도로 지속적으로 퇴근 후나 주말에도 시간투자했으나 해결하지 못함
 
-일주일을 헤매던 중 
+-일주일을 헤매던 중- 
 
 회사와 동일하게 sts3로 실행하면 되나 싶어 회사버전의 sts3를 깔아 프로젝트를 import해봤지만 다른 오류 발생 
 이 문제도 console의 뜬 에러코드를 해석해가며 인터넷의 도움을 받아 해결해보려 했지만 인터넷에 나온 방법을 전부 이용해도 진전이 없었음
