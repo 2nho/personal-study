@@ -1,0 +1,231 @@
+MobaXterm 설치 (ssh ip로 연결 id:root pw: 설정한값 )
+VirtualBOX 설치
+centos7 다운로드
+	http://repos-va.psychz.net/centos/
+	https://vault.centos.org/centos/
+	http://repos-va.psychz.net/centos/7.8.2003/
+
+minimal : 서버 버전만 있는 미니멀 버전
+7.8.2003/	다운로드
+
+isos/ 클릭 -> x86_64/ 클릭 CentOS-7-x86_64-Minimal-2003.iso	2020-04-22 01:06	1.0G 다운로드
+
+
+rufus 다운로드 링크( https://rufus.ie/ ) 실행 후 
+
+위에 다운받은 ios파일의 부팅usb만들기  설정값 기본 그대로 진행
+
+
+만든 USB로 부팅하기위해 컴퓨터 시작 화면에서 F2 키를 눌러 부팅메뉴로 진입 USB를 부팅으로 설정
+
+USB꽂고 컴퓨터를 실행하면 cent OS 설치하면 진입
+
+실행시 
+ID : root PW: 설정한 비밀번호 입력 (비밀번호는 보이지 않음)
+
+hostnamectl 입력해서 kernel : Linux 3.10.0-1127 버전 확인
+
+usb에 담은 파일들을 터미널창을 이용해 리눅스 설치한 컴퓨터로 옮기기
+--------------------------------------------------------------------
+USB에서 할 일 
+util 폴더 생성 (apache-tomcat 8.5, jdk1.8 버전 설치파일 .zip 담기)
+--------------------------------------------------------------------
+
+-- usb 마운트
+fdisk -l
+mkdir /root/TEST
+mount /dev/sdb4 /root/TEST
+umount /dev/sdb4
+
+--semanage 설치
+
+1.
+cd /root/TEST/install/1_semanage
+sed -i 's/\r$//' semanage_rpm.sh
+chmod 777 semanage_rpm.sh
+./semanage.sh
+
+2.
+cd /root/TEST/install/1_semanage
+
+rpm -Uvh libsemanage-python-2.5-14.el7.x86_64.rpm
+rpm -Uvh checkpolicy-2.5-8.el7.x86_64.rpm
+rpm -Uvh python-IPy-0.75-6.el7.noarch.rpm
+rpm -Uvh audit-libs-python-2.8.5-4.el7.x86_64.rpm
+rpm -Uvh setools-libs-3.3.8-4.el7.x86_64.rpm
+rpm -Uvh libcgroup-0.41-21.el7.x86_64.rpm
+rpm -Uvh policycoreutils-python-2.5-34.el7.x86_64.rpm
+
+--마리아 DB 설치
+cd /root/korecen/install/2_mariadb
+
+rpm -Uvh boost-program-options-1.53.0-28.el7.x86_64.rpm
+rpm -Uvh socat-1.7.3.2-2.el7.x86_64.rpm
+rpm -Uvh lsof-4.87-6.el7.x86_64.rpm
+rpm -Uvh rsync-3.1.2-10.el7.x86_64.rpm
+rpm -Uvh galera-4-26.4.6-1.el7.centos.x86_64.rpm
+rpm -Uvh pcre2-10.23-2.el7.x86_64.rpm
+rpm -Uvh perl*
+rpm -Uvh libpmen-1.5.1-2.1.el7.x86_64.rpm
+rpm -Uvh MariaDB*
+
+--스크립트 실행
+cd /root/TEST/install/3_dbScript
+
+semanage port -a -t mysqld_port_t -p tcp 5537
+semanage port -l | grep mysqld_port_t
+
+1번째방법
+cp /etc/my.cnf.d/server.cnf /etc/my.cnf.d/server_org.cnf
+sed -i 's/\[mariadb\]/[mariadb]\nport=5537/g' /etc/my.cnf.d/server.cnf
+2번째방법
+   cd /etc/my.cnf.d/
+   cp server.cnf server_org.cnf
+   vi server.cnf => [mariadb] 밑에 port=5537 추가
+
+
+systemctl restart mariadb
+
+--------------------------------------------------------------   (sh 파일로 한번에 실행 시 불필요 sh만 실행)
+mysql -u root -proot <script_20211118.sql
+mysql -u root -proot <insert.sql                         
+
+1. 스크립트 방식
+mysql -u root -proot -e "SET PASSWORD FOR root@localhost = PASSWORD('1234');"
+mysql -u root -pKoReCen0317 -e "CREATE USER IF NOT EXISTS 'otroot'@'%' IDENTIFIED BY 'root'"
+mysql -u root -pKoReCen0317 -e "GRANT ALL PRIVILEGES ON *.* to 'otroot'@'%' IDENTIFIED BY 'root'"
+mysql -u root -pKoReCen0317 -e "FLUSH PRIVILEGES"
+
+2. mysql 접속해서 처리
+	mysql -u root -proot 로 sql 들어감
+	SET PASSWORD FOR root@localhost = PASSWORD('1234');
+	CREATE USER IF NOT EXISTS 'otroot'@'%' IDENTIFIED BY 'root'
+	GRANT ALL PRIVILEGES ON *.* to 'otroot'@'%' IDENTIFIED BY 'root'
+	FLUSH PRIVILEGES
+
+
+++	
+systemctl enable mariadb.service   -- 부팅시 서비스 자동실행 처리 (안되면 커넥션 오류 뜰 것)
+
+
+
+
+
+
+-------------------------------------------------------------------------------------
+--odbc Connect 설치
+cd /root/TEST/install/5_connector_odbc
+
+tar -xvzf mariadb-connector-odbc-3.1.7-ga-rhel7-x86_64.tar.gz
+install lib64/libmaodbc.so /usr/lib64/
+install -d /usr/lib64/mariadb/
+install -d /usr/lib64/mariadb/plugin/
+
+1. 
+install lib64/mariadb/plugin/auth_gssapi_client.so /usr/lib64/mariadb/plugin/
+install lib64/mariadb/plugin/caching_sha2_password.so /usr/lib64/mariadb/plugin/
+install lib64/mariadb/plugin/client_ed25519.so /usr/lib64/mariadb/plugin/
+install lib64/mariadb/plugin/dialog.so /usr/lib64/mariadb/plugin/
+install lib64/mariadb/plugin/mysql_clear_password.so /usr/lib64/mariadb/plugin/
+install lib64/mariadb/plugin/sha256_password.so /usr/lib64/mariadb/plugin/
+
+2. 
+cd /lib64/mariadb/plugin/
+install auth_gssapi_client.so /usr/lib64/mariadb/plugin/
+install caching_sha2_password.so /usr/lib64/mariadb/plugin/
+install client_ed25519.so /usr/lib64/mariadb/plugin/
+install dialog.so /usr/lib64/mariadb/plugin/
+install mysql_clear_password.so /usr/lib64/mariadb/plugin/
+install sha256_password.so /usr/lib64/mariadb/plugin/
+
+--unixODBC 설치	
+cd /root/TEST/install/4_unixODBC
+
+tar xzf unixODBC-2.3.7.tar.gz
+cd unixODBC-2.3.7
+./configure
+make
+make install
+
+/etc/odbcinst.ini를 직접 수정해도 됨.
+[MariaDB]
+Description = MariaDB Connector/ODBC v.3.1.7
+Driver = /usr/lib64/libmaodbc.so
+
+odbcinst -i -d -f /etc/odbcinst.ini
+
+--포트 셋팅
+firewall-cmd --list-ports
+systemctl start firewalld
+firewall-cmd --permanent --zone=public --add-port=3005/tcp
+firewall-cmd --permanent --zone=public --add-port=3006/tcp
+firewall-cmd --permanent --zone=public --add-port=3010/tcp
+firewall-cmd --reload 
+systemctl stop firewalld
+
+
+--killall 설치
+cd /root/TEST/install/7_killall
+
+rpm -Uvh psmisc-	
+
+-- 라이브러리 경로
+vi .bashrc 
+	export PATH=".:$PATH"
+	export LD_LIBRARY_PATH=/root/TEST/agent
+	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/root/TEST/lib/
+	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib/
+
+수정 후 저장
+	
+ifup enp0s3 --IP 없으면 DB connect 오류 발생
+
+
+--실행
+cd /root/TEST/agent
+./TEST_restart.sh
+
+kill용
+./TEST_kill.sh
+
+
+
+--crond 설치
+cd /root/TEST/install/8_cronie_rpm
+
+rpm -Uvh cron*
+
+crontab -e
+
+0,30 * * * * su - root -c "rm -f maodbc.log"
+0 5 * * * su - root -c "cd /root/TEST/agent/ && ./TEST_restart.sh"
+
+
+crontab -lsys
+
+systemctl start crond.service
+******
+config.ini / DualiAccessId.ini 를 root 폴더로 옮겨야 함.
+
+
+--서버 재실행 시 처리
+vi /etc/rc.d/rc.local (rc.local 은 부팅시 자동으로 실행 명령어나 스크립트를 수행하는 동작)
+	/root/TEST/agent/agentKFV
+	/root/TEST/agent/relayKFV
+
+
+
+-------------------------------------
+톰캣설치 
+# tar xvzf apache-tomcat-8.5.27.tar.gz
+
+jdk 설치
+# tar xvzf apache-tomcat-8.5.27.tar.gz
+
+
+ vi 편집기로 /etc/profile 을 열어주자
+
+export JAVA_HOME=/util/jdk1.8.0_152
+export JRE_HOME=/util/jdk-1.8.0_152/jre/bin
+export PATH=$PATH:/util/jdk-1.8.0_152/bin:/util/jdk-1.8.0_152/jre/bin
+export CLASSPATH=.:$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar
