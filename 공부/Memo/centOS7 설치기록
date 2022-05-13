@@ -35,7 +35,7 @@ util 폴더 생성 (apache-tomcat 8.5, jdk1.8 버전 설치파일 .zip 담기)
 fdisk -l
 mkdir /root/TEST
 mount /dev/sdb1 /root/TEST
-umount /dev/sdb1
+umount /dev/sdb1   -> sdb = usb
 
 --semanage 설치
 
