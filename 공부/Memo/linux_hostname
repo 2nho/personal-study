@@ -1,2 +1,4 @@
 hostname -i 
 hostname -I의 차이 
+
+loopback interface 
