@@ -1,4 +1,11 @@
 hostname -i 
 hostname -I의 차이 
 
-loopback interface 
+-i의 경우 name이 있는 ip주소를 반환하는데 보통 
+localhost 주소를 반환 
+localhost= loopback interface 
+
+-I의 경우 
+루프백 인터페이스 및 ipv6를 제외한 모든 아이피 주소 반환
+
+따라서 -i 보단 -I 혹은 ip addr 사용!
