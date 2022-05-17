@@ -2,7 +2,8 @@
 success함수가 온전히 실행되기 전에 success함수 호출 이후 발생하는
 값을 가지고 다른 작업을 할 시 undefined가 나올 수 있다.
 
-타이밍의 차이 유념 !
+타이밍의 차이 유념 ! 오류 발생시 오류메세지를 뱉는 일반적인
+경우와는 다르기에 간과하기 쉬움
 
 document ready 
 window on load  에서는 ready가 load보다 더 일찍 
