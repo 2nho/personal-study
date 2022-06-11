@@ -25,5 +25,6 @@ Bridged 방식으로 네트워크를 구성한다면, 자신의 컴퓨터가 하
 보통, 해당 방식으로 네트워크를 구성하는 경우는 사무공간에서 다른 사용자에게 서비스를 제공하기 위한 목적으로 설정한다.
 예를 들면, 파일 공유 서버나 혹은 공지사항 웹페이지 등을 서비스할 때 Bridged 방식으로 네트워크를 구성한다.
 ![다운로드 (2)](https://user-images.githubusercontent.com/97571604/173190595-1cbfa6a9-237c-4219-af1c-dfa3b1ed7a57.png)
+
 출처: https://wookoa.tistory.com/107 [Wookoa:티스토리]
 
