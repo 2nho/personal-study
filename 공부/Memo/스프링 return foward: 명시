@@ -79,6 +79,18 @@ https://github.com/spring-projects/spring-framework/blob/main/spring-webmvc/src/
 		// Else fall back to superclass implementation: calling loadView.
 		return super.createView(viewName, locale);
 	}
+	
+	
+	protected View applyLifecycleMethods(String viewName, AbstractUrlBasedView view) {
+		ApplicationContext context = getApplicationContext();
+		if (context != null) {
+			Object initialized = context.getAutowireCapableBeanFactory().initializeBean(view, viewName);
+			if (initialized instanceof View) {
+				return (View) initialized;
+			}
+		}
+		return view;
+	}
 
 
 
