@@ -96,3 +96,15 @@ https://github.com/spring-projects/spring-framework/blob/main/spring-webmvc/src/
  이처럼 foward: 를 명시해주게 되면 createView 메소드를 타는 것을 확인할 수 있다. 
 
 결론 : 스프링은 foward방식을 이용하려면 명시해줘야 한다. 명시안해주고 return 만 작성 시 해당 view만 찾아서 반환 foward: 명시 할 경우 해당하는 컨트롤의 URL을 탄다!
+
+추가 + https://www.logicbig.com/tutorials/spring-framework/spring-web-mvc/forward-prefix.html 
+
+
+Like 'redirect:' prefix , Spring also allows to use special directive 'forward:' to return forwarded url as String.
+
+On encountering this special prefix in the return value of a controller, Spring uses javax.servlet.RequestDispatcher#forward to forward a request from one controller to another .
+
+Forwarding a URL transfers the request internally within the same server without involving the client browser, that means in the browser the original request URL remains same and there's only one round trip instead of two (which is the case of redirect).
+
+
+The following example demonstrates the use of 'forward:'
