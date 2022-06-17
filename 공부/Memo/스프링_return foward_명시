@@ -1,4 +1,4 @@
-일반적으로 spring의 컨트롤에서 return 값을 지정시 foward나 redirect 없이 retun "지정할 view값" 하게 되면 기본적으로 포워드 방식으로 실행된다고 설명하는 글들이 대다수다.
+일반적으로 spring의 컨트롤에서 return 값을 지정시 foward나 redirect 없이 retun "지정할 view값" 하게 되면 기본적으로 포워드 방식으로 실행된다고만 설명하는 글들이 대다수다.
 
 자바만을 이용해서 컨트롤러에서 코드를 작성시 
 RequestDispatcher dispatcher = request.getRequestDispatcher("/hello");
