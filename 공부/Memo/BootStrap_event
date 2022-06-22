@@ -1,0 +1,15 @@
+Event Type	Description
+show.bs.modal	This event fires immediately when the show instance method is called. If caused by a click, the clicked element is available as the relatedTarget property of the event.
+shown.bs.modal	This event is fired when the modal has been made visible to the user (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the relatedTarget property of the event.
+hide.bs.modal	This event is fired immediately when the hide instance method has been called.
+hidden.bs.modal	This event is fired when the modal has finished being hidden from the user (will wait for CSS transitions to complete).
+
+
+
+show.bs.modal 모달이 열릴 때 바로 실행되는 이벤트
+     
+shown.bs.modal 모달의 열림이 끝나고 실행되는 이벤트
+      
+hide.bs.modal 모달이 닫힐 때 바로 실행되는 이벤트
+
+hidden.bs.modal 모달의 닫힘이 끝나고 실행되는 이벤트
