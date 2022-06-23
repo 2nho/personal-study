@@ -25,7 +25,7 @@ Query와 같이 필요한 선언문, 할당 등의 부수적인 코드가 줄어
 
 
 
-JPA(Java Persistence API) 이란 ?
+##JPA(Java Persistence API) 이란 ?
 
 Java 진영에서 ORM(Object-Relational Mapping) 기술 표준으로 사용하는 인터페이스 모음
 
