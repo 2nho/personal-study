@@ -32,3 +32,14 @@ int update(String statement, Object parameter)
 int delete(String statement, Object parameter)
 
  위 메소드를 통해 호출하는데 select ,insert, deletem update의 경우 매개변수가 비슷하다. 
+   
+ 이와는 별개인 경우는 아래와 같은데 
+<E> List<E> selectList (String statement, Object parameter, RowBounds rowBounds)
+<T> Cursor<T> selectCursor(String statement, Object parameter, RowBounds rowBounds)
+<K,V> Map<K,V> selectMap(String statement, Object parameter, String mapKey, RowBounds rowbounds)
+void select (String statement, Object parameter, ResultHandler<T> handler)
+void select (String statement, Object parameter, RowBounds rowBounds, ResultHandler<T> handler)
+   
+- void select (String statement, Object parameter, ResultHandler<T> handler) 이처럼  handler가 존재하게되면 (xml파일에서 resulttype을 적어주는 경우)
+   select 가 아닌 다른 엘리먼트를 적어주면 오류가 난다.
+   [사실 구분을 위해서도 select문에 select, insert문에 insert적어주는게 정확하긴 하다. 다만 멀티쿼리에서 어떻게 실행이 되는지에 대한 고민으로 시작된 탐구였다] 
