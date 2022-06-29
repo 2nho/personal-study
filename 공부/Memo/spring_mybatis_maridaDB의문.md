@@ -48,3 +48,6 @@ void select (String statement, Object parameter, RowBounds rowBounds, ResultHand
    추가적으로 
    위 그림을 확인하면 delete의 id는 참조하지만 delete 자체는 참조하지 않는 걸 알 수 있다. delete를 참조하는 경우는 dao에서 delete메소드를 실행하면서 delete문을
    실행할 때 참조하는 것 같다.
+
+   
+   +++멀티쿼리는 mariadb, mysql JDBC에만 있는 기능인거 같다. 오라클은 존재x
