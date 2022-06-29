@@ -43,3 +43,5 @@ void select (String statement, Object parameter, RowBounds rowBounds, ResultHand
 - void select (String statement, Object parameter, ResultHandler<T> handler) 이처럼  handler가 존재하게되면 (xml파일에서 resulttype을 적어주는 경우)
    select 가 아닌 다른 엘리먼트를 적어주면 오류가 난다.
    [사실 구분을 위해서도 select문에 select, insert문에 insert적어주는게 정확하긴 하다. 다만 멀티쿼리에서 어떻게 실행이 되는지에 대한 고민으로 시작된 탐구였다] 
+   
+   ![xml](https://user-images.githubusercontent.com/97571604/176458335-19709356-bd7b-46a4-a923-1c93bf5904b8.png)
