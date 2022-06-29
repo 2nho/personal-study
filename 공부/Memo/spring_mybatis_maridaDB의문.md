@@ -50,4 +50,4 @@ void select (String statement, Object parameter, RowBounds rowBounds, ResultHand
    실행할 때 참조하는 것 같다.
 
    
-   +++멀티쿼리는 mariadb, mysql JDBC에만 있는 기능인거 같다. 오라클은 존재x
+   ## +++멀티쿼리는 mariadb, mysql JDBC에만 있는 기능인거 같다. 오라클은 존재x
