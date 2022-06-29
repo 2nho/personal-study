@@ -51,3 +51,4 @@ void select (String statement, Object parameter, RowBounds rowBounds, ResultHand
 
    
    ## +++멀티쿼리는 mariadb, mysql JDBC에만 있는 기능인거 같다. 오라클은 존재x
+   https://stackoverflow.com/questions/46072041/mybatis-mapper-xml-execute-multiple-sql-statements-in-one-mapper-method
