@@ -45,3 +45,6 @@ void select (String statement, Object parameter, RowBounds rowBounds, ResultHand
    [사실 구분을 위해서도 select문에 select, insert문에 insert적어주는게 정확하긴 하다. 다만 멀티쿼리에서 어떻게 실행이 되는지에 대한 고민으로 시작된 탐구였다] 
    
    ![xml](https://user-images.githubusercontent.com/97571604/176458335-19709356-bd7b-46a4-a923-1c93bf5904b8.png)
+   추가적으로 
+   위 그림을 확인하면 delete의 id는 참조하지만 delete 자체는 참조하지 않는 걸 알 수 있다. delete를 참조하는 경우는 dao에서 delete메소드를 실행하면서 delete문을
+   실행할 때 참조하는 것 같다.
