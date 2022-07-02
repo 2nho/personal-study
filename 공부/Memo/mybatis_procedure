@@ -6,4 +6,4 @@ statementType="CALLABLE" 을 명시해주면 프로시저를 호출할 수 있�
 가져오려 할 때 return값은 null로 반환된다. (주의!)
 대신 값을 넘길 때 지정해준 파라미터에 OUT값이 담겨있는 형태로 반환된다.
 
-mybatis 공식문서 발견 x
+mybatis 공식문서상 해당 내용 발견 X
