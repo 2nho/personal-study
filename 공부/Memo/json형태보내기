@@ -1,0 +1,23 @@
+let data = {memberList:'{"memberCount":"3","memberList":
+[
+{"memberId":"08977","cardNumber":"123,456"},
+{"memberId":"9494","cardNumber":"45212"},
+{"memberId":"1523","cardNumber":"45212"},
+{"memberId":"1523","cardNumber":"45212"}]
+}'};
+
+
+memberVO에서 memberlist가 string형태기 때문에 value값을 "" 또는 '' 을 붙여      *(중요)스트링 형태로 보내기 
+
+
+json 내부에서는 ' ' X  /// " " 만 가능        *json 형식으로 String값 만들어줘야함 
+
+
+
+public class MemberVO {
+
+	private String memberId;	// 기본키
+	private String cardNumber;	// 관리번호
+	private String name;		// 이름
+	private Integer deptId;		// 부서코드
+	private Integer teamId;		// 팀코드
