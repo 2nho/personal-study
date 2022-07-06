@@ -18,6 +18,4 @@ public class MemberVO {
 
 	private String memberId;	// 기본키
 	private String cardNumber;	// 관리번호
-	private String name;		// 이름
-	private Integer deptId;		// 부서코드
-	private Integer teamId;		// 팀코드
+}
