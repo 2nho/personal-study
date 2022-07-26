@@ -1,0 +1,21 @@
+
+/*로그저장형태*/
+SHOW VARIABLES LIKE '%log_output%';
+
+/*로그 저장형태 변경*/
+set global log_output='TABLE';
+set global log_output='FILE'; -- default 값
+
+/*로그확인하기 설정*/
+SET GLOBAL general_log = 1;
+
+/*로그보기*/
+SELECT * FROM mysql.general_log
+where argument like '%CALL spd%';
+
+/*로그데이터 삭제*/
+TRUNCATE mysql.general_log;
+TRUNCATE mysql.slow_log;
+
+/*로그확인하기 설정해지*/
+SET GLOBAL general_log = 0;
