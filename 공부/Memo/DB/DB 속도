@@ -1,0 +1,24 @@
+부정형 조건 쓰지 말기
+   - is not null, not exists 등
+   - 애초에 null이 들어가는 경우가 문제가 있다면 null 안들어가게 default 값 잡아주기
+   
+if else로 쿼리를 여러개 만들어 하나 실행하는 것 보다 SQL에 상수를 이용해 처리하는게 더 퍼포먼스가 좋음
+     SELECT ...
+       FROM ...
+      WHERE '1' = '상수'
+     Union All
+     SELECT ...
+       FROM ...
+      WHERE '2' = '상수'
+ 
+
+<char>
+- 고정길이 문자열 저장
+- 최대길이 255바이트 
+- 크기보다 작은 문자열 저장시 뒷부분은 공백으로 채워짐
+<varchar>
+- 가변길이 문자열 저장
+- 최대길이 255바이트 
+- length+1만큼 저장됨
+고로 insert되는 길이가 모두 같을 경우는 char타입이 유리 varchar는 문자열 길이를 저장하기 때문에
+그러나 길이가 고정적이지 않다면 varchar가 유리 char는 빈 부분을 공백으로 채우기 때문에

@@ -1,9 +1,0 @@
-동적 이벤트 바인딩(Dynamic event binding)
-
-Page가 로드되는 시점에 존재 않는 엘리먼트들에 대해서는 이벤트가 안먹힘
-
-Page가 로드될 때 존재하고 동적으로 변하지 않는 상위 엘리먼트를 기준으로 바인딩 설정을 해준다.
-
-$(document).on("click", '이벤트먹일selector', function(){
-   // 이벤트 
-}
