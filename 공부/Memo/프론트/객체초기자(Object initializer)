@@ -1,0 +1,66 @@
+
+ $.ajax({
+		    //요청을 보낼 주소
+        url: 
+		    // 보낼 데이터
+		    data: 
+		    // 데이터 전송 방법
+		    type: 
+		    // 전송할 데이터 타입
+		    contentType: 
+		    // 서버에서 받아올 데이터 형태
+		    dataType: 
+		    //성공시 결과값 매개변수로 받아서
+		     success: function (result) {} 
+ });
+ 
+
+기본적인 ajax 사용법은 위와 같은데 data로 값을 보낼 때 일반적으로 {key : value} 형태의 객체형태 
+혹은 json 형태로만 보내는 예제들이 많다.
+
+그러나 나는 처음 개발을 배우며 팀프로젝트 당시 아래와 같이 코드를 구현했는데 
+ $(function () {
+	        $("[name=choiceLevel]").change(function () {
+	          let level = $(this).val();
+	          var index = $("[name=choiceLevel]").index(this);
+	         위랑 같음 제이쿼리 홈페이지 index() 참고
+	       /*  var index1 = $(this).index("[name=choiceLevel]");
+					 		console.log(index1); */
+	          var mnum = $("[name=mnum]").eq(index).text();
+	          console.log(mnum);
+	          // 구조분해할당
+	          var data1 = { mnum, level };
+	          $.ajax({
+	            url: "${pageContext.request.contextPath}/admin/updateLevel",
+	            // 전송할 데이터 level값하고 mnum값을 보내야함
+	            data: JSON.stringify(data1),
+	            type: "PATCH",
+	            contentType: "application/json; charset=utf-8",
+	            dataType: "json",
+	            success: function (result) {
+	              if (result.level == "A") {
+	                alert("일반회원에서 관리자로 변경");
+	              } else {
+	                alert("관리자에서 일반회원으로 변경");
+	              }
+	            },
+	            error: function (err) {
+	              console.log(err);
+	            },
+	          });
+	        });
+	      });        
+        
+ data부분에서 {key : value} 형태가 아닌 {value} 로만 값을 서버로 보내주었다.
+ 당시 질문을 통해 구조분해할당을 통해 자동으로 매핑된다는 답변을 받았지만 어느정도 개발에 익숙해진 지금
+ 구조분해할당이 아닌거 같다는 생각이 들어 개념을 다시 알아보니 구조분해할당과는 전혀 맞지 않았다.
+ 
+ ajax data라는 키워드에 꽂혀 검색한 결과 원하는 결과를 얻지 못했는데 궁금증을 풀기 위해 집착하던 와중에 겨우 객체초기자에 대해 찾을 수 있었다.
+ 
+ 객체 초기자란 ? ES6 문법 중 하나로 객체 초기자는 중괄호()로 묶인 0개 이상의 객체의 프로퍼티명과 관련 값의 쌍을 콤마로 구분한 목록으로서
+ value값이 변수인경우 
+ const object = { a: a, b: b, c: c }; 와 같이 key값과 value값이 같은 변수명을 가진다면 const object = { a, b, c }로 나타낼 수 있다.
+ 
+ 
+ 
+ 
