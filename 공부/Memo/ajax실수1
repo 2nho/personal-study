@@ -1,0 +1,30 @@
+AJAX를 통해 delete 메소드를 이용 중 기존 코드가 url에 쿼리를 붙여 값을 보내는 형태였는데 url에 노출되는 것은 좋지 않다 판단해 post처럼 body에 붙여 보내려했으나 
+스프링 버전이 낮으면 body가 없어서 이용이 불가능하다는 글을 발견했다. 
+첫 팀프로젝트 당시는 최신 스프링 버전을 이용해서 문제가 없었지만, 현재 쓰고 있는 스프링 버전은 3.x 버전이었기에 그래서 안되나 싶어서 헤맸다.
+
+restController에 @resquestbody에 매핑 시킨 값이 하나도 나오지 않고 null을 반환하기에 이상해서 고민하며 이것저것 해보다 두시간을 소모했다..
+
+크롬 관리자도구에서 delete형식으로 보낼때 post처럼 body에 담아서 보내는게 확인되었기에 ajax로 프론트에서 값을 넘길 때 실수가 있다 판단했고 
+결론적으로 conetentType을  contentType : "application/json; charset=utf-8", 이렇게 명시하지 않아 받아들이지 못한거 같다.
+
+
+$.ajax({
+					/*url: url+"?device_id="+device_id+"&idx="+idx,*/ // 기존 인원이 get과 같은 방식으로 url에 노출시켜 보냈던 방식
+					url: url,
+					type: "delete",
+					contentType : "application/json; charset=utf-8",
+					data: JSON.stringify({device_id, idx}),
+					success: function (result) {
+						blockUI.release();
+						btn.html(btn_delete_html);
+						if (result.code == '0000') {
+							getTreeData();
+							toastr.success("삭제가 성공적으로 완료되었습니다.");
+						}
+					},
+					error: function (hxr, status, error) {
+						blockUI.release();
+						btn.html(btn_delete_html);
+						toastr.error("서버와의 통신에 문제가 발생했습니다. 관리자에게 문의하세요");
+					}
+				});
