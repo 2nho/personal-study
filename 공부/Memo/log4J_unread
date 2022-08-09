@@ -1,0 +1,3 @@
+log4j로 jdbc.resultsettable 값을 콘솔에 찍을때 UNREADfh 값이 뜨는 경우가 있는데 이는 jdbc가 지원하는 타입이 아닐 경우이다 
+db에서는 지원하지만 jdbc에서 지원하지 않는 타입의 경우 읽을 수 없는 것이다 . 
+이 경우 jdbc가 지원하는 타입에 맞게 db의 type을 변경해야 한다. (제일 쉬운건 varchar) 
