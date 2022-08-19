@@ -15,7 +15,7 @@ update delete문 뿐만이 아닌 select문을 섞어도 되나 테스트를 해
    		WHERE member = #{A}  
  </delete> 를
  
- 
+ 이처럼 
  <update id="test" >
    		DELETE FROM test_table 
    		WHERE member = #{A}  
