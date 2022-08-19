@@ -9,18 +9,19 @@ update delete문 뿐만이 아닌 select문을 섞어도 되나 테스트를 해
 결과는 사용하는 혹은 사용할 수 있는 엘리먼트 속성이 select문과 update,delete문이 같다면 문제없이 실행되었다. 
 
 예로 
-
+```
 <delete id="test" >
    		DELETE FROM test_table 
    		WHERE member = #{A}  
  </delete> 를
  
- 이처럼 
+ 이처럼
+ 
  <update id="test" >
    		DELETE FROM test_table 
    		WHERE member = #{A}  
  </update> 로 바꾸어도 문제없이 실행된다. 
- 
+ ```
  공식 마이바티스 문서를 확인한 결과 
  SqlSession 호출 시 
  
