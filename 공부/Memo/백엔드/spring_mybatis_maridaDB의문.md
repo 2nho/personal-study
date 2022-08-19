@@ -36,12 +36,14 @@ int delete(String statement, Object parameter)
 
  위 메소드를 통해 호출하는데 select ,insert, deletem update의 경우 매개변수가 비슷하다. 
    
- 이와는 별개인 경우는 아래와 같은데 
+ 이와는 별개인 경우는 아래와 같은데
+ ```
 <E> List<E> selectList (String statement, Object parameter, RowBounds rowBounds)
 <T> Cursor<T> selectCursor(String statement, Object parameter, RowBounds rowBounds)
 <K,V> Map<K,V> selectMap(String statement, Object parameter, String mapKey, RowBounds rowbounds)
 void select (String statement, Object parameter, ResultHandler<T> handler)
 void select (String statement, Object parameter, RowBounds rowBounds, ResultHandler<T> handler)
+```
    
 - void select (String statement, Object parameter, ResultHandler<T> handler) 이처럼  handler가 존재하게되면 (xml파일에서 resulttype을 적어주는 경우)
    select 가 아닌 다른 엘리먼트를 적어주면 오류가 난다.
