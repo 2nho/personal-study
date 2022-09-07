@@ -7,7 +7,7 @@
 Authentication authentication = SecurityContexHolder.getContext().getAuthentication();
 
 Authentication 객체의 구조
-1. principa: 사용자 아이디 혹은 User객체를 저장
+1. principal: 사용자 아이디 혹은 User객체를 저장
 2. credentials : 사용자 비밀번호 
 3. authorities : 인증된 사용자의 권한 목록
 4. details : 인증 부가정보
@@ -17,3 +17,5 @@ Authentication 객체의 구조
 로그인한 사용자의 정보를 담고 있기에 db에 넘길 로그인 정보를 가져올 수 있다
 
 *db정보를 가져와 커스텀화 할 수 있다
+
+전역 저장 bean
