@@ -1,0 +1,13 @@
+toString은 모든 클래스에 존재하는 toString()(Object 클래스에 존재하고 자바의 모든 클래스는 Object를 상속) 메소드를 호출
+
+(String) 형변환 
+- 모든 클래스는 Object를 상속받기 때문에 Object로의 변환은 가능
+- 클래스를 변환할때는 변환되고자 하는 클래스와 상속 구조를 가지고 있어야 함
+- MemberVO 같은 이런 사용자 정의 VO라면 이 클래스가 String 클래스를 상속받지 않았다면 String 클래스와는 아무런 관계가 없기 때문에 형변환을 할 수 없음
+
+
+ 추가 
+ String errorcode = (String) (resultHashMap.get("errorcode")); 이렇게 한번 더 감싸주면 get으로 꺼내온것을 String으로 형변환한다는게 더 명확
+ 감싸지 않으면 resultHashMap을 String으로 형변환 한 뒤 get 메소드를 호출하는 식으로도 동작할 것도 같아서..저는 좀더 분명하게 하는 편입니다..
+ 
+ 출처는 okky  https://okky.kr/articles/259101
