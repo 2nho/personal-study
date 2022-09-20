@@ -58,3 +58,4 @@ List<User> select(Integer id);
   </where>
 </select>
 ```
+https://stackoverflow.com/questions/59668117/how-to-properly-use-the-param-annotation-of-mybatis
