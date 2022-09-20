@@ -24,3 +24,6 @@ So, as I explained, you may have to 1) modify the xml mapper as follows:
 Or 2) add @Param("id") to the method parameter.
 User findById(@Param("id")int id);
 ```
+
++
+As your statement has one simple type parameter without @Param annotation, you need to use the implicit name _parameter to reference it in the OGNL expression or ${}.
