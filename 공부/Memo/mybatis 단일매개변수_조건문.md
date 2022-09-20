@@ -59,3 +59,10 @@ List<User> select(Integer id);
 </select>
 ```
 https://stackoverflow.com/questions/59668117/how-to-properly-use-the-param-annotation-of-mybatis
+
+
+
+매개변수 mybatis의 내장 매개변수입니다. 전달된 매개변수가 단일 매개변수인 경우 이는 매개변수를 나타냅니다. 매개변수가 여러 개인 경우 아래 첨자로 얻을 수 있습니다(예: < if test = '_ parameter.get("0")). 이름! = null '> 사용자 이름 = # {0. 이름}. 첫 번째 객체 매개변수의 이름 속성을 가져오기 위한 것입니다. 기본 유형이 사용되는 경우 직접_ parameter.get(0) 할 수 있습니다.
+
+
+https://www.fatalerrors.org/a/mybatis-basic-syntax-operation.html
