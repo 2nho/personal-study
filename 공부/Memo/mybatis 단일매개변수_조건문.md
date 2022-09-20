@@ -36,7 +36,7 @@ With MyBatis 3.5.1
 you can reference the parameter with any name in #{}.
 
 you must reference the parameter as _parameter in ${}, test attribute of <if /> and <when /> and value attribute of <bind />. This is why your second example throws exception.
-
+```
 List<User> select(Integer id);
 <select id="select" resultType="User">
   select * from users
@@ -44,12 +44,12 @@ List<User> select(Integer id);
     <if test="_parameter != null">and id = #{z}</if>
   </where>
 </select>
-  
+```
   
   
   
   With MyBatis 3.5.2 and later, you can reference the parameter using any name (you should use sensible names for obvious reasons, though). e.g.
-
+```
 List<User> select(Integer id);
 <select id="select" resultType="User">
   select * from users
@@ -57,3 +57,4 @@ List<User> select(Integer id);
     <if test="x != null">and id = #{y}</if>
   </where>
 </select>
+```
