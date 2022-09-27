@@ -54,6 +54,8 @@ src/main/webapp은 Deploy Path가 "/"이기 때문에 결국 src/main/webapp/WEB
 요약 : scope 형태로 참조하는 것은 deprecated 되었기 때문에 사용을 지양  
 외부라이브러리를 추가하는 방법으로는 
 1.pom.xml상에서 scope를 이용해 참조한다음 플러그인을 통해 jar파일 배포시 저장 ( deprecated 주의 )
+
 2.src/main/webapp/WEB-INF/lib 에 직접넣기 ( 메이븐 빌드시 오류날 수 있음 주의!)
+
 3.build path에서 Add JARs를 통해 추가 후 Deployment Assembly에서 Add (솔직히 제일 간단)
 
