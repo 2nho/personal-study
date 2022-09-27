@@ -79,5 +79,5 @@ src/main/webapp은 Deploy Path가 "/"이기 때문에 결국 src/main/webapp/WEB
  <systemPath>${project.basedir}/lib/jfxrt-1.0.0.jar</systemPath> -->
 </dependency>
 ```
-레파지토리됨 - 대신 lib/com/jfxrt/1.0.0/jfxrt-1.0.0.jar 형태로 존재해야 
+레파지토리됨 - 대신 폴더의 형태가 lib/com/jfxrt/1.0.0/jfxrt-1.0.0.jar 형태로 존재해야
 
