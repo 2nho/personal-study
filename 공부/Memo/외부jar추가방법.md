@@ -60,3 +60,24 @@ src/main/webapp은 Deploy Path가 "/"이기 때문에 결국 src/main/webapp/WEB
 
 3. build path에서 Add JARs를 통해 추가 후 Deployment Assembly에서 Add (솔직히 제일 간단)
 
+
++++ 추가 
+
+
+```
+<repository>
+  <id>in-project</id>
+  <name>custom jars</name>
+  <url>file://${project.basedir}/lib</url>
+</repository>
+
+<dependency>
+ <groupId>com</groupId>
+ <artifactId>jfxrt</artifactId>
+ <version>1.0.0</version>
+ <!-- <scope>system</scope>
+ <systemPath>${project.basedir}/lib/jfxrt-1.0.0.jar</systemPath> -->
+</dependency>
+```
+레파지토리됨 
+
