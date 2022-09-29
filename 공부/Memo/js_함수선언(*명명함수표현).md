@@ -17,6 +17,26 @@ var hello = function namedfnc() {
   // ...
 }
 ```
+EX.예 중요(쉽게 이해 안됐음)
+```
+//named function expression
+var foo = function foo() {
+    console.log('hello');
+};
++++
+var foo = function A() {
+    A(); // 실행가능 
+}
+
+A(); //  Syntax Error
+위 코드에서named function expression는 매우 특이하다. foo 라는 변수에 이름있는 함수를 할당하고 있다. 
+흔히 알고 있는 함수리터럴과는 좀 거리가 있다. 하지만 이 named function expression에는 한가지 특징이 있다. 
+바로 해당 함수의 이름은 함수밖에서는 사용할수 없다는 것이다!!!!
+
+즉 재귀호출외에는 그다지 쓸대가 없다. 하지만 이런 표현식이 가능하다는 것은 알고 있다고 나쁠것은 없지 않은가? 
+함수표현은 자기호출함수을 이용하여 콘솔에서 실행결과를 받을 수 있다.
+```
+
 JS 엔진에 의해 추론되지 않음 
 
 4. Immediately-invoked expression (즉시 실행 표현)
