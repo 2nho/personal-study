@@ -23,12 +23,16 @@ EX.예 중요(쉽게 이해 안됐음)
 var foo = function foo() {
     console.log('hello');
 };
-+++
+```
++
++
+```
 var foo = function A() {
     A(); // 실행가능 
 }
 
 A(); //  Syntax Error
+```
 위 코드에서named function expression는 매우 특이하다. foo 라는 변수에 이름있는 함수를 할당하고 있다. 
 흔히 알고 있는 함수리터럴과는 좀 거리가 있다. 하지만 이 named function expression에는 한가지 특징이 있다. 
 바로 해당 함수의 이름은 함수밖에서는 사용할수 없다는 것이다!!!!
