@@ -25,3 +25,17 @@ var hello = (function () {
   //...
 })()
 ```
+EX.예
+```
+var myCounter = (function (initialValue = 0) {
+  let count = initialValue
+  return function () {
+    count++
+    return count
+  }
+})(1) /// 1로 대입 
+
+myCounter() // 2
+myCounter() // 3
+myCounter() // 4
+```
