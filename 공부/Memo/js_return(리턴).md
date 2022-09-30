@@ -69,7 +69,9 @@ function(event) {
 ```
 출처 참고한사이트 중 정리잘된 곳  : https://ko.javascript.info/task/why-return-false-fails
 
-+++ 추가 ( 왜 일반 js 에서 return; 과 return false; 의 결과는 차이가 없는데 브라우저에서 on이벤트를 발생시킬 때는 return;은 안먹히나 궁금해서 찾아봄 ) - 브라우저 내부 코드 보기에는 나오질 않아서 정확한 코드는 찾질 못함...
++++ 추가 
+( 왜 일반 js 에서 return; 과 return false; 의 결과는 차이가 없는데 브라우저에서 on이벤트를 발생시킬 때는 return;은 안먹히나 궁금해서 찾아봄 ) 
+- 브라우저 내부 코드 보기에는 나오질 않아서 정확한 코드는 찾질 못함...
 
 
 <핸들러에서 false를 반환하는 것은 예외 상황입니다.
