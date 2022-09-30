@@ -80,4 +80,5 @@ function(event) {
 하나의 예외사항이 있는데 바로 on<event>를 사용해 할당한 핸들러에서 false를 반환하는 것입니다.
 
 이 외의 값들은 return 되어도 무시됩니다. true 역시 무시되죠.>
-참고 : https://ko.javascript.info/default-browser-action
+
+  참고 : https://ko.javascript.info/default-browser-action
