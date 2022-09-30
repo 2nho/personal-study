@@ -1,0 +1,22 @@
+return 함수 중단 , + undefined 반환  
+
+return false 함수중단 + false 반환 
+
+
+return false 또는 retrun ture 사용할 경우는 함수의 결과값을 이용해 다른 곳에서 true , false 값을 이용할 경우 , 또는 명시적으로 디버깅할 경우 
+
+
+
+
+
+
++추가
+
+undefined == null  // true
+
+undefined == false // false 
+
+fasle == 0 // true
+
+
+
