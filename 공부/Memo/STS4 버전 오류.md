@@ -25,9 +25,7 @@ https://github.com/spring-projects/sts4/issues 등을 참고해
 
 .ini 파일에 
 --illegal-access=warn
-
 --add-opens java.base/java.lang=ALL-UNNAMED
-
 -javaagent:lombok.jar
 등을 추가해봤지만 진전X  마지막줄의 문제인가 싶어 -javaagent:C:\Users\golde\Desktop\sts-4.14.1.RELEASE\lombok.jar 등으로도 해봤지만 
 해답을 찾지 못함
