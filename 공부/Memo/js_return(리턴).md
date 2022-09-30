@@ -31,7 +31,9 @@ fasle == 0 // true
 <a href="https://w3.org" onclick="handler()">브라우저가 w3.org로 이동합니다.</a>
 ```
 위 경우 w3.org로 이동
-브라우저는 onclick 같은 on* 속성을 읽을 때, 속성값을 그대로 가져와 핸들러를 생성합니다.
+
+브라우저는 onclick 같은 on* 속성을 읽을 때, 속성값을 그대로 가져와 핸들러를 생성합니다.  
+( 참고 : 1.f12 -> elements -> event Listner를 통해 등록된 모든 이벤트 확인가능 , 2 .console.dir(document.querySelector("찾을id").onclick) 역시 해당 이벤트 보여줌
 
 따라서 onclick="handler()"의 경우 생성되는 핸들러 함수는 다음과 같습니다.
 ```
