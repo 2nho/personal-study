@@ -59,8 +59,10 @@ function(event) {
 <a href="https://w3.org" onclick="return handler()">w3.org</a>
 ```
 +++ event.preventDefault() 사용하는 것이 더 최신방법
-1. <a href="https://naver.com." onclick="return handler()">naver</a> ( handler 내에 return false 가 있는 경우 )
-2. <a href="https://naver.com." onclick="handler(); return false">naver</a> ( handler 내에 return false 가 없는 경우 )
 
 요약 : html 내에서 함수 호출 시 이벤트 막기 위한 방법 
+```
+1. <a href="https://naver.com." onclick="return handler()">naver</a> ( handler 내에 return false 가 있는 경우 )
+2. <a href="https://naver.com." onclick="handler(); return false">naver</a> ( handler 내에 return false 가 없는 경우 )
+```
 출처 참고한사이트 중 정리잘된 곳  : https://ko.javascript.info/task/why-return-false-fails
