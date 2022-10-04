@@ -6,6 +6,7 @@
 가장 큰 특징은 바인딩이 아닌 변환을 시키는 것이기 때문에 변수들의 Setter 함수가 없어도 정상적으로 저장
 - Content-Type을 multipart/form-data 형태로 전송
 - setter 가 없어도 getter를 찾아 바인딩 
+- json or xml 가능
 
 @modelattribute 
 - Content-Type을 application/json이 아닌 multipart/form-data 형태로 전송
