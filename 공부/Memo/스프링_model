@@ -1,0 +1,14 @@
+1.model
+- view로 데이터를 전달하는데 사용
+model.addattribute("key",value) 형태로 담아 보냄
+
+
+2. @ModelAttribute
+커맨드 객체를 통해 파라미터를 바인딩할 때 사용 
+전달받은 파라미터를 model에 담아 view에 보내줌   (model은 단순히 view로 보내줄 데이터를 지정해준다면 modelattribute는 자동으로 바인딩함과 동시에 model의 역할도 수행)
+
+@ModelAttribute([name]) EXAM exam 과 같이 사용 시 
+설정한 name값으로 view에 보내짐 <> name설정안할 시 EXAM값으로 view에 보내짐!
+
+3.@ModelandView
+페이지와 데이터를 지정(잘 사용은 안함)
