@@ -8,7 +8,7 @@
 - setter 가 없어도 getter를 찾아 바인딩 
 - json or xml 가능
 
-@modelattribute 
+@modelttribute 
 - Content-Type을 application/json이 아닌 ※ multipart/form-data 형태로 전송
 - Setter를 통해 일대일 객체에 바인딩하기 위해 사용된다. (setter 필수)
 
