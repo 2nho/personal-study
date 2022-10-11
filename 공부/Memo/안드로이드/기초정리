@@ -1,8 +1,8 @@
  aar 빌드시에는  MAKE PROJECT 혹은 MAKE SELETED MODULES 을 클릭해서 빌드하고 , APK 의 경우에는 BUILD APK
  
  
- 
-AndroidManifest.xml 설명해주실 때 파일에 다음을 추가
+ aar추가하여 apk 작성 시
+AndroidManifest.xml 파일에 다음을 추가
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
             </intent-filter>
@@ -11,11 +11,10 @@ AndroidManifest.xml 설명해주실 때 파일에 다음을 추가
                 android:resource="@xml/usb_device_filter" />
                 
                 
-      
-local.properties 를 보면 
+  
+local.properties에서 
 sdk.dir=C\:\\Users\\{사용자}\\AppData\\Local\\Android\\Sdk  로 사용자 컴퓨터에 맞춰 변경
 ndk 는 지우고 설정해주지 않으면 알아서 설치가 됨
 
-
-
+aar이나 apk는 
 빌드하게 되면 app-release.aar 식으로 outputs에 저장
