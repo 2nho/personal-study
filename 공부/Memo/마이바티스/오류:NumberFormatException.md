@@ -18,3 +18,14 @@ int code = (int)y; // code에는 Y의 코드값인 89가 저장된다
 2. <if test=”stringValue == &quot;Y&quot;”> – 쌍따옴표를 HTML 코드로 변경
 
 3. <if test=”stringValue == ‘Y’.toString()”> – toString() 함수를 사용해 String 형으로 변환
+  
+  
+ 나의 경우 
+ <when test='approverSearchOption == "all" and approverKeyword !=""'>   1조건
+   
+   
+ <when test='approverSearchOption == 2'> 2 조건
+   
+ 의 형태로 진행해서 발생한 오류였다. 2를 char로 보고 변환을 시도한다음 all도 변환하려다 발생한 문제인거 같다.
+ all을 -> 0으로 바꾸면 오류 X 
+   
