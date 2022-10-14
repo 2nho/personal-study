@@ -1,0 +1,17 @@
+
+```
+<if test="start_date == undefined">
+			AND in_date = DATE_FORMAT(now(),'%Y%m%d')
+</if>
+```
+```
+<if test="start_date == null">
+			AND in_date = DATE_FORMAT(now(),'%Y%m')
+</if>
+```
+```
+<if test="start_date = ''">
+			AND in_date = DATE_FORMAT(now(),'%Y')
+</if>
+```
+ start_date 값이 없을 때 세개 모두 참 
