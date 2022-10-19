@@ -15,16 +15,20 @@ T2.A 의 값이 있고  T1.A 값과 같다면  1 반환( TRUE )
 https://dev.mysql.com/doc/refman/8.0/en/comparison-operators.html MYSQL 공식 문서 확인 
 
 mysql> SELECT 2 IN (0,3,5,7);
+
         -> 0
 	
 mysql> SELECT 'wefwf' IN ('wee','wefwf','weg');
+
         -> 1
         
 --------------------------------------------------
 
 mysql> SELECT (3,4) IN ((1,2), (3,4));
+
         -> 1
 	
 mysql> SELECT (3,4) IN ((1,2), (3,5));
+
         -> 0
         
