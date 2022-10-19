@@ -16,6 +16,7 @@ https://dev.mysql.com/doc/refman/8.0/en/comparison-operators.html MYSQL 공식 �
 
 mysql> SELECT 2 IN (0,3,5,7);
         -> 0
+	
 mysql> SELECT 'wefwf' IN ('wee','wefwf','weg');
         -> 1
         
@@ -23,6 +24,7 @@ mysql> SELECT 'wefwf' IN ('wee','wefwf','weg');
 
 mysql> SELECT (3,4) IN ((1,2), (3,4));
         -> 1
+	
 mysql> SELECT (3,4) IN ((1,2), (3,5));
         -> 0
         
