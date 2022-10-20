@@ -24,4 +24,5 @@ NULL이 들어있는 속성 값은 존재하지 않는 것이며 NULL은 값이 
 In MySQL, 0 or NULL means false and anything else means true
 
 참고 https://dev.mysql.com/doc/mysql-tutorial-excerpt/8.0/en/working-with-null.html
+
 참고2 https://stackoverflow.com/questions/60017275/why-null-is-not-equal-to-anything-is-a-false-statement
