@@ -28,6 +28,9 @@ SQL은 실제로 NULL을 거짓으로 처리하지 않습니다. 대신 조건�
 The effect is that NULL is treated as false. But this does not mean that NULL is equivalent to false.  
 그 결과 NULL은 거짓으로 처리됩니다. 그러나 이것은 NULL이 거짓과 같다는 것을 의미하지는 않는다.  
 
+
+
+It is not that NULL is treated as false. It is that TRUE is true and nothing else (to a close approximation). In particular, NULL is not TRUE, so it fails all# conditionals except IS NULL (and perhaps some extensions in particular languages). Don't focus on NULL, focus on TRUE.#
 참고 https://dev.mysql.com/doc/mysql-tutorial-excerpt/8.0/en/working-with-null.html
 
 참고2 https://stackoverflow.com/questions/60017275/why-null-is-not-equal-to-anything-is-a-false-statement
