@@ -20,9 +20,13 @@ NULL이 들어있는 속성 값은 존재하지 않는 것이며 NULL은 값이 
 
 즉 최적의 성능을 낼 수 있는 쿼리의 조합을 찾지 못하는 것이다. 자연스럽게 쿼리의 비용 계산에도 악영향을 끼칠 수밖에 없다.
 
-
-In MySQL, 0 or NULL means false and anything else means true
-
+--------------------------------------------------------------------------
+In MySQL, 0 or NULL means false and anything else means true 
+- 의문 : select null like false  / select null = false 는 무조건 null과의 연산이기에 null만나옴. 여기서 의문! 왜 null이 false를 의미한다 했을까?
+- SQL does not really treat NULL as false. Instead, conditional statements are considered true only when the condition evaluates to true./br
+SQL은 실제로 NULL을 거짓으로 처리하지 않습니다. 대신 조건문은 조건이 참인 것으로 평가될 때만 참으로 간주됩니다.
+The effect is that NULL is treated as false. But this does not mean that NULL is equivalent to false./br
+그 결과 NULL은 거짓으로 처리됩니다. 그러나 이것은 NULL이 거짓과 같다는 것을 의미하지는 않는다.
 참고 https://dev.mysql.com/doc/mysql-tutorial-excerpt/8.0/en/working-with-null.html
 
 참고2 https://stackoverflow.com/questions/60017275/why-null-is-not-equal-to-anything-is-a-false-statement
