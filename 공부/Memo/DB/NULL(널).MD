@@ -27,6 +27,7 @@ In MySQL, 0 or NULL means false and anything else means true
 SQL은 실제로 NULL을 거짓으로 처리하지 않습니다. 대신 조건문은 조건이 참인 것으로 평가될 때만 참으로 간주됩니다.  
 The effect is that NULL is treated as false. But this does not mean that NULL is equivalent to false.  
 그 결과 NULL은 거짓으로 처리됩니다. 그러나 이것은 NULL이 거짓과 같다는 것을 의미하지는 않는다.  
+
 참고 https://dev.mysql.com/doc/mysql-tutorial-excerpt/8.0/en/working-with-null.html
 
 참고2 https://stackoverflow.com/questions/60017275/why-null-is-not-equal-to-anything-is-a-false-statement
