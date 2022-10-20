@@ -38,3 +38,13 @@ It is not that NULL is treated as false. It is that TRUE is true and nothing els
 참고2 https://stackoverflow.com/questions/60017275/why-null-is-not-equal-to-anything-is-a-false-statement
 
 참고3 https://en.wikipedia.org/wiki/Null_(SQL)
+
+참고4 https://stackoverflow.com/questions/31040409/why-sql-does-finally-treat-a-null-value-as-false  
+
+Now what happens in WHERE clause? It is designed in such a way that it returns rows where predicate evaluates to TRUE only!  
+If predicate evaluates to FALSE or UNKNOWN  
+then corresponding row is just filtered out from resultset.
+
+결론 : 내추측이 맞았던거 같다 true가 아니면 전부 false로 보기에 null 또한 false처럼 여겨지기 때문에  
+In MySQL, 0 or NULL means false and anything else means true 라고 한거 같다. (꽤.. 헷갈리게 불친절하다)
+
