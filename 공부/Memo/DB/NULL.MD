@@ -19,3 +19,9 @@ NULL이 들어있는 속성 값은 존재하지 않는 것이며 NULL은 값이 
 그런데 테이블에 NULL이 존재하면 옵티마이저가 수학적으로 증명할 수 있는 쿼리의 조합이 제한된다. 
 
 즉 최적의 성능을 낼 수 있는 쿼리의 조합을 찾지 못하는 것이다. 자연스럽게 쿼리의 비용 계산에도 악영향을 끼칠 수밖에 없다.
+
+
+In MySQL, 0 or NULL means false and anything else means true
+
+참고 https://dev.mysql.com/doc/mysql-tutorial-excerpt/8.0/en/working-with-null.html
+참고2 https://stackoverflow.com/questions/60017275/why-null-is-not-equal-to-anything-is-a-false-statement
