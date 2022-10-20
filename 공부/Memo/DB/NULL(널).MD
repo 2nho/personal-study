@@ -22,7 +22,7 @@ NULL이 들어있는 속성 값은 존재하지 않는 것이며 NULL은 값이 
 
 --------------------------------------------------------------------------
 In MySQL, 0 or NULL means false and anything else means true 
-- 의문 : select null like false  / select null = false 는 무조건 null과의 연산이기에 null만나옴. 여기서 의문! 왜 null이 false를 의미한다 했을까?  
+1. 의문 : select null like false  / select null = false 는 무조건 null과의 연산이기에 null만나옴. 여기서 의문! 왜 null이 false를 의미한다 했을까?  
 - SQL does not really treat NULL as false. Instead, conditional statements are considered true only when the condition evaluates to true.  
 SQL은 실제로 NULL을 거짓으로 처리하지 않습니다. 대신 조건문은 조건이 참인 것으로 평가될 때만 참으로 간주됩니다.  
 The effect is that NULL is treated as false. But this does not mean that NULL is equivalent to false.  
