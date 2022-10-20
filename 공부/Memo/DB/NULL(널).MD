@@ -26,3 +26,5 @@ In MySQL, 0 or NULL means false and anything else means true
 참고 https://dev.mysql.com/doc/mysql-tutorial-excerpt/8.0/en/working-with-null.html
 
 참고2 https://stackoverflow.com/questions/60017275/why-null-is-not-equal-to-anything-is-a-false-statement
+
+참고3 https://en.wikipedia.org/wiki/Null_(SQL)
