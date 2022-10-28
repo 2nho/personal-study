@@ -54,3 +54,6 @@ SELECT t1.texture_id,t1.name,t1.class_id,t1.second_code, t2.name
   
 ```
 경우로 조인을 해서 개선시켜 보았다. 
+
+하나의 sql문으로 모든 것을 해결하기 보단 마이바티스의 동적쿼리를 이용해    
+db성능을 우선 고려해  낫다는 생각으로 개선해보았다.
