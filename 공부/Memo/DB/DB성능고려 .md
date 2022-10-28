@@ -1,6 +1,7 @@
 프로젝트 중 쿼리문 작성 중 마이바티스의 동적쿼리를 이용해 조건을 태우다   
 문득 서브쿼리를 쓰는 것보다 조인이 낫지 않을까 싶어 성능차이를 알아본 결과   
 서브쿼리보다 조인문을 쓰는 것이 성능에서 월등함을 알았다.
+```
 <choose>
 	   <when test='textureCode == "dept"'>
 	  	select a.texture_id, a.name, a.class_id, b.name AS inherit from texture a
@@ -29,6 +30,7 @@
 		order by class_id; -->
 	  </otherwise>
 	</choose>   
+  ```
   
   그래서 위 코드에서 
 ``` 
