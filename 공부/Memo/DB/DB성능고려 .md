@@ -4,14 +4,15 @@
 ```
 <choose>
 	   <when test='textureCode == "dept"'>
-	  	select a.texture_id, a.name, a.class_id, b.name AS inherit from texture a
-		inner join texture b
-		ON a.class_id=b.texture_id
-		WHERE a.texture_code = 'dept'
+	  	select t1.texture_id, t1.name, t1.class_id, t2.name AS inherit 
+	  	from texture t1
+		join texture t2
+		ON t1.class_id = t2.texture_id
+		WHERE t1.texture_code = 'dept'
 		<if test='compId != 0'>
-		and a.class_id = #{compId}
+		and t1.class_id = #{compId}
 		</if>
-		order by a.texture_id;		
+		order by t1.texture_id;		
 	  </when>
 	  <otherwise> 
 	  	select texture_id, name, class_id,second_code, (select "") as inherit,
