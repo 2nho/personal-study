@@ -108,3 +108,28 @@ Forwarding a URL transfers the request internally within the same server without
 
 
 The following example demonstrates the use of 'forward:'
+
+
+
+
+22-11-01 추가 
+https://okky.kr/articles/635112 
+제타 건담님의 댓글 
+
+페이지를 이동하는 것은 forward와 redirect가 있는데..
+
+forward의 경우는 기존 request를 그대로 이용할 수 있지만 redirect의 경우는 클라이언트를 한번 갔다가 다시 해당 url로 이동하는 것이기 때문에 기존 request를 이용할 수 없습니다..
+
+그리고 return에 jsp 경로를 입력하는 것은 그냥 단순 호출이지 forward와는 다른거에요..
+
+spring의 경우는 forward일 경우 forward:/경로..를 입력하게 되고..
+
+redirect일 경우 redirect:/경로..를 입력하게 되는데..
+
+forward로 입력할 경우 해당 경로를 처리하는 controller 메소드로 다시 이동하게 되어서 거기서 return 하는 jsp 경로로 return 하게 됩니다..
+
+그러나 client에서 url이 변경되어가며 하는 이동은 아니기 때문에 브라우저의 url 입력창에는 기존 url이 그대로 나오는거구요..
+
+redirect일 경우 response header에 redirect 할 경로가 들어가서 클라이언트인 브라우저에 일단 전달되었다가 다시 클라이언트인 브라우저에서의 자동 호출이 이루어지기 때문에 url 입력창의 url 경로 값이 redirect된 url로 바뀌게 나옵니다..
+
+화면으로 봤을 경우 외형적인 차이는 없을수는 있으나 내부적인 동작에서는 분명 차이가 있죠..
