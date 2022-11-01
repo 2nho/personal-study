@@ -7,10 +7,10 @@ forward 방식 : return값에 해당하는 컨트롤러를 타면서 request res
 REDIRECT : VIEW페이지 에서 새로 페이지를 클릭하는 효과와 같음 LOCATION.HREF / 주소 변경 / response, request 초기화
 
 
-기본 ,foeward, redirect  셋 다 컨트롤러에서 페이지 이동은 발생하기 때문에 form 값 유지 불가
+기본 ,forward, redirect  셋 다 컨트롤러에서 페이지 이동은 발생하기 때문에 form 값 유지 불가
 
 
 
 
 
-일반적인 returm 값만 적는거랑 return foward: 적는것은 url상은 비슷해보이지만 컨트롤러를 타냐 안타냐가 차이점 
+일반적인 return 값만 적는거랑 return foward: 적는것은 url상은 비슷해보이지만 컨트롤러를 타냐 안타냐가 차이점 
