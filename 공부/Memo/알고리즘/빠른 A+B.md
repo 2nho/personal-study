@@ -23,10 +23,9 @@
 
 
 일반적인 스캐너 print로는 시간초과 걸리므로 
-힌트 :
-BufferedWriter 외에도, StringBuilder로 출력을 모아 놓았다가 그 String을 System.out.println하는 방법도 있습니다. 를 이용 해야한다고함 
+힌트 : BufferedWriter, StringBuilder로 출력을 모아 놓았다가 그 String을 System.out.println하는 방법을 이용 해야한다고함 
 
-버퍼리더 버퍼라이터는 처음이라 개념부터 익히고 풀었어야 했다.
+버퍼리더 버퍼라이터는 처음이라 생소했다..
 ```
 import java.io.*;
 public class Main {
