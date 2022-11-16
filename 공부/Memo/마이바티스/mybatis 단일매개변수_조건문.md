@@ -66,3 +66,15 @@ https://stackoverflow.com/questions/59668117/how-to-properly-use-the-param-annot
 
 
 https://www.fatalerrors.org/a/mybatis-basic-syntax-operation.html
+
+
+
+
+++ 22-11-16 추가  
+```
+<if test= "_parameter != 0">
+where comp_id = ${_parameter}
+</if>
+ ```   
+ $기호 사용시 매개변수 _parameter 그대로 입력해줘야 인식   
+ #기호는 ?로 변환하여 대입하지만 $는 그 값 그대로 인식하기때문인가 추측 중 
