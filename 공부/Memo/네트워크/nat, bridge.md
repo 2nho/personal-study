@@ -28,3 +28,5 @@ Bridged 방식으로 네트워크를 구성한다면, 자신의 컴퓨터가 하
 
 출처: https://wookoa.tistory.com/107 [Wookoa:티스토리]
 
+nat : 사설ip -> 공인 ip    -  공인 ip - > 사설ip  패킷을 주고 받을 때 변환 
+DHCP : 공유기 등에서 사설 ip 동적으로 할당  
