@@ -19,3 +19,5 @@ Authentication 객체의 구조
 *db정보를 가져와 커스텀화 할 수 있다
 
 전역 저장 bean
+
+Static 으로 전역에서 사용할 수 있게 theradlocal
