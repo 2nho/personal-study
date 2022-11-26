@@ -1,0 +1,10 @@
+스프링 autowired는 interface에 붙여 사용
+
+aop구조에 따른 이유
+
+ex. 
+@autowired
+ (인터페이스) member 오류 안남
+
+@autowired
+ (클래스) member 오류  proxy
