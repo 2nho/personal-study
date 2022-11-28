@@ -1,7 +1,7 @@
 스프링 autowired는 interface에 붙여 사용
 
 aop구조에 따른 이유
-
+                                                          --  JDK Dynamic Proxy 프록시 객체
 ex. 
 @autowired
  (인터페이스) member 오류 안남
@@ -18,7 +18,7 @@ ex.
  
  스프링부트의 경우 
  
-  spring.aop.proxy-target-class 설정이 상속된 클래스로도 프록시를 구성할 수 있게 기본값이 되있기 때문에 
+  spring.aop.proxy-target-class 설정이 상속된 클래스로도 프록시를 구성할 수 있게 기본값이 되있기 때문에 -- CGLIB 프록시 객체
   (클래스) member로 해도 오류가 나지 않음
   
   interface - class - proxy 구조   class  proxy 가 동일선상 
