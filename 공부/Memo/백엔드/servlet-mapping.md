@@ -8,6 +8,8 @@ uri 주소를 만들기 위해 기존 프로젝트 uri주소들이 .do로 되어
 
 기존 defalutServlet로 가던 정적파일들을 맵핑시켜주기위해
 
-<mvc:resources location="/" mapping="/**"></mvc:resources> 을 설정해주었다.
-
-  <mvc:annotation-driven /> 도 필수 !
+<mvc:resources location="/" mapping="/**"></mvc:resources> 을 설정해주었다. 
+--mvc:resources는 Dispatcher Servlet에서 해당 요청에 대한 컨트롤러를 찾을 수 없는 경우 
+2차적으로 설정된 경로에서 탐색하는 것!
+ 
+<mvc:annotation-driven /> 도 필수 !
