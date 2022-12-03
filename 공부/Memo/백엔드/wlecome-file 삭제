@@ -1,0 +1,37 @@
+기존 프로젝트가 
+welcome-file로 index.jsp 가 설정되어있고 
+
+index.jsp 파일에서 jsp:forward를 통해 초기에 보여주고 싶은 페이지를 설정했는데
+
+너무 가성비가 떨어진다는 생각이 들었다 .
+
+그래서 일단 web.xml에서 welcome-file 목록을 삭제한다음 
+
+초기 보여주고 싶은 페이지를 보여주는 컨트롤러의 경로를 "/"로 변경한다음
+
+web.xml 에서 DispatcherServlet 의 경로를 "/" 설정 해주었다.
+
+다만 이렇게 하면 정적 리소스 파일들을 불러오지 못하기 때문에 (디폴트 서블렛을 덮어씌웠기 때문)
+
+
+<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+				/WEB-INF/config/*-servlet.xml
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+  
+<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>  
+  
+  action-servlet에 들어가 
+  
+  <mvc:resources location="/" mapping="/**"></mvc:resources> 을 설정해주었다.
+  
