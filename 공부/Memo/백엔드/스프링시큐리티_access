@@ -13,3 +13,11 @@
 화이트리스트가 블랙리스트에 비해 보안성이 우수하지만 매번 새롭게 추가해주거나 허용해줘야 한다는 점에서  
 
 가용성이나 편의성은 블랙리스트 방식이 더 좋은거 같다.
+
+
+
+
+
+++개인적으로 이렇게 만들어서 초기페이지는 접속할 수 있게 하고 이하 페이지는 권한이있도록 막았다.
+<security:intercept-url pattern="/" access="isAuthenticated()"/>  
+<security:intercept-url pattern="/**" access="isAuthenticated()"/> 
