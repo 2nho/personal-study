@@ -2,3 +2,8 @@
 
 
 /**   포함될수도 아닐수도
+
+
+
+<security:intercept-url pattern="/" access="permitAll"/>
+		<security:intercept-url pattern="/*" access="isAuthenticated()"/>
