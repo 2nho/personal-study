@@ -1,9 +1,0 @@
-/*     /포함   a/b/ O   a/b  bX  오류남
-
-
-/**   포함될수도 아닐수도
-
-
-
-<security:intercept-url pattern="/" access="permitAll"/>
-		<security:intercept-url pattern="/*" access="isAuthenticated()"/>

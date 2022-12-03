@@ -1,0 +1,13 @@
+/*     /포함   a/b/ O   a/b  bX  오류남
+
+
+/**   포함될수도 아닐수도
+
+
+
+<security:intercept-url pattern="/" access="isAuthenticated()"/>   이 경우 처음 톰캣실행 시 실행되는 초기페이지 시큐리티 걸림 
+
+<security:intercept-url pattern="/*" access="isAuthenticated()"/> 이 경우 처음 톰캣 실행 시 실행되는 초기페이지 + 하위디렉토리까지 uri  까지 걸림 (스프링은 /** 의 개념이 존재 /**은 이하 전부 모든 디렉토리 ) 
+=> 프로젝트/  걸림   
+=> 프로젝트/A 걸림  
+=> 프로젝트/A/B 안걸림   
