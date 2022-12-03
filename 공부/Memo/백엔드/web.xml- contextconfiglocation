@@ -5,3 +5,12 @@ servlet 설정과 context-param 설정에서 사용되는 <param-name> contextco
 
 
 context-param을 servlet에 대입한다는게 아님!
+
+String that is passed to the context instance
+(specified by contextClass) to indicate where
+context(s) can be found. The string consists
+potentially of multiple strings (using a comma
+as a delimiter) to support multiple contexts. In
+case of multiple context locations with beans
+that are defined twice, the latest location takes
+precedence.
