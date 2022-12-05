@@ -1,0 +1,4 @@
+DispatcherServlet의 RequestMappingHandlerMapping, RequestMappingHandlerAdapter, ExceptionHandlerExceptionResolver, MessageConverter 등 Web에 필요한 빈들을 대부분 자동으로 설정해준다
+
+ <context:component-scan base-package="">  controller를 등록하는 곳엔 반드시 있어야 됨 root-에 한번에 스캔을 하더라도 필요 
+ 
