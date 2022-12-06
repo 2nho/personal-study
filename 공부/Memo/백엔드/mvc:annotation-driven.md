@@ -36,4 +36,4 @@ xml 구성 시
 
 
 ++ 생략해도 
-context:component-scan 만 잘되어있다면 오류안남  종속성X
+context:component-scan 만 잘되어있다면 오류안남  종속성X - + <mvc:default-servlet-handler /> ,  <mvc:resources location="/" mapping="/**"></mvc:resources> 도 없어야 오류 안남
