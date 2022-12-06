@@ -1,4 +1,18 @@
 DispatcherServlet의 RequestMappingHandlerMapping, RequestMappingHandlerAdapter, ExceptionHandlerExceptionResolver, MessageConverter 등 Web에 필요한 빈들을 대부분 자동으로 설정해준다
 
  <context:component-scan base-package="">  controller를 등록하는 곳엔 반드시 있어야 됨 root-에 한번에 스캔을 하더라도 필요 
+ - root-servlet에 있는 것을 action-servlet에서 사용할 수 있다고들 해서 root에 mvc:annotation-driven 선언하면 action에 선언된 것처럼 사용할 줄 알았는데 그게 아닌거 같음
+ - @Controllers를 빈으로 등록하는 곳에 존재해야 정상 작동하는거 같다. 레퍼런스, 스택오버플로우 뒤졌지만 찾질 못함.. 코드를 직접 따라가봐야 알거 같음 
  
+ 
+
+
+@Controllers에 요청을 발송하는 데 필요한 HandlerMapping 및 HandlerAdapter를 등록합니다. 또한 클래스 경로에 있는 항목에 따라 합리적인 기본값을 적용합니다. 이러한 기본값은 다음과 같습니다.
+
+
+Spring 3 Type ConversionService 를 JavaBeans PropertyEditors에 대한 더 간단하고 강력한 대안으로 사용
+@NumberFormat 을 사용하여 숫자 필드 서식 지정 지원
+Joda 시간이 클래스 경로에 있는 경우 @DateTimeFormat 을 사용하여 날짜, 달력 및 Joda 시간 필드 서식 지정 지원
+JSR-303 공급자가 클래스 경로에 있는 경우 @Valid로 @Controller 입력 유효성 검사 지원
+JAXB가 클래스 경로에 있는 경우 XML 읽기 및 쓰기 지원
+Jackson 이 클래스 경로에 있는 경우 JSON 읽기 및 쓰기 지원
