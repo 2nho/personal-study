@@ -37,3 +37,5 @@ xml 구성 시
 
 ++ 생략해도 
 context:component-scan 만 잘되어있다면 오류안남  종속성X - + <mvc:default-servlet-handler /> ,  <mvc:resources location="/" mapping="/**"></mvc:resources> 도 없어야 오류 안남
+
+하지만 .do를 / 로 바꾸려면 mvc:resources가 필요하기 때문에 mvc:annotation-driven 이 있어야 정상작동한다.
