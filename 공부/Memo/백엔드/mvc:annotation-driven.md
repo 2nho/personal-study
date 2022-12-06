@@ -33,3 +33,7 @@ xml 구성 시
 <context:component-scan base-package="package.*" />
 ```
 자바코드로 구성 시 같은 locatiobn에서 처리 하는 것을 보면 xml 에서도 같은 위치에 있는게 맞는거 같다!
+
+
+++ 생략해도 
+context:component-scan 만 잘되어있다면 오류안남  종속성X
