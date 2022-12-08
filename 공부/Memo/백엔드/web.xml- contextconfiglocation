@@ -1,7 +1,7 @@
 servlet 설정과 context-param 설정에서 사용되는 <param-name> contextconfiglocation<param-name> 은 
-설정파일의 위치를 알려주는 파라미터이다. 
+설정파일의 위치를 알려주는 파라미터이다.
 
-처음엔 servlet과 context-param에서 같은 이름을 쓰길래 뭐지 하고 이상했는데, 그냥 변수 이름이 같고 같은 역할만 한다라는 사실을.. 공식문서까지 찾아보고서야 인지했다..
+servlet과 context-param에서 같은 변수이름을 사용해 이상했는데, 그냥 변수 이름과 역할이 각 클래스에서 동일한것!  .. 공식문서까지 찾아보고서야 인지했다..
 
 
 context-param을 servlet에 대입한다는게 아님!
