@@ -1,10 +1,10 @@
-# personal-study
+ㅑ# personal-study
 개인공부기록용
 
 ## git bash - $git push origin +master 명령 실수(22/05/01 초기화) - 명령어 주의!
 개인공부 정리: Memo 
 
-1일1커밋 목표,꾸준히 공부하기
+꾸준히 공부하기
 
 커밋메모는 단순 기입형태의 메모형식이라 따로 작성 X 
 
