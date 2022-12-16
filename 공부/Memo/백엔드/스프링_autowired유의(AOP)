@@ -1,4 +1,4 @@
-스프링 autowired는 interface에 붙여 사용
+스프링 autowired는 Interface 타입으로 선언
 
 aop구조에 따른 이유
                                                           --  JDK Dynamic Proxy 프록시 객체
