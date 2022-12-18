@@ -1,4 +1,4 @@
-ㅑ# personal-study
+# personal-study
 개인공부기록용
 
 ## git bash - $git push origin +master 명령 실수(22/05/01 초기화) - 명령어 주의!
