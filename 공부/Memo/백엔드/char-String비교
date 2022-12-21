@@ -11,7 +11,7 @@ String str1 = null;
 
 // char 는 빈문자열(공백X) 과 null로 초기화 불가능
 char ch = ''; // X
-char ch = null; // X
+char ch = null; // X                     -----------null은 아무것도 참조하지 않는다는 뜻이라 참조형변수에만 사용되는게 아닐가 생각
 
 ++ char ch =' ' // O 공백 가능
 
