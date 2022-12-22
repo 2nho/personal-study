@@ -11,3 +11,7 @@ toString은 모든 클래스에 존재하는 toString()(Object 클래스에 존�
  감싸지 않으면 resultHashMap을 String으로 형변환 한 뒤 get 메소드를 호출하는 식으로도 동작할 것도 같아서..저는 좀더 분명하게 하는 편입니다..
  
  출처는 okky  https://okky.kr/articles/259101
+
+
+++ toString = 오브젝트의 메소드!
+   (String) = 상속관계에서의 형변환
