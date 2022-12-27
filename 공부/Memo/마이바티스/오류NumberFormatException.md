@@ -20,8 +20,8 @@ int code = (int)y; // code에는 Y의 코드값인 89가 저장된다
 3. <if test=”stringValue == ‘Y’.toString()”> – toString() 함수를 사용해 String 형으로 변환
   
   
- 나의 경우 
- <when test='approverSearchOption == "all" and approverKeyword !=""'>   1조건
+ 나의 경우   
+ <when test='approverSearchOption == "all" and approverKeyword !=""'> 1조건
    
    
  <when test='approverSearchOption == 2'> 2 조건
