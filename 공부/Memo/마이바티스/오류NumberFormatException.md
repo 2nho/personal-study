@@ -14,9 +14,9 @@ int code = (int)y; // code에는 Y의 코드값인 89가 저장된다
 그래서 위와 같은 상황을 피하기 위해서는 다음과 같은 해결책이 존재한다.
 
 1. <if test=’stringValue == “Y”‘> – 쌍따옴표와 홑따옴표의 위치를 변경
-
+```
 2. <if test=”stringValue == &quot;Y&quot;”> – 쌍따옴표를 HTML 코드로 변경
-
+```
 3. <if test=”stringValue == ‘Y’.toString()”> – toString() 함수를 사용해 String 형으로 변환
   
   
