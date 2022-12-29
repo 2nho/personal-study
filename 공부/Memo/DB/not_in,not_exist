@@ -2,4 +2,4 @@ not in 과 not exist의 차이점은 null 값이 포함될 경우 나타나는�
 
 not in 은 아무런 결과가 나오지 않지만 not exist는 결과 값이 나온다.
 
-이는 not in은 연산을 하지 않기 때문이고 not exist는 false를 리턴한 값만 제외하기 때문이다
+이는 not in은 연산을 하지 않기 때문이고 not exist는 null을 포함한 값이 false를 리턴하고 이를 not을 붙여 true가 되기 때문(exist먼저 생각하고 not을 뒤에 생각하면 편함)
