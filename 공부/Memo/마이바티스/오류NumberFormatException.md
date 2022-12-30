@@ -3,9 +3,9 @@ Error querying database. Cause: java.lang.NumberFormatException: For input strin
 마이바티스 문제라기보단 
 OGNL문제 !   
 
-OGNL 인터프리터에서는 위 구문의 ‘Y’를 char 형으로 인식하고, ‘YY’나 “Y”는 String으로 인식한다고 한다.
-그래서 <if test=”stringValue == ‘Y’”> 이와 같은 구문을 비교할 때  NumberFormat으로 비교를 시도하여 Exception이 발생한다.
-이유는 java의 char형은 실제로 문자의 코드값을 저장하기 때문
+OGNL 인터프리터에서는 위 구문의 ‘Y’를 char 형으로 인식하고, ‘YY’나 “Y”는 String으로 인식한다고 한다.  
+그래서 <if test=”stringValue == ‘Y’”> 이와 같은 구문을 비교할 때  NumberFormat으로 비교를 시도하여 Exception이 발생한다.  
+이유는 java의 char형은 실제로 문자의 코드값을 저장하기 때문  
 
 char y = 'Y';
 
