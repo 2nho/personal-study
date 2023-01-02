@@ -20,13 +20,13 @@ int code = (int)y; // code에는 Y의 코드값인 89가 저장된다
 3. <if test=”stringValue == ‘Y’.toString()”> – toString() 함수를 사용해 String 형으로 변환
   
   
- 나의 경우   
- ```
- <when test='approverSearchOption == "all" and approverKeyword !=""'> 1조건
+ "all " => 문자열
+  all   => 변수 로 인식
+  
+  all변수가 없을 때
+   <if test=” all == null ”>
+   하면 참으로 인식 
    
-   
- <when test='approverSearchOption == 2'> 2 조건
- ```  
- 의 형태로 진행해서 발생한 오류였다. 2를 char로 보고 변환을 시도한다음 all도 변환하려다 발생한 문제인거 같다.
- all을 -> 0으로 바꾸면 오류 X    (그러나 '0'으로 바꾸면 해당조건을 만족하지 않음 sql에서 '5'(문자) 와 5(숫자)와 다르기 때문 )
-   
+   따라서  <if test= ”stringValue == all ”>
+   하게되면 stringValue가 null이 아닌이상 
+    
