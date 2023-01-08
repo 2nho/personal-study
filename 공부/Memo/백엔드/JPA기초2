@@ -22,5 +22,5 @@ Method
  OrderBy	          findByEmailOrderByNameAsc(String email)	           검색 결과를 정렬하여 전달
 
 jpa가 자동으로 생성해주는 쿼리문이 아닌 쿼리문을 커스텀 하기 위해선 @Query 어노테이션 사용
- @Query("select u from User u where u.emailAddress = ?1")
+ @Query("select u from User u where u.emailAddress = ?")
   User findByEmailAddress(String emailAddress);
