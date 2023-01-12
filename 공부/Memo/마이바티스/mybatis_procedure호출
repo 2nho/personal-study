@@ -6,4 +6,7 @@ statementType="CALLABLE" 을 명시해주면 프로시저를 호출할 수 있�
 가져오려 할 때 return값은 null로 반환된다. (주의!)
 대신 값을 넘길 때 지정해준 파라미터에 OUT값이 담겨있는 형태로 반환된다.
 
-mybatis 공식문서상 해당 내용 발견 X
+mybatis 공식문서상 해당 내용 발견 Xb
+jdbc 에서는  registerOutParameter 을 이용해서 out값을 받는데 
+
+마이바티스 소스를 까본 결과 비슷하게 진행되는 것을 확인할 수 있다.
