@@ -1,0 +1,35 @@
+jdk 1.8버전을 1.5 버전으로 변경해야 할 일이 생겼는데 
+
+기존 프로젝트에서 @override 인터페이스를 구현할때 붙일 수 없으며 
+
+
+switch문에 String 형은 사용할 수 없고 char, short, byte, int 형만 사용할 수 있다.
+
+따라서 
+
+
+for( GrantedAuthority grant : user.getAuthorities()){
+			String autho = grant.getAuthority();
+			switch(autho) {
+			case "ROLE_leve00": return uri ="redirect:/member/memberManage.do";
+			case "ROLE_leve01": return uri ="redirect:/member/memberManage.do";
+			case "ROLE_leve02": return uri ="redirect:/member/view.do";
+			case "ROLE_leve03": return uri ="redirect:/visitor/visitorSubscriptionView.do";
+			case "ROLE_leve04": return uri ="redirect:/visitor/visitorSubscriptionInfo.do";
+			case "ROLE_leve06": return uri ="redirect:/access/monitoring.do";
+			}
+		}
+    
+    
+위  소스를 charAt을 이용해서 char형태로 사용했다.    
+for( GrantedAuthority grant : user.getAuthorities()){
+			char autho = grant.getAuthority().charAt(10);
+			switch(autho) {
+			case 0: return uri ="redirect:/member/memberManage.do";
+			case 1: return uri ="redirect:/member/memberManage.do";
+			case 2: return uri ="redirect:/member/view.do";
+			case 3: return uri ="redirect:/visitor/visitorSubscriptionView.do";
+			case 4: return uri ="redirect:/visitor/visitorSubscriptionInfo.do";
+			case 6: return uri ="redirect:/access/monitoring.do";
+			}
+		}
