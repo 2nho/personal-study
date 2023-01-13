@@ -33,3 +33,11 @@ for( GrantedAuthority grant : user.getAuthorities()){
 			case 6: return uri ="redirect:/access/monitoring.do";
 			}
 		}
+		
+		
+또한 
+
+Map result = new HashMap<>(); 의 형태로 사용하면 오류를 뱉었는데 추론 타입을 사용하지 못한다는 뜻이였다
+
+따라서 Map result = new HashMap<Object, Object>(); 으로 변경했다.
+
