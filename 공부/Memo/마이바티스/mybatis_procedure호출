@@ -9,4 +9,10 @@ statementType="CALLABLE" 을 명시해주면 프로시저를 호출할 수 있�
 mybatis 공식문서상 해당 내용 발견 Xb
 jdbc 에서는  registerOutParameter 을 이용해서 out값을 받는데 
 
-마이바티스 소스를 까본 결과 비슷하게 진행되는 것을 확인할 수 있다.
+마이바티스 소스를 까본 결과 
+
+ServerSidePreparedStatement 클래스에서 
+
+private Map<Integer, ParameterHolder> currentParameterHolder; 을 발견할 수 있는데 
+
+ParameterHolder에 저장한 파라미터값을 저장해주는 것 같다.
