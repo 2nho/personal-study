@@ -1,0 +1,23 @@
+스프링 시큐리티 코드를 까보던 중 발견한 Supplier<T>
+
+자바 1.8 부터 추가된 함수형 인터페이스
+
+@FunctionalInterface 을 붙인 것이 함수형 인터페이스인것을 나타낸다.
+
+
+
+Supplier<T>는
+get()메서드를 통해 람다 return값을 반환한다
+
+
+public class Test1 {
+
+	public static void main(String[] args) {
+		Supplier<String> supplier =	() -> "들어가나요";
+		String r = supplier.get();
+		System.out.println(r);
+	}
+
+}
+
+어떻게 구현되어 사용되는지 궁금해서 소스를 까봤지만.. 아직 
