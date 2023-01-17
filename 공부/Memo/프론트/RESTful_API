@@ -56,3 +56,5 @@ GET /RESORUCE  리소스 목록 표시
 GET /RESOURCE:id 리소스 중 하나 표시 
 POST /RESOURCE 리소스를 생성 
 
+대기업 IT기업이 제공하는 API를 보면 REST API 로 구성된걸 확인 할 수 있다. 
+확실히 간결 명료해서 어떤걸 의미하는지 파악하기 쉬운 점이 있는거 같다.
