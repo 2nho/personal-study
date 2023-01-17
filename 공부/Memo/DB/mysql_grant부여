@@ -1,0 +1,41 @@
+The ALTER ROUTINE, CREATE ROUTINE, EXECUTE, and GRANT OPTION privileges apply to stored routines (procedures and functions). 
+They can be granted at the global and database levels. Except for CREATE ROUTINE, these privileges can be granted at the routine level for individual routines.
+
+ALTER ROUTE, CREATE ROUTE, EXECUTE 및 GRANT OPTION 권한은 stored routines(procedures and functions)에 적용됩니다. 글로벌 및 데이터베이스 수준에서 허용할 수 있습니다.
+CREATE ROUTE를 제외하고 이러한 권한은 개별 루틴에 대해 루틴 수준에서 부여될 수 있습니다.
+
+GRANT CREATE ROUTINE ON mydb.* TO 'someuser'@'somehost'; - 글로벌
+GRANT EXECUTE ON PROCEDURE mydb.myproc TO 'someuser'@'somehost'; - individual routines 
+
+GRANT EXECUTE ON PROCEDURE *.* TO 'someuser'@'somehost'; -- 안됨X
+ON PROCEDURE 가 붙으면 개별 프로시저에만 접근 가능  *로 여러개 절대 불가능             -'A'
+
+GRANT EXECUTE ON  *.* TO 'someuser'@'somehost'; -- PROCEDURE가 빠지면 전체 부여가능 그러나 함수도 포함됨  (이 부분 없애보려고 함수로 넣어보려고도 시도해봤는데.. 막힘..)
+
+
+BEGIN 
+ 	  DECLARE  ni INT(11) DEFAULT 1;
+     DECLARE  proc_length INT(11);
+     DECLARE  proc_name VARCHAR(100);
+   	
+		SELECT COUNT(SPECIFIC_NAME) into proc_length FROM information_schema.ROUTINES WHERE SPECIFIC_NAME LIKE 'spd_%';
+   
+	WHILE (ni < proc_length) DO 
+	
+   	SELECT SPECIFIC_NAME into proc_name FROM information_schema.ROUTINES WHERE SPECIFIC_NAME LIKE 'spd_%' LIMIT ni,1;
+      	GRANT EXECUTE PROCEDURE ON DB.param to 'TEST'@'localhost';   -------이 부분에서 막힘 오류 .. 'A'에서 절대안된다 한 이유 
+
+              SET ni = ni+1;
+              
+   END WHILE;
+   RETURN proc_name;
+END
+
+
+
+
+
+
+
+출처 https://dev.mysql.com/doc/refman/8.0/en/grant.html   
+mysql 공식문서
