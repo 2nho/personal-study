@@ -20,4 +20,5 @@ Authentication 객체의 구조
 
 전역 저장 bean
 
+시큐리티 코드를 살펴보면
 Static 으로 전역에서 사용할 수 있게 theradlocal로 구현
