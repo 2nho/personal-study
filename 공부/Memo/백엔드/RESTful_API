@@ -59,4 +59,4 @@ POST /RESOURCE 리소스를 생성
 대기업 IT기업이 제공하는 API를 보면 REST API 로 구성된걸 확인 할 수 있다. 
 
 
-DELETE PATCH PUT 등 경로를 표시할때  @pathvariable을 통해 
+DELETE PATCH PUT 등 경로를 표시할때  /{} 는 @pathvariable을 통해! 
