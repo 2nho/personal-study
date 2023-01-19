@@ -1,0 +1,6 @@
+Controller 메소드의 매개변수 타입이 기본형, String일 때는, @RequestParam이 생략
+
+참조형일 때는, @ModelAttribute가 생략
+
+
+@requestbody일 경우 메세지컨버터에 의한 자동형변환 (jackson과 스프링의 연계)
