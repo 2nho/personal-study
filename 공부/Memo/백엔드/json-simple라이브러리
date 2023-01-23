@@ -2,3 +2,4 @@ HashMAp 그대로 상속
 toString만 오버라이드
 
 디버깅결과 toString은 타지않음.. 왜? 
+디폴트로 여겨지는건가 추측중
