@@ -1,1 +1,4 @@
-사용법
+HashMAp 그대로 상속
+toString만 오버라이드
+
+디버깅결과 toString은 타지않음.. 왜? 
