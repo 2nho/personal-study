@@ -42,3 +42,10 @@ json-simple은 JSONValue 에서
 이렇게 분기를 태워서 해당 타입에 맞는 json형태로 바꿔서 출력해준다!
 
 
+
+
+### 추가 
+![image](https://user-images.githubusercontent.com/97571604/214224105-9f65d78e-ebe2-4ca6-b494-81f7ba1a33cd.png)
+
+variables에서 해당 객체에 우클릭하고 New Detail Formatter를 클릭하면 해당 객체에 맞는 toString을 재정의 할 수 있다.  
+(toStirng이 항상 원하는 결과를 보여주는게 아닌 주소값을 보여줄수도 있기때문에)
