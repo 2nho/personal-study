@@ -60,4 +60,6 @@ While debugging and inspecting variables/objects in your debug perspective, you 
 ## 디버거가 toString을 사용한다는 참고2(공식문서)
 https://archive.eclipse.org/eclipse/downloads/documentation/2.0/html/plugins/org.eclipse.platform.doc.isv/reference/api/org/eclipse/debug/ui/package-summary.html
 
-![image](https://user-images.githubusercontent.com/97571604/214227141-d22340d4-ce3d-44c9-8508-635e0a43e8dc.png)
+![image](https://user-images.githubusercontent.com/97571604/214227141-d22340d4-ce3d-44c9-8508-635e0a43e8dc.png)  
+
+the Java debugger displays the result of invoking 'toString()' on the selected variable in this area.
