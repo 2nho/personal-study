@@ -20,13 +20,17 @@ putVal에서 노드생성
 ![image](https://user-images.githubusercontent.com/97571604/214220742-ff7fe81b-7da1-4ad0-8ab7-25008c816fc2.png)    
 resize()로 크기조정
 
-###2일차 결론 
+### 2일차 결론 
 ![image](https://user-images.githubusercontent.com/97571604/214222045-249cf2bf-f4f8-4443-b168-b8c52ff3f103.png)
 
-> 결과 : 이렇게 하면 단순 map 이랑 다를게 없는 같은 map 인데 왜 json형태로 값이 나오지? 
-> sysout을 찍어도 json 형태 , 디버깅을 찍어도 json형태
-> 그렇다면 toString에 어떤 비밀이 있지 않을까?   
-##3일차
-toString : toString 메서드는 객체를 println, printf, 문자열 연결 연산(+), assert구문, 디버거가 객체를 출력할때 자동 호출!
-그래서 sysout으로 찍을때랑 디버깅을 했을 때 단순히 HashMap에 담긴 값이 JSON-SIMPLE에서 오버라이드한 toString 메소드를 타고 json형태로 출력이 되었던 것이었다!
+> 결과 : 이렇게 하면 단순 map 이랑 다를게 없는 같은 map 인데 왜 json형태로 값이 나오지?   
+> sysout을 찍어도 json 형태 , 디버깅을 찍어도 json형태  
+> 그렇다면 toString에 어떤 비밀이 있지 않을까? 
+  
+    
+## 3일차
+toString : toString 메서드는 객체를 println, printf, 문자열 연결 연산(+), assert구문, 디버거가 객체를 출력할때 자동 호출!  
+그래서 sysout으로 찍을때랑 디버깅을 했을 때 단순히 HashMap에 담긴 값이  
+JSON-SIMPLE에서 오버라이드한 toString 메소드를 타고 json형태로 출력이 되었던 것이었다!  
+
 
