@@ -13,9 +13,9 @@ toString만 오버라이드해서 json형태로 만들어줌
 ![image](https://user-images.githubusercontent.com/97571604/214220031-91361e4f-8ad4-4826-bb9f-851f4affab09.png)
 생성자로 Map을 매개변수로 넣어주면 super를 타고 HashMap 단순 HashMap생성을 함
 
-![image](https://user-images.githubusercontent.com/97571604/214220236-00bc5dd5-efeb-4871-8258-3731f36a946f.png)
+![image](https://user-images.githubusercontent.com/97571604/214220236-00bc5dd5-efeb-4871-8258-3731f36a946f.png)  
 putMapEntries 메소드가 실행되고 putMapEntries메소드에서 putVal 메소드를 또 실행 
-![image](https://user-images.githubusercontent.com/97571604/214220579-347831ea-9854-47c6-9392-c870b9dc4fc6.png) 
+![image](https://user-images.githubusercontent.com/97571604/214220579-347831ea-9854-47c6-9392-c870b9dc4fc6.png)   
 putVal에서 노드생성 
 ![image](https://user-images.githubusercontent.com/97571604/214220742-ff7fe81b-7da1-4ad0-8ab7-25008c816fc2.png)
 resize()로 크기조정
