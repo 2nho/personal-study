@@ -5,7 +5,7 @@ toString만 오버라이드해서 json형태로 만들어줌(그럼 이것으로
 하지만 디버깅결과 toString은 타지않음.. 왜?   
 디폴트로 여겨지는건가 추측  
 
-## 2일차
+## 2일차 - 디버깅분석
 ![image](https://user-images.githubusercontent.com/97571604/214219506-b518ba70-5ded-4854-81d3-aabc8b9142c3.png)
 
 테스트결과 json형태로 잘나오길래 toString은 호출이 여전히 안되는데 왜일까??
@@ -25,6 +25,8 @@ resize()로 크기조정
 
 > 결과 : 이렇게 하면 단순 map 이랑 다를게 없는 같은 map 인데 왜 json형태로 값이 나오지? 
 > sysout을 찍어도 json 형태 , 디버깅을 찍어도 json형태
-> 그렇다면 toString에 어떤 비밀이 있지 않을까? 
-##
+> 그렇다면 toString에 어떤 비밀이 있지 않을까?   
+##3일차
+toString : toString 메서드는 객체를 println, printf, 문자열 연결 연산(+), assert구문, 디버거가 객체를 출력할때 자동 호출!
+그래서 sysout으로 찍을때랑 디버깅을 했을 때 단순히 HashMap에 담긴 값이 JSON-SIMPLE에서 오버라이드한 toString 메소드를 타고 json형태로 출력이 되었던 것이었다!
 
