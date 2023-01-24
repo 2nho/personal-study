@@ -33,4 +33,10 @@ toString : toString 메서드는 객체를 println, printf, 문자열 연결 연
 그래서 sysout으로 찍을때랑 디버깅을 했을 때 단순히 HashMap에 담긴 값이  
 JSON-SIMPLE에서 오버라이드한 toString 메소드를 타고 json형태로 출력이 되었던 것이었다!  
 
+++  
+![image](https://user-images.githubusercontent.com/97571604/214223352-24bfc036-98af-4f73-b922-079fc9fe48bb.png)
+json-simple은 JSONValue 에서   
+![image](https://user-images.githubusercontent.com/97571604/214223499-c8c618e8-da21-448c-9ef9-392f572c3e50.png)  
+이렇게 분기를 태워서 해당 타입에 맞는 json형태로 바꿔서 출력해준다!
+
 
