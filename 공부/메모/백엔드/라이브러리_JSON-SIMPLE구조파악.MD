@@ -49,3 +49,12 @@ json-simple은 JSONValue 에서
 
 variables에서 해당 객체에 우클릭하고 New Detail Formatter를 클릭하면 해당 객체에 맞는 toString을 재정의 할 수 있다.  
 (toStirng이 항상 원하는 결과를 보여주는게 아닌 주소값을 보여줄수도 있기때문에)
+
+
+
+
+디버거가 toString을 사용한다는 참고글
+While debugging and inspecting variables/objects in your debug perspective, you might encounter textual representations of objects that are not really meaningful.   Usually the .toString() method on an object is used for the debug UI. It’s not the greatest idea to implement the .toString() method just for debugging purposes.   Instead you can set up a detail formatter that takes care of the textual representation of your object.  
+디버그 관점에서 변수/개체를 디버깅하고 검사하는 동안 실제로 의미가 없는 개체의 텍스트 표현이 나타날 수 있습니다.   
+일반적으로 디버그 UI에는 개체의 .toString() 메서드가 사용됩니다. 디버깅 목적으로만 .toString() 메서드를 구현하는 것은 좋은 생각이 아닙니다.   
+대신 객체의 텍스트 표현을 처리하는 상세 포맷터를 설정할 수 있습니다.
