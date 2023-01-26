@@ -1,0 +1,6 @@
+일반적인 타입이 아닌 경우 커스텀화한 타입핸들러를 가공해서 자바 객체로
+받는다.
+
+예) mysql의 json_object를 자바의 pojo로 받을 때 
+baseTypeHandler를 구현한 customHandler를 생성 한 후
+resultMap에서 사용
