@@ -20,13 +20,13 @@ int code = (int)y; // code에는 Y의 코드값인 89가 저장된다
 3. <if test=”stringValue == ‘Y’.toString()”> – toString() 함수를 사용해 String 형으로 변환
   
   
- "all " => 문자열
-  all   => 변수 로 인식
+ "all " => 문자열  
+  all   => 변수 로 인식  
   
-  all변수가 없을 때
-   <if test=” all == null ”>
-   하면 참으로 인식 
-   
-   따라서  <if test= ”stringValue == all ”>
-   하게되면 stringValue가 null이 아닌이상 
+  all변수가 없을 때  
+   <if test=” all == null ”>  
+   하면 참으로 인식   
+     
+   따라서  <if test= ”stringValue == all ”>  
+   하게되면 stringValue가 null이 아닌이상   
     
