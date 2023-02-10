@@ -1,0 +1,47 @@
+db서 2만건이 넘는 자료를 조회해서 데이터 테이블을 처리하기위해 시도했는데 
+2만건이 스프링에서 mybatis에서 1.바인딩되어서 넘어올때 2. 프론트 js단에서 datatable을 draw할때 
+이중으로 시간이 지연되어 45초가량이 되어야 모든 값들을 출력할 수 있었다. 
+
+서버사이드 방식을 구현하기위해 "serverSide": true 옵션을 주었고 
+serverside 옵션을 주게되면 호출한 컨트롤러에 start , length 값을 넘겨주는데 이를 이용해 
+
+@GetMapping("/memberDT")
+	public Map memberDT(@RequestParam Map param) {
+		System.out.println(param);
+		int start = Integer.parseInt((String)param.get("start"));  -- DB에서는 limit 숫자형 int가 들어가야하는데 get에서 쿼리파라미터 형태 즉 String형태로 넘겨주기 때문에 형변환 
+		int length = Integer.parseInt((String)param.get("length"));
+		param.put("start", start);
+		param.put("length", length);
+		int total = memberService.getTotalCountMemberDT();
+		Map result = new HashMap<>();
+		result.put("data", memberService.getmemberDT(param));  -- data의 key값으로 넘겨주어야만 data키 값을 이용해 데이터테이블이 구현
+		result.put("iTotalRecords", total); -- 총 데이터 갯수 표시용도 
+		result.put("iTotalDisplayRecords", total);
+		return result;
+	}
+  
+이렇게 구현하였다.  
+
+db에서는 프로시저를 이용해 
+
+SELECT member_id, employee, name, mobile, comp, comp_name, dept, dept_name, fveinflag, use_agreement, register_date
+	FROM 
+	(
+		SELECT mi.member_id, mi.employee, mi.name, mi.mobile
+			, comp, t.name AS comp_name, dept, t2.name AS dept_name
+			, (CASE WHEN ifnull(mi.fvein_data, 'N') = 'N' THEN 'N' ELSE 'Y' END) AS fveinFlag
+			, (CASE WHEN ifnull(mi.use_agreement, 'N') = 'N' THEN 'N' ELSE 'Y' END) AS use_agreement
+			, mi.register_date 
+		FROM member_info AS mi
+		INNER JOIN texture AS t ON mi.comp = t.texture_id
+		INNER JOIN texture AS t2 ON mi.dept  = t2.texture_id
+	) AS mem
+	WHERE 0=0 
+	AND (concat(IFNULL(member_id, ''), IFNULL(employee, ''), IFNULL(name, '')
+			, IFNULL(comp_name, ''), IFNULL(dept_name, ''), IFNULL(mobile, '')) REGEXP p_sSearch_Text)
+	AND ((p_bVein_Check = 'Y' AND fveinFlag = p_bVein_Check) OR p_bVein_Check = 'N')
+	AND (p_bUse_Agreement = 'Y' AND use_agreement = p_bUse_Agreement OR p_bUse_Agreement = 'N')
+  
+	LIMIT pstart, plength;  -- 이부분에 start, length 값을 주어 처리 
+  
+  이렇게 구현하니 45초에서 => 58.29초로 줄었다.
