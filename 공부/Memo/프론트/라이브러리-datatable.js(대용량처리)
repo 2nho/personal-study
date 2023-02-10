@@ -44,4 +44,4 @@ SELECT member_id, employee, name, mobile, comp, comp_name, dept, dept_name, fvei
   
 	LIMIT pstart, plength;  -- 이부분에 start, length 값을 주어 처리 
   
-  이렇게 구현하니 45초에서 => 58.29초로 줄었다.
+  이렇게 구현하니 45초에서 => 58.29초로 줄일 수 있었다.
