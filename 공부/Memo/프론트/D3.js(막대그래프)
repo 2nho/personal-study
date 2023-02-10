@@ -1,6 +1,6 @@
 라이브러리 사용법
 function makeGraph(result){
-			var blues = d3.scaleOrdinal(d3.schemeBlues[3]);
+			var blues = d3.scaleOrdinal(d3.schemeBlues[3]);  // 색상설정 - 색설정은 공식깃허브 확인 
 			const width = 1200;
         	const height = 300;
         	const margin = {top: 40, left: 40, bottom: 40, right: 40};
