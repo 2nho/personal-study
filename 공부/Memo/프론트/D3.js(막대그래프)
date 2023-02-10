@@ -1,1 +1,44 @@
 라이브러리 사용법
+function makeGraph(result){
+			var blues = d3.scaleOrdinal(d3.schemeBlues[3]);
+			const width = 1200;
+        	const height = 300;
+        	const margin = {top: 40, left: 40, bottom: 40, right: 40};
+        	const svg = d3.select(".d3_chart");
+        	
+        	const data = result;
+        	
+        	const x = d3.scaleBand()
+        	.domain(data.map(d => d.name))
+        	.range([margin.left, width - margin.right])
+        	  .padding(0.3);
+        	const y = d3.scaleLinear()
+        	.domain([0, d3.max(data, d => d.value)]).nice()
+            .range([height - margin.bottom, margin.top]);
+        	const xAxis = g => g
+        	 .attr('transform', `translate(0, 260)`)
+        	 .call(d3.axisBottom(x)
+        	 .tickSizeOuter(0));
+        	const yAxis = g => g
+        	 .attr('transform', `translate(40, 0)`)
+        	 .call(d3.axisLeft(y));
+        	
+        	svg.append('g').call(xAxis);
+        	svg.append('g').call(yAxis);
+        	svg.append('g')
+        	  .selectAll('rect').data(data).enter().append('rect')
+        	  .attr('fill', blues)
+        	  .attr('x', d => x(d.name)+50)
+        	  .attr('y', d => y(d.value))
+        	  .attr('height', d => y(0) - y(d.value))
+        	  .attr('width', 50);
+        	
+        	svg.append('g').selectAll("text")
+        	.data(data).enter().append("text")
+        	.attr("x",d => x(d.name)+(x.bandwidth()/2))
+        	.attr("y",d => y(d.value))
+        	.attr("text-anchor","middle")
+        	.attr('fill', "#5e6278")
+        	.text(d=>d.value)
+        	  
+};
