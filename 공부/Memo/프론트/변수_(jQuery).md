@@ -1,7 +1,7 @@
 log4j로 로그 확인 중 parameterObject에 _=1639293812 식으로 계속 넘겨주지 않은 파리미터 값이 들어가 있는 것이 이상해 확인해봤는데 
 처음엔 스프링이 로그인된 유저의 요청인지 확인하는 값으로 넘겨주는 것인가 싶어 알아보았지만
 관련 문서나 글이 없어 그럼 혹시 ajax 호출 시 넘겨주는 값인가 싶어 ajax parameter underscore라는 키워드로 검색해보았는데 
-https://stackoverflow.com/questions/3687729/who-add-single-underscore-query-parameter 에서 실마리를 찾을 수 있었다.(사랑해요 스택오버플로우)
+https://stackoverflow.com/questions/3687729/who-add-single-underscore-query-parameter 에서 실마리를 찾을 수 있었다.
 
 결론 :
 JQuery와 같은 ajax 도구는 브라우저 요청이 cache때문에 최신 응답을 받지 못할 경우를 대비 해
