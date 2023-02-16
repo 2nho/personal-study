@@ -25,4 +25,4 @@ selectBoxTexture(element, classId, function(){selectBoxTexture(element,classId,n
 변경하였다.
 
 ![image](https://user-images.githubusercontent.com/97571604/219384160-8c81e52c-750a-46e0-b7c0-b287d6387c3d.png)  
-=> 함수를 호출하면 그자리에 return 값을 반환하는데 위의 경우 반환값이 없기에 callback으로 실행시키려던 selectBoxTexture가 즉시실행되면서 return값이 없어 undefined를 반환했다.
+=> 함수를 호출하면 그자리에 return 값을 반환하는데 위의 경우 반환값이 없기에 callback으로 실행시키려던 selectBoxTexture가 즉시실행되면서 return값이 없어 undefined를 반환했다. 그래서 return 값으로 "콜백"을 적으니 undefined가 아닌 "콜백"을 반환하는 것을 확인할 수 있었다.
