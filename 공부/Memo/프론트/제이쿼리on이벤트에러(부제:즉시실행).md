@@ -16,9 +16,9 @@ $("#a").on("click", method); 의 형태로 사용되어야 했다.
 
 ![image](https://user-images.githubusercontent.com/97571604/219384160-8c81e52c-750a-46e0-b7c0-b287d6387c3d.png)
 
-selectBoxTexture 함수를 실행 후 callback으로 한번 더 selectBoxTexture 실행시키려고 했는데 
-selectBoxTexture(element,classId,selectBoxTexture(element,classId,null)) 의 코드가 제대로 실행이 되지 않아 
-왜그럴까 의문을 가졌는데 위와 같은 오류라는 판단이 들어 생각을 다듬은 결과 
+selectBoxTexture 함수를 실행 후 callback으로 한번 더 selectBoxTexture 실행시키려고 했는데   
+selectBoxTexture(element,classId,selectBoxTexture(element,classId,null)) 의 코드가 제대로 실행이 되지 않아   
+왜그럴까 의문을 가졌는데 위와 같은 오류라는 판단이 들어 생각을 다듬은 결과   
 
 
 selectBoxTexture(element, classId, selectBoxTexture(element,classId,null))를 즉시실행이 되지 
