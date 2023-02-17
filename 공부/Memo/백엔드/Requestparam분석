@@ -1,2 +1,4 @@
 어떻게 requestparam은 get과 post를 둘다 받을수 있을까?
 resolver
+
+HandlerMethodArgumentResolver
