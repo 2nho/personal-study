@@ -1,0 +1,11 @@
+Integer                  int
+wrapper클래스          primitive 변수
+
+
+
+
+
+collection에서 객체만을 사용할 수 있기 때문에 wrapper클래스가 필요하다는 말이 많지만
+
+개인적으로 느끼기에는 wrapper클래스를 이용해 기본형 변수를 객체처럼 사용할 수 있어 
+toString이나 parseInt 메소드를 사용할 수 있다는 점이 내겐 더 장점으로 느껴진다. 
