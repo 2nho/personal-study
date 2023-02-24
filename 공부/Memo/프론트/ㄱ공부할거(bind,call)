@@ -5,3 +5,12 @@
 
 
 https://ko.javascript.info/bind
+
+
+$("#new_device").click(location.reload.bind(location));
+
+this를 못찾는 오류 
+
+location.reload(this.href) 으로 확인 결과 
+
+location의 href 를 이용하는 것 같음 
