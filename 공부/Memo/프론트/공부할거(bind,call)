@@ -1,0 +1,4 @@
+추후 제대로 정리 
+
+
+라우저 환경에서 setTimeout 메서드는 조금 특별한 방식으로 동작합니다. 인수로 전달받은 함수를 호출할 때, this에 window를 할당합니다(Node.js 환경에선 this가 타이머 객체가 되는데, 여기선 중요하지 않으므로 넘어가겠습니다). 따라서 위 예시의 this.firstName은 window.firstName가 되는데, window 객체엔 firstName이 없으므로 undefined가 출력됩니다. 다른 유사한 사례에서도 대부분 this는 undefined가 됩니다.
