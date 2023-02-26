@@ -32,7 +32,10 @@ SSL은 웹 브라우저와 서버 간의 통신에서 정보를 암호화함으�
 
 
 
+vpn구축 참고 
 
+
+https://www.joinc.co.kr/w/Site/System_management/VPN/OpenVPN
 
 
 
