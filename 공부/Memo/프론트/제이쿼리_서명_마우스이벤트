@@ -1,0 +1,28 @@
+function draw(e){
+        function getPosition(){
+          return {
+            X: e.pageX - canvas[0].offsetLeft, 
+            Y: e.pageY - canvas[0].offsetTop
+          }
+        }
+        switch(e.type){
+          case "mousedown":{
+            drawble = true;
+            ctx.beginPath();   //기존 하위설정들을 전부 없애고 새로 경로지정
+            ctx.moveTo(getPosition().X, getPosition().Y); 새로시작 경로지정 
+          }
+          break;
+          case "mousemove":{
+            if(drawble){
+              ctx.lineTo(getPosition().X, getPosition().Y); // 이전 하위경로의 마지막과 현재의 첫번째를 이음
+              ctx.stroke();
+            }
+          }
+          break;
+          case "mouseup":
+          case "mouseout":{
+            drawble = false;
+            ctx.closePath();//  첫번째와 마지막을 이음
+          }
+          break;
+        }
