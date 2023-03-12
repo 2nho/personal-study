@@ -24,5 +24,5 @@ for(const i of e) {
 
 for of문은 length값을 이용하지 않고 값(value)에 접근하기 때문에 이에 따른 문제가 발생하지 않는다.
 
-(Symbol.iterator값이 있어야 for of문 실행 가능 (iterator) / symbol : 상위나 하위 객체에 영향을 받지 않는 내부 객체로서 사용가능하게 하는 역할) 
+(Symbol.iterator값이 있어야 for of문 실행 가능 (iterator라는 것을 알려줌) / symbol : 상위나 하위 객체에 영향을 받지 않는 내부 객체로서 사용가능하게 하는 역할) 
 
