@@ -49,5 +49,5 @@ document.getElementById("emoji").append(String.fromCodePoint(0x1F525)) 이렇게
  @ 
    
    String.fromCodePoint() 메소드  
-이 메소드는 쉼표로 구분되는 일련의 코드 포인트(code point)에 해당하는 문자들로 구성된 문자열을 반환합니다.
+이 메소드는 쉼표로 구분되는 일련의 코드 포인트(code point)에 해당하는 문자들로 구성된 문자열을 반환
 
