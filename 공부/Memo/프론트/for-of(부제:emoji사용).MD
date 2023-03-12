@@ -38,3 +38,10 @@ for of문은 length값을 이용하지 않고 값(value)에 접근하기 때문�
 물론 자바스크립트도 이모지 자체를 복붙하는 형태로는 들어가졌지만 문자형태로는 넣는것이 어려웠는데 그러다 발견한것이 
 
 String.fromCodePoint(0x1F525); 형태로 넣는 것이 었고 
+
+document.getElementById("emoji").append(String.fromCodePoint(0x1F525)) 이렇게 테스트 코드를 넣어본결과  
+
+ ![image](https://user-images.githubusercontent.com/97571604/224541140-fde4354c-3d8e-40aa-8e40-d2b2c80208ae.png)  
+ 
+ 이렇게 잘 나오게됐다.
+
