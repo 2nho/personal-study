@@ -44,4 +44,10 @@ document.getElementById("emoji").append(String.fromCodePoint(0x1F525)) 이렇게
  ![image](https://user-images.githubusercontent.com/97571604/224541140-fde4354c-3d8e-40aa-8e40-d2b2c80208ae.png)  
  
  이렇게 잘 나오게됐다.
+ 
+ 
+ @ 
+   
+   String.fromCodePoint() 메소드  
+이 메소드는 쉼표로 구분되는 일련의 코드 포인트(code point)에 해당하는 문자들로 구성된 문자열을 반환합니다.
 
