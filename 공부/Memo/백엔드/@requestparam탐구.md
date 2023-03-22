@@ -4,7 +4,9 @@
 
 ![requestparam3](https://user-images.githubusercontent.com/97571604/226335923-ed2370e3-b17c-4f1e-a213-eba1bf4e4ac6.PNG)
 
-coyote
+디버깅으로 확인결과  
+
+coyote라 불리는 톰캣 구조 중 웹서버에 해당하는 곳에서 request값을 찾아서 반환하는것을 볼 수 있었다.
 
 
  
