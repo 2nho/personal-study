@@ -1,0 +1,110 @@
+-[이전]-
+
+
+BEGIN
+
+	-- 전체검색
+	IF p_nSearch_Opt =0 THEN 
+	SELECT LL.member_id ,mi.employee, mi.name, IF(mi.FVEIN_DATA IS NULL, 'N','Y') AS fvein_data, LL.register_date, t.name as comp_name
+	FROM LOGON_LAST LL  
+	JOIN member_info AS mi ON mi.member_id = LL.member_id
+	JOIN texture AS t ON mi.comp = t.texture_id
+	WHERE
+	(concat(IFNULL(employee, ''), IFNULL(mi.name, '')
+	, IFNULL(t.name, '')) REGEXP p_sSearch_Text)
+	AND (DATE_FORMAT(LL.REGISTER_DATE, '%Y%m%d') BETWEEN p_sLimit_Start AND p_sLimit_Final);
+	-- 관리번호검색
+	ELSEIF (p_nSearch_Opt =1) THEN 
+	SELECT LL.member_id ,mi.employee, mi.name, IF(mi.FVEIN_DATA IS NULL, 'N','Y') AS fvein_data, LL.register_date, t.name as comp_name
+	FROM LOGON_LAST LL  
+	JOIN member_info AS mi ON mi.member_id = LL.member_id
+	JOIN texture AS t ON mi.comp = t.texture_id
+	WHERE
+	IFNULL(employee, '') REGEXP p_sSearch_Text
+	AND (DATE_FORMAT(LL.REGISTER_DATE, '%Y%m%d') BETWEEN p_sLimit_Start AND p_sLimit_Final);
+	-- 이름검색
+	ELSEIF (p_nSearch_Opt =2) THEN
+	SELECT LL.member_id ,mi.employee, mi.name,IF(mi.FVEIN_DATA IS NULL, 'N','Y') AS fvein_data, LL.register_date, t.name as comp_name
+	FROM LOGON_LAST LL  
+	JOIN member_info AS mi ON mi.member_id = LL.member_id
+	JOIN texture AS t ON mi.comp = t.texture_id
+	WHERE
+	IFNULL(mi.name, '') REGEXP p_sSearch_Text
+	AND (DATE_FORMAT(LL.REGISTER_DATE, '%Y%m%d') BETWEEN p_sLimit_Start AND p_sLimit_Final);
+	-- 사업장이름 검색
+	ELSEIF  (p_nSearch_Opt =3) THEN
+	SELECT LL.member_id ,mi.employee, mi.name, IF(mi.FVEIN_DATA IS NULL, 'N','Y') AS fvein_data, LL.register_date, t.name as comp_name
+	FROM LOGON_LAST LL  
+	JOIN member_info AS mi ON mi.member_id = LL.member_id
+	JOIN texture AS t ON mi.comp = t.texture_id
+	WHERE
+	IFNULL(t.name, '') REGEXP p_sSearch_Text
+	AND (DATE_FORMAT(LL.REGISTER_DATE, '%Y%m%d') BETWEEN p_sLimit_Start AND p_sLimit_Final);
+	END IF;
+  
+END
+
+
+
+
+-[이후1]-
+
+BEGIN
+	
+	SELECT ll.member_id ,mi.employee, mi.name, IF(mi.fvein_data IS NULL, 'N','Y') AS fvein_data
+		, ll.logon_datetime AS register_date
+		, mi.mobile
+		, t.name AS comp_name
+		, mi.dept, fn_get_texture_name(mi.dept, 'dept') AS dept_name
+		FROM logon_last ll  
+			JOIN member_info AS mi ON mi.member_id = ll.member_id
+			JOIN texture AS t ON mi.comp = t.texture_id
+		WHERE 
+			mi.fvein_data IS NOT NULL AND 
+			(	-- 전체검색
+				(p_nSearch_Opt = 0 
+				AND (concat(IFNULL(employee, ''), IFNULL(mi.name, ''), IFNULL(t.name, '')) REGEXP p_sSearch_Text)				
+				)
+			OR  -- 관리번호검색
+				(p_nSearch_Opt = 1 AND IFNULL(employee, '') LIKE concat('%', p_sSearch_Text, '%')			
+				)
+			OR  -- 이름검색
+				(p_nSearch_Opt = 2 AND IFNULL(mi.name, '') LIKE concat('%', p_sSearch_Text, '%')	
+				)
+			OR  -- 사업장이름 검색
+				(p_nSearch_Opt = 3 AND IFNULL(t.name, '') LIKE concat('%', p_sSearch_Text, '%')
+				)
+			)
+			AND (DATE_FORMAT(ll.logon_datetime, '%Y%m%d') BETWEEN p_sLimit_Start AND p_sLimit_Final)
+		AND (p_nComp = 0 OR comp = p_nComp)
+	ORDER BY ll.logon_datetime DESC, ll.member_id;
+  
+END				
+
+
+
+-[이후2]-
+
+BEGIN
+
+	IF (p_nSearch_Opt = 0) THEN	
+		CALL spd_web_sel_member_info_all(p_nSearch_Opt, p_sSearch_Text, p_bVein_Check, p_bUse_Agreement, p_nComp);	
+	END IF;
+	
+	IF (p_nSearch_Opt = 1) THEN	
+		CALL spd_web_sel_member_info_employee(p_nSearch_Opt, p_sSearch_Text, p_bVein_Check, p_bUse_Agreement, p_nComp);
+	END IF;
+
+	IF (p_nSearch_Opt = 2) THEN	
+		CALL spd_web_sel_member_info_name(p_nSearch_Opt, p_sSearch_Text, p_bVein_Check, p_bUse_Agreement, p_nComp);
+	END IF;
+
+	IF (p_nSearch_Opt = 3) THEN	
+		CALL spd_web_sel_member_info_dept(p_nSearch_Opt, p_sSearch_Text, p_bVein_Check, p_bUse_Agreement, p_nComp);
+	END IF;
+
+END
+
+이전 프로시저의 경우 호출했을때 실행계획이 매번 바뀌기 때문에 이점을 살릴 수 없다하여 [이후1], [이후2] 처럼 바꿈  
+[이후1]의 경우 where 조건에서 OR 연산자를 통해 조건을 바꿈 
+[이후2]의 경우 프로시저를 항목마다 만들어 조건별로 호출
