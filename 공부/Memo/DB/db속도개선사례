@@ -223,4 +223,4 @@ TEXTURE_ID , TEXTRUE_CODE 있는 경우
 TEXTRUE_CODE , TEXTURE_ID  <- 이렇게 해주면 (TEXTURE_CODE,TEXTURE_ID) 두개 동시로 인덱스를 탈 수 있게 하기에 속도가 더욱 빨라짐
  
 주의할점은 where 절에서 다중인덱스의 맨왼쪽부터 차례대로 사용해야 인덱스를 탄다는점 
-where texture_id 해버리면 다중 인덱스를 타지못함  where TEXTRUE_CODE는 가능  TEXTURE_ID가 없어도된다!
+where texture_id 해버리면 다중 인덱스를 타지못함  where TEXTRUE_CODE는 가능  TEXTURE_ID가 없어도된다! 
