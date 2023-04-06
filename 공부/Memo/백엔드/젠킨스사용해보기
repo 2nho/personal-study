@@ -1,1 +1,8 @@
 매번 업무할때 자동배포가 안되니 이대로는 안되겠다 싶어서 사용해보는 젠킨스 
+
+설치오류 
+오류 1 - 로그인 권한 문제 
+https://stackoverflow.com/questions/63410442/jenkins-installation-windows-10-service-logon-credentials
+
+오류2 - 재설치 시도 후 재설치안되는 문제 
+https://stackoverflow.com/questions/64308841/jenkins-failed-to-start-verify-that-you-have-sufficient-privileges-to-start-sy
