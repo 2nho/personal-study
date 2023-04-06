@@ -6,3 +6,6 @@ https://stackoverflow.com/questions/63410442/jenkins-installation-windows-10-ser
 
 오류2 - 재설치 시도 후 재설치안되는 문제 
 https://stackoverflow.com/questions/64308841/jenkins-failed-to-start-verify-that-you-have-sufficient-privileges-to-start-sy
+
+
+젠킨스 설치가 완료되면 자동으로 젠킨스 페이지가 로딩된다 하는데 ... 나는 안뜬다 고로 포트 9090으로 설정했으니 톰캣처럼 구동될거라 생각하고 localhost:9090 인터넷창에 치니 뜬다!
