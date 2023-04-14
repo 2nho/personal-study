@@ -6,4 +6,9 @@ SHOW VARIABLES LIKE 'collation_connection';
 SET collation_connection = 'utf8mb4_unicode_ci';
 
 SHOW VARIABLES LIKE 'coll%';
-UPDATE mysql.proc SET collation_connection = 'utf8mb4_unicode_ci' WHERE TYPE ='PROCEDURE' ; 
+UPDATE mysql.proc SET collation_connection = 'utf8mb4_unicode_ci' WHERE TYPE ='PROCEDURE' ;
+
+
+SELECT CONCAT('ALTER PROCEDURE ', SPECIFIC_NAME, ' COLLATE utf8mb4_unicode_ci;') AS `query`
+FROM information_schema.ROUTINES
+WHERE ROUTINE_SCHEMA = 'guardian_logon' AND ROUTINE_TYPE = 'PROCEDURE'
