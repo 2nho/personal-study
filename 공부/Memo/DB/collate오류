@@ -1,4 +1,6 @@
 해결법
+SHOW CREATE PROCEDURE spd_web_ins_notice;
+
 SHOW VARIABLES LIKE 'collation_connection';
 
 SET collation_connection = 'utf8mb4_unicode_ci';
