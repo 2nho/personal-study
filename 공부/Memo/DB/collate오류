@@ -1,1 +1,7 @@
 해결법
+SHOW VARIABLES LIKE 'collation_connection';
+
+SET collation_connection = 'utf8mb4_unicode_ci';
+
+SHOW VARIABLES LIKE 'coll%';
+UPDATE mysql.proc SET collation_connection = 'utf8mb4_unicode_ci' WHERE TYPE ='PROCEDURE' ; 
