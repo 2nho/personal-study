@@ -1,3 +1,127 @@
 apache poi라이브러리 이용
 
 enum을 이용해 엑셀 소제목 정의
+
+-- excelutil.class
+public class ExcelUtil {
+	// 엑셀로 만들 모든 데이터들의 컬럼명:엑셀헤더명 으로 맵핑
+	static private Map<String,String> keyMap = new HashMap<>();
+	
+	
+	// STATISTICS - 통계페이지
+	// MONITORING - 모니터링페이지
+	public enum Header {
+		STATISTICS(0), MONITORING(1);
+		private final int val;
+		Header(int val){this.val = val;}
+		public int getVal() {return this.val;}
+	};
+	
+	static private void init(){
+		if(keyMap.size() > 0)
+			return;
+		
+		keyMap.put("oper_day", "일시");
+		keyMap.put("item", "통계량");
+		keyMap.put("member_id", "사용자 ID");
+		keyMap.put("logon_name", "내용");
+		keyMap.put("comp", "사업장");
+		keyMap.put("mobile", "연락처");
+		keyMap.put("register_date", "로그온 시각");
+		keyMap.put("logon_code", "계정");
+		keyMap.put("remark", "비고");
+		keyMap.put("dept", "부서");
+		keyMap.put("member_name", "사용자");
+		keyMap.put("employee", "관리번호");
+		keyMap.put("success_fail", "성공유무");
+		keyMap.put("serial_number", "인증기 번호");
+		keyMap.put("mac", "MAC");
+		keyMap.put("comp_name", "사업장");
+		keyMap.put("limit_code", "제한코드");
+		keyMap.put("mobile", "연락처");
+		keyMap.put("dept_name", "부서");
+		keyMap.put("limit_remark", "제한사유");
+		keyMap.put("limit_term", "기간");
+		keyMap.put("limit_name", "제한목록");
+		keyMap.put("name", "이름");
+		keyMap.put("vein_success", "지정맥성공");
+		keyMap.put("day_change", "연장근무요청건");
+		keyMap.put("limited", "인증제한자");
+		keyMap.put("logon", "로그인");
+		keyMap.put("vein_fail", "지정맥실패");
+		keyMap.put("password_fail", "패스워드실패");
+		keyMap.put("pascal", "총인원");
+		keyMap.put("member", "사용한pc");
+		keyMap.put("lock", "인증회수초과잠금");
+		keyMap.put("password_success", "패스워드성공");
+		keyMap.put("fveinFlag","지정맥유무");
+		keyMap.put("fvein_data","지정맥유무");
+		keyMap.put("use_agreement","개인정보 동의");
+		keyMap.put("pascal_ip","IP");
+		keyMap.put("logon_version","버전");
+		keyMap.put("code_name","내용");
+		keyMap.put("logon_kind","접속정보");
+		keyMap.put("logon_status","성공유무");
+	}
+	
+	static private void createCell(Row row, int column, Object value) {
+		Cell cell = row.createCell(column);
+		if (value instanceof String) {
+		    cell.setCellValue((String) value);
+		} else if (value instanceof Integer) {
+		    cell.setCellValue((Integer) value);
+		} else if (value instanceof Date) {
+			String timestampToString = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(value);
+			cell.setCellValue(timestampToString);
+		}
+	}
+	
+	static public XSSFWorkbook exportExcel(List<List<Map>> data, Header header, String[] sheets) {
+		init();
+		//System.out.println(data); 
+		// [[{comp_name=본사임당, fveinFlag=N, use_agreement=Y, name=2301908, mobile=010***1908, dept_name=인사.총무, register_date=2023-02-15 10:08:37.0, employee=2301908}]]
+		XSSFWorkbook workbook = new XSSFWorkbook();
+		// 제일 크게는 시트 단위로 반복문을 돕니다
+		for(int sheetIdx=0; sheetIdx < sheets.length; sheetIdx++ ) {
+			// 시트 한장 만들기
+			XSSFSheet sheetXss = workbook.createSheet(sheets[sheetIdx]);
+
+			// 시트의 첫 로우, 즉 헤더가 되는 로우를 만들고 헤더의 이름들을 넣어줍니다
+			XSSFRow headerRow = sheetXss.createRow(0);
+			Iterator iter = data.get(0).get(0).keySet().iterator();
+			List<String> keys = new ArrayList<String>();
+			while(iter.hasNext()) {
+				keys.add(iter.next().toString());
+			}
+			
+			// 여기서 헤더에 이름을 keyMap에서 가져와서 입력
+			for(int i=0; i < keys.size(); i++) {
+				createCell(headerRow, i, keyMap.get(keys.get(i)));
+				//System.out.println(keyMap.get(keys.get(i)));
+			}
+				
+			// data로 전달된 값을 시트단위로 배열처럼 가져와서 아래의 for문에서 키를 가져와서 각 로우에 해당하는 키들을 입력합니다
+			List<Map> tmpList = data.get(sheetIdx); // 여기는 시트단위
+			
+			for (int rowIndex = 1; rowIndex<tmpList.size()+1; rowIndex++) {
+				Map tmpData = tmpList.get(rowIndex-1); // 여기는 로우단위
+				XSSFRow row = sheetXss.createRow(rowIndex);
+				
+				// 여기서 키를 가져와서 한칸씩 대입
+				for(int i=0; i < keys.size(); i++)
+					createCell(row, i, tmpData.get(keys.get(i)));
+			}
+		}
+		
+		// workbook은 리턴해서 response.write(workbook)을 써줍니다
+		return workbook;
+	}
+}
+
+
+
+
+-- 컨트롤러 설정
+res.setHeader("Content-Disposition", "attachment; filename=\"stat.xlsx\"");
+res.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+이렇게 해주면 바로 링크 클릭 시 엑셀파일 다운로드가 됨
