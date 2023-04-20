@@ -38,5 +38,5 @@
 
 
 이런식으로 Service name을 일단 다르게 지정 후 port 번호 redirectport 변경 
-appbase도 appBase="webapps/{변경} 이렇게 처리해줘야 동일포트로 다른 곳 접근 방지가 된다 
+appbase도 appBase="webapps/{변경} 이렇게 처리해줘야 동일포트로 다른 곳 접근 방지가 된다 - 한 포트에 하나의 프로젝트만 접근 할 수 있게가 목표
 
