@@ -6,9 +6,10 @@ SHOW VARIABLES LIKE 'collation_connection';
 SET collation_connection = 'utf8mb4_unicode_ci';
 
 SHOW VARIABLES LIKE 'coll%';
-UPDATE mysql.proc SET collation_connection = 'utf8mb4_unicode_ci' WHERE TYPE ='PROCEDURE' ;
+
+UPDATE mysql.proc SET collation_connection = 'utf8mb4_unicode_ci' WHERE TYPE ='PROCEDURE' ; -- 1.mysql.proc 설정을 업데이트 하는 방식(오류가 날 수 있으니 미리 db백업 필수)
 
 
-SELECT CONCAT('ALTER PROCEDURE ', SPECIFIC_NAME, ' COLLATE utf8mb4_unicode_ci;') AS `query`
+SELECT CONCAT('ALTER PROCEDURE ', SPECIFIC_NAME, ' COLLATE utf8mb4_unicode_ci;') AS `query` -- 2. information_schema를 이용해 쿼리문을 만든다음 그 결과값을 문서로 내보내 복사 해 한번에 실행하는 방식(1번 보다 안전 ) 
 FROM information_schema.ROUTINES
 WHERE ROUTINE_SCHEMA = 'guardian_logon' AND ROUTINE_TYPE = 'PROCEDURE'
