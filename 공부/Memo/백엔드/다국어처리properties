@@ -13,7 +13,10 @@ servelt파일
 
 
 
-/WEB-INF/properties/message
+참고 : 1. /WEB-INF/properties/message로 설정한 경우 
+      messages.properties를 먼저 찾고 없을 경우 messages_ko.properties"와 같은 지역화 된 파일을 찾음. 지역화 된 파일이 없으면 다시 기본 파일을 검색
+      
+       2. /WEB-INF/properties/message_ko, /WEB-INF/properties/message_en 두개를 리스트에 넣은 경우 ko에서 먼저 해당하는 프로퍼티 객체를 찾고 없으면 en에서 찾아서 적용
 
 - 컨트롤러
 @RestController
