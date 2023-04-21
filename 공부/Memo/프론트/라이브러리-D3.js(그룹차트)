@@ -289,7 +289,10 @@
 		 };
     
         
-        
+        참고: htl의 경우 d3.js의 기본포함된 것이 아닌 외부 플러그인!
+	import {Legend, Swatches} from "@d3/color-legend" 의 경우 observablehq 셀 내부에서만 돌아가는 코드이므로 import형식으로 쓰고 싶으면 해당 js파일을 구해서 
+	
+	import {Legend, Swatches} from "color-legend.js" 이런식으로 따로 임포트 해줘야함 (저거에 속아서 시간 허비했다..)
         
         
         
