@@ -1,7 +1,4 @@
-redirectattributes
-
-
-addFlashAttribute
+RedirectAttributes.addFlashAttribute 
 
 
 addAttribute사용시 url뒤에 파라미터가 남는 것과 F5로 새로고침시 계속 값이 남아있어 js파일에 영향을 주는 상황이라 addFlashAttribute을 사용했더니 
