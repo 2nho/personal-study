@@ -1,7 +1,7 @@
 servelt파일
 
 
-빈 생성
+-빈 생성
 <bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource" id="messageSource">
 		<property name="basenames">
 			<list>
@@ -14,3 +14,13 @@ servelt파일
 
 
 /WEB-INF/properties/message
+
+- 컨트롤러
+@RestController
+@RequestMapping("/language/*")
+public class LanguageController {
+	@RequestMapping(method = RequestMethod.GET, value = "change") // language값을 국가 코드로 둬서 new Locale(language)에 대입 후 session설정 
+	public void changeLanguage(@RequestParam String language, HttpSession session) {
+		session.setAttribute(SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME, new Locale(language));
+	}
+}
