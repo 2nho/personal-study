@@ -1,2 +1,19 @@
-아마존 유추 실패 
+아마존 페이지에서 유추 실패
+
 json형태로 받기?
+
+
+ // 언어별 JSON 파일 
+        const lang = {
+            en: {
+                title: "Hello.",
+                content: "This",
+                now_sys_lang: "System "
+            },
+            ko: {
+                title: "안녕.",
+                content: "여기.",
+                now_sys_lang: "시스템"
+            }
+
+그러나 이 방식말고 properties파일로 기존에 구현된 것이 있어서 그것을 수정해서 구현했다. 프론트에서 처리하는 방식은 다음번에 다시 도전
