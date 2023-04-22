@@ -1,0 +1,33 @@
+포트포워딩없이 내 로컬pc에서 만든 프로젝트를 외부에서 접근할 수 있게 만들 때 좋은 툴 (보안상으로도 더 안전) 
+
+https://ngrok.com/ 에서 다운로드
+
+
+ngrok http [open with live server의 포트번호]
+
+회원가입 후 AuthToken 발급 
+
+
+ 토큰 추가방식
+1.ngrok http 8081 -authtoken [토큰 값]    = 일회성 
+
+
+2.ngrok authtoken [auth_token]   = 영구적으로 해당 
+
+
+
+-- chat gpt가 알려준 방식  3번의 경우 공식문서에 나오는데 나머지 둘은 블로그 말고는 안나온다 ..
+1.ngrok http [port] -authtoken [token]
+
+명령어 실행 시 AUTHTOKEN 값을 포함해 터미널에서 실행합니다.
+터미널에서 ngrok을 실행할 때마다 AUTHTOKEN 값을 설정해야 합니다.
+
+2.ngrok authtoken [token]
+
+이미 AUTHTOKEN 값을 설정한 경우, 터미널에서 ngrok을 실행할 때마다 AUTHTOKEN 값을 설정할 필요 없이 해당 명령어를 실행하여 AUTHTOKEN 값을 적용합니다.
+단, 터미널을 종료하고 다시 열 경우 AUTHTOKEN 값이 초기화됩니다.
+
+3.ngrok config add authtoken [token]
+
+ngrok 구성 파일에 AUTHTOKEN 값을 추가합니다.
+해당 방식으로 설정한 AUTHTOKEN 값은 영구적으로 유지됩니다.
