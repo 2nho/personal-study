@@ -1,0 +1,15 @@
+포트포워딩없이 내 로컬pc에서 만든 프로젝트를 외부에서 접근할 수 있게 만들 때 좋은 툴 (보안상으로도 더 안전) 
+
+https://ngrok.com/ 에서 다운로드
+
+
+ngrok http [open with live server의 포트번호]
+
+회원가입 후 AuthToken 발급 
+
+
+ 토큰 추가방식
+1.ngrok http 8081 -authtoken [토큰 값]    = 일회성 
+
+
+2.ngrok authtoken [auth_token]   = 영구적으로 해당 
