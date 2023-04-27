@@ -96,3 +96,5 @@ function PieChart(data, {
 
   return Object.assign(svg.node(), {scales: {color}});
 }
+
+// 모든 값이 0 일 경우 차트 모양 오류 수정 필요 
