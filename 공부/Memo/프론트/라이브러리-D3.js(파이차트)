@@ -16,10 +16,10 @@ function PieChart(data, {
   height = 150, // outer height, in pixels
   innerRadius = 0, // inner radius of pie, in pixels (non-zero for donut)
   outerRadius = Math.min(width, height) / 2, // outer radius of pie, in pixels
-  labelRadius = (innerRadius * 0.2 + outerRadius * 0.6), // center radius of labels  // 가운데로 나타내기 위해 0.8 에서 => 0.6 으로 변경 
+  labelRadius = (innerRadius * 0.2 + outerRadius * 0.6), // center radius of labels
   format = ",", // a format specifier for values (in the label)
   names, // array of names (the domain of the color scale)
-  colors, // array of colors for names
+  colors = ['#F1F6F9','#394867'], // array of colors for names
   stroke = innerRadius > 0 ? "none" : "white", // stroke separating widths
   strokeWidth = 1, // width of stroke separating wedges
   strokeLinejoin = "round", // line join of stroke separating wedges
@@ -31,16 +31,15 @@ function PieChart(data, {
   const I = d3.range(N.length).filter(i => !isNaN(V[i]));
 
   // Unique the names.
-  if (names === undefined) names = N;
-  names = new d3.InternSet(names);
-
+  names = N;
+  
   // Chose a default color scheme based on cardinality.
-  if (colors === undefined) colors = d3.schemeSpectral[names.size];
-  if (colors === undefined) colors = d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), names.size);
+  if (colors === undefined) colors = d3.schemeSpectral[2];
+  if (colors === undefined) colors = d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), 2);
 
   // Construct scales.
   const color = d3.scaleOrdinal(names, colors);
-
+  console.log(color(N["성공"]))
   // Compute titles.
   if (title === undefined) {
     const formatValue = d3.format(format);
@@ -60,7 +59,41 @@ function PieChart(data, {
       .attr("height", height)
       .attr("viewBox", [-width / 2, -height / 2, width, height])
       .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
-
+  
+  if (d3.sum(V) === 0) {
+	  const half = d3.pie().padAngle(padAngle).sort(null).value(() => 0.5)([0, 0]); // 임의로 value가 0일경우 왼쪽 , 오른쪽 반반 그려지게정수정
+	  svg.append("g")
+	      .attr("stroke", stroke)
+	      .attr("stroke-width", strokeWidth)
+	      .attr("stroke-linejoin", strokeLinejoin)
+	    .selectAll("path")
+	    .data(half)
+	    .join("path")
+	      .attr("fill", (_, i) => colors[i])
+	      .attr("d", arc);
+	  
+	  svg.append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "middle")
+    .selectAll("text")
+    .data(arcs)
+    .join("text")
+     .attr("transform", (d, i) => `translate(${(i === 0 ? 1 : -1) * (width / 4)}, 0)`)
+    .selectAll("tspan")
+    .data(d => {
+      const lines = `${title(d.data)}`.split(/\n/);
+      return lines;
+    })
+    .join("tspan")
+      .attr("x", 0)
+      .attr("y", (_, i) => `${i * 1.1}em`)
+      .attr("font-weight", (_, i) => i ? null : "bold")
+      .attr("font-size", 13)
+      .text(d => d);
+	  return Object.assign(svg.node(), {scales: {color}});
+	}
+  
   svg.append("g")
       .attr("stroke", stroke)
       .attr("stroke-width", strokeWidth)
@@ -84,7 +117,7 @@ function PieChart(data, {
     .selectAll("tspan")
     .data(d => {
       const lines = `${title(d.data)}`.split(/\n/);
-      /*return (d.endAngle - d.startAngle) > 0.25 ? lines : lines.slice(0, 1);*/ // 0일 경우 숫자가 나타나지 않으므로 주석처리 
+      /*return (d.endAngle - d.startAngle) > 0.25 ? lines : lines.slice(0, 1);*/ // 0일 경우 숫자가 나오지 않으므로 주석처리 
       return lines;
     })
     .join("tspan")
@@ -95,6 +128,4 @@ function PieChart(data, {
       .text(d => d);
 
   return Object.assign(svg.node(), {scales: {color}});
-}
-
-// 모든 값이 0 일 경우 차트 모양 오류 수정 필요 
+};
