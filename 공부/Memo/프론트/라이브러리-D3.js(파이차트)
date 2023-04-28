@@ -9,18 +9,18 @@ chart = PieChart([{"name":"성공","value":1},{"name":"실패","value":5}], {
 파이차트 생성함수 
 
 function PieChart(data, {
-  name = ([x]) => x,  // given d in data, returns the (ordinal) label
-  value = ([, y]) => y, // given d in data, returns the (quantitative) value
-  title, // given d in data, returns the title text
-  width = 150, // outer width, in pixels
-  height = 150, // outer height, in pixels
+  name = ([x]) => x,  // key값
+  value = ([, y]) => y, // value 값
+  title, // 타이틀
+  width = 150,  
+  height = 150, 
   innerRadius = 0, // inner radius of pie, in pixels (non-zero for donut)
   outerRadius = Math.min(width, height) / 2, // outer radius of pie, in pixels
   labelRadius = (innerRadius * 0.2 + outerRadius * 0.6), // center radius of labels
   format = ",", // a format specifier for values (in the label)
   names, // array of names (the domain of the color scale)
-  colors = ['#F1F6F9','#394867'], // array of colors for names
-  stroke = innerRadius > 0 ? "none" : "white", // stroke separating widths
+  colors = ['#F1F6F9','#394867'], // array of colors for names // 컬러스케일에서 선택안하고 원하는 색상 지정
+  stroke = innerRadius > 0 ? "none" : "white", // stroke separating widths 항목 구분선
   strokeWidth = 1, // width of stroke separating wedges
   strokeLinejoin = "round", // line join of stroke separating wedges
   padAngle = stroke === "none" ? 1 / outerRadius : 0, // angular separation between wedges
