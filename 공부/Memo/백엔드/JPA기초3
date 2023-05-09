@@ -45,7 +45,7 @@ public class BasicJpaApplication {
 
             System.out.println("Check 6");
 
-            // 실제 DB에 반영
+            // 실제 DB에 반영!!
             entityTransaction.commit();
 
             System.out.println("Check 7");
