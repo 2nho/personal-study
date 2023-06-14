@@ -1,0 +1,25 @@
+# emsdk 클론
+git clone https://github.com/emscripten-core/emsdk.git
+(나의 경우에는 https://github.com/emscripten-core/emsdk/tags로 직접가서 zip파일을 받았다.)
+
+# 디렉토리 이동
+cd emsdk
+
+1.emcmdprompt.bat 실행해서 해당 cmd안에서 명령어를 입력하는 방법
+2.초기 cmd로 진행한 경우 cmd에서 cmdemsdk_env.bat을 실행하면 1과 같음 
+
+
+
+
+#include <stdio.h>
+
+int main(int argc, char ** argv) {
+    printf("Hello World\n");
+}
+
+위 내용을 hello.c  파일로 만듬
+
+이후 cmd에서 emcc hello.c -s WASM=1 -o hello.html 명령어 실행 
+그러면 hello.wasm, hello.js, hello.html 세개의 파일이 생긴다.
+
+그냥 hello.html을 실행할 경우 cors 오류가 뜨므로  크롬의 경우 속성에서 대상 경로에 --disable-web-security --disable-gpu --user-data-dir=~/tmp 을 추가하면 문제없이 수행된다.

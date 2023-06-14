@@ -1,5 +1,0 @@
-# emsdk 클론
-git clone https://github.com/emscripten-core/emsdk.git
-
-# 디렉토리 이동
-cd emsdk
