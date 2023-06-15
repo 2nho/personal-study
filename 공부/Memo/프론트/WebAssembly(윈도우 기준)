@@ -22,4 +22,4 @@ int main(int argc, char ** argv) {
 이후 cmd에서 emcc hello.c -s WASM=1 -o hello.html 명령어 실행 
 그러면 hello.wasm, hello.js, hello.html 세개의 파일이 생긴다.
 
-그냥 hello.html을 실행할 경우 cors 오류가 뜨므로  크롬의 경우 속성에서 대상 경로에 --disable-web-security --disable-gpu --user-data-dir=~/tmp 을 추가하면 문제없이 수행된다.
+그냥 hello.html을 실행할 경우 cors 오류가 뜨므로 크롬의 경우 속성에서 대상 경로에 --disable-web-security --disable-gpu --user-data-dir=~/tmp 을 추가하면 문제없이 수행된다.
