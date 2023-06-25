@@ -1,5 +1,5 @@
 # personal-study - 메모 
-개인공부기록용
+개인공부기록
 
 ### git bash - $git push origin +master 실수(22/05/01 초기화) 주의!
 
