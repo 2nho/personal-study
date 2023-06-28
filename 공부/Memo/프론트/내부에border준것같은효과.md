@@ -1,4 +1,4 @@
-기존 border 사용 시   (틈이 벌어진게 보인다 파란색참고)
+기존 border 사용 시   (틈이 벌어진게 보인다 파란색참고)  
 ![image](https://github.com/2nho/personal-study/assets/97571604/a43ef270-9dfb-42dc-b798-8ff250264839)
 
 ![image](https://github.com/2nho/personal-study/assets/97571604/ccf879d1-3a67-4adb-a97f-b9219b8821e0)
