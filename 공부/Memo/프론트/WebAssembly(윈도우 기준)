@@ -26,4 +26,4 @@ int main(int argc, char ** argv) {
 
 
 ---------------
-cpp, h파일 이용하기
+cpp, h파일 이용해서 자바스크립트 돌리기
