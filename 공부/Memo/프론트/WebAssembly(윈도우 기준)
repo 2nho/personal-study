@@ -27,3 +27,7 @@ int main(int argc, char ** argv) {
 
 ---------------
 cpp, h파일 이용해서 자바스크립트 돌리기
+
+cpp include 어떻게 포함?? 
+
+cpp h 로 나뉜걸 cpp만 컴파일 해도 될까?
