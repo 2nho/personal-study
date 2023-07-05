@@ -26,6 +26,10 @@ int main(int argc, char ** argv) {
 
 
 ---------------
+위의 방식은 main 메소드 처럼 바로 실행되는 코드
+
+내가필요한 방식은 버튼 클릭 시 이벤트 발샟 => ccall, cwrap 사용
+
 cpp, h파일 이용해서 자바스크립트 돌리기
 
 cpp include 어떻게 포함?? 
