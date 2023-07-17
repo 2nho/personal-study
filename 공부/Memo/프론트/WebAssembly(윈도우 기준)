@@ -43,3 +43,9 @@ cpp만 해도 emcc로 컴파일 할 때 알아서 h헤더파일 가져옴
 프로젝트 자체를 한번에 빌드 하는 방법을 찾아보려 했으나 존재하는거 같지 않고 emcc 명령어를 통해 일일이 해줘야 하나싶음
 
 mfc껴 있는 코드의 경우 빌드안됨
+
+----------------------
+
+mfc 코드 주석처리 한 후 
+기존 시스템파일을 일일이 복사해서 가져와서 현재 디렉토리에 넣었는데 그렇게 할 필요없이 -I옵션을 통해 시스템 경로 라이브러리 지정 가능 , -I 여러번 지정해서 경로 명시 가능  
+emcc -I"C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um" CBaseDevice.cpp -o test.html
