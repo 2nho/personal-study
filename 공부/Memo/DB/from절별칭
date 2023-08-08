@@ -1,0 +1,17 @@
+
+select a, b, c 
+from(서브쿼리 ~)  as 별칭 필수  
+
+질문 키워드
+sql server from subquery why need alias 
+
+
+every subquery in the FROM need to have alias name inSQL
+
+You have to define so you can add further constraints to your query. otherwise, your DB Engine willn't know how to refer to the subquery.
+
+We can think of the subquery result as a new table, but this table has no name, so give him an alias.
+
+
+참고 url = https://stackoverflow.com/questions/52616939/t-sql-why-does-this-subquery-need-an-alias
+           https://stackoverflow.com/questions/14767209/subquery-in-from-must-have-an-alias
