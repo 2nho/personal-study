@@ -1,0 +1,53 @@
+
+
+-- 초기 생각:  if문안에  if문 가능하겠지 안됨
+쿼리의 조건절에서 직접 사용할 수 없음
+
+BEGIN
+	IF 조건1 THEN 
+		실행문
+		WHERE 조건2 AND
+		IF 조건3 THEN a.class_id = p_nComp
+		END IF;
+	ELSE  
+	 "다른 실행 쿼리" 
+END;
+
+
+
+
+-- 두번째 생각 : case문 사용 - 오류발생 
+
+BEGIN
+	IF 조건1 THEN 
+		실행문
+		WHERE 조건2 
+		CASE WHEN 조건3 THEN  AND 조건4            -- 오류 나는 원인  TEHN 다음 바로 AND 논리연산자 사용 ( 스프링 MYBATIS동적쿼리 사용하다 프로시저로 변경하려하니 이질감 느끼지 못했음 - MYBATIS에서는 단순히 문자열 형태로 이어주었기 때문)
+		END IF;                                       + 논리연산자는 피연산자를 비교하기 때문에 AND의 좌측 THEN과 비교연산자체가 성립x    
+	ELSE  
+	 "다른 실행 쿼리" 
+END;
+
+= > 변경 후 
+BEGIN
+	IF 조건1 THEN 
+		실행문
+		WHERE 조건2  AND   -- and 를 이곳에 위치시키기 그럼 성립!
+		CASE WHEN 조건3 THEN 조건4            
+		END IF;                                  
+	ELSE  
+	 "다른 실행 쿼리" 
+END;
+
+
+
+-- 세번째 개선  : case문이 아닌 논리연산자로만 구성 
+BEGIN
+	IF 조건1 THEN 
+		실행문
+		WHERE 조건2
+    AND(조건3 OR 조건4) -- 변경부분
+		END IF;                                  
+	ELSE  
+	 "다른 실행 쿼리" 
+END;
