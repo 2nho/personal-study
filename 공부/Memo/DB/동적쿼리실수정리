@@ -46,7 +46,7 @@ BEGIN
 	IF 조건1 THEN 
 		실행문
 		WHERE 조건2
-    AND(조건3 OR 조건4) -- 변경부분
+    		AND(조건3 OR 조건4) -- 변경부분
 		END IF;                                  
 	ELSE  
 	 "다른 실행 쿼리" 
