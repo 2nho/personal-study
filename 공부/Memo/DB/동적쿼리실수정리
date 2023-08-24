@@ -3,7 +3,20 @@
 -- 초기 생각:  if문안에  if문 가능하겠지? 안됨X
 쿼리의 조건절에서 직접 사용할 수 없음
 (의문인것은 mysql , mariadb 공식문서에서 case와 if 두개의 차이에 대해 명확히 설명하는 부분이 없다 case는 조건절에 사용가능한데 if는 사용할 수 없다는 사실이 공식문서에는 없다. 그저 statement_list를 실행한다고만 되어있다.)
+ 
+$공식문서상 if 설명
+IF search_condition THEN statement_list
+    [ELSEIF search_condition THEN statement_list] ...
+    [ELSE statement_list]
+END IF
 
+$공식문서상 case 설명
+CASE
+    WHEN search_condition THEN statement_list
+    [WHEN search_condition THEN statement_list] ...
+    [ELSE statement_list] 
+END CASE
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 BEGIN
 	IF 조건1 THEN 
 		실행문
