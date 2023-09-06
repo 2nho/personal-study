@@ -22,3 +22,5 @@
 
 ![image](https://github.com/2nho/personal-study/assets/97571604/d0dc0eec-99e1-4c5b-a108-af0e76555c5c)
 
+++ 추가로 더 해보니 더욱 모르겠음 백스페이스로 글자를 지울 때 제대로 안지워져 글자가 남아있기도 하고 중구난방..
+![image](https://github.com/2nho/personal-study/assets/97571604/5fd2e980-c002-4ad8-8302-14fcadbaf683)
