@@ -27,3 +27,5 @@
 
 
 반칸 남기면 물음표는 맞는거 같고 지웠던 찌꺼기 글자가 나타는 경우는 잘모르겠음..
+
+![image](https://github.com/2nho/personal-study/assets/97571604/b9f140bd-a5db-4df3-a012-da89f3623945)
