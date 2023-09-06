@@ -16,3 +16,9 @@
 
 
 우분투 참고 사이트 https://depotceffio.tistory.com/entry/%EC%9A%B0%EB%B6%84%ED%88%AC%EC%97%90-%EC%95%84%ED%8C%8C%EC%B9%98-%EC%B9%B4%ED%94%84%EC%B9%B4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0
+
+
+토픽삭제  
+
+![image](https://github.com/2nho/personal-study/assets/97571604/d0dc0eec-99e1-4c5b-a108-af0e76555c5c)
+
