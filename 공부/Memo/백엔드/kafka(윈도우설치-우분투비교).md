@@ -53,11 +53,12 @@ start "Kafka" C:\Users\2nho\Desktop\kafka\bin\windows\kafka-server-start.bat C:\
 @echo off
 start "ZooKeeper" cmd /c "start_zookeeper.bat"
 
-timeout /t 5
+timeout /t 10
 
 start "Kafka" cmd /c "start_kafka.bat"
 ```
-
+++ 추가 옵션 /nobreak 을 사용하게 되면 ping처럼 기다렸다가 실행이됨 start로 시작하는 명령어가 timeout일 때 키를 누르는 행위로 인식되는게 맞는거 같음
+timeout /t 10 /nobreak
 
 종료하는 명령어
 ```
