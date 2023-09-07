@@ -29,3 +29,31 @@
 반칸 남기면 물음표는 맞는거 같고 지웠던 찌꺼기 글자가 나타는 경우는 잘모르겠음..
 
 ![image](https://github.com/2nho/personal-study/assets/97571604/b9f140bd-a5db-4df3-a012-da89f3623945)
+
+
+++ 추가시도
+우분투의 경우 서비스를 올리면 됐는데 윈도우는 서비스를 올려도 잘안되서 배치파일로 일단 서버 켜는 작업이라도 단순화 하기위해 
+kafkaServer.bat파일 만듬
+```
+@echo off
+
+rem ZooKeeper를 실행
+start "ZooKeeper" C:\Users\2nho\Desktop\kafka\bin\windows\zookeeper-server-start.bat C:\Users\2nho\Desktop\kafka\config\zookeeper.properties
+
+rem ping 10번 = 10초  
+ping 127.0.0.1 -n 10 > nul
+
+
+rem Kafka를 실행
+start "Kafka" C:\Users\2nho\Desktop\kafka\bin\windows\kafka-server-start.bat C:\Users\2nho\Desktop\kafka\config\server.properties
+```
+
+초기 아래와 같이 timeout으로 시도했으나 먹히지 않아 다른 방법(위의 방법)을 찾음 timeout이 왜안되는지에 대해서는 명확한 이유를 찾진 못함. start로 시작하는 명령어는 새로운 cmd창을 열기 때문인가? 생각 정도  
+```
+@echo off
+start "ZooKeeper" cmd /c "start_zookeeper.bat"
+
+timeout /t 5
+
+start "Kafka" cmd /c "start_kafka.bat"
+```
