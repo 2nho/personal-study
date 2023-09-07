@@ -57,3 +57,11 @@ timeout /t 5
 
 start "Kafka" cmd /c "start_kafka.bat"
 ```
+
+
+종료하는 명령어
+```
+@echo off
+start "StopZooKeeper" cmd /c C:\Users\2nho\Desktop\kafka\bin\windows\zookeeper-server-stop.bat
+start "StopKafka" cmd /c C:\Users\2nho\Desktop\kafka\bin\windows\kafka-server-stop.bat
+```
