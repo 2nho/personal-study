@@ -66,3 +66,6 @@ timeout /t 10 /nobreak
 start "StopZooKeeper" cmd /c C:\Users\2nho\Desktop\kafka\bin\windows\zookeeper-server-stop.bat
 start "StopKafka" cmd /c C:\Users\2nho\Desktop\kafka\bin\windows\kafka-server-stop.bat
 ```
+
+
+++ 자바로 실행 시 한글오류안남 윈도우 cmd창에서만 인코딩오류 발생 
