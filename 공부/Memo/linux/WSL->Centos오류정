@@ -1,0 +1,10 @@
+systemctl restart mariadb 명령어 실행 시 
+
+Failed to get D-Bus connection: Operation not permitted 오류 발생
+- 이유 데스크톱에 직접적으로 설치된 게 아니라 D-bus연결이 불가능하다고 함
+
+
+
+해결방안 참고
+
+https://github.com/DDoSolitary/LxRunOffline/issues/88
