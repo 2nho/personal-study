@@ -7,3 +7,6 @@ CentOs가 깔린 컴퓨터에서 로컬로 접속 시 denined 오류가 떠서
 
 
 참고 https://mariadb.com/kb/en/troubleshooting-connection-issues/#localhost-and
+
+
+위 방법 또는 해당 사용자에게 권한을 localhost로 추가 지정해줘도 됨!
