@@ -69,3 +69,6 @@ start "StopKafka" cmd /c C:\Users\2nho\Desktop\kafka\bin\windows\kafka-server-st
 
 
 ++ 자바로 실행 시 한글오류안남 윈도우 cmd창에서만 인코딩오류 발생 
+
+이클립스 터미널로 utf-8로 설정해서 열어도 오류 
+server프로퍼티 파일을 인코딩 명시해도 오류..
