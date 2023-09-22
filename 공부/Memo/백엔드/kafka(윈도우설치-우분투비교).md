@@ -72,3 +72,13 @@ start "StopKafka" cmd /c C:\Users\2nho\Desktop\kafka\bin\windows\kafka-server-st
 
 이클립스 터미널로 utf-8로 설정해서 열어도 오류 
 server프로퍼티 파일을 인코딩 명시해도 오류..
+
+
+시도한 방법
+1. chcp 65001로 커맨드창 인코딩 utf-8로 변경
+2. 지역 언어 설정 utf-8 설정
+3. 커맨드 창에서 --property stringserialilzer 명시
+4. key.value 인코딩 utf-8 명시
+5. 이클립스에서 터미널창 utf-8로 뜨워서 해보기
+6. server 프로퍼티에 utf-8명시하기
+전부실패
