@@ -81,4 +81,7 @@ server프로퍼티 파일을 인코딩 명시해도 오류..
 4. key.value 인코딩 utf-8 명시
 5. 이클립스에서 터미널창 utf-8로 뜨워서 해보기
 6. server 프로퍼티에 utf-8명시하기
+7. PS C:\> $OutputEncoding = [System.Console]::OutputEncoding = [System.Console]::InputEncoding = [System.Text.Encoding]::UTF8  
+PS C:\> $PSDefaultParameterValues['*:Encoding'] = 'utf8'  
+명령어통해 utf8변경  
 전부실패
