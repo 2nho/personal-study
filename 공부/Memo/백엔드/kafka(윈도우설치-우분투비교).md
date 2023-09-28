@@ -85,3 +85,14 @@ server프로퍼티 파일을 인코딩 명시해도 오류..
 PS C:\> $PSDefaultParameterValues['*:Encoding'] = 'utf8'  
 명령어통해 utf8변경  
 전부실패
+
+
+![image](https://github.com/2nho/personal-study/assets/97571604/919903f7-5941-4031-a43c-0c39cdfcb332)  
+OUTPUTENCODING , INPUTENCODING 둘다 UTF-8 이여도 여전히 한글깨짐
+
+intl.cpl 실행 후 utf-8로 시스템을 바꿔도 안됨
+![image](https://github.com/2nho/personal-study/assets/97571604/3a4fc962-c1b9-4df1-94ea-8d91c126b2a3)
+ 
+
+
+
