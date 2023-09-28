@@ -92,6 +92,10 @@ OUTPUTENCODING , INPUTENCODING 둘다 UTF-8 이여도 여전히 한글깨짐
 
 intl.cpl 실행 후 utf-8로 시스템을 바꿔도 안됨
 ![image](https://github.com/2nho/personal-study/assets/97571604/3a4fc962-c1b9-4df1-94ea-8d91c126b2a3)
+
+git bash 사용해서 하면 잘들어가짐
+ ![image](https://github.com/2nho/personal-study/assets/97571604/8bee8b5d-e19a-46df-8cc8-5132c7fd5487)
+
  
 
 
