@@ -96,7 +96,19 @@ intl.cpl 실행 후 utf-8로 시스템을 바꿔도 안됨
 git bash 사용해서 하면 잘들어가짐
  ![image](https://github.com/2nho/personal-study/assets/97571604/8bee8b5d-e19a-46df-8cc8-5132c7fd5487)
 
+
+
+참고
+ https://stackoverflow.com/questions/49016189/windows-10-cli-utf-8-encoding
  
+ https://hyuckkim.tistory.com/30
+
+
+ 윈도우 파워쉘 및 cmd창의 경우 아직은 utf-8입력에 대해 완벽히 지원하지 못하는거 같다.
+ 근데 `add-Content 1.txt 한글넣어지나` 하게되면  정상적으로 또 한글이 텍스트파일에 저장된다..
+
+
+
 
 
 
