@@ -110,6 +110,25 @@ git bash 사용해서 하면 잘들어가짐
 
 
 
+추가
+
+![image](https://github.com/2nho/personal-study/assets/97571604/bf76986c-5a7f-4235-8207-c69ab15935f1)
+
+파워쉘 코어는 utf-8을 기본사용하는데 왜 안될까 싶어 일단 이모지가 되나 확인해보니 된다. 
+그러면 producer.bat을 실행해서 넣을수도 있을까?
+시도해본결과 애초에 인코딩깨져서 들어가진다 
+
+-- 여기서 혹시하고 윈도우 cmd에 이모지 입력해보니 동일하게 깨지는걸 봐서 카프카 bat 실행 시 기본적으로 cmd를 이용하는것 같다 생각이든다. 
+
+그래서 시스템환경변수편집에서 comspec변수를 %SystemRoot%\system32\cmd.exe에서 파워쉘 코어 경로로 변경했는데 
+
+![image](https://github.com/2nho/personal-study/assets/97571604/9871bd6c-3519-482f-8c73-1e697410ce0a)
+
+이렇게 바로 깨지는걸로 봐서 기본 cmd를 이용하는게 맞는거로 추측된다.
+
+
+
+
 
 
 
