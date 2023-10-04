@@ -131,6 +131,7 @@ git bash 사용해서 하면 잘들어가짐
 
 깃허브에서 윈도우 터미널 최신버전 다운받고 실행했더니 된다.. 최신 터미널 버전에서 utf-8 기본 인코딩 설정으로 잘 업데이트 되었나보다
 
+![image](https://github.com/2nho/personal-study/assets/97571604/3d5c514b-85c4-418a-ae28-6a89e1f53ff9)
 
 
 
