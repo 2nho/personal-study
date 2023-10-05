@@ -138,6 +138,11 @@ git bash 사용해서 하면 잘들어가짐
 
 ![image](https://github.com/2nho/personal-study/assets/97571604/3d5c514b-85c4-418a-ae28-6a89e1f53ff9)
 
+추가 + 
+터미널로만 실행하면 cmd창으로 카프카 실행되도 상관없이 잘나온다
+
+![image](https://github.com/2nho/personal-study/assets/97571604/fb23b8ad-9721-4f61-a2a5-76adba066f39)
+
 
 
 
