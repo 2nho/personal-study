@@ -146,3 +146,7 @@ git bash 사용해서 하면 잘들어가짐
 
 
 
+총정리 
+파워쉘 코어 버전에 터미널 1.18이후 버전 설치하면 무난히 이모지등의 utf-8 설치 가능 
+파워쉘 5.1 버전의 경우
+$OutputEncoding = [System.Console]::OutputEncoding = [System.Console]::InputEncoding = [System.Text.Encoding]::UTF8 입력하거나 ps1파일에 입력필수
