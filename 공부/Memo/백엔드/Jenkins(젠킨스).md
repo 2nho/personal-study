@@ -44,4 +44,5 @@ webhook = 이벤트 발생시에 빌드! 주기적으로 확인 안함
 
 ![image](https://user-images.githubusercontent.com/97571604/236636337-20485fd2-2856-445b-ab16-ea67dc8a5f6d.png)
 
+스크립트 작성
 
