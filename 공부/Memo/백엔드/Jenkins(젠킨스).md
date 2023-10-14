@@ -27,7 +27,7 @@ https://stackoverflow.com/questions/64308841/jenkins-failed-to-start-verify-that
 
 일단 빌드는 실행되는데 또 다른 오류가 뜬다..  
 
-bulid.xml이 없다고 뜨는데 나는 단순 젠킨스 테스트하기 위해 다니아믹 웹 프로젝트로 생성만해서 build.xml 파일을 따로 작성해줘여 했나보다 
+bulid.xml이 없다고 뜨는데 나는 단순 젠킨스 테스트하기 위해 다이나믹 웹 프로젝트로 생성만해서 build.xml 파일을 따로 작성해줘여 했나보다 
 
 하지만 일반적인 프로젝트들은 maven이나 gradle이니까 maven 프로젝트로 변경 후 재시도 해야겠다
 
@@ -44,5 +44,5 @@ webhook = 이벤트 발생시에 빌드! 주기적으로 확인 안함
 
 ![image](https://user-images.githubusercontent.com/97571604/236636337-20485fd2-2856-445b-ab16-ea67dc8a5f6d.png)
 
-스크립트 작성
+-- 의문 로컬서버에서는 webhook과 같은 작업은 못할까..?
 
