@@ -71,3 +71,6 @@ public class DebeziumConfig {
 ![image](https://github.com/2nho/personal-study/assets/97571604/cb241399-4073-4bb6-979b-9d38116efb90)
 
 이렇게 로그뜨는걸 보면 제대로 되는걸 확인할 수 있다.
+
+
+DB에서 특정 데이터베이스 및 테이블만을 CDC하고 싶다면 RelationalDatabaseConnectorConfig 클래스를 확인 !
