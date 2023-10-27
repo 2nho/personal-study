@@ -66,3 +66,8 @@ public class DebeziumConfig {
 }
 
 ```
+실행하면  
+
+![image](https://github.com/2nho/personal-study/assets/97571604/cb241399-4073-4bb6-979b-9d38116efb90)
+
+이렇게 로그뜨는걸 보면 제대로 되는걸 확인할 수 있다.
