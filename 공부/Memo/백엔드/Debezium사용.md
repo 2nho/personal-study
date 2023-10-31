@@ -43,7 +43,7 @@ public class DebeziumConfig {
 		props.setProperty("database.dbname", "demo");
 		props.setProperty("database.history", "io.debezium.relational.history.FileDatabaseHistory");
 		props.setProperty("database.history.file.filename", dbHistoryTempFile.getAbsolutePath());
-
+		// whitelist => 사라질예정 , include.list 사용
 		// Create the engine with this configuration ...
 		try (DebeziumEngine<ChangeEvent<String, String>> engine = DebeziumEngine.create(Json.class).using(props)
 				.notifying(record -> {
