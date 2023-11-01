@@ -46,3 +46,5 @@ webhook = 이벤트 발생시에 빌드! 주기적으로 확인 안함
 
 -- 의문 로컬서버에서는 webhook과 같은 작업은 못할까..?
 
+pollingScm 폴링방식 cronetab 스케쥴
+
