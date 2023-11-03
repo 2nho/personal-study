@@ -39,3 +39,32 @@ xml 구성 시
 context:component-scan 만 잘되어있다면 오류안남  종속성X - + <mvc:default-servlet-handler /> ,  <mvc:resources location="/" mapping="/**"></mvc:resources> 도 없어야 오류 안남
 
 하지만 .do를 / 로 바꾸려면 mvc:resources가 필요하기 때문에 mvc:annotation-driven 이 있어야 정상작동한다.
+
+
+
+
+
+++2023-11-03 추가 
+
+servlet 설정  
+
+웹 레이어어 관련된 Controller만 등록
+```
+<context:component-scan base-package="guardian" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<!-- <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/> -->
+	</context:component-scan>
+```
+
+context 설정
+비즈니스 로직과 데이터 액세스 계층 
+use-default-filters 생략시 true 설정으로 어노테이션 빈들 자동등록 
+
+! Controller만 제외시키기 
+
+```
+<context:component-scan base-package="guardian">
+		<context:exclude-filter type="annotation"	expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+```
