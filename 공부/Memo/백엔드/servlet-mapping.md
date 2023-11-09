@@ -14,3 +14,12 @@ uri 주소를 만들기 위해 기존 프로젝트 uri주소들이 .do로 되어
 2차적으로 설정된 경로에서 탐색하는 것!
  
 <mvc:annotation-driven /> 도 필수 !
+
+
+
+RequestMappingHandlerMapping은 서블릿 매핑이 "/path/*" 형식이면, "/path" 이후 부분을 사용해서 컨트롤러 검색  
+따라서 컨트롤러에서 경로상 .do를 생략해도 해당 경로를 찾아감 (<url-pattern>*.do</url-pattern> 일 경우)
+
+요청 URL	서블릿 매핑 URL 패턴	컨트롤러 매핑 경로
+       요청 URL                 서블릿매핑 URL패턴    컨트롤러 매핑 경로 
+/프로젝트명/path/list.do	            /path/*	       /list 또는 /list.do
