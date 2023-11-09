@@ -1,5 +1,7 @@
-<url-pattern>.do</url-pattern> 가 아닌 restful 한 (+내가 뒤에 확장자가 없는 깔끔한 uri 를 좋아하는 점)  
+<url-pattern>.do</url-pattern> 가 아닌 restful 한 (+내가 뒤에 확장자가 없는 깔끔한 uri 를 좋아하는 점) 
+
 uri 주소를 만들기 위해 기존 프로젝트 uri주소들이 .do로 되어있는 걸   
+
 <url-pattern>/</url-pattern> 로 변경 하였다.  
 
 이때 / 가 아닌 /*으로 설정할 경우 톰캣 web.xml의 jsp servlet도 덮어 씌워지기 때문에 /를 쓰며  
@@ -17,9 +19,9 @@ uri 주소를 만들기 위해 기존 프로젝트 uri주소들이 .do로 되어
 
 
 
-RequestMappingHandlerMapping은 서블릿 매핑이 "/path/*" 형식이면, "/path" 이후 부분을 사용해서 컨트롤러 검색  
+RequestMappingHandlerMapping은 서블릿 매핑이 "/path/*" 형식이면, "/path" 이후 부분을 사용해서 컨트롤러 검색    
 따라서 컨트롤러에서 경로상 .do를 생략해도 해당 경로를 찾아감 (<url-pattern>*.do</url-pattern> 일 경우)
 
 요청 URL	서블릿 매핑 URL 패턴	컨트롤러 매핑 경로
-       요청 URL                 서블릿매핑 URL패턴    컨트롤러 매핑 경로 
+       요청 URL                 서블릿매핑 URL패턴    컨트롤러 매핑 경로   
 /프로젝트명/path/list.do	            /path/*	       /list 또는 /list.do
