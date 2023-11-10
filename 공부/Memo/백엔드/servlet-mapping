@@ -18,6 +18,7 @@ uri 주소를 만들기 위해 기존 프로젝트 uri주소들이 .do로 되어
 <mvc:annotation-driven /> 도 필수 !
 
 
+추가 ++
 
 RequestMappingHandlerMapping은 서블릿 매핑이 "/path/*" 형식이면, "/path" 이후 부분을 사용해서 컨트롤러 검색    
 따라서 컨트롤러에서 경로상 .do를 생략해도 해당 경로를 찾아감 (<url-pattern>*.do</url-pattern> 일 경우)
@@ -25,3 +26,26 @@ RequestMappingHandlerMapping은 서블릿 매핑이 "/path/*" 형식이면, "/pa
 요청 URL	서블릿 매핑 URL 패턴	컨트롤러 매핑 경로
        요청 URL                 서블릿매핑 URL패턴    컨트롤러 매핑 경로   
 /프로젝트명/path/list.do	            /path/*	       /list 또는 /list.do
+
+
+추가 +++
+
+<welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+</welcome-file-list>
+
+위와 같이 index.jsp 같은 파일이 WEB-INF밖에 위치하면 제일먼저 리스트에 있는 웰컴파일로 이동하기 때문에 
+WEB-INF에 넣거나 삭제 
+
+그럼 이제 처음 "/" 경로로 접근할 때 <servlet-mapping>의  <url-pattern>의 패턴이 *.do일 경우  
+"/" 경로에 접근할 수 없음(기본적으로 .do 가 붙은것만 DispatcherServlet이 처리해서 컨트롤러로 넘겨주기 때문)
+
+이 경우 
+<welcome-file-list>
+    <welcome-file>/WEB-INF/views/index.jsp</welcome-file>
+</welcome-file-list>
+이런식으로 web.xml에 직접 기입해준다. 
+
+그러나 <url-pattern>/</url-pattern> 이렇게 하는 것이 제일 깔끔하고 현대적 방식!
