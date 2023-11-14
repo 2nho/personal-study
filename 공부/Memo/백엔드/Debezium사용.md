@@ -93,3 +93,9 @@ max_allowed_packet=256M
 
 
 ![image](https://github.com/2nho/personal-study/assets/97571604/b640e798-ffa0-4e86-ae9c-6481eadb4ed8)
+
+
+
+DEBUG나 , INFO 모드로 로그 설정시  아래와같이 오류발생  
+![image](https://github.com/2nho/personal-study/assets/97571604/4992626e-faff-4ae8-ad35-1227e6dc5eb6)
+
