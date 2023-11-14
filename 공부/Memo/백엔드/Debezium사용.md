@@ -79,8 +79,17 @@ DB에서 특정 데이터베이스 및 테이블만을 CDC하고 싶다면 Relat
 
 
 
-++ debezium engine api 사용하기 (내장 어플리케이션 버전) 위와 설정은 비슷
-자바 어플리케이션으로 main 메소드를 통해 실행하면 잘 실행됐지만 스프링 웹 프로젝트에 적용시키면 계속 쓰레드가 죽어버리길래 왜그런가 찾다보니 
-Caused by: java.lang.ClassNotFoundException: org.slf4j.event.Level 오류를 로그를 설정해보니 발견했는데 혹시하고 버전 업데이트를 2.0.4로 하니 잘되서 알아보니 
-아래와 같이 1.7.15버전부터 클래스를 지원한다고 한다. 기존 사용하던 버전은 1.7.5 였다..
+++ debezium engine api 사용하기 (내장 어플리케이션 버전) 위와 설정은 비슷   
+자바 어플리케이션으로 main 메소드를 통해 실행하면 잘 실행됐지만 스프링 웹 프로젝트에 적용시키면 계속 쓰레드가 죽어버리길래 왜그런가 찾다보니   
+Caused by: java.lang.ClassNotFoundException: org.slf4j.event.Level 오류를 로그를 설정해보니 발견했는데 혹시하고 버전 업데이트를 2.0.4로 하니 잘되서 알아보니   
+아래와 같이 1.7.15버전부터 클래스를 지원한다고 한다. 기존 사용하던 버전은 1.7.5 였다..  
+
+[mysqld]
+log-bin=debeziumCDC
+binlog_format=ROW
+max_allowed_packet=256M
+
+설정도 추가 
+
+
 ![image](https://github.com/2nho/personal-study/assets/97571604/b640e798-ffa0-4e86-ae9c-6481eadb4ed8)
