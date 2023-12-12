@@ -27,7 +27,7 @@ XML 기입내용
 		<property name="password" value="test" />
 		<property name="ivGenerator">
 			<bean class="org.jasypt.iv.StringFixedIvGenerator">
-				<constructor-arg value="korecenfighting123" />
+				<constructor-arg value="1234567890111213" />
 			</bean>
 		</property>
 	</bean>
