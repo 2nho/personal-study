@@ -65,7 +65,39 @@ public class JasyptConfig extends PropertyPlaceholderConfigurer {
 }
 ```
 
-
+++  자바로 설정버전
+```
+@Configuration
+public class JasyptConfig implements ServletContextAware {
+	public static void main(String[] args) {
+        String classPath = System.getProperty("java.class.path");
+        System.out.println("Classpath: " + classPath);
+    }
+	private ServletContext servletContext;
+	
+	@Override
+    public void setServletContext(ServletContext servletContext) {
+        this.servletContext = servletContext;
+    }
+	
+	@Bean
+	public StandardPBEStringEncryptor configurationEncryptor() {
+		StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
+		encryptor.setAlgorithm("PBEWithHmacSHA256AndAES_256");
+		encryptor.setPassword("test");
+		encryptor.setIvGenerator(new RandomIvGenerator());
+		return encryptor;
+	}
+	@Bean
+    public EncryptablePropertySourcesPlaceholderConfigurer propertyConfigurer(StandardPBEStringEncryptor configurationEncryptor) {
+        EncryptablePropertySourcesPlaceholderConfigurer configurer = new EncryptablePropertySourcesPlaceholderConfigurer(configurationEncryptor);
+        Resource resource = new ServletContextResource(servletContext, "/WEB-INF/properties/db.properties");
+        configurer.setLocation(resource);
+        return configurer;
+    }
+	
+}
+```
 
 오류 
 ![image](https://github.com/2nho/personal-study/assets/97571604/3e664723-145f-4dbd-8377-c509f1f2a363)
