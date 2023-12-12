@@ -46,7 +46,7 @@ DB.properties파일 기입내용
  db.password = ENC(rtQOVxxzxxxE0hZmc2iFRhMuBlV3y9CMc0LCW+s4JO8=) 이런식으로 암호화된 스트링값을 ENC()로 감싼다.
 ```
 
-암호화방법 (아래의 main을 실행시켜 원하는 값을 인코딩 후 사)
+암호화방법 (아래의 main을 실행시켜 원하는 값을 인코딩 후 사용)
 ```
 public class JasyptConfig extends PropertyPlaceholderConfigurer {
 
