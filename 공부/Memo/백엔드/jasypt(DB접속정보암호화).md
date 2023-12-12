@@ -3,7 +3,7 @@
 스프링 레거시 버전 
 
 pom.xml 기입내용 
-( DB접속정보는 IV값이 매번 달라지면 암호화된 정보도 달라지므로 문제가 생김. 그래서 StringFixedIvGenerator 를 이용해 고정된 IV를 사용 이때 jasypt-spring31이 아닌 일반버전 jasypt에 해당클래스가 존재하므로 의존주입.)
+( DB접속정보는 IV값이 매번 달라지면 암호화된 정보도 달라지므로 문제가 생김. 그래서 StringFixedIvGenerator 를 이용해 고정된 IV를 사용 이때 jasypt-spring31이 아닌 일반버전 jasypt에 해당클래스가 존재하므로 의존주입.) --# 생각이 틀림 random 으로 해도 잘만 복호화된다.. IV가 암호문 제일앞 블록에 붙어서 setPassword로 설정한 키값으로 복호화될 때, IV 값이 추출되어 사용되어 진다.
 (원래는 jasypt만 사용하려했는데 org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer를 사용하기 위해서 jasypt-spring31 후에 추가)
 ```
 <dependency>
@@ -29,6 +29,7 @@ XML 기입내용
 			<bean class="org.jasypt.iv.StringFixedIvGenerator">
 				<constructor-arg value="1234567890111213" />
 			</bean>
+			<bean class="org.jasypt.iv.RandomIvGenerator" /> 
 		</property>
 	</bean>
 	<bean
