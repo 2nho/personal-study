@@ -114,3 +114,28 @@ public class JasyptConfig implements ServletContextAware {
 - 보안상 오류 메세지를 제대로 보여주지 않는다고 한다. 그래서 디버깅으로 일일이 오류원인을 찾아야한다.
 
 
+내용추가
+
+@value를 통해 외부 환경변수로 setpassword의 인자값을 숨기려 시도하다 null로 뜨는 오류발생 
+
+원인을찾고자 @postconstruct로 value값을 확인해보고 했는데 여전히 null로 나왔다.
+
+xml설정으로 JasyptConfig을 빈으로 등록해주면 @postconstruct가 잘실행되고 @value값도 잘 주입되었다.   
+근데 왜 @configuration으로 @bean을 등록하면 안될까?
+
+이유를 못찾던중 아래의 링크를 통해 원인을 추측할 수 있었는데 
+
+출처 https://reiphiel.tistory.com/entry/postconstruct-not-called-by-propertyplaceholder
+
+BeanFactoryPostProcessor (BFPP) 타입을 반환하는 @Bean 메서드에 대해서는 특별한 주의가 필요합니다. 왜냐하면 BFPP 객체는 컨테이너 라이프사이클의 매우 초기에 인스턴스화되어야 하며,
+이로 인해 @Configuration 클래스 내의 @Autowired, @Value, @PostConstruct와 같은 어노테이션 처리에 간섭이 발생할 수 있습니다. 
+이 라이프사이클 이슈를 피하려면 BFPP를 반환하는 @Bean 메서드를 static으로 표시하십시오.
+
+결론적으로는 EncryptablePropertySourcesPlaceholderConfigurer가 BeanFactoryPostProcessor와 연관된 클래스여서 문제가 생기는걸로 추측된다. 
+
+그럼 왜 xml에서 bean설정을 하는것과 @configuration으로 설정하는게 다른가? 
+XML 설정 파일에서 빈을 정의할 때는 클래스에 직접적인 영향을 주지 않음
+빈의 정의를 제공할 뿐이며, 빈이 생성되고 초기화되는 방식은 스프링 컨테이너가 제어, 스프링은 XML에서 정의한 빈들의 초기화와 종속성 주입을 담당
+
+@Configuration 클래스에서 @Bean 메서드를 정의할 때는 클래스 자체가 스프링 빈이 되고, 해당 빈은 스프링의 라이프사이클에 직접적으로 연관.
+따라서 @value, @PostConstruct는 BeanFactoryPostProcessor 타입 메소드때문에 제약을 받음
