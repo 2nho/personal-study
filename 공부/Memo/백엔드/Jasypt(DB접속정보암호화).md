@@ -126,8 +126,8 @@ xml설정으로 JasyptConfig을 빈으로 등록해주면 @postconstruct가 잘�
 이유를 못찾던중 아래의 링크를 통해 원인을 추측할 수 있었는데 
 
 출처 https://reiphiel.tistory.com/entry/postconstruct-not-called-by-propertyplaceholder
-
-BeanFactoryPostProcessor (BFPP) 타입을 반환하는 @Bean 메서드에 대해서는 특별한 주의가 필요합니다. 왜냐하면 BFPP 객체는 컨테이너 라이프사이클의 매우 초기에 인스턴스화되어야 하며,
+```
+BeanFactoryPostProcessor (BFPP) 타입을 반환하는 @Bean 메서드에 대해서는 특별한 주의가 필요. 왜냐하면 BFPP 객체는 컨테이너 라이프사이클의 매우 초기에 인스턴스화되어야 하며,
 이로 인해 @Configuration 클래스 내의 @Autowired, @Value, @PostConstruct와 같은 어노테이션 처리에 간섭이 발생할 수 있습니다. 
 이 라이프사이클 이슈를 피하려면 BFPP를 반환하는 @Bean 메서드를 static으로 표시하십시오.
 
@@ -139,3 +139,4 @@ XML 설정 파일에서 빈을 정의할 때는 클래스에 직접적인 영향
 
 @Configuration 클래스에서 @Bean 메서드를 정의할 때는 클래스 자체가 스프링 빈이 되고, 해당 빈은 스프링의 라이프사이클에 직접적으로 연관.
 따라서 @value, @PostConstruct는 BeanFactoryPostProcessor 타입 메소드때문에 제약을 받음
+```
