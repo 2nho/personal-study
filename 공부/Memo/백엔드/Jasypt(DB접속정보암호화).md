@@ -140,3 +140,9 @@ XML 설정 파일에서 빈을 정의할 때는 클래스에 직접적인 영향
 @Configuration 클래스에서 @Bean 메서드를 정의할 때는 클래스 자체가 스프링 빈이 되고, 해당 빈은 스프링의 라이프사이클에 직접적으로 연관.
 따라서 @value, @PostConstruct는 BeanFactoryPostProcessor 타입 메소드때문에 제약을 받음
 ```
+
+
+그러나 나의 경우 프로퍼티파일이 WEB-INF 에 있어서 servletContext를 static으로 처리할 수 없어서 결국 SRC/MAIN/RESOURCES  리소스폴더로 프로퍼티를 옮긴 후 
+Resource resource = new ClassPathResource("db.properties"); 이렇게 변경하였다.
+
+@Configuration과 XML에 JasyptConfig를 두번 빈으로 등록하면 문제가 해결되긴 하는데 정석적인 방법인 아니니 제외. (스프링부트의 경우 같은 빈의 경우 오류를 뱉는다고 한다.)
