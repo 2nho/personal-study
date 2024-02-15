@@ -32,7 +32,7 @@ req -x509 -new -nodes -key rootCA.key -sha256 -days 1024 -out rootCA.crt
   
 genrsa -out device.key 2048  
 req -new -key device.key -out device.csr -config 2nho.conf  
-pkcs12 -export -out certificate -inkey device.key -in device.crt  
+pkcs12 -export -out certificate.p12 -inkey device.key -in device.crt (딱히 확장자 .p12가 아니라 .key 혹은 안적어도 문제없이 톰캣에 돌아가긴함 안가리는거 같음)   
   
 참고 사이트 
 https://docs.brekeke.com/sip/how-to-create-a-self-signed-certificate-using-openssl  
