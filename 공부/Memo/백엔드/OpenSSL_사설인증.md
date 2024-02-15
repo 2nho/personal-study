@@ -1,0 +1,22 @@
+![image](https://github.com/2nho/personal-study/assets/97571604/d35a1bd7-d28f-48b6-8cfa-f15f6591b676)
+
+1. 셀프 사인된 root인증서를 만들것 => 브라우저 인증서에서 신뢰할 수 있는 루트 인증기관에 등록
+2. root인증서로 서명된 서버용 인증서를 만들기  (but 여기까지만 하면 여전히 브라우저에서 신뢰할 수 없는 인증서라고 뜸)
+   주의사항 : 인증서 계층구조가 루트 - 중간 - 서버용 혹은 루트 - 서버용으로 최상단에 루트가 나타나는 인증서 체인형태로 잘 표시되야함
+3. 보안 인증서에 주체 대체 이름(SAN)이 지정되어 있지 않아 인증서가 확실하지 않다 오류를 뱉음 서버용 인증서 생성시  .cnf파일 예시처럼 하나 만들어서 -config 옵션으로 넘겨줘야 설정이 됨
+   설정이 잘되면 아래 스크린샷처럼 SAN이 등록됨
+   ![image](https://github.com/2nho/personal-study/assets/97571604/5a48a56a-53a9-4c16-af3d-e56598253b78)
+
+.cnf파일 예시
+```
+[req]
+distinguished_name = req_distinguished_name
+prompt = no
+[ req_distinguished_name ]
+CN = 192.168.0.133
+[ v3_req ]
+subjectAltName = @alt_names
+[ alt_names ]
+DNS.1 = localhost
+IP.1 = 192.168.0.133
+```
