@@ -13,6 +13,7 @@
 
 
    <SAN 미등록 오류>
+   
    ![image](https://github.com/2nho/personal-study/assets/97571604/f442e7b2-2f7f-49c7-a57d-c5658ada2ef8)
 
 
@@ -40,5 +41,7 @@ req -new -key device.key -out device.csr -config 2nho.conf
 pkcs12 -export -out certificate.p12 -inkey device.key -in device.crt (딱히 확장자 .p12가 아니라 .key 혹은 안적어도 문제없이 톰캣에 돌아가긴함 안가리는거 같음)   
   
 참고 사이트 
+
 https://docs.brekeke.com/sip/how-to-create-a-self-signed-certificate-using-openssl  
+
 https://9033.github.io/text/openssl.html  
