@@ -11,6 +11,11 @@
 
    ![image](https://github.com/2nho/personal-study/assets/97571604/5a48a56a-53a9-4c16-af3d-e56598253b78)
 
+
+   <SAN 미등록 오류>
+   ![image](https://github.com/2nho/personal-study/assets/97571604/f442e7b2-2f7f-49c7-a57d-c5658ada2ef8)
+
+
 .cnf파일 예시
 ```
 [req]
