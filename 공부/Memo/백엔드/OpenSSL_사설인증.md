@@ -22,7 +22,7 @@ IP.1 = 192.168.0.133
 ```
 
 
-명령어
+명령어  
 genrsa -out rootCA.key 2048  
 req -x509 -new -nodes -key rootCA.key -sha256 -days 1024 -out rootCA.crt  
   
