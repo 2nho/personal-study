@@ -48,3 +48,5 @@ New-NetFirewallRule -DisplayName allow-kr-ip -Direction Inbound -Protocol TCP -L
 ![image](https://github.com/2nho/personal-study/assets/97571604/297b4eab-c120-46f8-a4d4-48125b4be604)
 
 고로 오류원인은 빈 공백 줄이 들어가니 ip주소형태가 아닌 값이 들어가서 오류가 났던 것이다.. 
+
+- 퇴근하구 집와서 3일 헤맸다.. 파워쉘 명령어도 낯설고 저런 오류는 참 쉬우면서도 발견하기 어렵다..
