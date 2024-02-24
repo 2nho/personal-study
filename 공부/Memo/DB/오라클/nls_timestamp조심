@@ -1,0 +1,20 @@
+오라클 프로시저를 사용해서 자바에서 timestamp형식으로 오라클에 저장할때 오라클 nls설정과 일치하지 않으면 
+저장이 제대로 안되는 경우가 발생한다! 
+
+nls 설정이 RR/MM/DD HH24 이고 자바에서 넘겨주는 timestamp형식이 RR/MM/DD HH24:MI:SSXFF 일 경우 TO_TIMESTAMP를 이용해서 
+오라클 nls 설정과 맞춰주어야한다. 
+
+나의 경우에는 json으로 넘겨준 값을 json_table로 파싱해서 저장하는데 이때 자바에서 넘겨준 timestamp형식이 오라클의 nls와 동일한경우 
+  자동파싱해주지만 틀릴 경우 두번의 거쳐 직접 형태에 맞춰줘야했다.
+
+SELECT TO_TIMESTAMP(TO_TIMESTAMP(register,'RR/MM/DD HH24:MI:SSXFF'),'RR/MM/DD HH24') 
+into register_date FROM JSON_TABLE(p_jMember_Id, '$' COLUMNS (
+		       			nested path '$.member_list[*]' columns(
+                                register     varchar2        path '$.REGISTER'
+                   				)));
+
+
+++ json_simple로 jsonobejct로 변경 시 timestamp는 조건문에서 걸리지 않아서 그대로 값을 반환시켜서 날짜형식이 
+  "REGISTER":2024-02-23 17:25:43.0 이렇게 json값으로 변환되는데 이렇게 되면 2024-02-23 17:25:43.0 이걸 오라클db에서 제대로 파싱하지 못해서 정상실행 되지 못한다.
+
+    #그러나 오라클은 절대 오류를 내뱉지않는다#. - 이것이 제일문제다  
