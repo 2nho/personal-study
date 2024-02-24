@@ -18,3 +18,16 @@ into register_date FROM JSON_TABLE(p_jMember_Id, '$' COLUMNS (
   "REGISTER":2024-02-23 17:25:43.0 이렇게 json값으로 변환되는데 이렇게 되면 2024-02-23 17:25:43.0 이걸 오라클db에서 제대로 파싱하지 못해서 정상실행 되지 못한다.
 
     #그러나 오라클은 절대 오류를 내뱉지않는다#. - 이것이 제일문제다  
+
+
+
+문제해결방법?
+
+++ 협업의 경우 nls 값을 미리 확인해서 자바에서 넘기기전에 형식을 맞추든가 
+아니면
+
+SELECT VALUE
+FROM NLS_SESSION_PARAMETERS
+WHERE PARAMETER = 'NLS_TIMESTAMP_FORMAT';
+
+이렇게 NLS값을 가져와서 TO_TIMESTAMP에 대입해야겠다..
