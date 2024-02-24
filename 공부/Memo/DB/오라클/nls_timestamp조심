@@ -31,3 +31,6 @@ FROM NLS_SESSION_PARAMETERS
 WHERE PARAMETER = 'NLS_TIMESTAMP_FORMAT';
 
 이렇게 NLS값을 가져와서 TO_TIMESTAMP에 대입해야겠다..
+
+timestamp가 기본 NLS설정을 따른다는 설명 (https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/NLS_TIMESTAMP_FORMAT.html#GUID-1070C91E-6C9D-4FAF-BD58-7880DBED9899)
+NLS_TIMESTAMP_FORMAT defines the default timestamp format to use with the TO_CHAR and TO_TIMESTAMP functions.
