@@ -27,7 +27,6 @@
 
 https://nginx.org/en/download.html 링크
 
-주의사항! : 바탕화면에 설치하지 말 것 !! 명령어 안먹힘 C드라이브나 D드라이브에 설치 권장
 
 5. nginx.conf 설정파일에서 리버스 프록시 설정  
 ![image](https://github.com/2nho/personal-study/assets/97571604/547a8fc6-67b3-4089-a2e5-d0073ae35a00)
