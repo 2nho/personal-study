@@ -55,11 +55,12 @@ New-NetFirewallRule -DisplayName allow-kr-ip -Direction Inbound -Protocol TCP -L
   
 
   
-한국ip만 특정포트에 허용하는 파워쉘 명령어
+# 한국ip만 특정포트에 허용하는 파워쉘 명령어
+```
 PS C:\Windows\system32> $url = "https://www.ipdeny.com/ipblocks/data/aggregated/kr-aggregated.zone"  
 >> $ipAddresses = Invoke-RestMethod -Uri $url  
 >> $ipAddressArray = $ipAddresses -split "`n"  # 한줄씩 값이 출력되기때문에 줄바꿈을 기준으로 split
 >> $ipAddressArray = $ipAddressArray[0..($ipAddressArray.Length - 2)]   # 처음부터~ 마지막전까지(마지막은 공백이므로 포함안함) 
 >> $allowedPort = 9507  
 >> New-NetFirewallRule -DisplayName Allow_white_list_KR+$allowedPort -Direction Inbound -Protocol TCP -LocalPort $allowedPort -RemoteAddress $ipAddressArray -Action Allow  
- 
+```
