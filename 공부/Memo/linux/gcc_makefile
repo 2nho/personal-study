@@ -1,0 +1,23 @@
+1. ?=   할당되어있지 않으면 할당
+
+2. :  의존성 설정
+
+3. * vs %
+ * 쉘에서 와일드카드 역할 makefile에서도 사용은 가능하나  "Pitfalls of Using Wildcards" 문제가 있음  url https://www.gnu.org/software/make/manual/html_node/Wildcard-Pitfall.html
+예)
+objects = *.o
+
+foo : $(objects)
+        cc -o foo $(CFLAGS) $(objects)
+
+위 코드는 
+foo: file1.o file2.o file3.o
+    cc -o foo $(CFLAGS) file1.o file2.o file3.o
+이럴 경우 문제가 없지만 
+
+*.o에 해당하는 파일이 없을 경우 *.o라는 자체가 주입되어 "존재하지 않는 파일 오류가 발생"
+$(wildcard *.o) 의 형태를 이용해야 오류가 안남 
+
+반면 %는 *와 같은 에러가 안나고 해당하는 파일들이 잘 대입된다.
+
+  
