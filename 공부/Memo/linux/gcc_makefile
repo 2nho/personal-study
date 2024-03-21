@@ -21,3 +21,12 @@ $(wildcard *.o) 의 형태를 이용해야 오류가 안남
 반면 %는 *와 같은 에러가 안나고 해당하는 파일들이 잘 대입된다.
 
   
+4. so 파일에서 메소드를 외부에서 접근할 수 있게 하는 방법
+기존 DLL #define ACCEESSDLL extern "C" __declspec(dllexport) 
+
+SO 방식 
+__attribute__((visibility("default")))
+
+5. redhat7.5 혹은 centos7.5버전에서 gcc -std=C++17 버전으로 컴파일 하기 위해서는 
+https://stackoverflow.com/questions/66021400/c-error-unrecognized-command-line-option-std-c17 이 url을 따라 
+gcc 8버전 이상을 설치! 그냥 yum에서 install하면 최신버전으로 4.8버전이 lastest로 깔린다. 
