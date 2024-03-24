@@ -1,0 +1,7 @@
+Evaluation of a lambda expression produces an instance of a functional interface (§9.8). Lambda expression evaluation does not cause the execution of the expression's body; instead,
+this may occur at a later time when an appropriate method of the functional interface is invoked.
+람다 표현식의 평가는 함수형 인터페이스의 인스턴스를 생성합니다(§9.8). 람다 표현식의 평가는 표현식의 본문을 실행시키지 않습니다.
+대신에, 이는 함수형 인터페이스의 적절한 메서드가 호출될 때 나중에 발생할 수 있습니다.
+
+
+람다표현식의 평가 = 함수를 정의하는것
