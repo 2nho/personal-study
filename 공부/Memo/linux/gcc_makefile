@@ -30,3 +30,4 @@ __attribute__((visibility("default")))
 5. redhat7.5 혹은 centos7.5버전에서 gcc -std=C++17 버전으로 컴파일 하기 위해서는 
 https://stackoverflow.com/questions/66021400/c-error-unrecognized-command-line-option-std-c17 이 url을 따라 
 gcc 8버전 이상을 설치! 그냥 yum에서 install하면 최신버전으로 4.8버전이 lastest로 깔린다. 
+- 임시로 사용하게 만드는 방법이므로 세션 시작 시 설정되게 하는 추가 설정이 필요함
