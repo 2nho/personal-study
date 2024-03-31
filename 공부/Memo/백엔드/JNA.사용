@@ -41,3 +41,19 @@ ex) extern "C" const char* getFirstHddSerialNumber() {
 }
 
 
+
+자바에서 사용에서 so , dll 호출 
+
+
+import com.sun.jna.Library; // Linux용
+import com.sun.jna.Native;
+import com.sun.jna.Pointer; // 포인터 받을 경우 사용 
+import com.sun.jna.win32.StdCallLibrary;  // Windows용
+
+public class exLibService {
+	public interface exLib extends Library{ // 윈도우의 경우 extends StdCallLibrary
+		String libPath = "example.so"; // windows의 경우 확장자 dll => example.dll 
+		exLib INSTANCE =  Native.load(libPath, exLib.class);
+		public String getFirstHddSerialNumber(); //extern c 로 설정한 함수만 호출가능
+	}
+}
