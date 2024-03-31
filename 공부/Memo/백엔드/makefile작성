@@ -1,0 +1,153 @@
+LIB_ARCH?=$(shell uname -m | sed s/x86_//) #  시스템 아키텍처  uname -m  // sed s/x86_     아키텍쳐에서 x86 제거  == 64 도출 
+
+# 경로
+BUILD?=./build    # MAKEFILE이 있는 현재 경로에서 ./build 디렉토리
+BUILDPATH?=$(BUILD)/lib/x86_$(LIB_ARCH)   
+OBJPATH?=$(BUILD)/obj/x86_$(LIB_ARCH) # ariacbc.o 등 파일을 이용해서 BUILDPATH에 so저장
+
+# 어디에 저장할지 
+INSTALLPATH?=/usr/local 
+
+# required packages
+#PKG_CONFIG_DEPENDENCIES = libusb-1.0
+
+# Library Variables
+
+LIB_BASE_NAME = test
+LIB_NAME = lib$(LIB_BASE_NAME)
+LIB_VER = 1.0
+LIB_SOVER = 1
+
+SONAME=$(LIB_NAME).so.$(LIB_SOVER)
+LIBFULLNAME=$(LIB_NAME).so.$(LIB_VER)
+
+LIBFULLPATH=$(BUILDPATH)/$(LIBFULLNAME)
+ARCHIVE_FULL_PATH=$(BUILDPATH)/$(LIB_NAME).a
+
+ARCHFLAG=-m$(LIB_ARCH) # -m64, -m32 등의 아키텍처
+
+PUBLICHEADERSPATH=./$(LIB_BASE_NAME)/include
+
+# sources
+
+CSRCS =
+
+#CPPSRCS+=AZ_Thr.cpp
+#CPPSRCS+=OsDep.cpp
+CPPSRCS+=extest.cpp
+CPPSRCS+=test.cpp
+
+COBJS=$(CSRCS:%.c=%.o)
+CPPOBJS=$(CPPSRCS:%.cpp=%.o)
+
+DEPPATH=$(BUILD)/.dep
+DEPENDS=$(addprefix $(DEPPATH)/, $(CSRCS:%.c=%.d)) #                        $(addsuffix 접미사, 문자열)   $(addsufix  .c, memo  main) => memo.c   main.c  
+DEPENDS+=$(addprefix $(DEPPATH)/, $(CPPSRCS:%.cpp=%.d))
+
+OBJFILES = $(COBJS) $(CPPOBJS)
+
+OBJFULLPATHS=$(addprefix $(OBJPATH)/, $(OBJFILES))
+
+
+#INCLUDES ?= -I$(PUBLICHEADERSPATH) -I../common/include/ -I./common/linux/
+INCLUDES ?= -I$(PUBLICHEADERSPATH) -I../common/include/ -I./$(LIB_BASE_NAME)/inc   # -I 옵션은 C 소스가 표준 디렉토리가 아닌 위치에 있는 헤더 파일을 가질 때 그 디렉토리 위치를 지정해준다.
+
+INCLUDES += $(foreach depcflgs,$(PKG_CONFIG_DEPENDENCIES), `pkg-config $(depcflgs) --cflags`)  # $(foreach var,list,text)
+
+LIBS      += $(foreach deplib,$(PKG_CONFIG_DEPENDENCIES), `pkg-config --libs $(deplib)`)
+
+#VPATH+=$(LIB_BASE_NAME)/src ./common/src ./common/linux
+VPATH+=$(LIB_BASE_NAME)/src ../common/src 
+
+# targets: build clean install
+
+DEFS =  # 빈문자열
+#DEFS += -DLAYOUT_ONLY 
+#DEFS += -DDEBUG
+
+CC       ?= gcc
+#CFLAGS   ?= -Wall -fPIC -g $(DEFS) $(ARCHFLAG) $(INCLUDES)
+CFLAGS   ?= -Wall -fPIC -O2 $(DEFS) $(ARCHFLAG) $(INCLUDES) # -Wall 옵션 : 모든 컴파일 경고를 표시
+                                                            # 최적화 레벨 -O2
+                                                            # -fpic (소문자) 는 플랫폼에 제약이 생기지만 빠르고 가볍다.
+                                                            # -fPIC (대문자) 는 플랫폼에 제약이 없지만 무겁고 느리다. - 이걸 사용.
+
+CXX      ?= g++
+#CXXFLAGS ?= -Wall -fPIC -g -std=gnu++11 $(DEFS) $(ARCHFLAG) $(INCLUDES)
+# c++17 버전으로 컴파일 redhell 7.5버전은 gcc 4.8 이 최신으로 깔림 다른방법을 통해 c++17은 gcc 8버전 필요 
+CXXFLAGS ?= -Wall -fPIC -O2 -std=c++17 $(DEFS) $(ARCHFLAG) $(INCLUDES)
+
+## AR FLAG = ARFLAGS
+#<ar 옵션> <생성하고자 하는 라이브러리의 이름> <오브젝트 파일들의 이름>
+#r : 지정한 아카이브로 모듈(obj파일) 추가. 새로운 obj파일이면 추가, 기존 파일이면 치환.
+#c : 아카이브 (라이브러리 파일) 생성.
+#s : 아카이브 인덱스를 생성.
+AR       ?= ar # 정적라이브 생성
+ARFLAGS  ?= rcs
+
+all: $(LIBFULLPATH) $(ARCHIVE_FULL_PATH)
+# -c 오브젝트 파일을 생성한다.
+# -o 바이너리 형식의 출력 파일 이름을 지정하는데, 지정하지 않으면 a.out라는 기본 이름이 적용된다.
+$(OBJPATH)/%.o: %.c   
+	$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@ 
+
+$(OBJPATH)/%.o: %.cpp 
+	$(CXX) $(CXXFLAGS) -c $(INCLUDES) $< -o $@
+
+$(OBJPATH):
+	mkdir -p $@
+
+$(BUILDPATH):
+	mkdir -p $@
+
+$(DEPPATH):
+	mkdir -p $@
+
+# -shared 는 공유 라이브러리를 사용해서 링크 하라는 옵션 
+# -Wl 는 뒤에 오는 옵션들을 링커(collect2) 에게 gcc 를 거치지 않고 바로 전달 하라는 옵션
+#  -soname 은 실제 만들 라이브러리인 libmy.so.0.0.0 에 libmy.so.0 이라는 soname 을 생성하여 나중에 동적링크(/lib/ld-linux.so.2)가 공유 라이브러리를 찾을때 libmy.so.0.0.0 을 찾는게 아니라
+#   soname 인 libmy.so.0 를 찾아 링크 하도록 한다. 버전 관리를 융통성 있게 하기 위함이며,
+#   실제 gcc 가 링크 하는 파일명은 버전 정보가 없는 libmy.so 를 사용 하며, 이또한 libmy.so0.0.0 의 링크 파일로 만들어 사용 하는 것
+$(LIBFULLPATH): $(OBJPATH) $(BUILDPATH) $(OBJFULLPATHS)
+	$(CXX) $(ARCHFLAG) -shared -Wl,-soname,$(SONAME) -o $@ $(OBJFULLPATHS) $(LIBS) 
+	cd $(BUILDPATH) && \
+	ln -sf $(LIBFULLNAME) $(SONAME) && \
+	ln -sf $(SONAME) $(LIB_NAME).so
+	
+
+$(ARCHIVE_FULL_PATH): $(OBJFULLPATHS)
+	$(AR) $(ARFLAGS) $(BUILDPATH)/$(LIB_NAME).a $(OBJFULLPATHS)
+
+$(DEPPATH)/%.d:%.c
+	$(CC) -MM $(CFLAGS) -MT $(OBJPATH)/$*.o $(INCLUDES) $< > $@
+
+$(DEPPATH)/%.d:%.cpp
+	$(CXX) -MM $(CXXFLAGS) -MT $(OBJPATH)/$*.o $(INCLUDES) $< > $@
+
+dep:  $(DEPPATH) $(DEPENDS)
+	@echo $(DEPENDS)
+
+-include $(DEPENDS)
+
+debug:
+	echo $(OBJFULLPATHS)
+	
+clean:
+	rm -rf $(BUILDPATH)
+	rm -rf $(OBJPATH)
+	rm -rf $(DEPPATH)/*
+#  ln 명령어를 사용하여 링크를 생성
+#-s, --symbolic: 심볼릭 링크를 생성합니다.
+#-f, --force: 이미 존재하는 링크를 강제로 덮어씁니다.
+install:
+	#mkdir -p $(INSTALLPATH)/include
+	mkdir -p $(INSTALLPATH)/lib
+	#cp $(PUBLICHEADERSPATH)/*.h $(INSTALLPATH)/include
+	cp $(LIBFULLPATH) $(INSTALLPATH)/lib
+	cd $(INSTALLPATH)/lib && \
+	ln -sf $(LIBFULLNAME) $(SONAME) && \ 
+  ln -sf $(SONAME) $(LIB_NAME).so
+	@echo "Installed at: "$(INSTALLPATH)
+	
+.PHONY: all clean install debug
+
