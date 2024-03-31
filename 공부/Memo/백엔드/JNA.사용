@@ -1,0 +1,43 @@
+-리눅스-
+JNA로 호출할 메소드에 extern "C" __attribute__((visibility("default"))) 필수 
+=> 맹글링 방지 (cpp는 컴파일러가 함수이름을 자기편한대로 바꾸버리니 자바에서 사용하려면 기존 함수명을 그대로 유지해야함 )
+
+
+-윈도우-
+extern "C" __declspec(dllexport) 
+
+
+자바 String   == C++ const char*
+
+
+
+
+간단 예) 
+extern "C" const char* example() {    // extern "C" 이렇게 길게 치기 싫으면 매크로 사용  ex) #define exC extern "C" __declspec(dllexport)
+  static char dest[10];
+  char source[] = "Hello";
+  strcpy(dest, source);
+  return dest;
+}
+
+
+
+
+ex) extern "C" const char* getFirstHddSerialNumber() {
+    static char result[128]; // 자바에서 이용하기 위해 static으로 설정 buffer를 그대로 이용하려하면 지역변수라 이미 메모리에서 사라져서 사용이 불가능
+    const char* cmd = "lsblk -n -o SERIAL /dev/sda";  
+    char buffer[128];
+    FILE* pipe = popen(cmd, "r");  // 쉘에 cmd의 명령어를 실행 후 pipe에 그 결과값이 담김 
+    if (!pipe) {
+        return "-1";
+    } 
+    if (fgets(buffer, sizeof(buffer), pipe) != NULL) { // 첫째줄 부터 가져옴 while문을 통하면 전체가져올수 있지만 이 경우 첫째줄만 필요
+        strcpy(result, buffer); // buffer값을 result에 복사
+        pclose(pipe);
+        return result;
+    }
+    pclose(pipe);
+    return "-2";
+}
+
+
