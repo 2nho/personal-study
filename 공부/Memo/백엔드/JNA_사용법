@@ -57,3 +57,7 @@ public class exLibService {
 		public String getFirstHddSerialNumber(); //extern c 로 설정한 함수만 호출가능
 	}
 }
+
+
+JNI보다 간편하게 C함수를 사용할 수 있어 JNA를 택했다. C언어에 익숙하지 않은 내가 C개발자와 협업하기 위해선 
+JNA가 개발속도가 제일 빠를거라 생각했기에 선택.
