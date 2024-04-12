@@ -69,10 +69,10 @@ location /some/path/ {
     proxy_pass http://127.0.0.1;  
 }
 ``` 
-/some/path/foo로 요청을 보내면 NGINX는 대상 서버로 요청 URI를 변경하지 않고 전달합니다. 즉, 클라이언트가 보낸 요청 URI와 동일한 형태로 대상 서버에 전달   
-http://127.0.0.1/some/path/
-
-
+/some/path/foo로 요청을 보내면 NGINX는 대상 서버로 요청 URI를 변경하지 않고 전달합니다. 즉, 클라이언트가 보낸 요청 URI와 동일한 형태로 대상 서버에 전달     
+http://127.0.0.1/some/path/  
+  
+# 1.1.12이전 버전 참고사항항  
 1.1.12이전 버전을 쓸 일은 없겠지만 내용이 이해가지 않아 AI의 힘을 빌렸다. chatGPT는 답을 주지 못했지만 코파일럿이 그나마 신빙성있음  
   ![image](https://github.com/2nho/personal-study/assets/97571604/727c001b-61ac-4d09-b693-affd262e942e)  
 
