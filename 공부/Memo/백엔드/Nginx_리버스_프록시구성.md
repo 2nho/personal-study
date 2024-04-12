@@ -73,5 +73,8 @@ location /some/path/ {
 http://127.0.0.1/some/path/
 
 
-1.12이전 버전을 쓸 일은 없겠지만 궁금해서..   
-  ![image](https://github.com/2nho/personal-study/assets/97571604/727c001b-61ac-4d09-b693-affd262e942e)
+1.1.12이전 버전을 쓸 일은 없겠지만 내용이 이해가지 않아 AI의 힘을 빌렸다. chatGPT는 답을 주지 못했지만 코파일럿이 그나마 신빙성있음  
+  ![image](https://github.com/2nho/personal-study/assets/97571604/727c001b-61ac-4d09-b693-affd262e942e)  
+
+  ![image](https://github.com/2nho/personal-study/assets/97571604/755fdb51-e385-4897-bc02-dbe859631242)
+
