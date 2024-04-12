@@ -42,3 +42,33 @@ https://nginx.org/en/download.html 링크
 
 내용추가 ++   
 nginx의 경우 pem형태의 ssl인증서를 이용하고 key로 개인키를 넣어준다
+
+
+
+
+내용추가 2024-04-12  
+
+https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass  
+
+![image](https://github.com/2nho/personal-study/assets/97571604/2a217279-b892-47ac-904b-303effab68ef)
+
+만약 proxy_pass 지시문이 URI와 함께 지정된다면, 서버에 요청이 전달될 때 정규화된 요청 URI의 일부분이 위치와 일치하는 URI로 대체  
+예)  
+```
+location /name/ {  
+    proxy_pass http://127.0.0.1/remote/;  
+}
+``` 
+/name/foo로 요청을 보내면 NGINX는 대상 서버로 /remote/foo로 요청  
+http://127.0.0.1/remote/foo;  
+
+만약 proxy_pass가 URI 없이 지정된다면, 원래 요청이 처리될 때 클라이언트가 보낸 형태와 동일한 형태로 요청 URI가 서버로 전달되거나 변경된 URI를 처리할 때 전체 정규화된 요청 URI가 전달  
+예)  
+```
+location /some/path/ {  
+    proxy_pass http://127.0.0.1;  
+}
+``` 
+/some/path/foo로 요청을 보내면 NGINX는 대상 서버로 요청 URI를 변경하지 않고 전달합니다. 즉, 클라이언트가 보낸 요청 URI와 동일한 형태로 대상 서버에 전달   
+http://127.0.0.1/some/path/
+
