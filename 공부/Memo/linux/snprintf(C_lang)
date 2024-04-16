@@ -1,0 +1,16 @@
+char buffer[20];
+	int length = snprintf(buffer, sizeof(buffer), "%s", "Hello wow ak47 wadadaa");
+	printf("%d\n",length);
+	printf("%s\n",buffer); // buffer size -1
+	printf("%d",strlen(buffer)); //strlen exclude null character
+
+console 출력값 
+22
+Hello wow ak47 wada
+19
+
+
+snprintf의 반환값은 버퍼 크기가 충분했을 경우 받았을 총 문자열의 길이
+buffer[20]의 저장되는 값은 null문자가 들어갈 1자리를 제외한 문자열 19자리까지가능
+
+strlen은 null문자를 제외한 문자열의 길이 고로 buffer[20]이여도 19가나옴 
