@@ -1,0 +1,14 @@
+/etc/profile
+
+JAVA_HOME=/usr/etc/jdk1.8.0_152
+PATH=$JAVA_HOME/bin:$PATH
+#PATH=/bin:/usr/local/bin:/usr/bin
+export JAVA_HOME PATH
+export PATH=/opt/rh/devtoolset-8/root/usr/bin:$PATH
+
+
+
+
+또는 임시로 사용하는 경우 
+쉘에서 scl enable devtoolset-8 bash 활성화 후 
+./eclipse 실행 
