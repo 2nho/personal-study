@@ -1,0 +1,58 @@
+
+bool valid_date(char *expiration_date) {
+	int year, month, day;
+	if (expiration_date == NULL || strlen(expiration_date) != 8) {
+		return false;
+	}
+	char year_str[5], month_str[3], day_str[3];
+	strncpy(year_str, expiration_date, 4);
+	year_str[4] = '\0';
+	strncpy(month_str, expiration_date + 4, 2);
+	month_str[2] = '\0';
+	strncpy(day_str, expiration_date + 6, 2);
+	day_str[2] = '\0';
+
+	// 추출한 문자열을 정수로 변환
+	year = atoi(year_str);
+	month = atoi(month_str);
+	day = atoi(day_str);
+
+	// 월의 유효성 검사
+	if (month < 1 || month > 12) {
+		return false;
+	}
+	// 일의 유효성 검사
+	if (day < 1 || day > 31) {
+		return false;
+	}
+	if (month == 2) {
+		if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) { // 윤년
+			if (day > 29) {
+				return false; // 윤년 29초과 fasle
+			}
+		} else { //  평년
+			if (day > 28) {
+				return false; // 평년 28초과 fasle
+			}
+		}
+	}
+	if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) {
+		return false; // 4월, 6월, 9월, 11월은 30일 이어야함
+	}
+	return true;
+}
+bool is_valid_input(char *expiration_date) {
+	if (expiration_date[0] == '\0') {
+		return false;
+	}
+	// 모든 문자가 숫자인지 검사
+	for (int i = 0; expiration_date[i] != '\0'; i++) {
+		if (!isdigit(expiration_date[i])) {
+			return false;
+		}
+	}
+	if(!valid_date(expiration_date)) {
+		return false;
+	}
+	return true;
+}
