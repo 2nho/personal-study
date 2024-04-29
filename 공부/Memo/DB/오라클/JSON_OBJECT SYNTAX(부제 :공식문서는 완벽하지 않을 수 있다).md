@@ -7,4 +7,4 @@ https://forums.oracle.com/ords/apexds/post/json-object-syntax-questions-in-versi
 
 
 
-결론 공식문서지만 완벽하진 않다..
+결론 공식문서지만 완벽하진 않을 수 있다..
