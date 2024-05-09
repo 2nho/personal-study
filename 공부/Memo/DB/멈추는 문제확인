@@ -1,0 +1,36 @@
+1. 에러 로그 설정 (추후 문제 발생 시 파악)
+[mariadb]
+log_error=mariadb.err
+
+2. 크론탭 
+ 1) crontab -l 크론탭 리스트 확인
+
+ 2)  cat /var/log/cron   -- 크론실행 관련 기록 
+
+ cat /var/log/syslog | grep CRON  -- 전체로그중 크론관련 로그 
+
+3. mariadb내 설정 
+SHOW STATUS LIKE '%connect%';
+- Aborted_connections : 연결 과정중 fail된 연결 수
+- Threads_connected : 현재 오픈된 연결 수
+- connections : 연결 시도된 총 수
+- Max_used_connections : 동시 최대 접속자 수
+
+SHOW PROCESSLIST;
+
+4. OOM killer 확인
+/var/log/messages
+
+혹은 
+cat syslog | grep oom
+
+5. OOM Killer 순위 설정 방법
+
+  1)특정 프로세스의 PID를 조회
+
+  2)/proc/PID/oom_adj 파일에 -17을 입력. oom_adj는 -17 ~ 15의 값을 가지며, 낮은 값 일수록 후순위.
+
+  3)/proc_PID/oom_scroe_adj 파일에 -1000을 입력. oom_score_adj는 -1000 ~ 1000의 값을 가지며 낮은 값일수록 후순위.
+
+예시 ) sudo echo -17 > /proc/${pid}/oom_ajd
+      sudo echo -1000 > /proc/${pid}/oom_score_adj
