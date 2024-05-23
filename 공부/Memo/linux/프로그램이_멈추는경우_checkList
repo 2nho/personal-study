@@ -1,0 +1,33 @@
+1.Mariadb 설정 
+가. Mariadb 설정파일 찾기 
+-명령어: find / -name my.cnf
+
+나. server.cnf 에러 로그설정
+[mysqld]
+log_error=on // 에러 로그 설정 키기
+log-error= “원하는 디렉토리 위치” //  에러로그 저장할위치
+
+2. 크론탭 설정 확인
+가. 현재 크론탭 리스트 확인
+명령어 : crontab – l  
+실행파일 경로 맞는지 확인 
+나. 크론탭 수정 
+명령어 : crontab -e
+다. 크론탭 재시작(적용)
+명령어 : systemctl restart crond 
+
+[참고]
+cat /var/log/cron // 크론탭 로그 
+
+3. OOM KILLER
+가. 시스템 메시지 확인
+명령어 : grep -i "out of memory" /var/log/messages  
+결과 예시) host kernel: Out of Memory: Killed process 2592 (mysql).
+나. OOM KILLER 제외하기 
+   A. 프로세스 확인
+      명령어 : ps – e //
+   B. OOM 점수 확인
+      명령어 : cat /proc/<프로세스 pid>/oom_score
+   C. OOM KILL 배제 
+명령어 : echo -17 > /proc//<pid>/oom_adj     // -17로 조정
+echo -1000 > /proc//<pid>/oom_score_adj    // -1000으로 조정
