@@ -65,7 +65,7 @@ public class JasyptConfig extends PropertyPlaceholderConfigurer {
 }
 ```
 
-++  자바로 설정버전
+++  자바로 설정버전 (제일 아래버전으로 사용 사용x)
 ```
 @Configuration
 public class JasyptConfig implements ServletContextAware {
