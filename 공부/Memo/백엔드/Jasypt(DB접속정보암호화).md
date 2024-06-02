@@ -230,3 +230,9 @@ public class JasyptConfig {
 	}
 }
 ```
+
+주의! 8버전이하는  
+
+PBEWithMD5AndDES로 사용 하거나 정책파일 추가로 오라클 홈페이지에서 다운받아야함  
+
+https://www.oracle.com/java/technologies/javase-jce-all-downloads.html
