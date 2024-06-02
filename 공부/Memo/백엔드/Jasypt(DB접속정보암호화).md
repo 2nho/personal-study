@@ -192,3 +192,41 @@ public class Main {
 	}
 }
 ```
+
+
+++  추가
+
+```
+package guardian.common.config;
+
+import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
+import org.jasypt.iv.RandomIvGenerator;
+import org.jasypt.spring31.properties.EncryptablePropertySourcesPlaceholderConfigurer;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+
+@Configuration
+@PropertySource("classpath:db.properties")
+public class JasyptConfig {
+	
+	 //@Value("${jasyptKey}") 시스템 변수로 주입받아 사용 
+	 //String password;
+	 
+	@Bean
+	public EncryptablePropertySourcesPlaceholderConfigurer PropertyConfigurer() {
+		StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
+		encryptor.setAlgorithm("PBEWithHmacSHA256AndAES_256");
+		encryptor.setPassword("vDFlJ1FKzzd5fhL9+flP7xNmafun2LZ4ZLPZlsovelYjAOYkM+EF5BpcVTiAeLnm"); // Key 사용 변경
+		encryptor.setIvGenerator(new RandomIvGenerator());
+		EncryptablePropertySourcesPlaceholderConfigurer configurer = new EncryptablePropertySourcesPlaceholderConfigurer(encryptor);
+		Resource resource = new ClassPathResource("db.properties");
+		configurer.setLocation(resource);
+		// System.out.println(System.getProperty("jasyptKey"));
+		return configurer;
+	}
+}
+```
