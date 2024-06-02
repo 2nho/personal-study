@@ -146,3 +146,49 @@ XML 설정 파일에서 빈을 정의할 때는 클래스에 직접적인 영향
 Resource resource = new ClassPathResource("db.properties"); 이렇게 변경하였다.
 
 @Configuration과 XML에 JasyptConfig를 두번 빈으로 등록하면 문제가 해결되긴 하는데 정석적인 방법인 아니니 제외. (스프링부트의 경우 같은 빈의 경우 오류를 뱉는다고 한다.)
+
+
+
+++추가   
+
+암호화 jar
+
+```
+import java.util.Scanner;
+
+import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
+import org.jasypt.iv.RandomIvGenerator;
+
+public class Main {
+	public static void main(String[] args) {
+		StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
+		encryptor.setAlgorithm("PBEWithHmacSHA256AndAES_256");
+		//encryptor.setPassword("2nho's Legacy");
+		encryptor.setPassword("vDFlJ1FKzzd5fhL9+flP7xNmafun2LZ4ZLPZlsovelYjAOYkM+EF5BpcVTiAeLnm");
+		encryptor.setIvGenerator(new RandomIvGenerator());
+		
+		// Scanner 객체를 생성하여 System.in (콘솔 입력)과 연결
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            // 사용자에게 입력을 요청하는 메시지 출력
+            System.out.print("Please enter a value (type 'exit' to quit): ");
+
+            // 사용자로부터 문자열 입력 받기
+            String str = scanner.nextLine();
+
+            // 'exit' 또는 'quit'을 입력하면 루프 종료
+            if (str.equalsIgnoreCase("exit")) {
+                break;
+            }
+
+            // 입력받은 내용을 암호화하고 출력
+            String encrypted = encryptor.encrypt(str);
+            System.out.println("Encrypted Output: " + encrypted);
+        }
+
+        // Scanner 객체를 닫아 자원 해제
+        scanner.close();
+	}
+}
+```
