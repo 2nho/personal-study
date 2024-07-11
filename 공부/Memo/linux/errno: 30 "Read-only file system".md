@@ -8,3 +8,11 @@ ProtectSystem=full
 
 해당 디렉토리를 읽기 전용으로 마운트  
 디렉토리에 대한 파일 쓰기가 제한  
+
+
+/home, /root 등도 아래와 같이 ProtectHome설정으로 인해 막혀있음
+
+# Prevent accessing /home, /root and /run/user  
+ProtectHome=true  
+
+의도가 있기 때문에 굳이 건드리지 말자 !
