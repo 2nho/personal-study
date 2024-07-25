@@ -1,0 +1,43 @@
+강원랜드 카지노 쪽 10g 오라클 버전과 맞추기 위해 
+4.0.3버전 채택
+<dependency>
+	<groupId>com.zaxxer</groupId>
+	<artifactId>HikariCP</artifactId>
+	<version>4.0.3</version>
+</dependency>
+
+
+
+  [기존 datasource] 
+
+   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${db.classname}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+		<property name="validationQuery" value="SELECT 1 FROM DUAL" /> // DB Pool이 생성이 되더라고 특정 시간 호출되지 않으면 DBMS 설정에 따라 연결을 끊어질 때 이 경우 DBCP를 
+			                                                             // 연결을 유지  	특정시간 마다 validationQuery 실행 셋팅
+		<property name="testWhileIdle" value="true" />
+		<property name="timeBetweenEvictionRunsMillis"
+			value="7200000" /> 7200000/2시간 , 60000 / 1분
+		<property name="defaultAutoCommit" value="true" />
+		<property name="maxWait" value="5" /> 30초
+    </bean>
+
+
+ [수정 datasource]
+  <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+    <property name="driverClassName" value="${db.classname}" />
+    <property name="jdbcUrl" value="${db.url}" />
+    <property name="username" value="${db.username}" />
+    <property name="password" value="${db.password}" />
+    
+    <!-- HikariCP 설정 -->
+    <property name="maximumPoolSize" value="10" />
+    <property name="minimumIdle" value="5" />
+    <property name="connectionTimeout" value="5000" /> <!-- 5초 성능을 위해 짧게 유지 오라클 RAC => ADDRESS_LIST에 따라 커넥션 타임 아웃 후 다른 db로 요청 --> 
+    <property name="idleTimeout" value="600000" /> <!-- 10분 -->
+    <property name="maxLifetime" value="1800000" /> <!-- 30분 -->
+    <property name="connectionTestQuery" value="SELECT 1 FROM DUAL" />
+</bean>
+ 
