@@ -40,4 +40,58 @@
     <property name="maxLifetime" value="1800000" /> <!-- 30분 -->
     <property name="connectionTestQuery" value="SELECT 1 FROM DUAL" />
 </bean>
- 
+
+# TNS 방식 - 오라클 클러스터 및 장애처리 접속 방법 (디폴트 값 LOAD_BALANCE = off , FAILOVER = on )
+db.url = jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.12.1.1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=orcl)))
+
+# direct 방식 SID 
+jdbc:oracle:thin:@127.0.0.1:1521:ORCL
+
+# direct 방식 SERVICE NAME 
+jdbc:oracle:thin:@127.0.0.1:1521/ORCL    (SERVICE NAME이 범위가 더 넓음)
+
+
+
+## DESCRIPTION_LIST 설정
+net_service_name =
+ (DESCRIPTION_LIST =
+  (DESCRIPTION =
+   (ADDRESS = (PROTOCOL = TCP)(HOST = host1.example.com)(PORT = 1521))
+   (CONNECT_DATA = (SERVICE_NAME = service1)))
+  (DESCRIPTION =
+   (ADDRESS = (PROTOCOL = TCP)(HOST = host2.example.com)(PORT = 1521))
+   (CONNECT_DATA = (SERVICE_NAME = service1))))
+
+ 첫 번째 DESCRIPTION 블록 (host1.example.com)으로 연결을 시도하고, 실패하면 두 번째 DESCRIPTION 블록 (host2.example.com)으로 시도 
+
+## ADDRESS_LIST 설정
+net_service_name =
+ (DESCRIPTION =
+  (ADDRESS_LIST =
+   (LOAD_BALANCE = off)
+    (FAILOVER = on)
+   (ADDRESS = (PROTOCOL = TCP)(HOST = host1.example.com)(PORT = 1521))
+   (ADDRESS = (PROTOCOL = TCP)(HOST = host2.example.com)(PORT = 1521)))
+  (CONNECT_DATA =
+   (SERVICE_NAME = service1)))
+
+첫 번째 주소 (host1.example.com)으로 연결을 시도하고, 실패하면 두 번째 주소 (host2.example.com)으로 시도 
+
+
+### 결과 
+DESCRIPTION_LIST, ADDRESS_LIST 위 두가지 방식은 첫번째를 실패하면 두번째 주소로 시도한다느 점에서 같아짐 
+
+하지만 but!
+net_service_name =
+ (DESCRIPTION_LIST =
+  (DESCRIPTION =
+   (ADDRESS = (PROTOCOL = TCP)(HOST = host1.example.com)(PORT = 1521))
+   (CONNECT_DATA = (SERVICE_NAME = service1)))
+  (DESCRIPTION =
+   (ADDRESS = (PROTOCOL = TCP)(HOST = host2.example.com)(PORT = 1521))
+   (CONNECT_DATA = (SERVICE_NAME = service2))))
+
+이렇게 SERVICE_NAME의 값이 다르다면 동작방식이 전혀 다름 
+
+부하 분산이 비활성화된 상태에서 두 설정의 동작 방식은 거의 동일
+그러나 실제 환경에서의 설정 복잡성, 부하 분산 활성화 여부, 그리고 구체적인 연결 설정에 따라 동작 방식에 차이가 있음
