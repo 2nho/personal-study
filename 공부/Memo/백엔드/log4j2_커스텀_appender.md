@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/118060db-84fa-4b66-baba-c14173aac217)
+![image](https://github.com/user-attachments/assets/add73893-0056-47fa-870a-5dc6c0a85595)
+
 위와 같이 코드 작성 
 
 log4j2.xml 설정
