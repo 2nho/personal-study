@@ -7,7 +7,7 @@
 netsh interface tcp show global 확인 시   
 ![image](https://github.com/user-attachments/assets/4c06128f-b302-4209-aa41-ac91cd36274a)
 
-최대 SYN 재전송 : 4인걸 확인가능 
+최대 SYN 재전송 : 4인걸 확인가능(= Max SYN Retransmissions : 4) 
 
 wireshark로 이걸 다시 확인해보면   
 과부하오면 윈도우의 경우 아래와 같이 4번의 재요청후 응답이 안오면 Jmeter에서 에러처리 
