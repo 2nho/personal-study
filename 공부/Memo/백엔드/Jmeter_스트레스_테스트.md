@@ -12,3 +12,11 @@ netsh interface tcp show global 확인 시
 wireshark로 이걸 다시 확인해보면   
 과부하오면 윈도우의 경우 아래와 같이 4번의 재요청후 응답이 안오면 Jmeter에서 에러처리 
 ![wireshark](https://github.com/user-attachments/assets/b682aacc-4a80-4299-a62c-c0247a503095)
+
+
+
+
+## 참고 
+
+netstat 명령어로 어떤 포트가 실패했는지 알 수 없으므로  
+wireshark 통계 메뉴에서 종단점으로 오름차순으로 확인하면 byte 가 수신 0 인걸로 파악하면 쉽다
