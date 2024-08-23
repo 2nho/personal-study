@@ -11,3 +11,11 @@
 ![image](https://github.com/user-attachments/assets/e7085ff5-c71f-4680-80bd-4f2d7371e41e)
 
 
+## 추가 
+하나의 클래스에만 적용할 경우   
+
+두개의 어펜더 적용(각 필터로 조절)  
+
+![image](https://github.com/user-attachments/assets/ce2c0da9-c11e-4167-b82c-5596dba6affd)
+
+
