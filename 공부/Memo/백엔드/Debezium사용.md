@@ -99,3 +99,12 @@ max_allowed_packet=256M
 DEBUG나 , INFO 모드로 로그 설정시  아래와같이 오류발생  
 ![image](https://github.com/2nho/personal-study/assets/97571604/4992626e-faff-4ae8-ad35-1227e6dc5eb6)
 
+
+
+
+
+###24.9.9 추가 
+데비지움은 어떻게 실시간 캡쳐하는가 ...? while문..  
+![image](https://github.com/user-attachments/assets/880d98a9-399f-4b89-b9f8-94e91d905daa)
+
+
