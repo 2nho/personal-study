@@ -39,3 +39,25 @@ s: sed의 치환(substitute) 명령
 <바꿀 문자열>: 찾은 텍스트를 이 텍스트로 (port="80")
 g: global 옵션으로, 파일 내에서 모든 일치하는 항목을 변경
 g가 없으면 첫 번째로 일치하는 항목만 변경 
+
+
+
+
+
+
+======================== 빌드 
+
+docker build -t my_service .       = 현재 디렉토리를 의미. 이 디렉토리를 **도커 빌드 컨텍스트(Build Context)**로 사용하겠다는 뜻
+                                      도커 빌드 컨텍스트란?
+                                      도커는 이미지를 빌드할 때, Dockerfile과 빌드 과정에서 참조할 모든 파일(소스 코드, 설정 파일, 아카이브 등)을 도커 빌드 컨텍스트로 가져옵니다. 
+                                      현재 디렉토리에 있는 Dockerfile과 빌드 과정에서 참조할 파일들을 기반으로 이미지를 빌드
+
+=> 실행하고나면 이미지 탭에 my_service 이름으로 이미지가 생김
+
+docker save -o service.tar my_service:latest  => my_service:latest 이미지를   service.tar로 압축해서 만듬
+
+usb로 옮기던가 이메일로 옮기던가 아니라면 
+scp 명령어 이용
+scp service.tar root@192.168.0.133:/var/docker_images/  (내 pc 에서 192.168.0.133 ip의 root사용자)
+
+docker load -i service.tar => (다른 컴퓨터에서) 이미지 파일로드 
