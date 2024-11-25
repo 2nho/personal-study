@@ -1,18 +1,19 @@
+# CentOS 8 이미지 설정
+FROM roboxes/centos8:latest
+
+# 작업 디렉토리 설정
+WORKDIR /var
+
 # JDK 설치 (yum 업데이트 후)
-RUN yum update -y && yum install -y java-1.8.0-openjdk.x86_64
+RUN yum update -y && yum install -y java-1.8.0-openjdk.x86_64 
 
 # 환경변수 설정
-# ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-2.el8_5.x86_64 \
-#     PATH=$JAVA_HOME/bin:$PATH
-#  UndefinedVar: Usage of undefined variable '$JAVA_HOME' 뜨니 아래 두가지 방식으로 사용
-
- #방법1 
- ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-2.el8_5.x86_64
- ENV PATH=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-2.el8_5.x86_64/bin:$PATH
- #방법2 - 이게 되고 1은 안됨
-RUN export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-2.el8_5.x86_64 && \
-    export PATH=$JAVA_HOME/bin:$PATH
-  
+##방법1 : echo $JAVA_HOME 가능
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-2.el8_5.x86_64/jre \
+   PATH=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-2.el8_5.x86_64/bin:$PATH
+##방법2 : echo $JAVA_HOME 불가능 - 고로 이건 우연의 일치로 된듯 jdk설치만 되어있으면 tomcat 실행까진 원래 문제 없으니  
+#   RUN export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-2.el8_5.x86_64 && \
+#       export PATH=$JAVA_HOME/bin:$PATH
 # 호스트에서 컨테이너로 파일 복사
 COPY ./apache-tomcat-8.5.87.tar /var
 
@@ -20,10 +21,7 @@ COPY ./apache-tomcat-8.5.87.tar /var
 RUN tar -xvf apache-tomcat-8.5.87.tar && \
     rm -f apache-tomcat-8.5.87.tar
 
-# 필요 시 기본 server.xml 포트 변경
-#RUN sed -i 's/port="8080"/port="80"/g' /var/apache-tomcat-8.5.87/conf/server.xml
-      
-# 포트 80 노출
+# 포트 8080 노출
 EXPOSE 80
 
 # Tomcat 실행
