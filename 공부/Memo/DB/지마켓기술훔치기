@@ -1,0 +1,24 @@
+주제: GROUP BY를 안 쓰고도 카운트 집계 성능 내는 방법
+ 
+가장 문제가 되는 구버전의 조회에는 집계 기능도 포함되어 있었습니다. 집계를 할 때 거의 필수적으로 쓰이는 SQL문은 GROUP BY입니다. GROUP BY는 사용자에게 다양한 형태의 데이터를 제공하는 유용한 SQL문입니다. 다만, GROUP BY를 사용하면 유형별 임시 공간이 필요하고, 그룹화를 위해 정렬을 해야 하므로 일반적으로 O(n log n)의 시간복잡도를 가집니다.
+
+예시로, 구버전이 사용하는 집계 함수는 다음과 같은 코드 형태입니다.
+SELECT TYPE_CODE,
+       COUNT(*) AS COUNT
+FROM EXAMPLE
+WHERE CREATION_DATE BETWEEN @START_DATE AND @END_DATE
+GROUP BY TYPE_CODE;
+
+
+
+방법:
+ 단, 이 방법은 고정된 TYPE_CODE가 정해져 있어야 합니다. 예를 들어, 성별과 같이 단순한 기준으로 row 개수를 구할 때는 유용하지만, 직업별 row 개수처럼 특정되지 않은 채로 다양한 유형별 개수를 파악할 때는 사용하기 어렵습니다.
+ 
+SELECT ISNULL(SUM(CASE WHEN TYPE_CODE = '1' THEN 1 ELSE 0 END), 0) AS FATHER,
+       ISNULL(SUM(CASE WHEN TYPE_CODE = '2' THEN 1 ELSE 0 END), 0) AS MOTHER,
+       ISNULL(SUM(CASE WHEN TYPE_CODE = '3' THEN 1 ELSE 0 END), 0) AS SON,
+       ISNULL(SUM(CASE WHEN TYPE_CODE = '4' THEN 1 ELSE 0 END), 0) AS DAUGHTER
+FROM EXAMPLE
+WHERE CREATION_DATE BETWEEN @START_DATE AND @END_DATE;
+ 
+이렇게 변경하면 GROUP BY처럼 추가적인 임시 공간을 거의 사용하지 않으며, 집계 결과를 저장할 몇 개의 변수 공간만 필요하고, 한 번만 순회하면 끝나기 때문에 시간복잡도 역시 O(n)에 그칩니다. 
