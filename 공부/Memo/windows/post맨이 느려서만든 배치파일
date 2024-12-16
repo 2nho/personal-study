@@ -1,0 +1,31 @@
+@echo off
+setlocal enabledelayedexpansion
+
+set start=%time%
+curl -X POST http://127.0.0.1/casino/ChkTemplateOverlap-T ^
+-H "Content-Type: application/json" ^
+--data @output.json
+set end=%time%
+
+rem 시간을 초로 변환
+for /f "tokens=1-4 delims=:.," %%a in ("%start%") do (
+    set /a sh=%%a*3600 + 10%%b %% 100*60 + 10%%c %% 100
+    set /a sm=10%%d %% 100
+)
+
+for /f "tokens=1-4 delims=:.," %%a in ("%end%") do (
+    set /a eh=%%a*3600 + 10%%b %% 100*60 + 10%%c %% 100
+    set /a em=10%%d %% 100
+)
+
+set /a duration=(eh*100+em) - (sh*100+sm)
+set /a seconds=duration / 100
+set /a milliseconds=duration %% 100
+
+echo.  
+
+echo Start Time: %start%
+echo End Time: %end%
+echo Duration: %seconds%.%milliseconds% seconds
+
+endlocal
