@@ -1,0 +1,61 @@
+ @Bean
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests(
+                (authorize) -> authorize.requestMatchers("/**").permitAll()
+        );
+        return http.build();
+    }
+
+
+위 람다 흐름
+1.
+// 단순화한 코드 예시
+public HttpSecurity authorizeHttpRequests(Customizer<Registry> customizer) throws Exception {
+    // 1. 스프링 컨텍스트에서 필요한 정보를 가져옴
+    ApplicationContext context = this.getContext();
+    
+    // 2. 인가 설정을 위한 configurer 객체 생성 (내부적으로 관리하는 객체)
+    AuthorizeHttpRequestsConfigurer configurer = this.getOrApply(new AuthorizeHttpRequestsConfigurer(context));
+    
+    // 3. configurer에서 인가 규칙을 등록할 수 있는 Registry 객체를 획득
+    Registry registry = configurer.getRegistry();
+    
+    // 4. 전달받은 customizer(여러분이 제공한 람다식)를 실행하도록 호출하고, registry를 인자로 전달
+    customizer.customize(registry);
+    
+    // 5. 이 HttpSecurity 객체를 반환해서 나중에 필터 체인 빌드에 사용
+    return this;
+}
+
+2.
+  http.authorizeHttpRequests(authorize -> 
+    authorize.requestMatchers("/**").permitAll()
+);
+
+3.
+  new Customizer<Registry>() {
+    @Override
+    public void customize(Registry authorize) {
+        // 여기서 authorize는 앞서 생성된 registry 객체가 전달됩니다.
+        authorize.requestMatchers("/**").permitAll();
+    }
+};
+
+
+
+
+
+=> 
+
+  public HttpSecurity authorizeHttpRequests(Customizer<AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry> authorizeHttpRequestsCustomizer) throws Exception {
+        ApplicationContext context = this.getContext();
+        authorizeHttpRequestsCustomizer.customize(((AuthorizeHttpRequestsConfigurer)this.getOrApply(new AuthorizeHttpRequestsConfigurer(context))).getRegistry());
+        return this;
+    }
+
+위 코드가 실제 코드인데 매개변수 authorizeHttpRequestsCustomizer를 시큐리티 설정에서  (authorize) -> authorize.requestMatchers("/**").permitAll() 로 하게되면 Customizer의 customize메소드를 재정의 
+.getRegistry()) 이후 반환되는 값은  AuthorizationManagerRequestMatcherRegistry타입  
+  AuthorizationManagerRequestMatcherRegistry은  extends AbstractRequestMatcherRegistry<AuthorizeHttpRequestsConfigurer<H>.AuthorizedUrl>을 상속받음
+
+단순화해서보면 AuthorizationManagerRequestMatcherRegistry extends AbstractRequestMatcherRegistry 이고 AbstractRequestMatcherRegistry안에 requestMatchers 메소드가 존재
+
