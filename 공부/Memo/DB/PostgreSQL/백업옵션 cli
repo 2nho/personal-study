@@ -1,0 +1,69 @@
+일반 옵션
+-f, --file=FILENAME: 출력 파일 이름 지정
+
+-F, --format=c|t|p|d: 출력 파일 형식(c: 커스텀, t: tar, p: 일반 텍스트, d: 디렉토리)
+
+-v, --verbose: 상세 정보 표시
+
+-Z, --compress=0-9: 압축 수준 설정(0: 무압축, 9: 최대압축)
+
+--lock-wait-timeout=TIMEOUT: 테이블 잠금 대기 시간 설정
+
+데이터 옵션
+-a, --data-only: 데이터만 덤프(스키마 제외)
+
+-s, --schema-only: 스키마만 덤프(데이터 제외)
+
+-b, --blobs: 대용량 객체(BLOB) 포함
+
+-c, --clean: 복원 전 객체 삭제 명령 포함
+
+-C, --create: 데이터베이스 생성 명령 포함
+
+--inserts: COPY 대신 INSERT 명령으로 데이터 덤프
+
+--column-inserts: 열 이름과 함께 INSERT 명령 사용
+
+객체 선택 옵션
+-n, --schema=SCHEMA: 지정 스키마만 덤프
+
+-N, --exclude-schema=SCHEMA: 지정 스키마 제외
+
+-t, --table=TABLE: 지정 테이블만 덤프
+
+-T, --exclude-table=TABLE: 지정 테이블 제외
+
+--include-table-data: 지정 테이블의 데이터만 포함
+
+--exclude-table-data: 지정 테이블의 데이터 제외
+
+권한 및 소유권 옵션
+-O, --no-owner: 소유권 정보 제외
+
+-x, --no-privileges: 권한 정보(GRANT/REVOKE) 제외
+
+--role=ROLENAME: 덤프 전 SET ROLE 실행
+
+--use-set-session-authorization: ALTER OWNER 대신 SET SESSION AUTHORIZATION 사용
+
+성능 및 특수 옵션
+-j, --jobs=NUM: 병렬 처리 작업 수 지정(디렉토리 형식에서만 사용 가능)
+
+--disable-triggers: 데이터 로드 시 트리거 비활성화
+
+--no-tablespaces: 테이블스페이스 정보 제외
+
+--disable-dollar-quoting: $ 인용 구문 사용 안함
+
+--if-exists: DROP 명령에 IF EXISTS 추가
+
+연결 옵션
+-h, --host=HOSTNAME: 데이터베이스 서버 호스트
+
+-p, --port=PORT: 데이터베이스 서버 포트
+
+-U, --username=NAME: 연결 사용자 이름
+
+-W, --password: 비밀번호 프롬프트 표시
+
+-w, --no-password: 비밀번호 프롬프트 표시 안함
