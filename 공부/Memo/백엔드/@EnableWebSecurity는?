@@ -1,0 +1,16 @@
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.TYPE})
+@Documented
+@Import({WebSecurityConfiguration.class, SpringWebMvcImportSelector.class, OAuth2ImportSelector.class, HttpSecurityConfiguration.class, ObservationImportSelector.class})
+@EnableGlobalAuthentication
+public @interface EnableWebSecurity {
+    boolean debug() default false;
+}
+
+여기서 @Import는 명시적으로 특정 설정 클래스를 Spring 컨테이너에 등록하는 역할
+@ComponentScan은 기본적으로 @SpringBootApplication이 선언된 위치 이하만 스캔
+외부 라이브러리, 프레임워크, 또는 다른 패키지에 있는 @Configuration, @Service 등은 자동으로 빈으로 등록되지 않음
+
+따라서 @Import로 지정한 클래스들안에 비록 @Configuration, @Bean 이 선언되어있다해도 자동으로 빈으로 등록되지 않기때문에 @Import로 명시
+
+외부 라이브러리, 프레임워크, 또는 동적으로 빈을 등록해야 할 때는 @Import가 필수
