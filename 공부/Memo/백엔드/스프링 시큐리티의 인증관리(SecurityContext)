@@ -60,3 +60,16 @@ Authentication authentication = context.getAuthentication();
 String username = authentication.getName();
 Object principal = authentication.getPrincipal();
 Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+
+
+[최초 인증 성공 시]
+1. 인증 성공 → Authentication 객체 생성
+2. Authentication → SecurityContext에 저장
+3. SecurityContext → SecurityContextHolder(ThreadLocal)에 저장
+4. 요청 끝날 때 SecurityContext → HttpSession에 저장('SPRING_SECURITY_CONTEXT')
+
+[이후 요청 처리 시]
+1. 세션에서 'SPRING_SECURITY_CONTEXT' 키로 SecurityContext 조회
+2. 조회한 SecurityContext → SecurityContextHolder(ThreadLocal)에 복원
+3. 요청 처리 중 SecurityContextHolder.getContext()로 인증 정보 접근
+4. 요청 종료 시 SecurityContextHolder.clearContext()로 ThreadLocal 정리
