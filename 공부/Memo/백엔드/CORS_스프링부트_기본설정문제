@@ -2,7 +2,7 @@
 
 GET 요청에는 Origin 헤더가 거의 붙지 않음
 
-POST 요청 시에도, 동일 오리진에서 폼을 제출하면 원래는 Origin이 아예 없거나, 서버 도메인으로 표시
+같은 Origin이라도 GET, HEAD를 제외한 나머지 메소드들을 사용해 요청할 때 Origin 헤더 추가 !
 
 하지만, 리다이렉트(302 등)나 특수 상황(예: file://, data://, sandboxed iframe, 또는 일부 로컬 개발 환경)에서는 Origin: null로 전송될 수 있음
 
