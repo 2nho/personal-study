@@ -1,4 +1,4 @@
-GET 요청에는 Origin 헤더가 거의 붙지 않음
+GET 요청에는 Origin 헤더가 거의 붙지 않음(GET, HEAD라도 다른 Origin에 대한 요청이면 요청의 Origin을 포함)
 
 같은 Origin이라도 GET, HEAD를 제외한 나머지 메소드들을 사용해 요청할 때 Origin 헤더 추가 !
 
