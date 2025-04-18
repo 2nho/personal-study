@@ -1,0 +1,576 @@
+브라우저는 보안 정책상 POST, PUT 등 "state-changing" 요청에만 Origin 헤더를 기본적으로 추가
+
+GET 요청에는 Origin 헤더가 거의 붙지 않음
+
+POST 요청 시에도, 동일 오리진에서 폼을 제출하면 원래는 Origin이 아예 없거나, 서버 도메인으로 표시
+
+하지만, 리다이렉트(302 등)나 특수 상황(예: file://, data://, sandboxed iframe, 또는 일부 로컬 개발 환경)에서는 Origin: null로 전송될 수 있음
+
+시큐리티 설정에서 .formLogin(withDefaults())으로 하면 따로 지정한 login 페이지가 없는 경우 스프링부트가 내부적으로 html을 만들어서(DefaultLoginPageGeneratingFilter) 반환
+이때 orgin이 null로 발생 "Invalid CORS request"!!! 메시지 계속발생하는데 원인을 못찾아서 와이어샤크로 보니 아래와 같다. 443줄
+
+
+
+GET / HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+Sec-Purpose: prefetch;prerender
+Purpose: prefetch
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 302 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Set-Cookie: JSESSIONID=0E9D07A14C398C70F3387489D05D8CBF; Path=/; Secure; HttpOnly; SameSite=Lax
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self' ; script-src 'self' 'unsafe-inline' https://ajax.googleapis.com ; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com ;font-src 'self' 'unsafe-inline'  https://fonts.gstatic.com ;base-uri 'self';
+Referrer-Policy: no-referrer
+Location: http://localhost/login
+Content-Length: 0
+Date: Fri, 18 Apr 2025 06:43:03 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+
+GET /login HTTP/1.1
+Host: localhost
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+Sec-Purpose: prefetch;prerender
+Purpose: prefetch
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+sec-ch-ua: "Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: JSESSIONID=0E9D07A14C398C70F3387489D05D8CBF
+
+
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self' ; script-src 'self' 'unsafe-inline' https://ajax.googleapis.com ; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com ;font-src 'self' 'unsafe-inline'  https://fonts.gstatic.com ;base-uri 'self';
+Referrer-Policy: no-referrer
+Content-Type: text/html;charset=UTF-8
+Content-Length: 1042
+Date: Fri, 18 Apr 2025 06:43:03 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign in</title>
+    <link href="/default-ui.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="content">
+      <form class="login-form" method="post" action="/login">
+        <h2>Please sign in</h2>
+
+        <p>
+          <label for="username" class="screenreader">Username</label>
+          <input type="text" id="username" name="username" placeholder="Username" required autofocus>
+        </p>
+        <p>
+          <label for="password" class="screenreader">Password</label>
+          <input type="password" id="password" name="password" placeholder="Password" required>
+        </p>
+<p><input type='checkbox' name='remember-me'/> Remember me on this computer.</p>
+
+        <button type="submit" class="primary">Sign in</button>
+      </form>
+
+
+
+    </div>
+  </body>
+</html>
+GET /default-ui.css HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua-platform: "Windows"
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+sec-ch-ua: "Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"
+Sec-Purpose: prefetch;prerender
+sec-ch-ua-mobile: ?0
+Accept: text/css,*/*;q=0.1
+Purpose: prefetch
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: JSESSIONID=0E9D07A14C398C70F3387489D05D8CBF
+
+
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self' ; script-src 'self' 'unsafe-inline' https://ajax.googleapis.com ; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com ;font-src 'self' 'unsafe-inline'  https://fonts.gstatic.com ;base-uri 'self';
+Referrer-Policy: no-referrer
+Content-Type: text/css;charset=UTF-8
+Content-Length: 3065
+Date: Fri, 18 Apr 2025 06:43:03 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+/*
+ * Copyright 2002-2024 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* General layout */
+body {
+    font-family: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #eee;
+    padding: 40px 0;
+    margin: 0;
+    line-height: 1.5;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 2rem;
+}
+
+.content {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (min-width: 800px) {
+    .content {
+        max-width: 760px;
+    }
+}
+
+.v-middle {
+    vertical-align: middle;
+}
+
+.center {
+    text-align: center;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+/* Components */
+a,
+a:visited {
+    text-decoration: none;
+    color: #06f;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #003c97;
+}
+
+input[type="text"],
+input[type="password"] {
+    height: auto;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border: none;
+    border-radius: 0.1rem;
+    width: 100%;
+    cursor: pointer;
+}
+
+button.primary {
+    color: #fff;
+    background-color: #06f;
+}
+
+button.small {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+}
+
+.alert {
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    border-radius: 0.1rem;
+    width: 100%;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.alert.alert-danger {
+    color: #6b1922;
+    background-color: #f7d5d7;
+    border-color: #eab6bb;
+}
+
+.alert.alert-success {
+    color: #145222;
+    background-color: #d1f0d9;
+    border-color: #c2ebcb;
+}
+
+.screenreader {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 2rem;
+    border-collapse: collapse;
+}
+
+.table-striped th {
+    padding: .75rem;
+}
+
+.table-striped tr:nth-of-type(2n + 1) {
+    background-color: #e1e1e1;
+}
+
+.table-striped > thead > tr:first-child {
+    background-color: inherit;
+}
+
+td {
+    padding: 0.75rem;
+    vertical-align: top;
+}
+
+tr.v-middle > td {
+    vertical-align: middle;
+}
+
+/* Login / logout layouts */
+.login-form,
+.logout-form,
+.default-form {
+    max-width: 340px;
+    padding: 0 15px 15px 15px;
+    margin: 0 auto 2rem auto;
+    box-sizing: border-box;
+}
+
+GET /favicon.ico HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua-platform: "Windows"
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+sec-ch-ua: "Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"
+sec-ch-ua-mobile: ?0
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: JSESSIONID=0E9D07A14C398C70F3387489D05D8CBF
+
+
+HTTP/1.1 302 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self' ; script-src 'self' 'unsafe-inline' https://ajax.googleapis.com ; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com ;font-src 'self' 'unsafe-inline'  https://fonts.gstatic.com ;base-uri 'self';
+Referrer-Policy: no-referrer
+Location: http://localhost/login
+Content-Length: 0
+Date: Fri, 18 Apr 2025 06:43:04 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+
+GET /login HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua-platform: "Windows"
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+sec-ch-ua: "Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"
+sec-ch-ua-mobile: ?0
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: JSESSIONID=0E9D07A14C398C70F3387489D05D8CBF
+
+
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self' ; script-src 'self' 'unsafe-inline' https://ajax.googleapis.com ; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com ;font-src 'self' 'unsafe-inline'  https://fonts.gstatic.com ;base-uri 'self';
+Referrer-Policy: no-referrer
+Content-Type: text/html;charset=UTF-8
+Content-Length: 1042
+Date: Fri, 18 Apr 2025 06:43:04 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign in</title>
+    <link href="/default-ui.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="content">
+      <form class="login-form" method="post" action="/login">
+        <h2>Please sign in</h2>
+
+        <p>
+          <label for="username" class="screenreader">Username</label>
+          <input type="text" id="username" name="username" placeholder="Username" required autofocus>
+        </p>
+        <p>
+          <label for="password" class="screenreader">Password</label>
+          <input type="password" id="password" name="password" placeholder="Password" required>
+        </p>
+<p><input type='checkbox' name='remember-me'/> Remember me on this computer.</p>
+
+        <button type="submit" class="primary">Sign in</button>
+      </form>
+
+
+
+    </div>
+  </body>
+</html>
+POST /login HTTP/1.1
+Host: localhost
+Connection: keep-alive
+Content-Length: 27
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Origin: null   =========================================================================================================================================================> 이부분이 cors 발생지점
+Content-Type: application/x-www-form-urlencoded
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: JSESSIONID=0E9D07A14C398C70F3387489D05D8CBF
+
+username=user&password=1234
+HTTP/1.1 403 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self' ; script-src 'self' 'unsafe-inline' https://ajax.googleapis.com ; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com ;font-src 'self' 'unsafe-inline'  https://fonts.gstatic.com ;base-uri 'self';
+Referrer-Policy: no-referrer
+Transfer-Encoding: chunked
+Date: Fri, 18 Apr 2025 06:43:07 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+Invalid CORS request
+GET /favicon.ico HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua-platform: "Windows"
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+sec-ch-ua: "Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"
+sec-ch-ua-mobile: ?0
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: JSESSIONID=0E9D07A14C398C70F3387489D05D8CBF
+
+
+HTTP/1.1 302 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self' ; script-src 'self' 'unsafe-inline' https://ajax.googleapis.com ; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com ;font-src 'self' 'unsafe-inline'  https://fonts.gstatic.com ;base-uri 'self';
+Referrer-Policy: no-referrer
+Location: http://localhost/login
+Content-Length: 0
+Date: Fri, 18 Apr 2025 06:43:07 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+
+GET /login HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua-platform: "Windows"
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+sec-ch-ua: "Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"
+sec-ch-ua-mobile: ?0
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: JSESSIONID=0E9D07A14C398C70F3387489D05D8CBF
+
+
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self' ; script-src 'self' 'unsafe-inline' https://ajax.googleapis.com ; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com ;font-src 'self' 'unsafe-inline'  https://fonts.gstatic.com ;base-uri 'self';
+Referrer-Policy: no-referrer
+Content-Type: text/html;charset=UTF-8
+Content-Length: 1042
+Date: Fri, 18 Apr 2025 06:43:07 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign in</title>
+    <link href="/default-ui.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="content">
+      <form class="login-form" method="post" action="/login">
+        <h2>Please sign in</h2>
+
+        <p>
+          <label for="username" class="screenreader">Username</label>
+          <input type="text" id="username" name="username" placeholder="Username" required autofocus>
+        </p>
+        <p>
+          <label for="password" class="screenreader">Password</label>
+          <input type="password" id="password" name="password" placeholder="Password" required>
+        </p>
+<p><input type='checkbox' name='remember-me'/> Remember me on this computer.</p>
+
+        <button type="submit" class="primary">Sign in</button>
+      </form>
+
+
+
+    </div>
+  </body>
+</html>
