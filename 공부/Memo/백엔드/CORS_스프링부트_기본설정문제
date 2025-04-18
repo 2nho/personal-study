@@ -7,10 +7,20 @@ POST 요청 시에도, 동일 오리진에서 폼을 제출하면 원래는 Orig
 하지만, 리다이렉트(302 등)나 특수 상황(예: file://, data://, sandboxed iframe, 또는 일부 로컬 개발 환경)에서는 Origin: null로 전송될 수 있음
 
 시큐리티 설정에서 .formLogin(withDefaults())으로 하면 따로 지정한 login 페이지가 없는 경우 스프링부트가 내부적으로 html을 만들어서(DefaultLoginPageGeneratingFilter) 반환
-이때 orgin이 null로 발생 "Invalid CORS request"!!! 메시지 계속발생하는데 원인을 못찾아서 와이어샤크로 보니 아래와 같다. 443줄
+이때 orgin이 null로 발생 "Invalid CORS request"!!! 메시지 계속발생하는데 원인을 못찾아서 와이어샤크로 보니 아래와 같다. 
 
+추가 참고 : 
+https://w3c.github.io/webappsec-cors-for-developers/#identify-yourself-and-get-permission-simple-request-read-permissions
 
+(w3c) 웹표준에 따르면 
 
+1.If a cross-origin resource redirects to another resource at a new origin, the browser will set the value of the Origin header to null after redirecting. 
+  cors 가 새 오리진으로 리다이렉션 되는 경우, 브라우저는 Origin 헤더를 null로 설정하는 규약
+
+2. 교차 출처 리소스가 새로운 출처의 다른 리소스로 리디렉션되는 경우, 브라우저는 리디렉션 후 Origin 헤더 값을 null 로 설정합니다 . 이렇게 하면 추가적인 혼란스러운 대리인 공격(due deputy attack)을 방지할 수 있지만,
+CORS가 아닌 리소스처럼 (쿠키 기반) 자격 증명 및 단순 요청을 3xx 상태 코드의 도메인 간에 투명하게 이동하기 어렵게 만드는 단점이 있습니다.
+
+=======================================================================================================================================================================
 GET / HTTP/1.1
 Host: localhost
 Connection: keep-alive
