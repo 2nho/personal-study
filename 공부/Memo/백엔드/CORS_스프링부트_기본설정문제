@@ -21,7 +21,8 @@ CORS가 아닌 리소스처럼 (쿠키 기반) 자격 증명 및 단순 요청�
 
 
 
-#추가 참고2:https://medium.com/@lifthus531/cors%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B9%8A%EC%9D%80-%EC%9D%B4%ED%95%B4-8c84c2137c83
+#추가 참고2: [내 경우가 딱 이경우!]
+https://medium.com/@lifthus531/cors%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B9%8A%EC%9D%80-%EC%9D%B4%ED%95%B4-8c84c2137c83
 
 ␀브라우저가 Origin 헤더를 null로 설정하는 경우들
 Origin의 프로토콜이 http, https, ftp, ws, wss, gopher 중 하나가 아닐 때
