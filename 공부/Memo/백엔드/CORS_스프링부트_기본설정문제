@@ -1,5 +1,3 @@
-브라우저는 보안 정책상 POST, PUT 등 "state-changing" 요청에만 Origin 헤더를 기본적으로 추가
-
 GET 요청에는 Origin 헤더가 거의 붙지 않음
 
 같은 Origin이라도 GET, HEAD를 제외한 나머지 메소드들을 사용해 요청할 때 Origin 헤더 추가 !
