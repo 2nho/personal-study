@@ -7,7 +7,7 @@ GET 요청에는 Origin 헤더가 거의 붙지 않음(GET, HEAD라도 다른 Or
 시큐리티 설정에서 .formLogin(withDefaults())으로 하면 따로 지정한 login 페이지가 없는 경우 스프링부트가 내부적으로 html을 만들어서(DefaultLoginPageGeneratingFilter) 반환
 이때 orgin이 null로 발생 "Invalid CORS request"!!! 메시지 계속발생하는데 원인을 못찾아서 와이어샤크로 보니 아래와 같다. 
 
-추가 참고 : 
+#추가 참고 : 
 https://w3c.github.io/webappsec-cors-for-developers/#identify-yourself-and-get-permission-simple-request-read-permissions
 
 (w3c) 웹표준에 따르면 
@@ -17,6 +17,23 @@ https://w3c.github.io/webappsec-cors-for-developers/#identify-yourself-and-get-p
 
 2. 교차 출처 리소스가 새로운 출처의 다른 리소스로 리디렉션되는 경우, 브라우저는 리디렉션 후 Origin 헤더 값을 null 로 설정합니다 . 이렇게 하면 추가적인 혼란스러운 대리인 공격(due deputy attack)을 방지할 수 있지만,
 CORS가 아닌 리소스처럼 (쿠키 기반) 자격 증명 및 단순 요청을 3xx 상태 코드의 도메인 간에 투명하게 이동하기 어렵게 만드는 단점이 있습니다.
+
+
+
+
+#추가 참고2:https://medium.com/@lifthus531/cors%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B9%8A%EC%9D%80-%EC%9D%B4%ED%95%B4-8c84c2137c83
+
+␀브라우저가 Origin 헤더를 null로 설정하는 경우들
+Origin의 프로토콜이 http, https, ftp, ws, wss, gopher 중 하나가 아닐 때
+다른 오리진에서 기인한 미디어 데이터 ( <img>, <video>, <audio> )
+createDocument()로, 혹은 data: URL에서 생성되거나 생성자 브라우징 컨텍스트가 없을 때
+⚠️ 다른 오리진에서 리다이렉트될 때
+allow-same-origin 샌드박스 속성을 포함하지 않는 iframe
+네트워크 에러 응답
+Referrer-Policy가 no-referrer로 설정돼있을 때   ============================> 내경우잖아? .referrerPolicy(ref -> ref.policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.NO_REFERRER)) // Referrer정보안줌
+
+
+
 
 =======================================================================================================================================================================
 GET / HTTP/1.1
