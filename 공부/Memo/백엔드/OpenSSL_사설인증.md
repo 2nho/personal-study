@@ -57,7 +57,7 @@ openssl genrsa -out rootCA.key 2048
 
 openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 36500 ^
 -out rootCA.crt ^
--subj "/C=KR/ST=Seoul/L=Geumcheon-gu/O=Innosoft/CN= innosoft.co.kr" ^
+-subj "/C=KR/ST=Seoul/L=Geumcheon-gu/O=COMPANY/CN= company.com" ^
 -addext "basicConstraints=critical,CA:TRUE" ^
 -addext "keyUsage=critical,keyCertSign,cRLSign"
 
@@ -65,22 +65,27 @@ openssl genrsa -out server.key 2048
 
 openssl req -new -key server.key -out server.csr -config san.cnf
 
-방법 1
-openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key ^
--CAcreateserial -out server.crt -days 36500 ^
--extfile san.cnf -extensions v3_req
-Certificate request self-signature ok
-subject=C=KR, ST=Seoul, L=Geumcheon-gu, O=Innosoft, OU=Technical Research Center, CN=classM.innosoft.co.kr
+방법 1  
+openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key ^  
+-CAcreateserial -out server.crt -days 36500 ^  
+-extfile san.cnf -extensions v3_req  
+Certificate request self-signature ok  
+subject=C=KR, ST=Seoul, L=Geumcheon-gu, O=COMPANY_2, OU=Technical Research Center, CN=COMPANY_2.com  
+
 방법2
 openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out server.crt -days 365 -extfile san.cnf -extensions v3_req
 
 
 
+-- openssl req -x509 명령어는 인증서 서명 요청(CSR) 과정을 거치지 않고 직접 자체 서명된(self-signed) X.509 인증서를 생성
+   - CSR 생성과 CA 서명 과정을 건너뛰고 한 번에 인증서
+     
+-- openssl x509 -req 명령어는 이미 생성된 CSR(인증서 서명 요청) 파일을 입력으로 받아 이를 서명된 인증서로 변환 
+   - CA(인증 기관)의 개인키와 인증서를 사용하여 CSR에 서명  
 
 
 
-
-###san.cnf 내용
+### san.cnf 내용
 
 [req]
 
@@ -90,19 +95,19 @@ prompt = no
 
 [req_distinguished_name]
 
-C = KR  
-ST = Seoul  
-L = Geumcheon-gu  
-O = companyName  
-OU = Technical Research Center  
-CN = company.com 
+C=KR  
+ST=Seoul    
+L=Geumcheon-gu    
+O=COMPANY_2    
+OU=Technical Research Center    
+CN=COMPANY_2.com   
+  
+[v3_req]  
+  
+subjectAltName=@alt_names    
 
-[v3_req]
-
-subjectAltName = @alt_names  
-
-[alt_names]
-
-DNS.1 = company.com
-DNS.2 = www.company.com
-IP.1 = 127.0.0.1  
+[alt_names]  
+  
+DNS.1=COMPANY_2.com  
+DNS.2=www.COMPANY_2.com  
+IP.1=127.0.0.1    
