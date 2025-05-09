@@ -45,3 +45,64 @@ pkcs12 -export -out certificate.p12 -inkey device.key -in device.crt (딱히 확
 https://docs.brekeke.com/sip/how-to-create-a-self-signed-certificate-using-openssl  
 
 https://9033.github.io/text/openssl.html  
+
+
+
+
+
+======================================================================================================================최신화
+
+
+openssl genrsa -out rootCA.key 2048
+
+openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 36500 ^
+-out rootCA.crt ^
+-subj "/C=KR/ST=Seoul/L=Geumcheon-gu/O=Innosoft/CN= innosoft.co.kr" ^
+-addext "basicConstraints=critical,CA:TRUE" ^
+-addext "keyUsage=critical,keyCertSign,cRLSign"
+
+openssl genrsa -out server.key 2048
+
+openssl req -new -key server.key -out server.csr -config san.cnf
+
+방법 1
+openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key ^
+-CAcreateserial -out server.crt -days 36500 ^
+-extfile san.cnf -extensions v3_req
+Certificate request self-signature ok
+subject=C=KR, ST=Seoul, L=Geumcheon-gu, O=Innosoft, OU=Technical Research Center, CN=classM.innosoft.co.kr
+방법2
+openssl x509 -req -in server.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out server.crt -days 365 -extfile san.cnf -extensions v3_req
+
+
+
+
+
+
+
+###san.cnf 내용
+
+[req]
+
+distinguished_name = req_distinguished_name  
+req_extensions = v3_req   
+prompt = no  
+
+[req_distinguished_name]
+
+C = KR  
+ST = Seoul  
+L = Geumcheon-gu  
+O = companyName  
+OU = Technical Research Center  
+CN = company.com 
+
+[v3_req]
+
+subjectAltName = @alt_names  
+
+[alt_names]
+
+DNS.1 = company.com
+DNS.2 = www.company.com
+IP.1 = 127.0.0.1  
