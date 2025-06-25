@@ -1,0 +1,40 @@
+@Builder가 자동생성해주는 코드 
+
+public class BbsResponseDto {
+    private Integer seqno;
+    private String title;
+    // ... 이하 생략
+
+    // (패키지 프라이빗) 모든 필드 생성자
+    BbsResponseDto(Integer seqno, String title /* ... */) {
+        this.seqno = seqno;
+        this.title = title;
+        // ... 이하 생략
+    }
+
+    // builder() 메서드 자동 생성
+    public static BbsResponseDtoBuilder builder() {
+        return new BbsResponseDtoBuilder();
+    }
+
+    // 내부 static Builder 클래스도 자동 생성
+    public static class BbsResponseDtoBuilder {
+        private Integer seqno;
+        private String title;
+        // ... 이하 생략
+
+        public BbsResponseDtoBuilder seqno(Integer seqno) {
+            this.seqno = seqno;
+            return this;
+        }
+        public BbsResponseDtoBuilder title(String title) {
+            this.title = title;
+            return this;
+        }
+        // ... 이하 생략
+
+        public BbsResponseDto build() {
+            return new BbsResponseDto(seqno, title /* ... */);
+        }
+    }
+}
